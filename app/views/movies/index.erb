@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.rank %></td>
+        <td><%= movie.title %></td>
+        <td>upvote</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>Add a movie</p>
