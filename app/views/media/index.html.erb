@@ -2,7 +2,12 @@
   <h2>Top Movies</h2>
 
   <ul>
-
+    <% @top_movies.each do |movie| %>
+    <li>
+      <%= movie.title %>
+      <br> Ranking: <%= movie.ranking %>
+    </li>
+    <% end %>
   </ul>
 </div>
 
@@ -10,7 +15,12 @@
   <h2>Top Books</h2>
 
   <ul>
-
+    <% @top_books.each do |book| %>
+    <li>
+      <%= book.title %>
+      <br> Ranking: <%= book.ranking %>
+    </li>
+    <% end %>
   </ul>
 </div>
 
@@ -18,6 +28,11 @@
   <h2>Top Albums</h2>
 
   <ul>
-    
+    <% @top_albums.each do |album| %>
+    <li>
+      <%= album.title %>
+      <br> Ranking: <%= album.ranking %>
+    </li>
+    <% end %>
   </ul>
 </div>
