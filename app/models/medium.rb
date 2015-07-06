@@ -6,4 +6,7 @@ class Medium < ActiveRecord::Base
     message: "%{value} is not a valid media format" }
 
   # Scopes ---------------------------------------------------------------------
+  scope :books,  -> { where(format: "book") }
+  scope :movies, -> { where(format: "movie") }
+  scope :albums, -> { where(format: "album") }
 end
