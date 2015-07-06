@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706224738) do
+ActiveRecord::Schema.define(version: 20150706233201) do
 
   create_table "media", force: :cascade do |t|
     t.integer  "ranking"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150706224738) do
     t.string   "user"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "media_type"
   end
 
 end
