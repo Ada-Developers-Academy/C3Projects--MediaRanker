@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% media.each do |medium| %>
+      <tr>
+        <td><%= medium.rank %></td>
+        <td><%= medium.title %></td>
+        <td>upvote</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
