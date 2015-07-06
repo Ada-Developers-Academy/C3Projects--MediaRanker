@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+media = [
+  {ranking: 0, name: "Bossypants", contributor: "Tina Fey", description: "She's funny", user: "Sabrina"},
+  {ranking: 0, name: "blue", contributor: "green", description: "red", user: "Ash"},
+  {ranking: 0, name: "bowl", contributor: "fork", description: "spoon", user: "Misty"},
+]
+
+media.each do |medium|
+  Medium.create(medium)
+end
