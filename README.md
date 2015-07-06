@@ -1,4 +1,11 @@
 Jeri
+
+#### useful links
+
+[my trello board][trello]
+
+[trello]: https://trello.com/b/2c7GssnG/jeri-mediaranker
+
 # Media Ranker
 
 In this project we will focus on build a simple rails app that has three data models (Movie, Album, Book). We will be focusing on rails request cycle comprehension and introducing testing to our rails applications. To maximize the focus on comprehension, students will implement features based off of an existing website (http://media-ranker.herokuapp.com).
