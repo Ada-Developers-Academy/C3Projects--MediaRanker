@@ -7,33 +7,33 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # MOVIES -----------------------------------------------------------------------
-movies = {
+movies = [
           { name: "Gattaca", director: "Andrew Niccol",
-          description: "A genetically inferior man assumes the identity of a superior one in order to pursue his lifelong dream of space travel."},
-
+          description: "A genetically inferior man assumes the identity of a superior one in order to pursue his lifelong dream of space travel."
+          } ,
           { name: "The Fifth Element", director: "Luc Besson",
           description: "In the colorful future, a cab driver unwittingly becomes the central figure in the search for a legendary cosmic weapon to keep Evil and Mr Zorg at bay."
-          }
-        }
+          } ,
+]
+
 movies.each { |movie| Movie.create(movie) }
 
 # ALBUMS ----------------------------------------------------------------------
 
-albums = {
+albums = [
   {name: "The Soul Cages", artist: "Sting", description: "About a mariner"},
-  {name: "Chicken-n-Beer", artist: "Ludacris", description "Rap"}
-}
+  {name: "Chicken-n-Beer", artist: "Ludacris", description: "Rap"}
+]
 
 albums.each { |album| Album.create(album) }
 
 # BOOKS -----------------------------------------------------------------------
 
-books = {
+books = [
   {name: "Harry Potter and the Deathly Hallows", author: "J. K. Rowling",
-  description: "The saga concludes." }
+  description: "The saga concludes." },
   { name: "Going Postal", author: "Terry Pratchett",
-    description: "The Postal Service has never been more exciting."
-  }
-}
+    description: "The Postal Service has never been more exciting."}
+]
 
 books.each { |book| Book.create(book) }
