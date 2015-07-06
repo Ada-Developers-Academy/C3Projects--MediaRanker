@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+  </thead>
+  <% objects.each do |object| %>
+    <tr>
+      <td>Ranked:<%= object.votes %></td>
+      <td><%= object.title %></td>
+      <td><%= button_to "Upvote", object, method: :put %></td>
+    </tr>
+  <% end %>
+</table>
