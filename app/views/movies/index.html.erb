@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+  </thead>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td>Ranked:<%= movie.votes %></td>
+      <td><%= movie.title %></td>
+      <td><%= button_to "Upvote", movie_path(movie), method: :put %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "View All Media", :root %>
+<%= link_to "Add a Movie", new_movie_path %>
