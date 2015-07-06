@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+
+  root 'user#index'
+
+  resources :movies
+
+  resources :books
+
+  resources :albums
+
+  resources :user, only: [:index]
+
+  # resources :user, only:[] do
+  #   resources :movies, only: [:index, :show]
+  #   resources :books, only: [:index, :show]
+  #   resources :albums, only: [:index, :show]
+  # end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
