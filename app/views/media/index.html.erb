@@ -4,7 +4,7 @@
   <ul>
     <% @top_movies.each do |movie| %>
     <li>
-      <%= movie.title %>
+      <%= link_to movie.title, movie_path(movie) %>
       <br> Ranking: <%= movie.ranking %>
     </li>
     <% end %>
@@ -19,7 +19,7 @@
   <ul>
     <% @top_books.each do |book| %>
     <li>
-      <%= book.title %>
+      <%= link_to book.title, book_path(book) %>
       <br> Ranking: <%= book.ranking %>
     </li>
     <% end %>
@@ -34,7 +34,7 @@
   <ul>
     <% @top_albums.each do |album| %>
     <li>
-      <%= album.title %>
+      <%= link_to album.title, album_path(album) %>
       <br> Ranking: <%= album.ranking %>
     </li>
     <% end %>
