@@ -15,17 +15,17 @@ By the end of the project you should be able to:
 ### Baseline
 Before you start writing _any_ code:
 
-- Explore the existing Media Ranker site to become familiar with the necessary functionality
-- If desired, create a Trello board to manage tasks
-- If desired, create an ERD diagram for the models (pen & paper first)
+- (done) Explore the existing Media Ranker site to become familiar with the necessary functionality
+- (done) If desired, create a Trello board to manage tasks
+- (done) If desired, create an ERD diagram for the models (pen & paper first)
 
 Once you've explored the existing Media Ranker site, this project:
 
-- requires an individual repo and branch
-- will need to be isolated into a gemset called 'MediaRanker'
-  - create the necessary files for RVM to recognize a gemset
-  - Use [better_errors](https://github.com/charliesome/better_errors) for debugging purposes
-- requires you to create a Rails 4.2.2 application
+- (done) requires an individual repo and branch
+- (done) will need to be isolated into a gemset called 'MediaRanker'
+  - (done) create the necessary files for RVM to recognize a gemset
+  - (done) Use [better_errors](https://github.com/charliesome/better_errors) for debugging purposes
+- (done) requires you to create a Rails 4.2.2 application
   - conform to Rails conventions on naming and inflection
 
 ### Requirements
