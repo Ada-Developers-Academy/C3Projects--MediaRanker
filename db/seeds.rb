@@ -23,7 +23,7 @@ end
 books = [
   { name: "Sabriel", author: "Garth Nix", description: "Amazing.", rank: 405 },
   { name: "Harry Potter", author: "J.K. Rowling", description: "Because a movie wasn't enough.", rank: 234 },
-  { name: "Embassytown", author: "someone", description: "Interesting scifi." rank: 100 },
+  { name: "Embassytown", author: "someone", description: "Interesting scifi.", rank: 100 },
   { name: "Left Hand of Darkness", author: "Ursula K. LeGuin", description: "I might have spelled her name wrong.", rank: 345 }
 ]
 
