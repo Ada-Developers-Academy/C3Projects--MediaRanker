@@ -3,7 +3,7 @@ class Medium < ActiveRecord::Base
   #------ VALIDATIONS ------
 
   # validates :ranking, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  # validates :name, presence: true
+  validates :name, presence: true
   # validates :contributor, presence: true
   # validates :description, presence: true
   # validates :user, presence: true
