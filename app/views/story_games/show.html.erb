@@ -1,0 +1,15 @@
+<h1><%= @story_game.title %></h1>
+<h3>Created by: <%= @story_game.author %></h3>
+<p>
+  Ranked:  <%= @story_game.note_cards %>
+</p>
+
+<p>
+  <%= @story_game.description %>
+</p>
+
+<%= link_to "Upvote" %>
+<%= link_to "Edit", edit_story_game_path %>
+<%= link_to "Delete" %>
+<%= link_to "View all Story Games", story_games_path %>
+<%= link_to "View all Games", root_path %>

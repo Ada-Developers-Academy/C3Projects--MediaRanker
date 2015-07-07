@@ -3,15 +3,24 @@
 <h3><%= game.title %></h3>
 <h4>Rating: <%= game.stars %></h4>
 <% end %>
+<p>
+  <%= link_to "View all video games", video_games_path %>
+</p>
 
 <h1>Highest Rated Board Games</h1>
 <% @board_games.each do |game| %>
 <h3><%= game.title %></h3>
 <h4>Rating: <%= game.meeples %></h4>
 <% end %>
+<p>
+  <%= link_to "View all board games", board_games_path %>
+</p>
 
 <h1>Highest Rated Story Games</h1>
-<% @video_games.each do |game| %>
+<% @story_games.each do |game| %>
 <h3><%= game.title %></h3>
 <h4>Rating: <%= game.note_cards %></h4>
 <% end %>
+<p>
+  <%= link_to "View all story games", story_games_path %>
+</p>

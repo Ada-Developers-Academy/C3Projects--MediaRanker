@@ -4,7 +4,7 @@ class CreateStoryGames < ActiveRecord::Migration
       t.string :title
       t.string :author
       t.text :description
-      t.integer :note_cards
+      t.integer :note_card
 
       t.timestamps null: false
     end

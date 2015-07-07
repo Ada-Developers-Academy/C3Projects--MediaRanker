@@ -9,7 +9,7 @@ class VideoGamesController < ApplicationController
     @video_game_id = params[:id]
     @video_game = VideoGame.find(@video_game_id)
 
-    render :video_game_show
+    render :show
   end
 
   # Add a new Video Game
@@ -18,20 +18,25 @@ class VideoGamesController < ApplicationController
   end
 
   def create
-    @video_game= VideoGame.create(video_game_params[:vieo_game])
+    @video_game= VideoGame.create(video_game_params[:video_game])
 
-    redirect_to :video_games
+    redirect_to video_games_path
   end
 
   # Update an existing Video Game
   def edit
+    @video_game_id = params[:id]
+    @video_game = VideoGame.find(@video_game_id)
+
     render :edit
   end
 
   def update
+    @video_game_id = params[:id]
+    @video_game = VideoGame.find(@video_game_id)
     @video_game.update(video_game_params[:video_game])
 
-    redirect_to :video_games
+    redirect_to video_games_path
   end
 
   private

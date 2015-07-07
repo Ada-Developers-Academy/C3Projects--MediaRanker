@@ -1,14 +1,14 @@
 class BoardGamesController < ApplicationController
   def index
-    @board_games = BoardGame.all.order('stars DESC')
-    render :board_games
+    @board_games = BoardGame.all.order('meeples DESC')
+    render :index
   end
 
   def show
     @board_game_id = params[:id]
-    @board_game = Market.find(@board_game_id)
+    @board_game = BoardGame.find(@board_game_id)
 
-    render :board_game_show
+    render :show
   end
 
   # Add a new Board Game
@@ -19,18 +19,23 @@ class BoardGamesController < ApplicationController
   def create
     @board_game = BoardGame.create(board_game_params[:board_game])
 
-    redirect_to :board_games
+    redirect_to board_game_path
   end
 
   # Update an existing Board Game
   def edit
-    render :edit
+    @board_game_id = params[:id]
+    @board_game = BoardGame.find(@board_game_id)
+
+    render edit_board_game_path
   end
 
   def update
+    @board_game_id = params[:id]
+    @board_game = BoardGame.find(@board_game_id)
     @board_game.update(board_game_params[:board_game])
 
-    redirect_to :board_games
+    redirect_to board_game_path
   end
 
   private

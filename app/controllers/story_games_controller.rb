@@ -1,6 +1,6 @@
 class StoryGamesController < ApplicationController
   def index
-    @story_games = StoryGame.all.order('stars DESC')
+    @story_games = StoryGame.all.order('note_cards DESC')
     render :index
   end
 
@@ -8,7 +8,7 @@ class StoryGamesController < ApplicationController
     @story_game_id = params[:id]
     @story_game = StoryGame.find(@story_game_id)
 
-    render :story_game_show
+    render :show
   end
 
   # Add a new Story Game
@@ -19,18 +19,23 @@ class StoryGamesController < ApplicationController
   def create
     @story_game = StoryGame.create(story_game_params[:story_game])
 
-    redirect_to :story_games
+    redirect_to story_game_path
   end
 
   # Update an existing Story Game
   def edit
+    @story_game_id = params[:id]
+    @story_game = StoryGame.find(@story_game_id)
+
     render :edit
   end
 
   def update
+    @story_game_id = params[:id]
+    @story_game = StoryGame.find(@story_game_id)
     @story_game.update(story_game_params[:story_game])
 
-    redirect_to :story_games
+    redirect_to story_game_path
   end
 
   private

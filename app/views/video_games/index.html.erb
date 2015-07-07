@@ -20,7 +20,7 @@
         <%= game.stars %>
       </td>
       <td>
-        <%= game.title %>
+        <%= link_to "#{game.title}", video_game_path(game.id)  %>
       </td>
       <td>
         Upvote
@@ -29,3 +29,6 @@
     <% end  %>
   </tbody>
 </table>
+
+<%= link_to "View All Games", welcomes_path %>
+<%= link_to "Add a Video Game", new_video_game_path %>

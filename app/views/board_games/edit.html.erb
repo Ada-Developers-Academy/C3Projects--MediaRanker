@@ -1,0 +1,12 @@
+<%= form_for @board_game do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title, placeholder: "#{@board_game.title}" %><br />
+
+  <%= f.label :author %>:
+  <%= f.text_field :author, placeholder: "#{@board_game.author}" %><br />
+
+  <%= f.label :description %>:
+  <%= f.text_area :description, size: "50x10", placeholder: "#{@board_game.description}" %><br />
+
+  <%= f.submit  "Edit Game"%>
+<% end %>

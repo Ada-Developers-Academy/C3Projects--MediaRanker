@@ -1,0 +1,12 @@
+<%= form_for @video_game do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title, placeholder: "#{@video_game.title}" %><br />
+
+  <%= f.label :studio %>:
+  <%= f.text_field :studio, placeholder: "#{@video_game.studio}" %><br />
+
+  <%= f.label :description %>:
+  <%= f.text_area :description, size: "50x10", placeholder: "#{@video_game.description}" %><br />
+
+  <%= f.submit  "Edit Game"%>
+<% end %>

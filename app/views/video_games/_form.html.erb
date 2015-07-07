@@ -2,8 +2,8 @@
 
 <%= f.label :title, "#{title_desc}" %>
 <%= f.text_field :title, class: "form_field", required: true, autofocus: true, placeholder: title_placeholder, value: title_value %>
-<%= f.label :description, "#{address_desc}" %>
-<%= f.text_field :description, class: "form_field", placeholder: description_placeholder, value: description_value %>
+<%= f.label :description, "#{description_desc}" %>
+<%= f.text_area :description, class: "form_field", placeholder: description_placeholder, value: description_value %>
 <%= f.label :studio, "#{studio_desc}" %>
 <%= f.text_field :studio, class: "form_field", placeholder: studio_placeholder, value: studio_value %>
 <%= f.label :stars, "#{stars_desc}" %>

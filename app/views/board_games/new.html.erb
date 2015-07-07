@@ -1,0 +1,12 @@
+<%= form_for @board_game do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title, placeholder: 'Settlers of Catan' %><br />
+
+  <%= f.label :author %>:
+  <%= f.text_field :author, placeholdeR: 'Klaus Teuber' %><br />
+
+  <%= f.label :description %>:
+  <%= f.text_area :description, size:"50x10", placeholder: 'The Settlers of Catan is a resource gathering game and was one of the first German-style board games to achieve popularity outside of Europe' %><br />
+
+  <%= f.submit  "Add Game"%>
+<% end %>
