@@ -11,7 +11,7 @@
   <tr>
     <th>Ranked: <%= book.ranking %></th>
     <th><%= link_to "#{book.name}", book_path(book.id) %></th>
-    <th>Upvote button</th>
+    <th><%= button_to "Upvote", upvote_book_path(book.id), method: "patch" %></th>
   </tr>
   <% end %>
 </table>

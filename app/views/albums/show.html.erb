@@ -7,7 +7,8 @@
 <h4>Ranked: <%= @album.ranking %></h4>
 <p><%= @album.description %></p>
 
-<%= button_to "Edit #{@album.name}", edit_album_path(@album.id), method: "get"%>
+<%= button_to "Upvote", upvote_album_path(@album.id), method: "patch" %>
+<%= button_to "Edit #{@album.name}", edit_album_path(@album.id), method: "get" %>
 <%= button_to "DELETE", album_path(@album.id), method: "delete", data: { confirm: "Are you sure?" } %>
 <%= button_to "View All Albums", albums_path, method: "get" %>
 <%= button_to "View All Media", root_path, method: "get" %>

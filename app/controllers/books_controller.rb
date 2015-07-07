@@ -14,6 +14,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(create_params[:book])
+    @book.ranking = 0
     @book.save
 
     render :show
@@ -25,9 +26,9 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-      new_name = params[:book][:name]
-      new_author = params[:book][:author]
-      new_description = params[:book][:description]
+    new_name = params[:book][:name]
+    new_author = params[:book][:author]
+    new_description = params[:book][:description]
 
     @book.update(name: new_name,
                  author: new_author,
@@ -38,16 +39,24 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
+    show
     @book.destroy
 
-    redirect_to action: :index
+    redirect_to books_path
   end
 
+  def upvote
+    show
+    @book.ranking += 1
+    @book.save
 
+    redirect_to book_path(@book.id)
+  end
+
+#_________________________________________________________________________________
   private
 
   def create_params
-    params.permit(book: [:name, :author, :description])
+    params.permit(book: [:name, :author, :description, :ranking])
   end
 end

@@ -11,7 +11,7 @@
   <tr>
     <th>Ranked: <%= album.ranking %></th>
     <th><%= link_to "#{album.name}", album_path(album.id) %></th>
-    <th>Upvote button</th>
+    <th><%= button_to "Upvote", upvote_album_path(album.id), method: "patch" %></th>
   </tr>
   <% end %>
 </table>
