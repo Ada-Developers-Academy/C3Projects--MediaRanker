@@ -1,0 +1,19 @@
+<%= form_for @book do |f| %>
+
+<fieldset>
+  <legend>Album Details</legend>
+  <%= f.label :name, "Name: " %>
+  <%= f.text_field :name, :required => true %>
+
+  <%= f.label :author, "Author: " %>
+  <%= f.text_field :author %>
+
+  <%= f.label :description, "Description: " %>
+  <%= f.text_field :description %>
+
+  <%= f.label :rank, "Rank: " %>
+  <%= f.number_field :rank %>
+
+</fieldset>
+  <%= f.submit 'Add Book' %>
+<% end %>
