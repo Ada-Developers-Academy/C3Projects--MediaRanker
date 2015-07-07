@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'albums/index'
+
+  get 'books/index'
+
   get 'movies/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

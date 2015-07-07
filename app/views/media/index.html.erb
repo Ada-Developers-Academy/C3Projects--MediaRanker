@@ -6,7 +6,7 @@
     <% @movies.each do |movie| %>
       <li><%= link_to movie.name, medium_path(movie.id) %> Ranked: <%= movie.ranking %></li>
     <% end %>
-  <%= link_to "View More Movies", movies_index_path %>
+  <%= link_to "View More Movies", movies_index_path(:movie) %>
   </ul>
 
   <h3>Top Books</h3>

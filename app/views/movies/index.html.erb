@@ -1,16 +1,11 @@
 <%= render partial: "media/header" %>
 
-<table>
-  <th>Ranking</th>
-  <th>Name</th>
-  <th>Upvote</th>
-  <% @movies.each do |movie| %>
-    <tr>
-      <td>Ranked: <%= movie.ranking %></td>
-      <td><%= link_to movie.name, medium_path(movie.id) %></td>
-      <td><%= button_to 'Upvote', upvote_medium_path(movie.id) %></td>
-    </tr>
-  <% end %>
-</table>
+<%= params[:format] %>
 
-<td><%= button_to 'Add a Movie', new_medium_path(:movie), method: "get" %></td>
+<% if params[:format] == "movie" %>
+  <%= render partial: "media/table", locals: { media: @movies, type: "movie", button_path: new_medium_path(:movie) } %>
+<% elsif params[:format] == "book" %>
+<%= render partial: "media/table", locals: { media: @books, type: "book", button_path: new_medium_path(:book) } %>
+<% elsif params[:format] == "album" %>
+<%= render partial: "media/table", locals: { media: @albums, type: "album", button_path: new_medium_path(:album) } %>
+<% end %>
