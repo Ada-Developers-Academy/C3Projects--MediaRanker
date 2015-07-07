@@ -1,6 +1,6 @@
 <%= render :partial => "shared/header"  %>
 
-<%= form_for @movie, url: movies_path("#{params[@movie.id]}") do |f| %>
+<%= form_for @movie, url: movie_path(@movie.id) do |f| %>
    <legend>Edit Movie</legend>
    <%= f.label :name %>
    <%= f.text_field :name %>
