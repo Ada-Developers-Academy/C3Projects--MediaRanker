@@ -13,7 +13,13 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-    @movie.update(movie_params)
+
+    if params[:movie].nil? == true
+      @movie.rank += 1
+      @movie.save
+    else
+      @movie.update(movie_params)
+    end
 
     render :show
   end
@@ -28,6 +34,6 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params[:movie].permit(:title, :director, :description)
+    params[:movie].permit(:title, :director, :description, :rank)
   end
 end
