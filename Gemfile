@@ -49,6 +49,10 @@ group :development, :test do
   # requires graphiz--`brew install graphviz`
   gem 'rails-erd'
 
+  # for testing
+  gem 'rspec-rails', '~> 3.0'
+  gem "simplecov"
+
 end
 
 group :production do
