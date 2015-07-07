@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all
+    @books = Book.best_first_all
   end
 
   def show
@@ -13,7 +13,9 @@ class BooksController < ApplicationController
   end
 
   def create
-    Book.create(permit_params)
+    book = Book.create(permit_params)
+    book.rank = 0
+    book.save
 
     super
   end

@@ -1,7 +1,15 @@
 <% categories.each do |category, objects| %>
-  <ol>
-    <% objects.each do |object| %>
-      <li><%= link_to object.name, "/#{category}/#{object.id}" %> Ranked: <%= object.rank %></li>
-    <% end %>
-  </ol>
+  <div>
+
+    <h1>Top <%= category.capitalize %></h1>
+
+    <ol>
+      <% objects.each do |object| %>
+        <li><%= link_to object.name, "/#{category}/#{object.id}" %> Ranked: <%= object.rank %></li>
+      <% end %>
+    </ol>
+
+    <%= link_to "View More #{category.capitalize}", "/#{category}" %>
+
+  </div>
 <% end %>

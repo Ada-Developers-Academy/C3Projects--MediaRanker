@@ -8,7 +8,7 @@
 
 <%= link_to "Edit #{object.name}", edit_single_route, method: "get" %>
 
-<%= link_to "DELETE", single_route, method: "delete" %>
+<%= link_to "DELETE", single_route, method: "delete", data: { confirm: "Are you sure?" } %>
 
 <%= link_to "View All #{object_type}", multi_route, method: "get" %>
 

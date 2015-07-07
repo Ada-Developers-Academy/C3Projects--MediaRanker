@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all
+    @movies = Movie.best_first_all
   end
 
   def show
@@ -13,7 +13,9 @@ class MoviesController < ApplicationController
   end
 
   def create
-    Movie.create(permit_params)
+    movie = Movie.create(permit_params)
+    movie.rank = 0
+    movie.save
 
     super
   end

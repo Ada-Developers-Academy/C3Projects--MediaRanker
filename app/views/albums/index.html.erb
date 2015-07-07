@@ -1,5 +1,10 @@
+<table>
 
-<%= render partial: "shared/list", locals: {
-  objects: @albums,
-  single_route: album_path
-  } %>
+  <%= render partial: "shared/list_headers" %>
+
+  <%= render partial: "shared/list", collection: @albums, as: :object,
+    locals: { object_type: "albums" } %>
+
+</table>
+
+<%= render partial: "shared/list_footers", locals: { object_type: "Album", new_route: new_album_path }%>

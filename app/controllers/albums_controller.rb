@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
   def index
-    @albums = Album.all
+    @albums = Album.best_first_all
   end
 
   def show
@@ -13,7 +13,9 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    Album.create(permit_params)
+    album = Album.create(permit_params)
+    album.rank = 0
+    album.save
 
     super
   end
