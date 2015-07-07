@@ -8,6 +8,12 @@ RSpec.describe Book, type: :model do
       expect(book).to_not be_valid
       expect(book.errors.keys).to include(:name)
     end
+
+    it "sets ranking to default of 0" do
+      book = Book.new
+
+      expect(book.ranking).to eq 0
+    end
   end
 
   describe "top scope" do

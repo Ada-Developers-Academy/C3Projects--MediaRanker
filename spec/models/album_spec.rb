@@ -8,6 +8,12 @@ RSpec.describe Album, type: :model do
       expect(album).to_not be_valid
       expect(album.errors.keys).to include(:name)
     end
+
+    it "sets ranking to default of 0" do
+      album = Album.new
+      
+      expect(album.ranking).to eq 0
+    end
   end
 
   describe "top scope" do

@@ -8,6 +8,12 @@ RSpec.describe Movie, type: :model do
       expect(movie).to_not be_valid
       expect(movie.errors.keys).to include(:name)
     end
+
+    it "sets ranking to default of 0" do
+      movie = Movie.new
+
+      expect(movie.ranking).to eq 0
+    end
   end
 
   describe "top scope" do
