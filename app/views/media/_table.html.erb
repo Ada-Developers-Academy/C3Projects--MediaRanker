@@ -1,0 +1,13 @@
+<table>
+  <th>Ranking</th>
+  <th>Name</th>
+  <th>Upvote</th>
+  <% media.each do |medium| %>
+    <tr>
+      <td>Ranked: <%= medium.ranking %></td>
+      <td><%= link_to medium.name, medium_path(medium.id) %></td>
+      <td><%= button_to 'Upvote', upvote_medium_path(medium.id) %></td>
+    </tr>
+  <% end %>
+  <td><%= button_to 'Add a ' + type.capitalize, button_path, method: "get" %></td>
+</table>
