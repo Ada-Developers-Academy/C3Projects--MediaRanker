@@ -6,9 +6,11 @@
 </h4>
 <p><%= media.desc %></p>
 
-UPVOTE BUTTON
+<%= form_for media do |f| %>
+  <%=  f.submit "Upvote" %>
+<% end %>
 
-<%= button_to "Edit #{media.name}", edit_book_path %>
-<%= button_to "Delete", book_path, method: "delete" %>
-<%= button_to "View All #{media_type}", root_path %>
-<%= button_to "View All Media", books_path %>
+<%= button_to "Edit #{media.name}", edit_media_path, method: :get %>
+<%= button_to "Delete", media_path, method: :delete, data: { confirm: "Are you sure?" } %>
+<%= button_to "View All #{media_type}", view_all, method: :get %>
+<%= button_to "View All Media", root_path, method: :get %>

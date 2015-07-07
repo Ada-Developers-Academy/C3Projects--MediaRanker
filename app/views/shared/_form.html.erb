@@ -1,0 +1,9 @@
+<%= form_for media do |f| %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name, required: true, autofocus: true %>
+  <%= f.label creator, creator_desc %>
+  <%= f.text_field creator %>
+  <%= f.label :desc, "Description" %>
+  <%= f.text_area :desc %>
+  <%= f.submit "Save" %>
+<% end %>
