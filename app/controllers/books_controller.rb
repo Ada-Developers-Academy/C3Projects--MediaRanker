@@ -7,7 +7,7 @@ class BooksController < ApplicationController
     @book = Book.create(create_params[:book])
 
     if @book.save
-      redirect_to book_path(@book.id)
+      redirect_to book_path(@book)
     else
       render :new
     end
@@ -42,7 +42,7 @@ class BooksController < ApplicationController
       @book.update(ranking: new_ranking)
     end
 
-    redirect_to book_path(@book.id)
+    redirect_to book_path(@book)
   end
 
   def destroy

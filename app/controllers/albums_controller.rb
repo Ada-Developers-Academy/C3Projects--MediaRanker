@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
     @album = Album.create(create_params[:album])
 
     if @album.save
-      redirect_to album_path(@album.id)
+      redirect_to album_path(@album)
     else
       render :new
     end
@@ -42,7 +42,7 @@ class AlbumsController < ApplicationController
       @album.update(ranking: new_ranking)
     end
 
-    redirect_to album_path(@album.id)
+    redirect_to album_path(@album)
   end
 
   def destroy

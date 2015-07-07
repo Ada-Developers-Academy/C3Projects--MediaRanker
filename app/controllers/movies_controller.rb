@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
     @movie = Movie.create(create_params[:movie])
 
     if @movie.save
-      redirect_to movie_path(@movie.id)
+      redirect_to movie_path(@movie)
     else
       render :new
     end
@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
       @movie.update(ranking: new_ranking)
     end
 
-    redirect_to movie_path(@movie.id)
+    redirect_to movie_path(@movie)
   end
 
   def destroy
