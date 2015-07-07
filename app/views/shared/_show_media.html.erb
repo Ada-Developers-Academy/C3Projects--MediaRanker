@@ -1,4 +1,4 @@
-<% media = media.sort_by(&:rank) %>
+<% media = media.sort_by(&:rank).reverse %>
 
 <% media.each do |medium| %>
   <% if medium.class == Movie %>

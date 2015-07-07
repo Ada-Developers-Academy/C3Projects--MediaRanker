@@ -1,0 +1,15 @@
+<h2>Edit <%= @movie.title %></h2>
+
+<%= form_for @movie do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :placeholder => "#{@movie.title}" %>
+
+  <%= f.label :director %>
+  <%= f.text_field :director, :placeholder => "#{@movie.director}" %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, :placeholder => "#{@movie.description}" %>
+
+  <%= f.submit "Save" %>
+
+<% end %>
