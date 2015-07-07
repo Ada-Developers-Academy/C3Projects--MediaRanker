@@ -1,0 +1,34 @@
+<h1> Hi, here is a list of all your Movies! </h1>
+<table border="1">
+  <tr>
+    <th>
+      Movie Title
+    </th>
+
+    <th>
+      Get Movie Details
+    </th>
+
+    <th>
+      Give Movie +1 Vote!
+    </th>
+  </tr>
+
+    <% @movies.each do |movie| %>
+    <tr>
+      <td>
+        <%= movie.title %>
+      </td>
+
+      <td>
+        <%= button_to "More Details", "/movies/#{movie.id}", method: :get %>
+      </td>
+      <td>
+        <%= button_to "UpVote!" %>
+      </td>
+      </tr>
+  <% end %>
+</table>
+<br>
+
+<%= link_to "Add new Movie", "/movies/new" %>

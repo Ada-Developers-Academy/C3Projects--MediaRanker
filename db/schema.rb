@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150706233940) do
     t.string   "title"
     t.string   "director"
     t.text     "description"
+    t.integer  "vote"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
