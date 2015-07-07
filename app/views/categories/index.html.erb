@@ -1,6 +1,10 @@
-<%= @categories.each do |category| %>
-  <h1>Top <%= category %>s</h1>
-  <% category.all.each do |item| %>
-    <h2>item.name <small>item.upvotes</small></h2>
-  <% end %>
+<% @categories.each do |cat| %>
+  <section class="category">
+    <% cat_folder = cat.to_s.downcase + "s" %>
+    <h1>Top <%= cat %>s</h1>
+    <% cat.all.each do |item| %>
+      <h2><%= link_to "#{ item.name }", "/#{ cat_folder }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h2>
+    <% end %>
+    <%= link_to "View More #{ cat }s", "/#{ cat_folder }" %>
+  </section>
 <% end %>
