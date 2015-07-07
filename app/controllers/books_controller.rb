@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 
   # Show book(s)
   def index
-    @books = Book.all
+    @books = Book.order(:name)
   end
 
   def show
