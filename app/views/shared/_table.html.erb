@@ -10,9 +10,16 @@
     <% media.each do |medium| %>
       <tr>
         <td><%= medium.rank %></td>
-        <td><%= medium.title %></td>
+        <td><%= link_to medium.title, send(item_path, medium) %></td>
         <td>upvote</td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "View all media", root_path %>
+
+
+<!-- make view helper to translate the path into movie_path, book_path, album_path -->
+<!-- "/#{medium.format}s/#{medium.id}" -->
+<!-- movie_path(medium) -->
