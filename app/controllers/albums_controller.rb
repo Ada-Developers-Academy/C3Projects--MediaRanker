@@ -6,6 +6,9 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
+  def index
+  end
+
   def show
   end
 

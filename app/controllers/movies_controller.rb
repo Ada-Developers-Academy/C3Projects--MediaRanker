@@ -6,6 +6,9 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def index
+  end
+
   def show
   end
 
