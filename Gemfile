@@ -43,5 +43,8 @@ group :development, :test do
   gem 'spring'
 
   gem 'better_errors'
+
+  # testing!
+  gem 'rspec-rails', '~> 3.0'
 end
 
