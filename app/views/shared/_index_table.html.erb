@@ -10,7 +10,7 @@
     <tr>
       <td>Ranked:<%= object.votes %></td>
       <td><%= object.title %></td>
-      <td><%= button_to "Upvote", object, method: :put %></td>
+      <td><%= button_to "Upvote", object, method: :put, params: { upvote: true }%></td>
     </tr>
   <% end %>
 </table>
