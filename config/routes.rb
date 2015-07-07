@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'users#index'
 
-  resources :movies
+  resources :movies, :books, :albums
+
   patch 'movies/:id/upvote' => "movies#upvote", as: "upvote_movie"
+  patch 'books/:id/upvote'  => "books#upvote",  as: "upvote_book"
+  patch 'albums/:id/upvote' => "albums#upvote", as: "upvote_album"
 
-  resources :books
-
-  resources :albums
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
