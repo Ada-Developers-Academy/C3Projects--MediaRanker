@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :movies, :albums, :books
 
-  get '/movies' => 'movies#index'
+  # get '/movies' => 'movies#index'
 
   # get '/movies/new' => 'movies#new'
   # post '/movies/new/:id' => 'movies#create'
