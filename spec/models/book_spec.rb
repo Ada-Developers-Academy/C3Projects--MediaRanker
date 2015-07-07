@@ -22,4 +22,13 @@ RSpec.describe Book, type: :model do
     end
   end
 
+  describe "model methods" do
+    let(:book) {Book.create(name: "War and Peace", rank: 10)}
+
+    it "increments rank by 1" do
+      book.add_a_vote
+      expect(book.rank).to eq(11)
+    end
+  end
+
 end

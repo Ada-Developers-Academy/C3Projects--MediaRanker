@@ -30,5 +30,16 @@ RSpec.describe Movie, type: :model do
     end
   end
 
+  describe "model methods" do
+    let(:movie) {Movie.create(name: "Moulin Rouge", rank: 5)}
+
+    it "increments rank by 1 each time, 3 times" do
+      3.times do
+        movie.add_a_vote
+        end
+      expect(movie.rank).to eq(8)
+    end
+  end
+
 
 end

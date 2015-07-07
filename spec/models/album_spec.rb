@@ -22,6 +22,14 @@ RSpec.describe Album, type: :model do
     end
   end
 
+  describe "model methods" do
+    let(:album) {Album.create(name: "To the Teeth", rank: 1)}
+
+    it "increments rank by 1" do
+      album.add_a_vote
+      expect(album.rank).to eq(2)
+    end
+  end
 
 
 
