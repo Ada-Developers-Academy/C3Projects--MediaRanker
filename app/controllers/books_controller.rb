@@ -14,6 +14,8 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.create(permit_params)
+
+    super
   end
 
   def edit
@@ -22,10 +24,14 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id]).update(permit_params)
+
+    super
   end
 
   def destroy
     @book = Book.find(params[:id]).destroy
+
+    super
   end
 
   def upvote

@@ -14,6 +14,8 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.create(permit_params)
+
+    super
   end
 
   def edit
@@ -22,10 +24,14 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id]).update(permit_params)
+
+    super
   end
 
   def destroy
     @album = Album.find(params[:id]).destroy
+
+    super
   end
 
   def upvote
