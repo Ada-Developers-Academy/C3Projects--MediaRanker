@@ -48,6 +48,13 @@ group :development, :test do
   # Get better errors during development
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # requires graphiz--`brew install graphviz`
+  gem 'rails-erd'
+
+  # yay tests
+  gem 'rspec-rails', '~> 3.0'
+  gem 'simplecov', require: false
 end
 
 # group :production do
