@@ -11,11 +11,11 @@
 <% end %>
 
 <div>
-  <%= button_to "Edit #{@single.name}", "/#{@controller}/#{@single.id}/edit", method: :get %>
-  <%= button_to "Delete", "/controller/delete/#{@single.id}", method: "delete",
+  <%= link_to "Edit #{@single.name}", "/#{@controller}/#{@single.id}/edit", method: :get %>
+  <%= link_to "Delete", "/controller/delete/#{@single.id}", method: "delete",
             data: {:confirm => "Are you sure?"} %>
-  <%= button_to "View All #{@controller.capitalize}", "/" %>
-  <%= button_to "View All Media", root_path %>
+  <%= link_to "View All #{@controller.capitalize}", "/" %>
+  <%= link_to "View All Media", root_path %>
   <!-- buttons aren't working -->
   make above inline
 </div>
