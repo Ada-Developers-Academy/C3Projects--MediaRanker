@@ -47,7 +47,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'rspec-rails', '~>3.0'
-
+  gem 'simplecov', require: false
 end
 
 group :production do
