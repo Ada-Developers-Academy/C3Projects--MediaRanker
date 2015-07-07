@@ -7,6 +7,17 @@ Rails.application.routes.draw do
 
   resources :movies, :albums, :books
 
+  # custom route for upvoting
+
+  post "/movies/:id" => "movies#upvote"
+  post "/albums/:id" => "albums#upvote"
+  post "/books/:id" => "books#upvote"
+
+  post "/movies" => "movies#upvote"
+  post "/albums" => "albums#upvote"
+  post "/books" => "books#upvote"
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
