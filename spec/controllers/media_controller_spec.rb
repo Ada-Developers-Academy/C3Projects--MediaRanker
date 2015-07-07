@@ -29,9 +29,27 @@ RSpec.describe MediaController, type: :controller do
 
       it "creates an media record" do
         post :create, medium_params
+
+
         expect(Medium.count).to eq 1
       end
 
     end
+  end
+
+  describe "put update/:id" do
+    let(:attr) do
+      { :name => 'new title'}
+    end
+
+    before(:each) do
+      @medium = Medium.create(ranking: "4", name: "Book name", media_type: "book")
+      binding.pry
+      put :update, :id => 1, :name => "new name"
+      @medium.reload
+    end
+
+    it { expect(response).to redirect_to(@medium) }
+
   end
 end

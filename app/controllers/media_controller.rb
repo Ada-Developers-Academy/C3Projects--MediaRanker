@@ -30,6 +30,18 @@ class MediaController < ApplicationController
     redirect_to medium_path
   end
 
+  def edit
+    @medium = Medium.find(params[:id])
+  end
+
+  def update
+    @medium = Medium.find(params[:id])
+
+    @medium = Medium.find(create_params[:medium])
+
+    redirect_to medium_path
+  end
+
   def create_params
   params.permit(medium: [:ranking, :name, :contributor, :description, :user, :media_type])
 end
