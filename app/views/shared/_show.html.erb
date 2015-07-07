@@ -6,6 +6,7 @@
 
 <%= form_for @controller do |f| %>
   <%= f.hidden_field :rank, value: @single.rank += 1 %>
+  <!--  need to increment the rank by 1 for this button and not just in the edit/update route -->
   <%= f.submit "Upvote" %>
 <% end %>
 
