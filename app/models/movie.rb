@@ -5,6 +5,7 @@ class Movie < ActiveRecord::Base
   # Scopes ---------------------------------------------------------------------
   scope :best, -> (total) { order('votes DESC').limit(total) }
 
+  # Class Methods --------------------------------------------------------------
   def self.upvote(movie)
      movie.votes += 1
      movie.save
