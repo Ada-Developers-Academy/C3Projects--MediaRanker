@@ -1,1 +1,19 @@
-<h1>placeholder show</h1>
+<%= render "shared/header" %>
+
+<section>
+
+  <h1><%= @book.title %></h1>
+  <h3>Written by: <%= @book.author %></h3>
+  <h4>Ranked: <%= @book.rank %></h4>
+  <p><%= @book.description %></p>
+  <%= button_to "Upvote", book_upvote_path(@book.id), method: "patch" %>
+
+</section>
+
+<footer>
+<%= button_to "Edit #{@book.title}", edit_book_path(@book.id), method: "get" %>
+<%= button_to "DELETE", "/books/#{@book.id}", method: "delete", data: { confirm: "Are you sure?" } %>
+<%= button_to "View All Books", books_path, method: "get" %>
+<%= button_to "View All Media", root_path, method: "get" %>
+
+</footer>
