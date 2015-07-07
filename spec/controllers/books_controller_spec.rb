@@ -56,4 +56,24 @@ RSpec.describe BooksController, type: :controller do
       end
     end
   end
+
+  describe "PATCH #update" do
+    context "valid book params" do
+      let(:book_params) do
+        {
+          book: {
+            name: "title",
+            author: "author",
+            desc: "desc",
+            vote: 2
+          }
+        }
+      end
+
+      it "updates a Book record" do
+        patch :update, book_params.name = "name"
+        expect(book_params.name).to eq "name"
+      end
+
+
 end
