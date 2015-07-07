@@ -1,1 +1,3 @@
-<h1>placeholder edit</h1>
+<%= render "shared/header" %>
+
+<%= render partial: "shared/media_form", locals: { media: @book, artist: :author } %>
