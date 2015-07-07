@@ -6,11 +6,11 @@ class BooksController < ApplicationController
   def upvote
     @book = Book.find(params[:id])
     @book.increment!(:rank)
-    redirect_to album_path(@book)
+    redirect_to book_path(@book)
   end
 
   def show
-
+    @book = Book.find(params[:id])
   end
 
   def new

@@ -6,11 +6,11 @@ class MoviesController < ApplicationController
   def upvote
     @movie = Movie.find(params[:id])
     @movie.increment!(:rank)
-    redirect_to album_path(@movie)
+    redirect_to movie_path(@movie)
   end
 
   def show
-
+    @movie = Movie.find(params[:id])
   end
 
   def new
