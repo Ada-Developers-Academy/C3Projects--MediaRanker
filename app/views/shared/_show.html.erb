@@ -6,9 +6,7 @@
 </h4>
 <p><%= media.desc %></p>
 
-<%= form_for media do |f| %>
-  <%=  f.submit "Upvote" %>
-<% end %>
+<%= button_to "Upvote", upvote_path %>
 
 <%= button_to "Edit #{media.name}", edit_media_path, method: :get %>
 <%= button_to "Delete", media_path, method: :delete, data: { confirm: "Are you sure?" } %>

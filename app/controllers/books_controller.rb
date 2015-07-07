@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :get_book, only: [:show, :edit, :update, :destroy]
+  before_action :get_book, only: [:show, :edit, :update, :upvote, :destroy]
 
   def get_book
     @book = Book.find(params[:id])
@@ -14,13 +14,18 @@ class BooksController < ApplicationController
 
   def update
     @book.update(book_params)
-    @book.vote += 1
-    @book.save
 
     redirect_to book_path
   end
 
   def edit
+  end
+
+  def upvote
+    @book.vote += 1
+    @book.save
+
+    redirect_to book_path
   end
 
   private

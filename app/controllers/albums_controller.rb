@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
 
-  before_action :get_album, only: [:show, :edit, :update, :destroy]
+  before_action :get_album, only: [:show, :edit, :update, :upvote, :destroy]
 
   def get_album
     @album = Album.find(params[:id])
@@ -14,6 +14,11 @@ class AlbumsController < ApplicationController
 
   def update
     @album.update(album_params)
+
+    redirect_to album_path
+  end
+
+  def upvote
     @album.vote += 1
     @album.save
 
