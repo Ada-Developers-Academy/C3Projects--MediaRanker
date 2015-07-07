@@ -27,12 +27,12 @@ class BooksController < ApplicationController
 
     if params[:book]
       new_name        = params[:book][:name]
-      new_author    = params[:book][:author]
+      new_author      = params[:book][:author]
       new_description = params[:book][:description]
 
-      @book.update(           name: new_name,
-                           author: new_author,
-                        description: new_description
+      @book.update(        name: new_name,
+                         author: new_author,
+                    description: new_description
       )
     else
       new_ranking = @book.ranking + 1
