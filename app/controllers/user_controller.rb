@@ -1,10 +1,11 @@
 class UserController < ApplicationController
 
   def index
-    @movies = Movie.all
+    @movies = Movie.best
 
-    @books = Book.all
+    @books = Book.best
 
-    @albums = Album.all
+    @albums = Album.best
   end
+
 end
