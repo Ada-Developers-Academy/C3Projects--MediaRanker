@@ -19,6 +19,14 @@ class AlbumsController < ApplicationController
     redirect_to album_path(params[:id])
   end
 
+  def destroy
+    @album = Album.find(params[:id])
+    @album.destroy
+
+    redirect_to '/albums'    
+  end
+
+
 ##################### PRIVATE METHODS #####################
   private
 
