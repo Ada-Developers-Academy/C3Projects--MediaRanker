@@ -34,18 +34,12 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  def add_a_vote
-    @book = Book.find(params[:id])
-    @book.rank += 1
-  end
-
   def upvote
     @book = Book.find(params[:id])
     @book.add_a_vote
-    @book.update(create_params[:rank])
+    @book.save
     render :show
   end
-
 
   private
 

@@ -34,18 +34,12 @@ class AlbumsController < ApplicationController
     redirect_to albums_path
   end
 
-  def add_a_vote
-    @album = Album.find(params[:id])
-    @album.rank += 1
-  end
-
   def upvote
     @album = Album.find(params[:id])
     @album.add_a_vote
-    @album.update(create_params[:rank])
+    @album.save
     render :show
   end
-
 
   private
 
