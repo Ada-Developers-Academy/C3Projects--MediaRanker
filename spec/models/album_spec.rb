@@ -11,18 +11,17 @@ RSpec.describe Album, type: :model do
   end
 
   describe "top scope" do
-
+    before :each do
       @album1 = Album.create(name: 'whatever', artist: 'some chick', description: 'whatever desc', ranking: 3)
       @album2 = Album.create(name: 'whatever', artist: 'some dude', description: 'description', ranking: 1)
       @album3 = Album.create(name: 'whatevz', artist: 'some chick', description: 'descrip', ranking: 2)
       @album4 = Album.create(name: 'whatevah', artist: 'some dude', description: 'descrip', ranking: 4)
-
-      ordered_albums = [@album4, @album1, @album3]
-
+    end
 
 
     it "orders albums according to ranking, highest to lowest" do
-      expect(Album.top(3)).to eq(ordered_albums)
+      top_albums = [@album4, @album1, @album3]
+      expect(Album.top(3)).to eq(top_albums)
     end
 
     it "only displays given number of albums" do
