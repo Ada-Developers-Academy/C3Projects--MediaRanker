@@ -31,6 +31,7 @@ RSpec.describe MediaController, type: :controller do
         post :create, medium_params
         expect(Medium.count).to eq 1
       end
+
     end
   end
 end
