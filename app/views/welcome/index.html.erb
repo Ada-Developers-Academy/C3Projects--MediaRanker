@@ -2,15 +2,15 @@
 
 <h1>Top Movies</h1>
 <% @top_movies.each do |movie| %>
-  <h2><%= link_to movie.name, "#" %> <small>Ranked: <%= movie.rank %></small></h2>
+  <h2><%= link_to movie.name, movie_path(movie) %> <small>Ranked: <%= movie.rank %></small></h2>
 <% end %>
 
 <h1>Top Books</h1>
 <% @top_books.each do |book| %>
-  <h2><%= link_to book.name, "#" %> <small>Ranked: <%= book.rank %></small></h2>
+  <h2><%= link_to book.name, book_path(book) %> <small>Ranked: <%= book.rank %></small></h2>
 <% end %>
 
 <h1>Top Albums</h1>
 <% @top_albums.each do |album| %>
-  <h2><%= link_to album.name, "#" %> <small>Ranked: <%= album.rank %></small></h2>
+  <h2><%= link_to album.name, album_path(album) %> <small>Ranked: <%= album.rank %></small></h2>
 <% end %>
