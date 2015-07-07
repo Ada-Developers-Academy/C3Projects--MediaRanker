@@ -31,7 +31,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album = Album.find(params[:id])
     @album.destroy
-    redirect_to albumss_path
+    redirect_to albums_path
   end
 
   def add_a_vote
