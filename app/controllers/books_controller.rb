@@ -5,10 +5,21 @@ class BooksController < ApplicationController
     @controller = "books"
   end
 
+  def show
+    @single = find_book
+    @controller = "books"
+    @creator = "Written by"
+  end
+
 private
 
-  def create_params
-    params.permit(single: [:id, :name, :author, :description, :rank])
+  def find_book
+    @book = Book.find(create_params[:id])
   end
+
+  def create_params
+    params.permit(:id, book: [:id, :name, :creator, :description, :rank])
+  end
+
 
 end

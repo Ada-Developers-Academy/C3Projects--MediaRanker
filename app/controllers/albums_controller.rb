@@ -6,23 +6,19 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    find_album
+    @single = find_album
     @controller = "albums"
+    @creator = "Recorded by"
   end
 
 private
 
   def find_album
-    @single = Album.find(create_params[:id])
+    @album = Album.find(create_params[:id])
   end
 
-  def find_market
-        id = params[:id]
-        @market = Market.find(id)
-    end
-
   def create_params
-    params.permit(:id, album: [:id, :name, :artist, :description, :rank])
+    params.permit(:id, album: [:id, :name, :creator, :description, :rank])
   end
 
 end

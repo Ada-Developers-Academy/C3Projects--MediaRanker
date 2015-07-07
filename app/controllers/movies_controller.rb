@@ -5,10 +5,20 @@ class MoviesController < ApplicationController
     @controller = "movies"
   end
 
-private
+  def show
+    @single = find_movie
+    @controller = "movies"
+    @creator = "Directed by"
+  end
+
+  private
+
+  def find_movie
+    @movie = Movie.find(create_params[:id])
+  end
 
   def create_params
-    params.permit(single: [:id, :name, :director, :description, :rank])
+    params.permit(:id, movie: [:id, :name, :creator, :description, :rank])
   end
 
 end
