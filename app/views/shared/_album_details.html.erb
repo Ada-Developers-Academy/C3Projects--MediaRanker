@@ -3,4 +3,12 @@
   <small> Recorded by: <%= @album.artist %> </small>
 </h1>
 <h3> Ranked: <%= @album.rank %> </h3>
-<%= button_to "Delete", { action: "destroy", id: @movie.id }, method: :delete, data: { confirm: "Are you sure?" } %>
+<p> <%= @album.description %> </p>
+
+<p> <%= button_to "Upvote", upvote_movies_path(@album.rank), method: :post %> </p>
+
+
+<%= button_to "Edit #{@album.name}", { action: "edit", id: @album.id }, :method => "get" %>
+<%= button_to "Delete", { action: "destroy", id: @album.id }, method: :delete, data: { confirm: "Are you sure?" } %>
+<%= button_to "View All Albums", albums_path , method: :get %>
+<%= button_to "View All Media", root_path, method: :get %>

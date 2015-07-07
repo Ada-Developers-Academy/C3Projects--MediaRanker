@@ -4,7 +4,11 @@
 </h1>
 <h3> Ranked: <%= @movie.rank %> </h3>
 <p> <%= @movie.description %> </p>
-<%= button_to "Edit #{@movie.name}", "/movies/edit", :method => "get" %>
-<%= button_to "Delete", { action: "destroy", id: @movie.id }, method: :delete, data: { confirm: "Are you sure?" } %>
 
-<%= button_to "Upvote", upvote_movies_path(@movie.rank), method: :post %>
+<p> <%= button_to "Upvote", upvote_movies_path(@movie.rank), method: :post %> </p>
+
+
+<%= button_to "Edit #{@movie.name}", { action: "edit", id: @movie.id }, :method => "get" %>
+<%= button_to "Delete", { action: "destroy", id: @movie.id }, method: :delete, data: { confirm: "Are you sure?" } %>
+<%= button_to "View All Movies", movies_path , method: :get %>
+<%= button_to "View All Media", root_path, method: :get %>
