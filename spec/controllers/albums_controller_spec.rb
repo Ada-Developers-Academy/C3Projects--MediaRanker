@@ -13,9 +13,10 @@ RSpec.describe AlbumsController, type: :controller do
     end
 
     it "renders the :show view" do
-      album1 = Album.new(id: 1, title: "a title")
-      album1.save
+      album = Album.new(id: 1, title: "a title")
+      album.save
       get :show, id: 1
+      
       expect(response).to render_template("show")
     end
   end
