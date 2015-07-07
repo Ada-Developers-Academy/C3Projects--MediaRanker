@@ -1,0 +1,6 @@
+<%= render "shared/header" %>
+
+
+<%= render partial: "shared/index", locals: { types: @movies, url: "/movies/#{@movie[:id]}" } %>
+
+<%= button_to "Add a Movie" %>

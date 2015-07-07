@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+
+    <% types.each do |type| %>
+    <tr>
+      <td><%= type.rank %></td>
+      <td><%= type.name %></td>
+      <td><%= button_to "Upvote", url %></td>
+    </tr>
+    <% end %>
+
+</table>
+
+<%= button_to "View All Media", root_path, method: :get %>
+
