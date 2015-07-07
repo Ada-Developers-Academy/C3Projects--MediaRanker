@@ -6,6 +6,8 @@ class UserController < ApplicationController
     @books = Book.best
 
     @albums = Album.best
+
+    @media = [@movies, @books, @albums]
   end
 
 end

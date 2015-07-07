@@ -1,0 +1,4 @@
+<%= render partial: "shared/index.html.erb", collection: @books, as: :object, locals: { object_path: "books"} %>
+
+<%= link_to "View All Media", root_path %>
+<%= link_to "Add an Book", new_book_path %>
