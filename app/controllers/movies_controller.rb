@@ -11,10 +11,15 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
-  # private
+  def create
+    movie = Movie.create(movie_params)
 
-  # def movie_params
-  #   params.require(:medium).permit(:title, :creator, :description, :format, 
-  #     :rank)
-  # end
+    redirect_to movie
+  end
+
+  private
+
+  def movie_params
+    params.require(:movie).permit(:title, :director, :description, :rank)
+  end
 end
