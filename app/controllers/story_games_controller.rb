@@ -1,7 +1,7 @@
 class StoryGamesController < ApplicationController
   def index
     @story_games = StoryGame.all.order('stars DESC')
-    render :story_games
+    render :index
   end
 
   def show

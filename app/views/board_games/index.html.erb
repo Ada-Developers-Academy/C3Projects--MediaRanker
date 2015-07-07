@@ -1,0 +1,31 @@
+<h1>All Board Games</h1>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Rating
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @board_games.each do |game| %>
+    <tr>
+      <td>
+        <%= game.meeples %>
+      </td>
+      <td>
+        <%= game.title %>
+      </td>
+      <td>
+        Upvote
+      </td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>

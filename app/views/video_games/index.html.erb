@@ -1,0 +1,31 @@
+<h1>All Video Games</h1>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Rating
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @video_games.each do |game| %>
+    <tr>
+      <td>
+        <%= game.stars %>
+      </td>
+      <td>
+        <%= game.title %>
+      </td>
+      <td>
+        Upvote
+      </td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>

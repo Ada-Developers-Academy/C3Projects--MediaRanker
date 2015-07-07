@@ -1,0 +1,31 @@
+<h1>All Story Games</h1>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Rating
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @story_games.each do |game| %>
+    <tr>
+      <td>
+        <%= game.note_cards %>
+      </td>
+      <td>
+        <%= game.title %>
+      </td>
+      <td>
+        Upvote
+      </td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>
