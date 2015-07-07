@@ -1,2 +1,3 @@
-<h1>Albums#index</h1>
-<p>Find me in app/views/albums/index.html.erb</p>
+<%= render partial: "media/header" %>
+
+<%= render partial: "media/table", locals: { media: @albums, type: "album", button_path: new_medium_path(:album) } %>

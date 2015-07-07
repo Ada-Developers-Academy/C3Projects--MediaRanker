@@ -1,2 +1,3 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<%= render partial: "media/header" %>
+
+<%= render partial: "media/table", locals: { media: @books, type: "book", button_path: new_medium_path(:book) } %>
