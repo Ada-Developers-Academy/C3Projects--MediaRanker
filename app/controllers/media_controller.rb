@@ -16,4 +16,8 @@ class MediaController < ApplicationController
     @medium.save
     redirect_to(medium_path)
   end
+
+  def create_params
+  params.permit(media: [:ranking, :name, :contributor, :description, :user])
+end
 end

@@ -1,7 +1,14 @@
-<%= render partial: "header" %>
+<%= render partial: "media/header" %>
 
-<ul>
+<table>
+  <th>Ranking</th>
+  <th>Name</th>
+  <th>Upvote</th>
   <% @movies.each do |movie| %>
-    <li><%= link_to movie.name, medium_path(movie.id) %> Ranked: <%= movie.ranking %></li>
+    <tr>
+      <td>Ranked: <%= movie.ranking %></td>
+      <td><%= link_to movie.name, medium_path(movie.id) %></td>
+      <td><%= button_to 'Upvote', upvote_medium_path(movie.id) %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
