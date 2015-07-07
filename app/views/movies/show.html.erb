@@ -1,0 +1,8 @@
+<%= render partial: "shared/show", locals: {  media: @movie,
+                                              creator: @movie.director,
+                                              media_creation_verb: "Directed",
+                                              media_name: "Movies",
+                                              mediapath: movies_path
+
+  } 
+%>

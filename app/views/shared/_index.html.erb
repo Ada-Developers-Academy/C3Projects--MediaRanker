@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </thead>
+  <tbody>
+  <% media.each do |m| %>
+    <tr>
+      <td>Ranked: <%= m.rank %></td>
+      <td><%= link_to "#{m.name}", mediapath(m.id) %></td>
+      <td><%= button_to "Upvote" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "View All Media", root_path %>
+<!-- <%= link_to "Add a Movie", new_movie_path %> -->

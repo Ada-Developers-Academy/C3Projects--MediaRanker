@@ -1,0 +1,8 @@
+<%= render partial: "shared/show", locals: {  media: @album,
+                                              creator: @album.artist,
+                                              media_creation_verb: "Recorded",
+                                              media_name: "Albums",
+                                              mediapath: albums_path
+
+  } 
+%>
