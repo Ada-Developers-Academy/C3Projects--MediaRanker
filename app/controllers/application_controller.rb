@@ -5,19 +5,32 @@ class ApplicationController < ActionController::Base
   before_action :set_active_record_name
 
   def show
-    @current = @active_record_name.find(params[:id])
+    @current_record = @active_record_name.find(params[:id])
+
+    render "/books/show"
   end
 
-  def new; end
-  def edit; end
+  def new
+    render "/books/new"
+  end
+
+  def edit
+    @current_record = @active_record_name.find(params[:id])
+
+    render "/books/edit"
+  end
 
   def index
     # active_record_name
     @url_helper = controller_name
     @all_records = @active_record_name.all
+
+    render "/books/index"
   end
 
-  def delete; end
+  def delete
+    render "/books/delete"
+  end
 
   private
 
