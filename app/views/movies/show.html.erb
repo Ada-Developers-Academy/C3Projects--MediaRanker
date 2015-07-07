@@ -3,3 +3,7 @@
 <p> Ranked: <%= @movie.rank %> </p>
 <p> <%= @movie.description %> </p>
 <%= button_to "Upvote", movie_upvote_path(@movie.id), method: "patch" %>
+<%= button_to "Edit #{@movie.name}", edit_movie_path(@movie.id), method: "get" %>
+<%= button_to "DELETE", movie_path(@movie.id), method: :delete, data: { confirm: "Are you sure?"} %>
+<%= button_to "View All Movies", movies_path, method: "get" %>
+<%= button_to "View All Media", root_path, method: "get" %>

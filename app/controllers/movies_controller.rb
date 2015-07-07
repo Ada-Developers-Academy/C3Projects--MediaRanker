@@ -7,7 +7,37 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
   end
-  
+
+    def new
+    @movie = Movie.new
+    @director = @movie.director
+  end
+
+  def create
+    @movie = Movie.new(create_params[:movie])
+    @director = @movie.director
+    @movie.save
+    redirect_to movie_path(@movie.id)
+  end
+
+  def edit
+    @movie = Movie.find(params[:id])
+    @director = @movie.director
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+    @director = @movie.director
+    @movie.update(create_params[:movie])
+    redirect_to movie_path(@movie.id)
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to movies_path
+  end
+
   def add_a_vote
     @movie = Movie.find(params[:id])
     @movie.rank += 1
