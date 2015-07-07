@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 media = [
-  {ranking: 0, name: "Bossypants", contributor: "Tina Fey", description: "She's funny", user: "Sabrina"},
-  {ranking: 0, name: "blue", contributor: "green", description: "red", user: "Ash"},
-  {ranking: 0, name: "bowl", contributor: "fork", description: "spoon", user: "Misty"},
+  {ranking: 0, name: "Bossypants", contributor: "Tina Fey", description: "She's funny", media_type: "book", user: "Sabrina"},
+  {ranking: 0, name: "blue", contributor: "green", description: "red", media_type: "movie", user: "Ash"},
+  {ranking: 0, name: "bowl", contributor: "fork", description: "spoon", media_type: "album", user: "Misty"},
 ]
 
 media.each do |medium|
