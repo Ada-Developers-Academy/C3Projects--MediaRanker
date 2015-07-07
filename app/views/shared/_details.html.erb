@@ -1,0 +1,15 @@
+<h2> <%= medium.title %> </h2>
+<h3>
+  <% if medium.has_attribute?(:director) %>
+      Directed by: <%= medium.director %>
+  <% elsif medium.has_attribute?(:author) %>
+      Written by: <%= medium.author %>
+  <% elsif medium.has_attribute?(:artist) %>
+      Artist: <%= medium.artist %>
+  <% end %>
+</h3>
+
+<h3> Upvotes: <%= medium.ranking %> </h3>
+<p>
+  <%= medium.description %>
+</p>
