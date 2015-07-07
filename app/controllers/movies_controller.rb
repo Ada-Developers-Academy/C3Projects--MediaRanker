@@ -44,14 +44,13 @@ class MoviesController < ApplicationController
     show
     @movie.destroy
 
-    redirect_to action: :index
+    redirect_to movies_path
   end
 
   def upvote
     show
     @movie.ranking += 1
     @movie.save
-    # @movie.update(:ranking => @movie.ranking)
 
     redirect_to movie_path(@movie.id)
   end
