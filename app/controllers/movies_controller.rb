@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
   # Show movie(s)
   def index
-    @movies = Movie.best(10)
+    @movies = Movie.order(:name)
   end
 
   def show
