@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
   # Scopes ---------------------------------------------------------------------
   scope :best, -> (total) { order('votes DESC').limit(total) }
 
+  # Class Methods --------------------------------------------------------------
   def self.upvote(book)
      book.votes += 1
      book.save
