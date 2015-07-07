@@ -14,6 +14,8 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create(permit_params)
+
+    super
   end
 
   def edit
@@ -22,10 +24,14 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id]).update(permit_params)
+
+    super
   end
 
   def destroy
     @movie = Movie.find(params[:id]).destroy
+
+    super
   end
 
   private

@@ -1,5 +1,5 @@
-<h1><%= object.name %></h1>
-<h2><%= by + object_person %></h2>
+<h2><%= object.name %></h2>
+<h3><%= by + object_person %></h3>
 
 <p>Ranked: <%= object.rank %></p>
 <p><%= object.description %></p>
@@ -10,6 +10,6 @@
 
 <%= link_to "DELETE", single_route, method: "delete" %>
 
-<%= link_to "View All #{object_type}", single_route, method: "get" %>
+<%= link_to "View All #{object_type}", multi_route, method: "get" %>
 
 <%= link_to "View All Media", root_path, method: "get" %>

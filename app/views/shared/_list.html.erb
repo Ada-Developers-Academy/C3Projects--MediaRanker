@@ -1,17 +1,5 @@
-<table>
-
-  <tr>
-    <th>Ranking</th>
-    <th>Name</th>
-    <th>Upvote</th>
-  </tr>
-
-  <%= objects.each do |object| %>
-    <tr>
-      <td><% object.rank %></td>
-      <td><% link_to object.name, single_route(object.id) %></td>
-      <td><% button_to "Upvote", "ROUTE STUFF STILL NEED TO ENTER", method: "patch" %></td>
-    </tr>
-  <% end %>
-
-</table>
+<tr>
+  <td><%= object.rank %></td>
+  <td><%= link_to object.name, "/#{object_type}/#{object.id}" %></td>
+  <td><%= button_to "Upvote", "ROUTE STUFF STILL NEED TO ENTER", method: "patch" %></td>
+</tr>

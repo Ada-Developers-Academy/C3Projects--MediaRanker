@@ -1,5 +1,8 @@
+<table>
 
-<%= render partial: "shared/list", locals: {
-  objects: @movies,
-  single_route: movie_path
-  } %>
+  <%= render partial: "shared/list_headers" %>
+
+  <%= render partial: "shared/list", collection: @movies, as: :object,
+    locals: { object_type: "movies" } %>
+
+</table>
