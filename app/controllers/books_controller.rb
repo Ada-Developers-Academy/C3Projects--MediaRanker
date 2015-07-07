@@ -6,11 +6,27 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  # Show book(s)
   def index
     @books = Book.all
   end
 
   def show
+  end
+
+  # Add a book
+  def new
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.create(book_params)
+
+    redirect_to book_path(@book.id)
+  end
+
+  # Edit a book
+  def edit
   end
 
   def update
@@ -19,14 +35,19 @@ class BooksController < ApplicationController
     redirect_to book_path
   end
 
-  def edit
-  end
-
+  # Upvote a book
   def upvote
     @book.vote += 1
     @book.save
 
     redirect_to book_path
+  end
+
+  # Delete a book
+  def destroy
+    @book.destroy
+
+    redirect_to books_path
   end
 
   private

@@ -6,11 +6,28 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
+  # Show album(s)
   def index
     @albums = Album.all
   end
 
   def show
+  end
+
+  # Add an album
+  def new
+    @album = Album.new
+  end
+
+  def create
+    @album = Album.create(album_params)
+
+    redirect_to album_path(@album.id)
+  end
+
+  # Edit an album
+
+  def edit
   end
 
   def update
@@ -19,6 +36,7 @@ class AlbumsController < ApplicationController
     redirect_to album_path
   end
 
+  # Upvote an album
   def upvote
     @album.vote += 1
     @album.save
@@ -26,7 +44,11 @@ class AlbumsController < ApplicationController
     redirect_to album_path
   end
 
-  def edit
+  # Delete an album
+  def destroy
+    @album.destroy
+
+    redirect_to albums_path
   end
 
   private

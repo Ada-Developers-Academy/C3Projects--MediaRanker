@@ -6,11 +6,27 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  # Show movie(s)
   def index
     @movies = Movie.all
   end
 
   def show
+  end
+
+  # Add a movie
+  def new
+    @movie = Movie.new
+  end
+
+  def create
+    @movie = Movie.create(movie_params)
+
+    redirect_to movie_path(@movie.id)
+  end
+
+  # Edit a movie
+  def edit
   end
 
   def update
@@ -19,6 +35,7 @@ class MoviesController < ApplicationController
     redirect_to movie_path
   end
 
+  # Upvote a movie
   def upvote
     @movie.vote += 1
     @movie.save
@@ -26,7 +43,11 @@ class MoviesController < ApplicationController
     redirect_to movie_path
   end
 
-  def edit
+  # Delete a movie
+  def destroy
+    @movie.destroy
+
+    redirect_to movies_path
   end
 
   private
