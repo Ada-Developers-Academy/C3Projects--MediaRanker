@@ -1,0 +1,20 @@
+<%= render :partial => "shared/header"  %>
+
+<table>
+  <tr>
+    <th>Ranking<th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @albums.each do |album| %>
+  <tr>
+    <th>Ranked: <%= album.ranking %></th>
+    <th><%= link_to "#{album.name}", album_path(album.id) %></th>
+    <th>Upvote button</th>
+  </tr>
+  <% end %>
+</table>
+
+<%= button_to "View All Media", root_path, method: "get" %>
+<%= button_to "Add a Album", new_album_path, method: "get" %>

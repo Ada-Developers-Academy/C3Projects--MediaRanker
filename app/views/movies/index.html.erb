@@ -1,0 +1,20 @@
+<%= render :partial => "shared/header"  %>
+
+<table>
+  <tr>
+    <th>Ranking<th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @movies.each do |movie| %>
+  <tr>
+    <th>Ranked: <%= movie.ranking %></th>
+    <th><%= link_to "#{movie.name}", movie_path(movie.id) %></th>
+    <th>Upvote button</th>
+  </tr>
+  <% end %>
+</table>
+
+<%= button_to "View All Media", root_path, method: "get" %>
+<%= button_to "Add a Movie", new_movie_path, method: "get" %>

@@ -1,0 +1,13 @@
+<%= render :partial => "shared/header"  %>
+
+<h1><%= @movie.name %>
+  <small>Directed by: <%= @movie.director %></small>
+</h1>
+
+<h4>Ranked: <%= @movie.ranking %></h4>
+<p><%= @movie.description %></p>
+
+<%= button_to "Edit #{@movie.name}", edit_movie_path(@movie.id), method: "get"%>
+<%= button_to "DELETE", movie_path(@movie.id), method: "delete", data: { confirm: "Are you sure?" } %>
+<%= button_to "View All Movies", movies_path, method: "get" %>
+<%= button_to "View All Media", root_path, method: "get" %>

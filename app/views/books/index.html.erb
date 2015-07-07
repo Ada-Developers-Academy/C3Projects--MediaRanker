@@ -1,0 +1,20 @@
+<%= render :partial => "shared/header"  %>
+
+<table>
+  <tr>
+    <th>Ranking<th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @books.each do |book| %>
+  <tr>
+    <th>Ranked: <%= book.ranking %></th>
+    <th><%= link_to "#{book.name}", book_path(book.id) %></th>
+    <th>Upvote button</th>
+  </tr>
+  <% end %>
+</table>
+
+<%= button_to "View All Media", root_path, method: "get" %>
+<%= button_to "Add a Book", new_book_path, method: "get" %>

@@ -1,0 +1,28 @@
+<%= render :partial => "header"  %>
+
+<h1>Top Movies</h1>
+  <% @movies.each do |movie| %>
+  <h2><%= link_to "#{movie.name}", movie_path(movie.id) %>
+    <small>Ranked: <%= movie.ranking %></small>
+  </h2>
+  <% end %>
+<!-- View More Movies -->
+  <%= link_to "View More Movies", movies_path %>
+
+<h1>Top Books</h1>
+  <% @books.each do |book| %>
+  <h2><%= link_to "#{book.name}", book_path(book.id) %>
+    <small>Ranked: <%= book.ranking %></small>
+  </h2>
+  <% end %>
+<!-- View More Books -->
+<%= link_to "View More Books", books_path %>
+
+<h1>Top Albums</h1>
+  <% @albums.each do |album| %>
+  <h2><%= link_to "#{album.name}", album_path(album.id) %>
+    <small>Ranked: <%= album.ranking %></small>
+  </h2>
+  <% end %>
+<!-- View More Albums -->
+<%= link_to "View More Albums", albums_path %>

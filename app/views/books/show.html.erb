@@ -1,0 +1,13 @@
+<%= render :partial => "shared/header"  %>
+
+<h1><%= @book.name %>
+  <small>Written by: <%= @book.author %></small>
+</h1>
+
+<h4>Ranked: <%= @book.ranking %></h4>
+<p><%= @book.description %></p>
+
+<%= button_to "Edit #{@book.name}", edit_book_path(@book.id), method: "get"%>
+<%= button_to "DELETE", book_path(@book.id), method: "delete", data: { confirm: "Are you sure?" } %>
+<%= button_to "View All Books", books_path, method: "get" %>
+<%= button_to "View All Media", root_path, method: "get" %>
