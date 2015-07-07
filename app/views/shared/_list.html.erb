@@ -1,0 +1,5 @@
+<%= render partial: "shared/list", locals: {media: @media_type_change} %>
+<% media.each do |media| %>
+  <%= link_to "#{media.name}", movie_path(media.id) %>
+  Ranked: <%= media.rank  %>
+<% end %>
