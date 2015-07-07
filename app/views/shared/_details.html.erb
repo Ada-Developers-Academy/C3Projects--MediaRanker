@@ -13,3 +13,10 @@
 <p>
   <%= medium.description %>
 </p>
+
+<!-- make these links universal -->
+<!-- upvote button -->
+<%= link_to "Edit", "./#{params[:id]}/edit" %>
+<%= link_to "Delete", "", method: :delete, data: { confirm: "Are you sure you want to delete '#{medium.title}'?" } %>
+<%= link_to "View All #{medium.class.name}s", "/#{medium.class.name.downcase}s" %>
+<%= link_to "View All Media", media_path %>
