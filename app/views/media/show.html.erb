@@ -1,3 +1,5 @@
+<%= render partial: "header" %>
+
 <% if @type == "movie" %>
   <%= render partial: "media_details", locals: { byline: "Directed by " } %>
 <% elsif @type == "book" %>
