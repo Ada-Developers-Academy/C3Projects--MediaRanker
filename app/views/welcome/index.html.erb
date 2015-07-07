@@ -1,13 +1,10 @@
-<h1> Media Ranker </h1>
-<h2> Ranking the Best of Everything </h2>
-
 
 <h1> Top Movies </h1>
 
 <ul>
   <% @all_movies.collect do |movie| %>
    <li>
-     <%= movie.name %> Ranked: <%= movie.rank %>
+     <%= link_to "#{movie.name}", "/movies/#{movie.id}" %> Ranked: <%= movie.rank %>
      <% end %>
    </li>
    <li>
@@ -20,7 +17,7 @@
 <ul>
   <% @all_books.collect do |book| %>
   <li>
-    <%= book.name %> Ranked: <%= book.rank %>
+    <%= link_to "#{book.name}", "/books/#{book.id}" %> Ranked: <%= book.rank %>
     <% end %>
   </li>
   <li>
@@ -33,7 +30,7 @@
 <ul>
   <% @all_albums.collect do |album| %>
   <li>
-    <%= album.name %> Ranked: <%= album.rank %>
+    <%= link_to "#{album.name}", "/albums/#{album.id}" %> Ranked: <%= album.rank %>
     <% end %>
   </li>
   <li>
