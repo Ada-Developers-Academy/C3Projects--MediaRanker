@@ -1,0 +1,27 @@
+<ul>
+  <% @medium.errors.each do |column, message| %>
+    <li>
+      <strong><%= column.capitalize %></strong> <%= message %>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= form_for @medium do |f| %>
+  <fieldset>
+    <legend>New [THINGY]</legend>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name, :required => true %>
+
+    <%= f.label :contributor, "[CONTRIBUTOR]" %>
+    <%= f.text_field :contributor %>
+
+    <%= f.label :description, "Description" %>
+    <%= f.text_field :description %>
+
+    <%= f.hidden_field :media_type, :value => "movie" %>
+  </fieldset>
+
+  <%= f.submit "Save" %>
+
+<% end %>
