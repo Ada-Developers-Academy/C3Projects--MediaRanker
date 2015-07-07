@@ -1,1 +1,5 @@
-HI!
+
+<%= render partial: "shared/list", locals: {
+  objects: @movies,
+  single_route: movie_path
+  } %>
