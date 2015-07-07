@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.best
+    @movies = Movie.all
   end
 
   def show
