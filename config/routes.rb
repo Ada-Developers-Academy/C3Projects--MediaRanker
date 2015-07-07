@@ -8,19 +8,19 @@ Rails.application.routes.draw do
 
   get '/movies' => 'movies#index'
 
-  get '/movies/new' => 'movies#new'
-  post '/movies/new/:id' => 'movies#create'
+  # get '/movies/new' => 'movies#new'
+  # post '/movies/new/:id' => 'movies#create'
+  #
+  # delete '/movies/:id' => 'tasks#destroy'
+  #
+  # get '/movies/:id' => 'movies#show'
+  #
+  # get '/movies/:id/edit' => 'movies#edit'
+  # patch '/movies/:id' => 'movies#update'
 
-  delete '/movies/:id' => 'tasks#destroy'
-
-  get '/movies/:id' => 'movies#show'
-
-  get '/movies/:id/edit' => "movies#edit"
-  patch '/movies/:id => "movies#update"
 
 
-
-  # Example of regular route:
+   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

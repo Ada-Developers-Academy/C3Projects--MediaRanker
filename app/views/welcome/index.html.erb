@@ -1,0 +1,16 @@
+<h2> Top Movies </h2>
+
+<% @movies.each do |movie| %>
+  <%= movie.name %>
+    <p> ranked </p> <%= movie.rank %>
+<% end %>
+
+<% @books.each do |book| %>
+  <%= book.name %>
+    <p> ranked </p> <%= book.rank %>
+<% end %>
+
+<% @albums.each do |album| %>
+  <%= album.name %>
+    <p> ranked </p> <%= album.rank %>
+<% end %>
