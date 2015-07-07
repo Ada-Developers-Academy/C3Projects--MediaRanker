@@ -27,6 +27,7 @@ class MoviesController < ApplicationController
     @movie = Movie.create(create_params[:movie])
     @movie.rank = 0
     @movie.save
+
     if @movie.save
       redirect_to movie_path(@movie.id)
     else

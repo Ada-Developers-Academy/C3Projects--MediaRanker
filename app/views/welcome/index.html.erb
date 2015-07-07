@@ -7,3 +7,19 @@
 <% end %>
 
 <%= link_to "View More Movies", movies_path %>
+
+<h1>Top Books</h1>
+<% @books.each do |book| %>
+  <h2><%= link_to "#{book.title}", book_path(book.id), method: "get" %></h2>
+  <p>Ranked: <%= book.rank %></p>
+<% end %>
+
+<%= link_to "View More Books", books_path %>
+
+<h1>Top Albums</h1>
+<% @albums.each do |album| %>
+  <h2><%= link_to "#{album.title}", album_path(album.id), method: "get" %></h2>
+  <p>Ranked: <%= album.rank %></p>
+<% end %>
+
+<%= link_to "View More Albums", albums_path %>

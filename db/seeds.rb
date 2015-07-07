@@ -20,3 +20,18 @@ movies = [
 movies.each do |movie|
   Movie.create(movie)
 end
+
+# books = [
+#   {title: "Infinite Jest",
+#     author: "David Foster Wallace",
+#     rank: 3,
+#     description: "Short fiction about puppies."},
+#   {title: "2666",
+#     author: "Roberto Bolano",
+#     rank: 6,
+#     description: "Short fiction about kitties."}
+# ]
+#
+# books.each do |book|
+#   Book.create(book)
+# end
