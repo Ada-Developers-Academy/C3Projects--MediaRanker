@@ -1,0 +1,15 @@
+<h1><%= object.name %></h1>
+<h2><%= by + object_person %></h2>
+
+<p>Ranked: <%= object.rank %></p>
+<p><%= object.description %></p>
+
+<%= button_to "Upvote", "ROUTE STUFF STILL NEED TO ENTER", method: "patch" %>
+
+<%= link_to "Edit #{object.name}", edit_single_route, method: "get" %>
+
+<%= link_to "DELETE", single_route, method: "delete" %>
+
+<%= link_to "View All #{object_type}", single_route, method: "get" %>
+
+<%= link_to "View All Media", root_path, method: "get" %>
