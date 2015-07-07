@@ -2,3 +2,6 @@
   <%= @book.name %>
   <small> Written by: <%= @book.author %> </small>
 </h1>
+<h3> Ranked: <%= @book.rank %> </h3>
+<p> <%= @book.description %> </p>
+<%= button_to "Delete", book_path, method: :delete %>

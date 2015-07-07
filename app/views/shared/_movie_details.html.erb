@@ -2,3 +2,6 @@
   <%= @movie.name %>
   <small> Directed by: <%= @movie.director %> </small>
 </h1>
+<h3> Ranked: <%= @movie.rank %> </h3>
+<p> <%= @movie.description %> </p>
+<%= button_to "Delete", movie_path, method: :delete %>

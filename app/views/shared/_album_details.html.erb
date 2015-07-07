@@ -2,3 +2,6 @@
   <%= @album.name %>
   <small> Recorded by: <%= @album.artist %> </small>
 </h1>
+<h3> Ranked: <%= @album.rank %> </h3>
+<p> <%= @album.description %> </p>
+<%= button_to "Delete", album_path, method: :delete %>
