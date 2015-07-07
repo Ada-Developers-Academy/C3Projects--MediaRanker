@@ -1,0 +1,11 @@
+<table>
+  <th><%= "Top #{object.name}s" %></th>
+  <% object.each do |detail| %>
+    <tr>
+      <td><%= link_to "#{detail.name}", "#{object.name.downcase}s/#{detail.id}" %></td>
+      <td><%= "Ranked as: #{detail.rank}" %></td>
+    </tr>
+    <th>
+  <% end %>
+</table>
+
