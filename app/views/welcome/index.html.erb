@@ -1,0 +1,42 @@
+<h1> Media Ranker </h1>
+<h2> Ranking the Best of Everything </h2>
+
+
+<h1> Top Movies </h1>
+
+<ul>
+  <% @all_movies.collect do |movie| %>
+   <li>
+     <%= movie.name %> Ranked: <%= movie.rank %>
+     <% end %>
+   </li>
+   <li>
+     <%= link_to "View More Movies", "/movies" %>
+   </li>
+</ul>
+
+<h1> Top Books </h1>
+
+<ul>
+  <% @all_books.collect do |book| %>
+  <li>
+    <%= book.name %> Ranked: <%= book.rank %>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to "View More Books", "/books" %>
+  </li>
+</ul>
+
+<h1> Top Albums </h1>
+
+<ul>
+  <% @all_albums.collect do |album| %>
+  <li>
+    <%= album.name %> Ranked: <%= album.rank %>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to "View More Albums", "/albums" %>
+  </li>
+</ul>

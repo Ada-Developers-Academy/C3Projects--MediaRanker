@@ -1,0 +1,18 @@
+this is the partial
+
+
+<table>
+  <tr>
+    <th> Ranking </th>
+    <th> Name </th>
+    <th> Upvote </th>
+  </tr>
+  <tr>
+    <% @all.each do |singular| %>
+    <td> <%= singular.rank %> </td>
+    <td> <%= singular.name %> </td>
+    <td> <%= button_to "Upvote" %> </td>
+  </tr>
+    <% end %>
+    
+</table>
