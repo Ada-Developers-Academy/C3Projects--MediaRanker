@@ -1,17 +1,2 @@
-<ol>
-  <%= @movies.each do |movie| %>
-    <li><%= link_to movie.name, movie_path(movie.id) %> Ranked: <%= movie.rank %></li>
-  <% end %>
-</ol>
-
-<ol>
-  <%= @books.each do |book| %>
-    <li><%= link_to book.name, book_path(book.id) %> Ranked: <%= book.rank %></li>
-  <% end %>
-</ol>
-
-<ol>
-  <%= @albums.each do |album| %>
-    <li><%= link_to album.name, album_path(album.id) %> Ranked: <%= album.rank %></li>
-  <% end %>
-</ol>
+<%= render partial: "shared/front_page_list",
+  locals: { categories: {movies: @movies, books: @books, albums: @albums} } %>

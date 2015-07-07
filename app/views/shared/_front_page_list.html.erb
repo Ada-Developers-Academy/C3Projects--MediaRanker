@@ -1,0 +1,7 @@
+<% categories.each do |category| %>
+  <ol>
+    <% category[1].each do |object| %>
+      <li><%= link_to object.name, "/#{category[0]}/#{object.id}" %> Ranked: <%= object.rank %></li>
+    <% end %>
+  </ol>
+<% end %>
