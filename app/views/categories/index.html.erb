@@ -1,0 +1,6 @@
+<%= @categories.each do |category| %>
+  <h1>Top <%= category %>s</h1>
+  <% category.all.each do |item| %>
+    <h2>item.name <small>item.upvotes</small></h2>
+  <% end %>
+<% end %>
