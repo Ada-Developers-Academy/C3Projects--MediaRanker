@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
 
   # Show album(s)
   def index
-    @albums = Album.order(:name)
+    @albums = Album.best(10)
   end
 
   def show
