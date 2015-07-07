@@ -1,4 +1,9 @@
 <%= render 'shared/header' %>
 
 <h1>Top Movies</h1>
+<% @movies.each do |movie| %>
+  <h2><%= link_to "#{movie.title}", movie_path(movie.id), method: "get" %></h2>
+  <p>Ranked: <%= movie.rank %></p>
+<% end %>
+
 <%= link_to "View More Movies", movies_path %>

@@ -10,9 +10,12 @@
   <% @movies.each do |movie| %>
     <tr>
       <td>Ranked: <%= movie.rank %></td>
-      <td><%= movie.title %></td>
-      <td><%= button_to "Upvote" %></td>
+      <td><%= link_to "#{movie.title}", movie_path(movie.id), method: "get" %></td>
+      <td><%= button_to "Upvote", movie_upvote_path(movie.id), method: "patch" %></td>
     </tr>
   <% end %>
 
 </table>
+
+<%= button_to "View All Media", root_path, method: "get" %>
+<%= button_to "Add a Movie", new_movie_path, method: "get" %>
