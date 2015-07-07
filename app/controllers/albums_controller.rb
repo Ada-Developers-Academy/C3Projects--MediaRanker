@@ -14,20 +14,31 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album = Album.new
+    @media = Album.new
+    @creator = :artist
   end
 
   def create
-    Album.create(album_params)
-    redirect_to albums_path
+    album = Album.create(album_params)
+    if album.save
+      redirect_to albums_path
+    else
+      render :new
+    end
   end
 
   def edit
-    @album = Album.find(params[:id])
+    @media = Album.find(params[:id])
+    @creator = :artist
   end
 
   def update
-
+    album = Album.find(params[:id])
+    if album.update(album_params)
+      redirect_to album_path(album)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -39,7 +50,7 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:name, :artist, :description, :rank)
+    params.require(:album).permit(:name, :artist, :description)
   end
 
 end

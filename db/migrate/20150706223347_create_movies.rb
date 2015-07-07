@@ -2,9 +2,9 @@ class CreateMovies < ActiveRecord::Migration
   def change
     create_table :movies do |t|
       t.string :name, null: false
-      t.string :director, null: false
-      t.string :description, null: false
-      t.integer :rank, null: false, default: 0
+      t.string :director
+      t.string :description
+      t.integer :rank, default: 0
 
       t.timestamps null: false
     end
