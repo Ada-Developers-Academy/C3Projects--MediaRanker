@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>C3ProjectsMediaranker</title>
+  <title>Game Guru</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <h1> Games Guru</h1> <h2>An active ranking of games by and for the gaming community</h2>
+
+  </header>
 
 <%= yield %>
-
 </body>
+  <footer>
+    <p><%= link_to "Game Guru", "/"%></p>
+    <p>by Brenna Leker © <%= Time.now.year %></p>
+  </footer>
 </html>

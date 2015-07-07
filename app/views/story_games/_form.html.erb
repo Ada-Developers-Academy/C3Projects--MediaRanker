@@ -1,0 +1,13 @@
+<%= form_for item do |f| %>
+
+<%= f.label :title, "#{title_desc}" %>
+<%= f.text_field :title, class: "form_field", required: true, autofocus: true, placeholder: title_placeholder, value: title_value %>
+<%= f.label :description, "#{address_desc}" %>
+<%= f.text_field :description, class: "form_field", placeholder: description_placeholder, value: description_value %>
+<%= f.label :author, "#{author_desc}" %>
+<%= f.text_field :author, class: "form_field", placeholder: author_placeholder, value: author_value %>
+<%= f.label :note_cards, "#{stars_desc}" %>
+<%= f.text_field :note_cards class: "form_field", placeholder: stars_placeholder, value: stars_value %>
+
+<%= f.submit submit_button, class: "submit_button" %>
+<% end %>
