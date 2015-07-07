@@ -47,6 +47,12 @@ group :development, :test do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  # Add ability to use Rspec in rails
+  gem 'rspec-rails'
+
+  # Add ability to see how much of the application is being covered by Specs
+  gem 'simplecov', require: false
 end
 
 group :production do
