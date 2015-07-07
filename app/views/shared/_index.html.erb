@@ -5,12 +5,11 @@
     <th>Upvote</th>
   </tr>
 
-
     <% types.each do |type| %>
     <tr>
       <td><%= type.rank %></td>
       <td><%= type.name %></td>
-      <td><%= button_to "Upvote", url %></td>
+      <td><%= button_to "Upvote" %></td>
     </tr>
     <% end %>
 
