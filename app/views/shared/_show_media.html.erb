@@ -1,5 +1,13 @@
+<% media = media.sort_by(&:rank) %>
+
 <% media.each do |medium| %>
-  <%= medium.title %>
+  <% if medium.class == Movie %>
+    <%= link_to "#{medium.title}", movie_path(id: medium.id) %>
+  <% elsif medium.class == Book %>
+    <%= link_to "#{medium.title}", book_path(id: medium.id) %>
+  <% elsif medium.class == Album %>
+    <%= link_to "#{medium.title}", album_path(id: medium.id) %>
+  <% end %>
   <ul>
     <li>
       <% if medium.class == Movie %>

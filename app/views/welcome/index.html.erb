@@ -1,10 +1,35 @@
 <h1>Media Ranker</h1>
 
-<h3>Movies</h3>
-<%= render "shared/show_media", media: @movies %>
+<% @media_types = ["Movies", "Books", "Albums"] %>
 
-<h3>Books</h3>
-<%= render "shared/show_media", media: @books %>
-
-<h3>Albums</h3>
-<%= render "shared/show_media", media: @albums %>
+<table>
+  <tr>
+    <% @media_types.each do |medium| %>
+      <th>
+        <h3><%= medium %></h3>
+      </th>
+    <% end %>
+  </tr>
+  <tr>
+    <td>
+      <%= render "shared/show_media", media: @movies %>
+    </td>
+    <td>
+      <%= render "shared/show_media", media: @books %>
+    </td>
+    <td>
+      <%= render "shared/show_media", media: @albums %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to "View more Movies", movies_path %>
+    </td>
+    <td>
+      <%= link_to "View more Books", books_path %>
+    </td>
+    <td>
+      <%= link_to "View more Albums", albums_path %>
+    </td>
+  </tr>
+</table>

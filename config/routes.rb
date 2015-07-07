@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #   resources :products
   resources :movies
   resources :books
-  resources :alums
+  resources :albums
 
   # Example resource route with options:
   #   resources :products do
