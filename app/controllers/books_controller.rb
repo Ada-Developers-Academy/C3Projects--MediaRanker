@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.create(permit_params)
+    Book.create(permit_params)
 
     super
   end
@@ -23,13 +23,13 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id]).update(permit_params)
+    Book.find(params[:id]).update(permit_params)
 
     super
   end
 
   def destroy
-    @book = Book.find(params[:id]).destroy
+    Book.find(params[:id]).destroy
 
     super
   end
