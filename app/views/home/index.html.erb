@@ -1,16 +1,19 @@
 <h1>Media Ranking: Ranking the Best of Everything!</h1>
   <h2>Bangin' Jams</h2>
-  <!-- <% @all_media.each do |media| %> -->
-  <!-- <tr> -->
-    <!-- <% media.each do |media_type| %> -->
-      <!-- <td><%= media_type.title %>Ranking: <%= media_type.ranking %></td> -->
-    <!-- <% end %> -->
-    <!-- </tr> -->
-  <!-- <% end %> -->
-
-  <!-- change display to under headings instead of table formatting -->
-
-
+    <div>
+      <% @albums.each do |album| %>
+      <h3 class="ranking"><%= link_to "#{album.title}", albums_path, method: :get, class: "title" %> Ranking:<%= album.ranking %></h3>
+      <% end %>
+    </div>
   <h2>Awesome Reads</h2>
-
+    <div>
+      <% @books.each do |book| %>
+      <h3 class="ranking"><%= link_to "#{book.title}", books_path, method: :get, class: "title" %> Ranking:<%= book.ranking %></h3>
+      <% end %>
+    </div>
   <h2>Must Watch Movies</h2>
+    <div>
+      <% @movies.each do |movie| %>
+      <h3 class="ranking"><%= link_to "#{movie.title}", movies_path, method: :get, class: "title" %> Ranking:<%= movie.ranking %></h3>
+      <% end %>
+    </div>
