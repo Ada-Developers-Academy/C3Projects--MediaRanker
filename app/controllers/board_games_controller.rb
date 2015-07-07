@@ -19,7 +19,7 @@ class BoardGamesController < ApplicationController
   def create
     @board_game = BoardGame.create(board_game_params[:board_game])
 
-    redirect_to board_game_path
+    redirect_to board_game_path(@board_game.id)
   end
 
   # Update an existing Board Game
@@ -36,6 +36,14 @@ class BoardGamesController < ApplicationController
     @board_game.update(board_game_params[:board_game])
 
     redirect_to board_game_path
+  end
+
+  def destroy
+    @board_game_id = params[:id]
+    @board_game = BoardGame.find(@board_game_id)
+    @board_game.destroy
+
+    redirect_to board_games_path
   end
 
   private

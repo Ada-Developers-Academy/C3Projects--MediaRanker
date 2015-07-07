@@ -19,7 +19,7 @@ class StoryGamesController < ApplicationController
   def create
     @story_game = StoryGame.create(story_game_params[:story_game])
 
-    redirect_to story_game_path
+    redirect_to story_game_path(@story_game.id)
   end
 
   # Update an existing Story Game
@@ -37,6 +37,15 @@ class StoryGamesController < ApplicationController
 
     redirect_to story_game_path
   end
+
+  def destroy
+    @story_game_id = params[:id]
+    @story_game = StoryGame.find(@story_game_id)
+    @story_game.destroy
+
+    redirect_to story_games_path
+  end
+
 
   private
 
