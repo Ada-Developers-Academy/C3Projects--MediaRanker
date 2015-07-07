@@ -4,8 +4,10 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create(create_params[:task])
-    @movie.save
+    @new_movie = Movie.create(create_params[:movie])
+    @new_movie.save
+
+    redirect_to movie_path(@new_movie.id)
   end
 
   def new
@@ -13,6 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    @movie = Movie.find(params[:id])
 
   end
 
