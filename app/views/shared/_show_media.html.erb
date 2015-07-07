@@ -1,0 +1,16 @@
+<% media.each do |medium| %>
+  <%= medium.title %>
+  <ul>
+    <li>
+      <% if medium.class == Movie %>
+        <%= medium.director %>
+      <% elsif medium.class == Book %>
+        <%= medium.author %>
+      <% elsif medium.class == Album %>
+        <%= medium.artist %>
+      <% end %>
+    </li>
+    <li><%= medium.description %></li>
+    <li><%= medium.rank %></li>
+  </ul>
+<% end %>
