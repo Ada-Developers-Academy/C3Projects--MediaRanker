@@ -3,23 +3,22 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  root 'welcome#index'
   resources :movies, :albums, :books
 
-  # resources :movies
-  # get '/movies' => 'movies#index'
-  #
-  # get '/movies/new' => 'movies#new'
-  # post '/movies/new/:id' => 'movies#create'
-  #
-  # delete '/movies/:id' => 'tasks#destroy'
-  #
-  # get '/movies/:id' => 'movies#show'
-  #
-  # get '/movies/:id/edit' => "movies#edit"
-  # patch '/movies/:id => "movies#update"
-  #
-  #
+  get '/movies' => 'movies#index'
+
+  get '/movies/new' => 'movies#new'
+  post '/movies/new/:id' => 'movies#create'
+
+  delete '/movies/:id' => 'tasks#destroy'
+
+  get '/movies/:id' => 'movies#show'
+
+  get '/movies/:id/edit' => "movies#edit"
+  patch '/movies/:id => "movies#update"
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
