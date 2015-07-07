@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.all.order('ranking DESC')
 
   end
 
@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
       new_ranking = @movie.ranking + 1
       @movie.update(ranking: new_ranking)
     end
-    
+
     redirect_to movie_path(@movie.id)
   end
 
