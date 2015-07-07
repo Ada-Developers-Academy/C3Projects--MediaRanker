@@ -1,0 +1,7 @@
+<% if @type == "book" %>
+  <%= render partial: "book_details" %>
+<% elsif @type == "movie" %>
+  <%= render partial: "movie_details"%>
+<% elsif @type == "album" %>
+  <%= render partial: "album_details" %>
+<% end %>
