@@ -7,4 +7,5 @@
 
 <%= button_to "Upvote", upvote_album_path(@album) %>
 <%= button_to "Edit #{@album.name}", edit_album_path, method: :get %>
+<%= button_to "Delete", "/albums/#{@album.id}", method: :delete, data: { confirm: "Are you sure you want to delete this?"} %>
 

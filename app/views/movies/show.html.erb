@@ -8,5 +8,6 @@
 
 <%= button_to "Upvote", upvote_movie_path(@movie) %>
 <%= button_to "Edit #{@movie.name}", edit_movie_path, method: :get %>
+<%= button_to "Delete", "/movies/#{@movie.id}", method: :delete, data: { confirm: "Are you sure you want to delete this?"} %>
 
 

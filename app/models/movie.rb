@@ -4,5 +4,5 @@ class Movie < ActiveRecord::Base
   validates :director, presence: true
 
 
-  scope :ranking, -> { order("rank DESC").limit(5) }
+  scope :ranking, -> (total) { order("rank DESC").limit(total) }
 end

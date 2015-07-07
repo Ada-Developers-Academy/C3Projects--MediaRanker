@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
   def index
-    @albums = Album.ranking
+    @albums = Album.ranking(15)
   end
 
   def show
@@ -37,6 +37,13 @@ class AlbumsController < ApplicationController
     @album.update(create_params[:album])
 
     redirect_to album_path(@album)
+  end
+
+  def destroy
+    edit
+    @album.destroy
+
+    redirect_to albums_path
   end
 
   private

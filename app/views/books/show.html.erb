@@ -7,4 +7,5 @@
 
 <%= button_to "Upvote", upvote_book_path(@book) %>
 <%= button_to "Edit #{@book.name}", edit_book_path, method: :get %>
+<%= button_to "Delete", "/books/#{@book.id}", method: :delete, data: { confirm: "Are you sure you want to delete this?"} %>
 

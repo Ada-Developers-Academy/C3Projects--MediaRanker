@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.ranking
+    @movies = Movie.ranking(15)
   end
 
   def show
@@ -37,6 +37,13 @@ class MoviesController < ApplicationController
     @movie.update(create_params[:movie])
 
     redirect_to movie_path(@movie)
+  end
+
+  def destroy
+    edit
+    @movie.destroy
+
+    redirect_to movies_path
   end
 
   private

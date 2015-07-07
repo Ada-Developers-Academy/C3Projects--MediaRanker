@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.ranking
+    @books = Book.ranking(15)
   end
 
   def show
@@ -37,6 +37,13 @@ class BooksController < ApplicationController
     @book.update(create_params[:book])
 
     redirect_to book_path(@book)
+  end
+
+  def destroy
+    edit
+    @book.destroy
+
+    redirect_to books_path
   end
 
   private
