@@ -11,7 +11,7 @@
 <% end %>
 
 <div>
-  <%= button_to "Edit #{@single.name}", "/#{@controller}/" %>
+  <%= button_to "Edit #{@single.name}", "/#{@controller}/#{@single.id}/edit" %>
   <%= button_to "Delete", "/controller/delete/#{@single.id}", method: "delete",
             data: {:confirm => "Are you sure?"} %>
   <%= button_to "View All #{@controller.capitalize}", "/" %>
