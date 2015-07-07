@@ -1,16 +1,26 @@
-<h2> Top Movies </h2>
+<div class="index_column">
+  <h1> Top Movies </h1>
+  <% @movies.each do |movie| %>
+    <h2> <%= movie.name %>
+      <small> ranked <%= movie.rank %> </small>
+    </h2>
+  <% end %>
+</div>
 
-<% @movies.each do |movie| %>
-  <%= movie.name %>
-    <p> ranked </p> <%= movie.rank %>
-<% end %>
+<div class="index_column">
+  <h1> Top Books </h1>
+  <% @books.each do |book| %>
+    <h2> <%= book.name %>
+      <small> ranked <%= book.rank %> </small>
+    </h2>
+  <% end %>
+</div>
 
-<% @books.each do |book| %>
-  <%= book.name %>
-    <p> ranked </p> <%= book.rank %>
-<% end %>
-
-<% @albums.each do |album| %>
-  <%= album.name %>
-    <p> ranked </p> <%= album.rank %>
-<% end %>
+<div class="index_column">
+  <h1> Top Albums </h1>
+  <% @albums.each do |album| %>
+    <h2> <%= album.name %>
+      <small> ranked <%= album.rank %> </small>
+    </h2>
+  <% end %>
+</div>
