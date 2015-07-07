@@ -1,0 +1,15 @@
+<%= form_for @media, url: @url, method: @method do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label @by %>
+  <%= f.text_field :author %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.hidden_field :ranking, :value => 1 %>
+
+  <%= f.submit "Save" %>
+
+  <% end %>
