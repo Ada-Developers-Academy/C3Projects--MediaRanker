@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+  <% @all_records.each do |record| %>
+    <% id = record.id %>
+    <tr>
+      <td><%= record.upvotes || 0 %></td>
+      <td><%= link_to "#{ record.name }", "/#{ @url_helper }/#{ id }" %></td>
+      <td><%= link_to "Upvote", "/#{ @url_helper }/#{ id }/upvote" %></td>
+    </tr>
+  <% end %>
+</table>
