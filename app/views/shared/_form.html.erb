@@ -3,7 +3,7 @@
     <%= f.label :name %>
     <%= f.text_field :name, value: media.name, :required => true %>
 
-    <%= f.label :creator %>
+    <%= f.label :creator, creator_type %>
     <%= f.text_field :creator, value: media.creator  %>
 
     <%= f.label :description %>

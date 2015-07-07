@@ -34,15 +34,12 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  def add_a_vote
-    @movie = Movie.find(params[:id])
-    @movie.rank += 1
-  end
+
 
   def upvote
     @movie = Movie.find(params[:id])
-    @movie.add_a_vote
-    @movie.update(create_params[:rank])
+    @movie.add_a_vote(@movie)
+    @movie.update(create_params[:movie])
     render :show
   end
 
