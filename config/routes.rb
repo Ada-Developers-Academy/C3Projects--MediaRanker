@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :board_games
   resources :story_games
 
+  # upvote routes
+  post "/video_games/:id/upvote"  => "video_games#upvote", as: :upvote_video_game
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

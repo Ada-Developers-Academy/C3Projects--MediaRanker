@@ -20,7 +20,17 @@ class VideoGamesController < ApplicationController
   def create
     @video_game= VideoGame.create(video_game_params[:video_game])
 
-    redirect_to video_games_path
+    redirect_to video_game_path(@video_game.id)
+  end
+
+  # Upvote an existing Video Game
+  def upvote
+    @video_game_id = params[:id]
+    @video_game = VideoGame.find(@video_game_id)
+    @video_game.stars += 1
+    @video_game.save
+
+    redirect_to video_game_path(@video_game.id)
   end
 
   # Update an existing Video Game
@@ -36,7 +46,7 @@ class VideoGamesController < ApplicationController
     @video_game = VideoGame.find(@video_game_id)
     @video_game.update(video_game_params[:video_game])
 
-    redirect_to video_games_path(@video_game.id)
+    redirect_to video_game_path(@video_game.id)
   end
 
   def destroy
