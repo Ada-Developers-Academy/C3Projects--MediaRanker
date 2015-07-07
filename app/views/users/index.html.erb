@@ -6,8 +6,7 @@
     <small>Ranked: <%= movie.ranking %></small>
   </h2>
   <% end %>
-<!-- View More Movies -->
-  <%= link_to "View More Movies", movies_path %>
+<%= link_to "View More Movies", movies_path %>
 
 <h1>Top Books</h1>
   <% @books.each do |book| %>
@@ -15,7 +14,6 @@
     <small>Ranked: <%= book.ranking %></small>
   </h2>
   <% end %>
-<!-- View More Books -->
 <%= link_to "View More Books", books_path %>
 
 <h1>Top Albums</h1>
@@ -24,5 +22,4 @@
     <small>Ranked: <%= album.ranking %></small>
   </h2>
   <% end %>
-<!-- View More Albums -->
 <%= link_to "View More Albums", albums_path %>
