@@ -1,7 +1,7 @@
 class MediumController < ApplicationController
   def index
-    @books  = Book.all
-    @movies = Movie.all
-    @albums = Album.all
+    @books  = Book.all.order(vote: :desc)
+    @movies = Movie.all.order(vote: :desc)
+    @albums = Album.all.order(vote: :desc)
   end
 end
