@@ -14,11 +14,12 @@ class MoviesController < ApplicationController
   end
 
   def new
-
+    @movie = Movie.new
   end
 
   def create
-
+    Movie.create(movie_params)
+    redirect_to movies_path
   end
 
   def edit
@@ -32,4 +33,13 @@ class MoviesController < ApplicationController
   def destroy
 
   end
+
+
+
+  private
+
+  def movie_params
+    params.require(:movie).permit(:name, :director, :description)
+  end
+
 end
