@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
     @books = Book.all
     @albums = Album.all
 
-    render: index
+    render :index
   end
 end
 

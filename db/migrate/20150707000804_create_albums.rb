@@ -4,6 +4,7 @@ class CreateAlbums < ActiveRecord::Migration
       t.string :name
       t.string :artist
       t.string :description
+      t.integer :vote
 
       t.timestamps null: false
     end
