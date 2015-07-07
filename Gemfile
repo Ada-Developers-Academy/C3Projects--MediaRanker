@@ -38,6 +38,9 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
 
+  # Use rails helper for improved rails rspec interactions
+  gem "rspec-rails", "~> 3.0"
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
