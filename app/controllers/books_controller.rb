@@ -4,10 +4,13 @@ class BooksController < ApplicationController
   end
 
   def create
-    @new_book = Book.create(create_params[:book])
-    @new_book.save
+    @book = Book.create(create_params[:book])
 
-    redirect_to book_path(@new_book.id)
+    if @book.save
+      redirect_to book_path(@book.id)
+    else
+      render :new
+    end
   end
 
   def new
