@@ -9,7 +9,14 @@
     <tr>
       <td><%= type.rank %></td>
       <td><%= type.name %></td>
-      <td><%= button_to "Upvote" %></td>
+
+      <td>
+      <%= form_for type do |f| %>
+        <%= f.submit "Upvote" %>
+      <% end %>
+      </td>
+
+
     </tr>
     <% end %>
 

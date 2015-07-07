@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 movies = [
-  { name: "Mad Max", director: "George Miller", description: "Smash the patriarchy" },
-  { name: "Jurassic World", director: "Who cares", description: "Dinosaurs" }
+  { name: "Mad Max", director: "George Miller", description: "Smash the patriarchy", rank: 0 },
+  { name: "Jurassic World", director: "Who cares", description: "Dinosaurs", rank: 0 }
 ]
 
 movies.each do |movie|
@@ -15,8 +15,8 @@ movies.each do |movie|
 end
 
 books = [
-  { name: "1Q84", author: "Murakami", description: "cats" },
-  { name: "Brief Wondrous Life of Oscar Wao", author: "Junot Diez", description: "living in jersey" }
+  { name: "1Q84", author: "Murakami", description: "cats", rank: 0 },
+  { name: "Brief Wondrous Life of Oscar Wao", author: "Junot Diez", description: "living in jersey", rank: 0 }
 ]
 
 books.each do |book|
@@ -24,8 +24,8 @@ books.each do |book|
 end
 
 albums = [
-  { name: "A cool album", artist: "Stevie Wonder", description: "fun times" },
-  { name: "Daft Punk", artist: "Daft Punk", description: "dance dance dance" }
+  { name: "Superstitious", artist: "Stevie Wonder", description: "fun times", rank: 0 },
+  { name: "Daft Punk", artist: "Daft Punk", description: "dance dance dance", rank: 0 }
 ]
 
 albums.each do |album|
