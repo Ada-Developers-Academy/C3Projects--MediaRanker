@@ -43,4 +43,6 @@ group :development, :test do
   gem 'spring'
   gem 'better_errors'
   gem 'pry'
+  gem 'simplecov', require: false
+  gem 'rspec-rails', '~> 3.0'
 end
