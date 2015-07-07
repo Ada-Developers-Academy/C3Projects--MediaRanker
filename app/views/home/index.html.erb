@@ -1,20 +1,35 @@
 <h2> Top Movies </h2>
   <% @movies.each do |media| %>
     <p> <%= link_to "#{media.name}", movie_path(media.id) %>
-    Ranked: <%= media.rank %> </p>
+      Ranked:
+        <% unless media.rank.nil? %>
+        <%= media.rank  %>
+        <% else %>
+        <%= 0 %>
+        <% end %> </p>
   <% end %>
 <%= link_to "View More Movies", movies_path %>
 
 <h2> Top Books </h2>
   <% @books.each do |media| %>
     <p> <%= link_to "#{media.name}", book_path(media.id) %>
-    Ranked: <%= media.rank %> </p>
+      Ranked:
+        <% unless media.rank.nil? %>
+        <%= media.rank  %>
+        <% else %>
+        <%= 0 %>
+        <% end %> </p>
   <% end %>
 <%= link_to "View More Books", books_path %>
 
 <h2> Top Albums </h2>
   <% @albums.each do |media| %>
     <p> <%= link_to "#{media.name}", album_path(media.id) %>
-    Ranked: <%= media.rank %> </p>
+      Ranked:
+        <% unless media.rank.nil? %>
+        <%= media.rank  %>
+        <% else %>
+        <%= 0 %>
+        <% end %> </p>
   <% end %>
 <%= link_to "View More Albums", albums_path %>

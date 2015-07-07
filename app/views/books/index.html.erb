@@ -7,7 +7,12 @@
 
   <% @media.each do |media| %>
   <tr>
-    <td> Ranked: <%= media.rank  %></td>
+    <td> Ranked:
+      <% unless media.rank.nil? %>
+      <%= media.rank  %>
+      <% else %>
+      <%= 0 %>
+      <% end %> </td>
     <td> <%= link_to "#{media.name}", book_path(media.id) %></td>
     <td> <%= button_to "Upvote", book_upvote_path(media.id), method: "patch" %> </td>
     </tr>
