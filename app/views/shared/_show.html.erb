@@ -5,6 +5,7 @@
 <p> <%= @single.description %> </p>
 
 <%= form_for @controller do |f| %>
+  <%= f.hidden_field :rank, value: @single.rank += 1 %>
   <%= f.submit "Upvote" %>
 <% end %>
 
