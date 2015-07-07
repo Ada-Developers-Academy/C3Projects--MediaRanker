@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.vote %></td>
+      <td><%= link_to movie.name, movie_path(movie.id) %></td>
+      <td><%= button_to "Upvote", upvote_movie_path(movie.id) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
