@@ -4,11 +4,9 @@
 
 <p> <%= @album.description %> </p>
 
-
-
-<%= button_to "Upvote", album_path(@album.id), method: "patch" %>
+<%= button_to "Upvote", album_path(@album), method: "patch" %>
 <%= button_to "Edit #{@album.name}", edit_album_path, method: "get" %>
-<%= button_to "Delete", album_path(@album.id), method: "delete", data: { confirm: "Are you sure you want to delete?" } %>
+<%= button_to "Delete", album_path(@album), method: "delete", data: { confirm: "Are you sure you want to delete?" } %>
 
 <%= button_to "View All Albums", albums_path, method: "get" %>
 <%= button_to "View All Media", root_path, method: "get" %>

@@ -8,8 +8,8 @@
     <% @books.each do |book| %>
       <tr>
         <td> Ranked: <%= book.ranking %> </td>
-        <td> <%= link_to book.name, book_path(book.id) %> </td>
-        <td> <%= button_to "Upvote", book_path(book.id), method: "patch" %> </td>
+        <td> <%= link_to book.name, book_path(book) %> </td>
+        <td> <%= button_to "Upvote", book_path(book), method: "patch" %> </td>
       </tr>
     <% end %>
   </tbody>

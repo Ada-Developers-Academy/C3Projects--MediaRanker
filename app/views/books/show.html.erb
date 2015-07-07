@@ -5,10 +5,9 @@
 <p> <%= @book.description %> </p>
 
 
-
-<%= button_to "Upvote", book_path(@book.id), method: "patch" %>
+<%= button_to "Upvote", book_path(@book), method: "patch" %>
 <%= button_to "Edit #{@book.name}", edit_book_path, method: "get" %>
-<%= button_to "Delete", book_path(@book.id), method: "delete", data: { confirm: "Are you sure you want to delete?" } %>
+<%= button_to "Delete", book_path(@book), method: "delete", data: { confirm: "Are you sure you want to delete?" } %>
 
 <%= button_to "View All Books", books_path, method: "get" %>
 <%= button_to "View All Media", root_path, method: "get" %>
