@@ -4,7 +4,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :name
       t.string :director
       t.string :description
-      t.integer :ranking
+      t.integer :ranking, :default => 0
 
       t.timestamps null: false
     end
