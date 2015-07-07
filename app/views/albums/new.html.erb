@@ -1,0 +1,5 @@
+<%= render 'shared/header' %>
+
+<h3>New Album </h3>
+
+<%= render partial: 'shared/form', locals: { object: @album, object_creator: :artist} %>

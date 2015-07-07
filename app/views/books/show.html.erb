@@ -5,6 +5,4 @@
 <h3>Ranked: <%= @book.rank %></h3>
 <h4><%= @book.description %></h4>
 
-<%= form_for @book do |f| %>
-  <%= f.submit "Upvote" %>
-<% end %>
+<%= button_to "Upvote", upvote_book_path(@book) %>

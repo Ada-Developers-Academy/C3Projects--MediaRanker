@@ -8,12 +8,30 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-  def update
+  def upvote
     book = Book.find(params[:id])
     book.rank += 1
     book.save
 
     redirect_to book_path
+  end
+
+  def new
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.create(create_params[:book])
+    @book.rank = 0
+    @book.save
+
+    redirect_to book_path(@book)
+  end
+
+  private
+
+  def create_params
+    params.permit(book: [:name, :author, :description, :rank])
   end
 
 end

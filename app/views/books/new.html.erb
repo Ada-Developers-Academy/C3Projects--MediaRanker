@@ -1,0 +1,5 @@
+<%= render 'shared/header' %>
+
+<h3>New Book</h3>
+
+<%= render partial: 'shared/form', locals: { object: @book, object_creator: :author} %>

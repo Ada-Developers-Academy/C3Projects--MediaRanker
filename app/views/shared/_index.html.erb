@@ -1,26 +1,11 @@
-<table>
-  <tr>
-    <th>Ranking</th>
-    <th>Name</th>
-    <th>Upvote</th>
-  </tr>
 
-    <% types.each do |type| %>
-    <tr>
-      <td><%= type.rank %></td>
-      <td><%= link_to type.name %></td>
-
-      <td>
-      <%= form_for type do |f| %>
-        <%= f.submit "Upvote" %>
-      <% end %>
-      </td>
+ <tr>
+   <td><%= object.rank %></td>
+   <td><%= link_to object.name, "/#{object_path}/#{object.id}" %></td>
+   <td><%= button_to "Upvote", "/#{object_path}/#{object.id}/upvote" %></td>
+ </tr>
 
 
-    </tr>
-    <% end %>
 
-</table>
 
-<%= button_to "View All Media", root_path, method: :get %>
 

@@ -5,6 +5,4 @@
 <h3>Ranked: <%= @album.rank %></h3>
 <h4><%= @album.description %></h4>
 
-<%= form_for @album do |f| %>
-  <%= f.submit "Upvote" %>
-<% end %>
+<%= button_to "Upvote", upvote_album_path(@album) %>

@@ -1,7 +1,12 @@
 <%= render "shared/header" %>
 
+<table>
 
-<%= render partial: "shared/index", locals: { types: @books } %>
+<%= render 'shared/index_sub_header' %>
 
+<%= render partial: "shared/index", collection: @books, as: :object, locals: { object_path: "books" } %>
 
-<%= button_to "Add a Book" %>
+</table>
+
+<%= button_to "View All Media", root_path, method: :get %>
+<%= button_to "Add a Book", new_book_path, method: :get %>

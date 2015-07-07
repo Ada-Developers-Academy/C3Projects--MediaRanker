@@ -1,5 +1,12 @@
 <%= render "shared/header" %>
 
-<%= render partial: "shared/index", locals: { types: @albums } %>
+<table>
 
-<%= button_to "Add an Album" %>
+<%= render 'shared/index_sub_header' %>
+
+<%= render partial: "shared/index", collection: @albums, as: :object, locals: { object_path: "albums" } %>
+
+</table>
+
+<%= button_to "View All Media", root_path, method: :get %>
+<%= button_to "Add an Album", new_album_path, method: :get %>

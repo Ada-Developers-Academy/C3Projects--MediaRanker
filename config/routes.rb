@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :books
   resources :albums
 
+  post 'movies/:id/upvote' => 'movies#upvote', as: :upvote_movie
+  post 'books/:id/upvote' => 'books#upvote', as: :upvote_book
+  post 'albums/:id/upvote' => 'albums#upvote', as: :upvote_album
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
