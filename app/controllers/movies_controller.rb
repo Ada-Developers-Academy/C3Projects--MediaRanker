@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
+
   end
 
   def create
@@ -20,20 +21,26 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+
   end
 
   def update
     @movie = Movie.find(params[:id])
 
-    new_name        = params[:movie][:name]
-    new_director    = params[:movie][:director]
-    new_description = params[:movie][:description]
+    if params[:movie]
+      new_name        = params[:movie][:name]
+      new_director    = params[:movie][:director]
+      new_description = params[:movie][:description]
 
-    @movie.update(           name: new_name,
-                         director: new_director,
-                      description: new_description
-    )
-
+      @movie.update(           name: new_name,
+                           director: new_director,
+                        description: new_description
+      )
+    else
+      new_ranking = @movie.ranking + 1
+      @movie.update(ranking: new_ranking)
+    end
+    
     redirect_to movie_path(@movie.id)
   end
 
@@ -42,6 +49,15 @@ class MoviesController < ApplicationController
     @movie.destroy
 
     redirect_to movies_path
+  end
+
+  def upvote
+    @movie = Movie.find(params[:id])
+    new_ranking = @movie.ranking + 1
+
+    @movie.update(ranking: new_ranking)
+
+    redirect_to movie_path(@movie.id)
   end
 
   private

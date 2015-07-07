@@ -4,7 +4,9 @@
 
 <p> <%= @movie.description %> </p>
 
-<%= button_to "Upvote" %>
+
+
+<%= button_to "Upvote", movie_path(@movie.id), method: "patch" %>
 <%= button_to "Edit #{@movie.name}", edit_movie_path, method: "get" %>
 <%= button_to "Delete", movie_path(@movie.id), method: "delete", data: { confirm: "Are you sure you want to delete?" } %>
 

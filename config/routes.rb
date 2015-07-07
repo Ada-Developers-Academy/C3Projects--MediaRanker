@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :albums
+
   resources :books
+
   resources :movies
+  patch 'movies/:id' => 'movie#upvote'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
