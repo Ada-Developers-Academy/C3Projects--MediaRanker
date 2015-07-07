@@ -26,11 +26,17 @@ class AlbumsController < ApplicationController
 
   def update
     @single = find_album
-    @single.rank += 1
     @single.update(create_params[:album])
     @single.save
 
     redirect_to "/albums/#{@album.id}"
+  end
+
+  def upvote
+    @single = find_album
+    @single.rank += 1
+
+    redirect_to root_path
   end
 
 

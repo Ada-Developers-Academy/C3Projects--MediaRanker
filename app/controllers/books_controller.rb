@@ -11,6 +11,35 @@ class BooksController < ApplicationController
     @creator = "Written by"
   end
 
+  def new
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.create(create_params[:book])
+    redirect_to "/books/#{@book.id}"
+  end
+
+  def edit
+    @single = find_book
+  end
+
+  def update
+    @single = find_book
+    @single.update(create_params[:book])
+    @single.save
+
+    redirect_to "/books/#{@book.id}"
+  end
+
+  def upvote
+    @single = find_book
+    @single.rank += 1
+
+    redirect_to root_path
+  end
+
+
   # PRIVATE METHODS ----------------------------------------------------------
 
 private

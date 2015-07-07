@@ -1,0 +1,16 @@
+<%= form_for media do |f| %>
+  <fieldset>
+      <%= f.label :name %>
+      <%= f.text_field :name, :required => true %>
+
+      <%= f.label :creator , creator %>
+      <%= f.text_field :creator %>
+
+      <%= f.label :description%>
+      <%= f.text_area :description %>
+
+      <%= f.hidden_field :id, value: media.id %>
+
+  </fieldset>
+      <%= f.submit %>
+<% end %>

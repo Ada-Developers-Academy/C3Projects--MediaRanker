@@ -17,5 +17,5 @@
 
 </table>
 
-<%= button_to "View All Media", "/" %>
-<%= button_to "Add a #{@controller.capitalize}", "#{@controller}/new" %>
+<%= link_to "View All Media", "/" %>
+<%= link_to "Add a #{@controller.capitalize}", "#{@controller}/new", method: :get %>
