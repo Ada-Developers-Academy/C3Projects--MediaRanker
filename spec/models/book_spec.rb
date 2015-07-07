@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   describe "model validations" do
-    it "requires a name" do
+    it "requires a name to be present" do
       book = Book.new
 
       expect(book).to_not be_valid
