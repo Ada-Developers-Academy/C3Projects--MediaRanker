@@ -49,6 +49,8 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.0'
   gem 'simplecov', :require => false, :group => :test
+
+  gem 'pry'
 end
 
 group :production do
