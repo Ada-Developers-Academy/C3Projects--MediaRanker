@@ -2,3 +2,4 @@
 <small><%= byline + @medium.contributor %></small>
 <h4>Ranked: <%= @medium.ranking %></h4>
 <p><%= @medium.description %></p>
+<%= button_to 'Upvote', upvote_medium_path %>
