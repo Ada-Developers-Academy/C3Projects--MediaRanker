@@ -1,1 +1,18 @@
-<h1>Movie Index Here!</h1>
+<%= render 'shared/header' %>
+
+<table>
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @movies.each do |movie| %>
+    <tr>
+      <td>Ranked: <%= movie.rank %></td>
+      <td><%= movie.title %></td>
+      <td><%= button_to "Upvote" %></td>
+    </tr>
+  <% end %>
+
+</table>

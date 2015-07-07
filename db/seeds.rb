@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+movies = [
+  {title: "Wet Hot American Summer",
+    director: "David Wain",
+    rank: 3,
+    description: "Serious coming-of-age drama."},
+  {title: "The Shining",
+    director: "Stanley Kubrick",
+    rank: 6,
+    description: "Lighthearted romp about a vacationing family."}
+]
+
+movies.each do |movie|
+  Movie.create(movie)
+end

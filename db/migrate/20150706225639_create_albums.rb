@@ -1,7 +1,7 @@
 class CreateAlbums < ActiveRecord::Migration
   def change
     create_table :albums do |t|
-      t.string :name, null: false
+      t.string :title, null: false
       t.string :artist
       t.integer :rank
       t.string :description
