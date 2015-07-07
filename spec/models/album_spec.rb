@@ -18,7 +18,6 @@ RSpec.describe Album, type: :model do
       @album4 = Album.create(name: 'whatevah', artist: 'some dude', description: 'descrip', ranking: 4)
     end
 
-
     it "orders albums according to ranking, highest to lowest" do
       top_albums = [@album4, @album1, @album3]
       expect(Album.top(3)).to eq(top_albums)
