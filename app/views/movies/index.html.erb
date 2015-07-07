@@ -1,0 +1,5 @@
+<ul>
+  <% @movies.each do |movie| %>
+    <li><%= link_to movie.name, medium_path(movie.id) %> Ranked: <%= movie.ranking %></li>
+  <% end %>
+</ul>
