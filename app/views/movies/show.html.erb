@@ -5,7 +5,7 @@
 <p> <%= @movie.description %> </p>
 
 <%= button_to "Upvote" %>
-<%= button_to "Edit #{@movie.name}" %>
+<%= button_to "Edit #{@movie.name}", edit_movie_path, method: "get" %>
 <%= button_to "Delete" %>
 
 <%= button_to "View All Movies", movies_path, method: "get" %>
