@@ -1,9 +1,9 @@
 class BooksController < ApplicationController
   def index
-    @books = Medium.books
+    @books = Book.all
   end
 
   def show
-    @book = Medium.find(params[:id])
+    @book = Book.find(params[:id])
   end
 end

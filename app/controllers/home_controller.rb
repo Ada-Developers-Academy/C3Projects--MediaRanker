@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @books = Medium.books
-    @movies = Medium.movies
-    @albums = Medium.albums
+    @books = Book.all
+    @movies = Movie.all
+    @albums = Album.all
   end
 end

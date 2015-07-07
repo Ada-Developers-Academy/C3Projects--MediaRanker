@@ -1,9 +1,9 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Medium.albums
+    @albums = Album.all
   end
 
   def show
-    @album = Medium.find(params[:id])
+    @album = Album.find(params[:id])
   end
 end

@@ -1,6 +1,4 @@
 <%= render partial: 'shared/table', locals: { media: @movies,
                                               item_path: "movie_path" } %>
 
-<p>Add a movie</p>
-
-<!-- , mediapath: movie_path -->
+<%= link_to "Add a movie", new_movie_path %>

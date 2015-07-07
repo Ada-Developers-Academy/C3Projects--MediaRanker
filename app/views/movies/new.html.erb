@@ -1,0 +1,17 @@
+<h1>New Movie</h1>
+
+<%= form_for @movie do |f| %>
+  <%= f.label :title, "Name:" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :creator, "Artist:" %>
+  <%= f.text_field :creator %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+<% end %>
+
+<!-- this can't find a correct path to submit to -->
+<!-- maybe too complicated, just three models after all -->
