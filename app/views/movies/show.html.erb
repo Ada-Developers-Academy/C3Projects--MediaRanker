@@ -4,3 +4,10 @@
 <h2>Directed by: <%= @movie.director %></h2>
 <h3>Ranked: <%= @movie.rank %></h3>
 <h4><%= @movie.description %></h4>
+
+
+<%= form_for @movie do |f| %>
+  <%= f.submit "Upvote" %>
+<% end %>
+
+<%= button_to "Edit #{@movie.name}", edit_movie_path(movie), method: :get %>

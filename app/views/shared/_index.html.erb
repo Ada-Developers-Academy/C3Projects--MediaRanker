@@ -8,7 +8,7 @@
     <% types.each do |type| %>
     <tr>
       <td><%= type.rank %></td>
-      <td><%= type.name %></td>
+      <td><%= link_to type.name %></td>
 
       <td>
       <%= form_for type do |f| %>
