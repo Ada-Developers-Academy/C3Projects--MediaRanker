@@ -1,5 +1,5 @@
 <h1> <%= @album.name %> </h1>
-<h3> Recorded by: <%= @album.artist %> </h3>
+<h3> Recorded by: <%= @album.creator %> </h3>
 <p> Ranked: <%= @album.rank %> </p>
 <p> <%= @album.description %> </p>
 <%= button_to "Upvote", album_upvote_path(@album.id), method: "patch" %>

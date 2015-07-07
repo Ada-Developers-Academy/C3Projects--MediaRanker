@@ -1,5 +1,5 @@
 <h1> <%= @movie.name %> </h1>
-<h3> Directed by: <%= @movie.director %> </h3>
+<h3> Directed by: <%= @movie.creator %> </h3>
 <p> Ranked: <%= @movie.rank %> </p>
 <p> <%= @movie.description %> </p>
 <%= button_to "Upvote", movie_upvote_path(@movie.id), method: "patch" %>

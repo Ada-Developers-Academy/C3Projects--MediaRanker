@@ -1,5 +1,5 @@
 <h1> <%= @book.name %> </h1>
-<h3> Written by: <%= @book.author %> </h3>
+<h3> Written by: <%= @book.creator %> </h3>
 <p> Ranked: <%= @book.rank %> </p>
 <p> <%= @book.description %> </p>
 <%= button_to "Upvote", book_upvote_path(@book.id), method: "patch" %>
