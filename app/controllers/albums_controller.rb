@@ -11,9 +11,13 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.create(album_params)
-    @album.save
-    redirect_to albums_path
+    @media = Album.create(album_params)
+    @by = :artist
+    if @media.save
+      redirect_to albums_path
+    else
+      render :new
+    end
   end
 
   def show
