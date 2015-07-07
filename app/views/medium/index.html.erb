@@ -1,0 +1,20 @@
+<div class="media">
+<h3>Top Books</h3>
+<% @books.each do |book| %>
+  <%= link_to book.name, book_path(book.id) %> by <%= book.vote %><br>
+<% end %>
+</div>
+
+<div class="media">
+<h3>Top Movies</h3>
+<% @movies.each do |movie| %>
+  <%= link_to movie.name, movie_path(movie.id) %> by <%= movie.vote %><br>
+<% end %>
+</div>
+
+<div class="media">
+<h3>Top Albums</h3>
+  <% @albums.each do |album| %>
+    <%= link_to album.name, album_path(album.id) %> by <%= album.vote %><br>
+  <% end %>
+</div>
