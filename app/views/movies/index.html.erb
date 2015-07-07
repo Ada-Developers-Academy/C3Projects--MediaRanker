@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @media.each do |media| %>
+  <tr>
+    <td> Ranked: <%= media.rank  %></td>
+    <td> <%= link_to "#{media.name}", movie_path(media.id) %></td>
+    <td> Upvote </td>
+
+  <% end %>
+</table>
