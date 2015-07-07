@@ -27,7 +27,7 @@ class BoardGamesController < ApplicationController
     @board_game_id = params[:id]
     @board_game = BoardGame.find(@board_game_id)
 
-    render edit_board_game_path
+    render :edit
   end
 
   def update
