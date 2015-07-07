@@ -1,0 +1,6 @@
+
+<%= render partial: "shared/forms", locals: {
+  object: @album,
+  details: [:name, :artist, :description],
+  http_verb: "patch"
+  } %>

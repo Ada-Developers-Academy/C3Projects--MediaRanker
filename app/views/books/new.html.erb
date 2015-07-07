@@ -1,5 +1,6 @@
 
 <%= render partial: "shared/forms", locals: {
   object: @books,
-  details: [:name, :author, :description]
+  details: [:name, :author, :description],
+  http_verb: "post"
   } %>

@@ -1,5 +1,6 @@
 
 <%= render partial: "shared/forms", locals: {
   object: @movie,
-  details: [:name, :director, :description]
+  details: [:name, :director, :description],
+  http_verb: "post"
   } %>
