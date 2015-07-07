@@ -1,0 +1,14 @@
+<h1>
+  <%= media.name %> <small><%= media_action %> by: <%= creator %></small>
+</h1>
+<h4>
+  Votes: <%= media.vote %>
+</h4>
+<p><%= media.desc %></p>
+
+UPVOTE BUTTON
+
+<%= button_to "Edit #{media.name}", edit_book_path %>
+<%= button_to "Delete", book_path, method: "delete" %>
+<%= button_to "View All #{media_type}", root_path %>
+<%= button_to "View All Media", books_path %>
