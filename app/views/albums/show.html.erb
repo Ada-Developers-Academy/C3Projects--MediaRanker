@@ -1,0 +1,19 @@
+<%= render "shared/header" %>
+
+<section>
+
+  <h1><%= @album.title %></h1>
+  <h3>Recorded by: <%= @album.artist %></h3>
+  <h4>Ranked: <%= @album.rank %></h4>
+  <p><%= @album.description %></p>
+  <%= button_to "Upvote", album_upvote_path(@album.id), method: "patch" %>
+
+</section>
+
+<footer>
+<%= button_to "Edit #{@album.title}", edit_album_path(@album.id), method: "get" %>
+<%= button_to "DELETE", "/albums/#{@album.id}", method: "delete", data: { confirm: "Are you sure?" } %>
+<%= button_to "View All Albums", albums_path, method: "get" %>
+<%= button_to "View All Media", root_path, method: "get" %>
+
+</footer>
