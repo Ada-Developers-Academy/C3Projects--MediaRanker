@@ -4,8 +4,15 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  resources :movies, :albums, :books
 
+  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+
+
+  resources :movies, :albums, :books do
+    collection do
+      post 'upvote'
+    end
+  end
   # get '/movies' => 'movies#index'
 
   # get '/movies/new' => 'movies#new'
