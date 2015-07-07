@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :movies
+  patch 'movies/:id/upvote' => "movies#upvote", as: "upvote_movie"
 
   resources :books
 
