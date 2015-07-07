@@ -3,5 +3,4 @@
   <small> Recorded by: <%= @album.artist %> </small>
 </h1>
 <h3> Ranked: <%= @album.rank %> </h3>
-<p> <%= @album.description %> </p>
-<%= button_to "Delete", album_path, method: :delete %>
+<%= button_to "Delete", { action: "destroy", id: @movie.id }, method: :delete, data: { confirm: "Are you sure?" } %>

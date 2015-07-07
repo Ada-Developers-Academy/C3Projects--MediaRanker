@@ -5,5 +5,6 @@
 <h3> Ranked: <%= @movie.rank %> </h3>
 <p> <%= @movie.description %> </p>
 <%= button_to "Edit #{@movie.name}", "/movies/edit", :method => "get" %>
-<%= button_to "Delete", movie_path, method: :delete %>
+<%= button_to "Delete", { action: "destroy", id: @movie.id }, method: :delete, data: { confirm: "Are you sure?" } %>
+
 <%= button_to "Upvote", upvote_movies_path(@movie.rank), method: :post %>
