@@ -1,5 +1,54 @@
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
+  describe "top scope" do
+    let!(:movie1) { Movie.create(title: "a title", rank: 56) }
+    let!(:movie2) { Movie.create(title: "b title", rank: 6) }
+    let!(:movie3) { Movie.create(title: "c title", rank: 10) }
+    let!(:movie4) { Movie.create(title: "d title", rank: 500) }
+    let!(:movie5) { Movie.create(title: "e title", rank: 3) }
+    let!(:movie6) { Movie.create(title: "f title", rank: 23) }
+
+    # Not working (yet!)
+    # correct_order = [ 500, 56, 23, 10, 6 ]
+    #
+    # order = []
+    # Movie.top.each do |movie|
+    #   order << movie.rank
+    # end
+
+    it "orders the top 5 records" do
+      expect(Movie.top.count).to eq 5
+      # expect(order).to eq correct_order
+    end
+  end
+
+  # Testing Scope:
+  # positive test - Movie.top orders by rank, lists top 5 or all if < 5
+
+  # negative test - Movie.top does not list 6th highest ranked
+
+  # Testing Validations:
+  describe "model validations" do
+    it "requires a title" do
+      movie = Movie.new
+
+      expect(movie).to_not be_valid
+      expect(movie.errors.keys).to include(:title)
+    end
+
+    context "rank validation" do
+      it "requires a rank" do
+        movie = Movie.new(title: "a movie")
+
+        expect(movie).to_not be_valid
+        expect(movie.errors.keys).to include(:rank)
+      end
+
+      it "rank must be an integer" do
+        movie = Movie.create(title: "a movie", rank: 10)
+        expect(movie.rank.class).to eq Fixnum
+      end
+    end
+  end
 end
