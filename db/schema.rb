@@ -13,45 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20150707205013) do
 
-  create_table "albums", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "artist"
-    t.text     "description"
-    t.integer  "upvotes"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "books", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "author"
-    t.text     "description"
-    t.integer  "upvotes"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "media", force: :cascade do |t|
     t.string   "title",       null: false
     t.string   "artist"
     t.text     "description"
     t.integer  "upvotes",     null: false
-    t.string   "type",        null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "movies", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "director"
-    t.text     "description"
-    t.integer  "upvotes"
+    t.string   "category",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

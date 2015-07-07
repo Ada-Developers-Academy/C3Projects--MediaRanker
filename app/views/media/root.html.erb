@@ -1,10 +1,12 @@
-<% @categories.each do |cat| %>
+<% @categorized_records.each do |category_group| %>
   <section class="category">
-    <% cat_folder = cat.to_s.downcase + "s" %>
-    <h1>Top <%= cat %>s</h1>
-    <% cat.all.each do |item| %>
-      <h2><%= link_to "#{ item.name }", "/#{ cat_folder }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h2>
+    <% category_name = category_group.shift() + "s" %>
+    <% category_group.flatten! %>
+    <% route_helper = category_name.downcase %>
+    <h1>Top <%= category_name %></h1>
+    <% category_group.each do |item| %>
+      <h2><%= link_to "#{ item.title }", "/#{ route_helper }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h2>
     <% end %>
-    <%= link_to "View More #{ cat }s", "/#{ cat_folder }" %>
+    <%= link_to "View More #{ category_name }", "/#{ route_helper }" %>
   </section>
 <% end %>

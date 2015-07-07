@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root 'categories#index'
+  root 'media#root'
 
-  resources :albums
-  resources :books
-  resources :movies
+  # I'm so happy this worked!!!!!!11122222six
+  resources :media, as: 'albums', path: 'albums'
+  resources :media, as: 'books', path: 'books'
+  resources :media, as: 'movies', path: 'movies'
 end

@@ -1,40 +1,25 @@
-class MediaController < ActionController::Base
+class MediaController < ApplicationController
   before_action :set_active_record_name
 
   def root
-    # # doesn't work
-    # @categories = Category.all.map { |cat| cat.name }
-
-    @categories = [Movie, Book, Album]
+    @categorized_records = Medium.categorize
   end
 
   def show
-    @current_record = @active_record_name.find(params[:id])
-
-    render :show
+    @current_record = Medium.find(params[:id])
   end
 
-  def new
-    render :new
-  end
+  def new; end
 
   def edit
-    @current_record = @active_record_name.find(params[:id])
-
-    render :edit
+    @current_record = Medium.find(params[:id])
   end
 
   def index
-    # active_record_name
-    @url_helper = controller_name
-    @all_records = @active_record_name.all
-
-    render :index
+    raise
   end
 
-  def delete
-    render :delete
-  end
+  def delete; end
 
   private
 

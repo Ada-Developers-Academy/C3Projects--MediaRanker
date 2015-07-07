@@ -5,7 +5,7 @@ class CreateMedia < ActiveRecord::Migration
       t.string  :artist # other flavor text: director author
       t.text    :description
       t.integer :upvotes, null: false
-      t.string  :type, null: false
+      t.string  :category, null: false
 
       t.timestamps null: false
     end
