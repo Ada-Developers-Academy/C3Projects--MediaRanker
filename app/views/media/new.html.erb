@@ -1,3 +1,9 @@
 <%= render partial: "media/header" %>
 
-<%= render partial: "medium_form" %>
+<% if params[:format] == "movie" %>
+  <%= render partial: "medium_form", locals: { medium: "movie", contributor: "Director" } %>
+<% elsif params[:format] == "book" %>
+  <%= render partial: "medium_form", locals: { medium: "book", contributor: "Author"} %>
+<% elsif params[:format] == "album" %>
+  <%= render partial: "medium_form", locals: { medium: "album", contributor: "Artist" } %>
+<% end %>
