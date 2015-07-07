@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+
+  <% @media.each do |media| %>
+  <tr>
+    <td> Ranked: <%= media.rank  %></td>
+    <td> <%= link_to "#{media.name}", album_path(media.id) %></td>
+    <td> <%= button_to "Upvote", album_upvote_path(media.id), method: "patch" %> </td>
+    </tr>
+
+  <% end %>
+</table>
+
+<%= button_to "View All Media", root_path, method: "get" %>
+<%= button_to "Add an Album", new_album_path, method: "get" %>

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :albums
   # Example of regular route:
   patch 'movies/upvote/:id' => 'movies#upvote', as: "movie_upvote"
+  patch 'albums/upvote/:id' => 'albums#upvote', as: "album_upvote"
+  patch 'books/upvote/:id' => 'books#upvote', as: "book_upvote"
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

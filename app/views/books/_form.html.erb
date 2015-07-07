@@ -1,0 +1,15 @@
+<%= form_for media  do |f| %>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: media.name, :required => true %>
+
+    <%= f.label :artist %>
+    <%= f.text_field :artist, value: media.artist  %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description, value: media.description  %>
+
+  <section>
+    <%= f.submit "Save" %>
+  </section>
+<% end %>

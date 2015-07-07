@@ -8,26 +8,22 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
-    def new
+  def new
     @movie = Movie.new
-    @director = @movie.director
   end
 
   def create
     @movie = Movie.new(create_params[:movie])
-    @director = @movie.director
     @movie.save
     redirect_to movie_path(@movie.id)
   end
 
   def edit
     @movie = Movie.find(params[:id])
-    @director = @movie.director
   end
 
   def update
     @movie = Movie.find(params[:id])
-    @director = @movie.director
     @movie.update(create_params[:movie])
     redirect_to movie_path(@movie.id)
   end
