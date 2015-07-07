@@ -28,6 +28,17 @@ class AlbumsController < ApplicationController
     redirect_to album_path(@album)
   end
 
+  def edit
+    show
+  end
+
+  def update
+    edit
+    @album.update(create_params[:album])
+
+    redirect_to album_path(@album)
+  end
+
   private
 
   def create_params

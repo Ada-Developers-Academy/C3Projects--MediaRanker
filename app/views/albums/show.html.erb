@@ -6,3 +6,5 @@
 <h4><%= @album.description %></h4>
 
 <%= button_to "Upvote", upvote_album_path(@album) %>
+<%= button_to "Edit #{@album.name}", edit_album_path, method: :get %>
+

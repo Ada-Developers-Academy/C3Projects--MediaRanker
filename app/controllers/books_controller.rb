@@ -28,6 +28,17 @@ class BooksController < ApplicationController
     redirect_to book_path(@book)
   end
 
+  def edit
+    show
+  end
+
+  def update
+    edit
+    @book.update(create_params[:book])
+
+    redirect_to book_path(@book)
+  end
+
   private
 
   def create_params

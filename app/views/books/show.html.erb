@@ -6,3 +6,5 @@
 <h4><%= @book.description %></h4>
 
 <%= button_to "Upvote", upvote_book_path(@book) %>
+<%= button_to "Edit #{@book.name}", edit_book_path, method: :get %>
+
