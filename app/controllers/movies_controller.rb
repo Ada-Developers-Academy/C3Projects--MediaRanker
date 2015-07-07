@@ -11,6 +11,8 @@ class MoviesController < ApplicationController
     @creator = "Directed by"
   end
 
+  # PRIVATE METHODS ----------------------------------------------------------
+
   private
 
   def find_movie

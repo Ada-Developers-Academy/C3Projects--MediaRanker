@@ -4,9 +4,15 @@
 <p><strong> Ranked: <%= @single.rank %> </strong> </p>
 <p> <%= @single.description %> </p>
 
-<%= button_to "Upvote" %>
-<%= button_to "Edit #{@single.name}", "/#{@controller}/" %>
-<%= button_to "Delete" %>
-<%= button_to "View All #{@controller.capitalize}", "/" %>
-<%= button_to "View All Media", "/" %>
-make above inline
+<%= form_for @controller do |f| %>
+  <%= f.submit "Upvote" %>
+<% end %>
+
+<div>
+  <%= button_to "Edit #{@single.name}", "/#{@controller}/" %>
+  <%= button_to "Delete", "/controller/delete/#{@single.id}", method: "delete",
+            data: {:confirm => "Are you sure?"} %>
+  <%= button_to "View All #{@controller.capitalize}", "/" %>
+  <%= button_to "View All Media", "/" %>
+  make above inline
+</div>

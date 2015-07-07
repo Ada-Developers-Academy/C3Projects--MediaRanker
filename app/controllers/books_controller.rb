@@ -11,6 +11,8 @@ class BooksController < ApplicationController
     @creator = "Written by"
   end
 
+  # PRIVATE METHODS ----------------------------------------------------------
+
 private
 
   def find_book

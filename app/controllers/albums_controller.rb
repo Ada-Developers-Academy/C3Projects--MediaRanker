@@ -11,6 +11,30 @@ class AlbumsController < ApplicationController
     @creator = "Recorded by"
   end
 
+  def new
+    @album = Album.new
+  end
+
+  def create
+    @album = Album.create(create_params[:album])
+    redirect_to "/albums/#{@album.id}"
+  end
+
+  def edit
+    @single = find_album
+  end
+
+  def update
+    @single = find_album
+    @single.rank += 1
+    @single.update(create_params[:album])
+    @single.save
+
+    redirect_to "/albums/#{@album.id}"
+  end
+
+
+# PRIVATE METHODS ----------------------------------------------------------
 private
 
   def find_album
