@@ -1,5 +1,5 @@
 <tr>
   <td><%= object.rank %></td>
   <td><%= link_to object.name, "/#{object_type}/#{object.id}" %></td>
-  <td><%= button_to "Upvote", "ROUTE STUFF STILL NEED TO ENTER", method: "patch" %></td>
+  <td><%= button_to "Upvote", "#{object_type}/#{object.id}/upvote", method: "patch" %></td>
 </tr>

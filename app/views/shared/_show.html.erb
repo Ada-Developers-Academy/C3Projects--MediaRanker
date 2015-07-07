@@ -4,7 +4,7 @@
 <p>Ranked: <%= object.rank %></p>
 <p><%= object.description %></p>
 
-<%= button_to "Upvote", "ROUTE STUFF STILL NEED TO ENTER", method: "patch" %>
+<%= button_to "Upvote", upvote_route, method: "patch" %>
 
 <%= link_to "Edit #{object.name}", edit_single_route, method: "get" %>
 

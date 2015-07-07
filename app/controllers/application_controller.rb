@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
   def destroy
     redirect_to action: :index
   end
-  
+
+  def upvote
+    redirect_to :back
+  end
+
 end

@@ -34,6 +34,15 @@ class MoviesController < ApplicationController
     super
   end
 
+  def upvote
+    @movie = Movie.find(params[:id])
+    votes = @movie.rank
+    votes += 1
+    @movie.update(rank: votes)
+
+    super
+  end
+
   private
 
   def permit_params

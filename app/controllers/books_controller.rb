@@ -28,6 +28,15 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id]).destroy
   end
 
+  def upvote
+    @book = Book.find(params[:id])
+    votes = @book.rank
+    votes += 1
+    @book.update(rank: votes)
+
+    super
+  end
+
   private
 
   def permit_params

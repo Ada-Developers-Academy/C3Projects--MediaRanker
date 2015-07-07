@@ -28,6 +28,15 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id]).destroy
   end
 
+  def upvote
+    @album = Album.find(params[:id])
+    votes = @album.rank
+    votes += 1
+    @album.update(rank: votes)
+
+    super
+  end
+
   private
 
   def permit_params
