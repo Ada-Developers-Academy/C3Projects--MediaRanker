@@ -3,13 +3,10 @@
 <h4>Ranked: <%= media.rank %></h4>
 <p><%= media.description %></p>
 
-<!-- Upvote button -->
+<%= link_to "Upvote", upvote_path, method: :patch %>
 
 <%= link_to "Edit #{media.name}", editmedia_path %>
-
 <%= link_to "Delete", deletemedia_path, method: :delete, data: { confirm: "Are you sure?"} %>
-
-<!-- Delete button -->
 
 <%= link_to "View All #{media_name}", mediapath %>
 <%= link_to "View All Media", root_path %>

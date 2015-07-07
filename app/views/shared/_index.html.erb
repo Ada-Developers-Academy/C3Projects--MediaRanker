@@ -9,7 +9,7 @@
     <tr>
       <td>Ranked: <%= m.rank %></td>
       <td><%= link_to "#{m.name}", send(mediapath, m) %></td>
-      <td><%= button_to "Upvote" %></td>
+      <td><%= link_to "Upvote", send(upvote_path, m), method: :patch %></td>
     </tr>
   <% end %>
   </tbody>
