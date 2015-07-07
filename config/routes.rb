@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root 'media#root'
 
-  # I'm so happy this worked!!!!!!11122222six
-  resources :media, as: 'albums', path: 'albums'
-  resources :media, as: 'books', path: 'books'
-  resources :media, as: 'movies', path: 'movies'
+  get "/:category" => "media#index"
+
+  categories = ['albums', 'books', 'movies']
+
+  categories.each do |category|
+    resources :media, as: category, path: category, except: :index
+    patch "/#{ category }/:id/upvote" => "media#upvote"
+  end
 end

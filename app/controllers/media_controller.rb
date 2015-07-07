@@ -16,7 +16,9 @@ class MediaController < ApplicationController
   end
 
   def index
-    raise
+    @singular_category = params[:category].singularize.capitalize
+    @all_records = Medium.where(category: @singular_category)
+    @category = params[:category]
   end
 
   def delete; end

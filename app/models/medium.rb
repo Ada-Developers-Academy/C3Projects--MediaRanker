@@ -10,4 +10,9 @@ class Medium < ActiveRecord::Base
     all_records = self.all
     all_records.group_by { |record| record.category }
   end
+
+  def self.select_category(category)
+    all_records = self.all
+    all_records.select(category: category)
+  end
 end
