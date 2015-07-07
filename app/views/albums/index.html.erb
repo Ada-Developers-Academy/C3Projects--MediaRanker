@@ -1,19 +1,5 @@
-<table>
-  <thead>
-    <th>Ranking</th>
-    <th>Name</th>
-    <th>Upvote</th>
-  </thead>
-  <tbody>
-  <% @albums.each do |album| %>
-    <tr>
-      <td>Ranked: <%= album.rank %></td>
-      <td><%= link_to "#{album.name}", album_path(album.id) %></td>
-      <td><%= button_to "Upvote" %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render partial: "shared/index", locals: { media: @albums,
+                                              mediapath: "album_path"
 
-<%= link_to "View All Media", root_path %>
-<!-- <%= link_to "Add an Album", new_album_path %> -->
+  } 
+%>

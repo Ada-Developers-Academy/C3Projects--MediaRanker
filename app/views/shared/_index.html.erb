@@ -8,7 +8,7 @@
   <% media.each do |m| %>
     <tr>
       <td>Ranked: <%= m.rank %></td>
-      <td><%= link_to "#{m.name}", mediapath(m.id) %></td>
+      <td><%= link_to "#{m.name}", send(mediapath, m) %></td>
       <td><%= button_to "Upvote" %></td>
     </tr>
   <% end %>
