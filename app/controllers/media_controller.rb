@@ -45,7 +45,7 @@ class MediaController < ApplicationController
   def destroy
     @medium = Medium.destroy(params[:id])
 
-    redirect_to books_index_path
+    redirect_to "/#{params[:from].pluralize}/index"
 
 
   end

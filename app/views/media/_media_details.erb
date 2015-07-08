@@ -6,3 +6,4 @@
 
 
 <%= button_to 'Edit ' + @medium.name, edit_medium_path, method: "get" %>
+<%= button_to "Delete", medium_path(@medium.id, :from => @medium.media_type), method: "delete", data: { confirm: "Are you sure?" } %>
