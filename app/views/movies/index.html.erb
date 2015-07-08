@@ -1,7 +1,18 @@
 <%= render "shared/header" %>
-<% @movies.each do |movie| %>
-<p> <%= movie.name %> </p>
-<% end %>
+<table>
+  <tr>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
 
+  <% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.rank %></td>
+    <td><%= link_to "#{movie.name}", movie_path(movie.id) %></td>
+    <td><%= button_to "Upvote", upvote_movies_path(movie.rank), method: :post %></td>
+  </tr>
+  <% end %>
+</table>
 <p> <%= button_to "View All Media", root_path, method: :get %> </p>
 <p> <%= button_to "Add a Movie", new_movie_path , method: :get %> </p>
