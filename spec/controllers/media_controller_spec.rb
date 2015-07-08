@@ -67,11 +67,6 @@ RSpec.describe MediaController, type: :controller do
 
     context "when deletion succeeds" do
 
-      # let (:params) do
-      #   {
-      #     from: "book"
-      #   }
-      # end
 
       it "deletes a medium record" do
         @medium = Medium.create!(ranking: "4", name: "Book name", media_type: "book")
