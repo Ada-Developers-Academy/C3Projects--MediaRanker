@@ -38,7 +38,7 @@ class AlbumsController < ApplicationController
     @single.save
 
 
-    redirect_to root_path
+    redirect_to :album
     # need to redirect to 2 different pages
   end
 

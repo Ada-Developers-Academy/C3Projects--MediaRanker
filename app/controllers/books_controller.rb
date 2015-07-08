@@ -37,7 +37,7 @@ class BooksController < ApplicationController
     @single.rank += 1
     @single.save
 
-    redirect_to root_path
+    redirect_to :book
   end
 
   def destroy
