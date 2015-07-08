@@ -52,6 +52,8 @@ RSpec.describe MoviesController, type: :controller do
       @movie2 = Movie.new(id: 2, title: "b title")
       @movie2.save
       Movie.new(id: 3, title: "c title").save
+
+      @params = { movie: { title: "Reservoir Dogs", director: "Quentin Tarantino", description: "" }, id: "2" }
     end
 
     it "locates the correct Movie" do
@@ -59,19 +61,27 @@ RSpec.describe MoviesController, type: :controller do
       expect(Movie.find(params[:id]).title).to eq("a title")
     end
 
-    # collects the information from the user
-    # it "collects the user input" do
-    #   params = { movie: { title: "Reservoir Dogs", director: "Quentin Tarantino", description: ""} }
-    #   put :update, params[:movie]
-    # end
+    it "updates and saves the new information" do
+      original_title       = @movie2.title
+      original_director    = @movie2.director
+      original_description = @movie2.description
+      put :update, @params
+      @movie2.reload
 
-    # updates/saves the movie – doesn't create a new object
+      expect(@movie2.title).to_not       eq original_title
+      expect(@movie2.director).to_not    eq original_director
+      expect(@movie2.description).to_not eq original_description
+    end
 
-    # redirects to the movie's page
+    it "doesn't create a new object" do
+      original_count = Movie.all.count
+      put :update, @params
+
+      expect(original_count).to eq Movie.all.count
+    end
+
     it "redirects to the movie's :show view" do
-      params = { movie: {"title"=>"Reservoir Dogs", "director"=>"Quentin Tarantino", "description"=>""}, id: "2" }
-      put :update, params
-      
+      put :update, @params
       expect(subject).to redirect_to(movie_path(@movie2))
     end
   end
