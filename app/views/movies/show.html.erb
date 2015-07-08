@@ -1,6 +1,8 @@
 <%= render partial: 'shared/show', locals: { medium: @movie,
                                              created_alias: "Directed" } %>
 
+<%= button_to "Upvote", upvote_movie_path(@movie), { method: :put } %>
+
 <%= link_to "Edit #{@movie.title}", edit_movie_path(@movie) %>
 
 <%= button_to "DELETE", @movie, { method: :delete } %>

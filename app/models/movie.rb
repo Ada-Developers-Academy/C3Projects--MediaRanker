@@ -8,7 +8,8 @@ class Movie < ActiveRecord::Base
     director
   end
 
-  # def add_vote
-  #   rank += 1
-  # end
+  def add_vote
+    old_value = self.rank
+    update(rank: old_value + 1)
+  end
 end
