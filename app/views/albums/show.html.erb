@@ -1,7 +1,4 @@
-<h1><%= @album.name %> </h1>
-<h2><%= "Recorded by: #{@album.artist}" %></h2>
-<h4><%="Rank: #{@album.rank}" %></h4>
-<p><%= @album.description %></p>
+<%= render partial: "shared/show.html.erb", locals: {object: @album, person_desc: "Recorded by: #{@album.artist}" } %>
 
 <%= link_to "Upvote Album", album_path(@album.id), method: "patch" %>
 <%= link_to "Edit Album", edit_album_path(@album.id) %>
