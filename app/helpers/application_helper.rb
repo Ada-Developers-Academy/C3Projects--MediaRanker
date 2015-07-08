@@ -1,29 +1,17 @@
 module ApplicationHelper
-  def pick_upvote_path(controller, media)
-    if controller == "movies"
-      movie_upvote_path(media.id)
-    elsif controller == "books"
-      book_upvote_path(media.id)
-    else
-      album_upvote_path(media.id)
-    end
-    # return the right path
+  def pick_upvote_path(media)
+    path = "#{media.format}_upvote_path"
   end
 
   def pick_delete_path(media)
-    path = media.class.to_s.downcase
-    path += "_path"
+    path = media.format
+    path += "_path(#{media.id})"
     path
   end
 
-  def pick_edit_path(controller, media)
-    if controller == "movies"
-      edit_movie_path(media.id)
-    elsif controller == "books"
-      edit_book_path(media.id)
-    else
-      edit_album_path(media.id)
-    end 
+  def pick_edit_path(media)
+    path = "edit_#{media.format}_path(#{media.id})"
+    path 
   end
 
   def creator(media)
@@ -37,8 +25,7 @@ module ApplicationHelper
   end
 
   def pick_index_path(media)
-    path = media.class.to_s.downcase
-    path += "s_path"
+    path = "#{media.format}_index_path"
     path
 
   end

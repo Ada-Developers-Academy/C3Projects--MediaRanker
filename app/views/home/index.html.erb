@@ -6,7 +6,7 @@
     <p>Number of votes: <%= movie.votes %></p>
   
   <% end %>
-  <%= button_to "View more movies", movies_path, method: :get %>
+  <%= button_to "View more movies", movie_index_path, method: :get %>
   </div>
 
   <div class = "column">
@@ -15,7 +15,7 @@
       <h2><%= link_to "#{book.name}", book_path(book.id) %></h2>
       <p>Number of votes: <%= book.votes %></p>
     <% end %>
-    <%= button_to "view more books", books_path, method: :get %>
+    <%= button_to "view more books", book_index_path, method: :get %>
   </div>
 
   <div class = "column">
@@ -24,7 +24,7 @@
       <h2><%= link_to "#{album.name}", album_path(album.id) %></h2>
       <p>Number of votes:<%= album.votes %></p>
     <% end %>
-    <%= button_to "view more albums", albums_path, method: :get %>
+    <%= button_to "view more albums", album_index_path, method: :get %>
   </div>
 
 

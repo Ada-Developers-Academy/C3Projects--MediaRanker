@@ -1,0 +1,19 @@
+<h1><%= @media.first.format.capitalize.pluralize %></h1>
+
+<table>
+  <tr>
+    <th>Votes</th>
+    <th>Name</th>
+    <th>Upvote</th>
+  </tr>
+  <% @media.each do |media| %>
+    <tr>
+      <td>Number of Votes: <%= media.votes %></td>
+      <td><%= media.name %></td>
+      <td><%= link_to "Upvote", send(pick_upvote_path)%>
+    </tr>
+  <% end %>
+
+
+
+</table>

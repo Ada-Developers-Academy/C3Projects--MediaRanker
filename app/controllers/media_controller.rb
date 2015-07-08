@@ -1,8 +1,13 @@
 class MediaController < ApplicationController
     def index
-    @movies = Movie.all
-  
-  end
+      if request.path.include?("books")
+        @media = Medium.find_books
+      elsif request.path.include?("movies")
+        @media = Medium.find_movies
+      else
+        @media = Medium.find_albums
+      end
+    end
 
   def new
     @movie = Movie.new
@@ -17,9 +22,7 @@ class MediaController < ApplicationController
 
 
   def show
-    @movie = Movie.find(params[:id])
-    @edit_path = edit_movie_path(@movie.id)
-    @index_path = movies_path
+    @media = Medium.find(params[:id])
   end
 
   def edit

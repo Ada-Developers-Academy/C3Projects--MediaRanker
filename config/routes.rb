@@ -15,12 +15,22 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+scope '/books' do
+  resources :media, as: :book
+end
 
-  resources :movies, :books, :albums
+scope '/albums' do
+  resources :media, as: :album
+end
 
-patch "/movies/:id/upvote" => "movies#upvote", as: :movie_upvote
-patch "/books/:id/upvote" => "books#upvote", as: :book_upvote
-patch "/albums/:id/upvote" => "albums#upvote", as: :album_upvote
+scope '/movies' do
+  resources :media, as: :movie
+end
+
+
+patch "/movies/:id/upvote" => "media#upvote", as: :movie_upvote
+patch "/books/:id/upvote" => "media#upvote", as: :book_upvote
+patch "/albums/:id/upvote" => "media#upvote", as: :album_upvote
 
   # Example resource route with options:
   #   resources :products do

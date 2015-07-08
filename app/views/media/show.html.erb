@@ -1,0 +1,7 @@
+<h1><%= @media.name%></h1>
+<p><%= @media.description %></p>
+<p><%= @media.creator %></p>
+<%= button_to "Delete #{@media.name}", pick_delete_path(@media), method: :delete %>
+<%= button_to "Edit", pick_edit_path(@media), method: :get %>
+<%= button_to "Home", root_path, method: :get %>
+<%= button_to "View all Movies", send(pick_index_path(@media)), method: :get %>
