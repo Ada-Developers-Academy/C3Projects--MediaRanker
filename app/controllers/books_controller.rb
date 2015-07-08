@@ -35,10 +35,17 @@ class BooksController < ApplicationController
   def upvote
     @single = find_book
     @single.rank += 1
+    @single.save
 
     redirect_to root_path
   end
 
+  def destroy
+    @single = find_books
+    @single.destroy
+
+    redirect_to :books
+  end
 
   # PRIVATE METHODS ----------------------------------------------------------
 

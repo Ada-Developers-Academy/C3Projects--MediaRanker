@@ -13,10 +13,6 @@ Rails.application.routes.draw do
   post "/albums/:id" => "albums#upvote"
   post "/books/:id" => "books#upvote"
 
-  post "/movies" => "movies#upvote"
-  post "/albums" => "albums#upvote"
-  post "/books" => "books#upvote"
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

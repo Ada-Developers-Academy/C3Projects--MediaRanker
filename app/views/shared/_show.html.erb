@@ -4,15 +4,12 @@
 <p><strong> Ranked: <%= @single.rank %> </strong> </p>
 <p> <%= @single.description %> </p>
 
-<%= form_for @controller do |f| %>
-  <%= f.hidden_field :rank, value: @single.rank += 1 %>
-  <!--  need to increment the rank by 1 for this button and not just in the edit/update route -->
-  <%= f.submit "Upvote" %>
-<% end %>
+<%= button_to "Upvote",  "/#{@controller}/#{@single.id}" %>
+
 
 <div>
   <%= link_to "Edit #{@single.name}", "/#{@controller}/#{@single.id}/edit", method: :get %>
-  <%= link_to "Delete", "/controller/delete/#{@single.id}", method: "delete",
+  <%= link_to "Delete", "/#{@controller}/#{@single.id}", method: "delete",
             data: {:confirm => "Are you sure?"} %>
   <%= link_to "View All #{@controller.capitalize}", "/" %>
   <%= link_to "View All Media", root_path %>

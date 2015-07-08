@@ -35,10 +35,17 @@ class MoviesController < ApplicationController
   def upvote
     @single = find_movie
     @single.rank += 1
+    @single.save
 
     redirect_to root_path
   end
 
+  def destroy
+    @single = find_movie
+    @single.destroy
+
+    redirect_to :movies
+  end
 
   # PRIVATE METHODS ----------------------------------------------------------
 

@@ -37,8 +37,16 @@ class AlbumsController < ApplicationController
     @single.rank += 1
     @single.save
 
+
     redirect_to root_path
     # need to redirect to 2 different pages
+  end
+
+  def destroy
+    @single = find_album
+    @single.destroy
+
+    redirect_to :albums
   end
 
 

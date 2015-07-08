@@ -11,7 +11,8 @@
     <td> <%= singular.rank %>
     <%= link_to "#{singular.name}", "/#{@controller}/#{singular.id}" %></td>
     <td> <%= singular.name %> </td>
-    <td> <%= button_to "Upvote" %> </td>
+    <td> <%= button_to "Upvote",  "/#{@controller}/#{singular.id}" %> </td>
+    <!-- above still not functioning!!!! -->
   </tr>
     <% end %>
 
