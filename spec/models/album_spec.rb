@@ -9,4 +9,26 @@ describe "model validations" do
     expect(album.errors.keys).to include(:name)
     end
   end
+
+  describe "ranking scope" do
+
+    before :each do
+      @album1 = Album.create(name: "Cool Album", artist: "some person", description: "cool", rank: 5)
+      @album2 = Album.create(name: "Rad Album", artist: "some person", description: "rad", rank: 11)
+      @album3 = Album.create(name: "Neat Album", artist: "some person", description: "neat", rank: 3)
+    end
+
+    it "returns n number of Albums based on argument" do
+
+      correct_order = [@album2, @album1]
+      expect(Album.ranking(2)).to eq correct_order
+    end
+
+    it "returns an ordered list of top ranked Albums" do
+
+      correct_order = [@album2, @album1, @album3]
+      expect(Album.ranking(3)).to eq correct_order
+    end
+  end
+
 end
