@@ -1,35 +1,10 @@
 <%= render "shared/header" %>
 
-<table>
-  <tr>
-    <th>Top Movies</th>
-  </tr>
+<% { "movies" => @movies, "books" => @books, "albums" => @albums }.each do |key, value| %>
+<div class="col-xs-4">
+    <h3>Top <%= "#{key.capitalize}" %></h3>
+    <%= render partial: "list", collection: value, as: :object, locals: {object_path: key } %>
+     <%= link_to "View More #{key.capitalize}", "/#{key}" %>
+  </div>
+<% end %>
 
-  <% @movies.each do |movie| %>
-  <tr><td><%= link_to movie.name, movie_path(movie) %> Ranked: <%= movie.rank %></td><tr>
-  <% end %>
-
-  <tr><td><%= link_to "View More Movies", movies_path %></td></tr>
-
-  <tr>
-  <th>Top Books</th>
-  </tr>
-
-  <% @books.each do |book| %>
-  <tr><td><%= link_to book.name, book_path(book) %> Ranked: <%= book.rank %></td><tr>
-  <% end %>
-
-  <tr><td><%= link_to "View More Books", books_path %></td></tr>
-
-  <tr>
-  <th>Top Albums</th>
-  </tr>
-
-  <% @albums.each do |album| %>
-  <tr><td><%= link_to album.name, album_path(album) %> Ranked: <%= album.rank %></td><tr>
-  <% end %>
-
-  <tr><td><%= link_to "View More Albums", albums_path %></td></tr>
-
-
-</table>
