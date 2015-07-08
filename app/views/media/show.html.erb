@@ -2,7 +2,7 @@
 <h2><%= @current_record.created %> by: <%= @current_record.creator %></h2>
 <h3>Upvotes: <%= @current_record.upvotes %></h3>
 <p><%= @current_record.description %></p>
-<%= link_to "Upvote", "upvote", method: :patch %>
+<%= link_to "Upvote", "#{ @current_record.id }/upvote", method: :patch %>
 <%= link_to "Edit #{ @current_record.title }", "#{ @current_record.id }/edit" %>
 <%= link_to "Delete", "#{ @current_record.id }", method: :delete, data: { confirm: "Are you sure you want to delete this record? This is permanent."} %>
 <%= link_to "View All Media", "/" %>

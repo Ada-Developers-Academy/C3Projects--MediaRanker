@@ -26,7 +26,7 @@ class Medium < ActiveRecord::Base
   end
 
   def self.grab_category(category)
-    self.where(category: category)
+    self.where(category: category).order("upvotes DESC")
   end
 
   def self.categorize
