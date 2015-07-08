@@ -25,10 +25,13 @@ class MoviesController < ApplicationController
   end
 
   def update
-    movie = Movie.find(params[:id])
-    movie.update(movie_params)
-
-    redirect_to movie
+    @movie = Movie.find(params[:id])
+    @movie.update(movie_params)
+    if @movie.save
+      redirect_to @movie
+    else
+      render :edit
+    end
   end
 
   def upvote

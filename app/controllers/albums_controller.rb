@@ -25,10 +25,13 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    album = Album.find(params[:id])
-    album.update(album_params)
-
-    redirect_to album
+    @album = Album.find(params[:id])
+    @album.update(album_params)
+    if @album.save
+      redirect_to @album
+    else
+      render :edit
+    end
   end
 
   def upvote
