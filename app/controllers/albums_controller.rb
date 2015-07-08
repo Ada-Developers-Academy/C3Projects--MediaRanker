@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [:update]
+  before_action :set_album, only: [:update, :show]
 
   def index
     @albums = Album.all
@@ -10,6 +10,9 @@ class AlbumsController < ApplicationController
       Album.upvote(@album)
       redirect_to album_path(@album)
     end
+  end
+
+  def show
   end
 
   private

@@ -1,4 +1,4 @@
-<%= render 'shared/index_table', { objects: @albums } %>
+<%= render partial: "shared/index_table", locals: { objects: @albums } %>
 
 <%= link_to "View All Media", :root %>
-<%= link_to "Add a Album", new_album_path %>
+<%= link_to "Add an Album", new_album_path %>
