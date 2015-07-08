@@ -16,7 +16,7 @@
 </p>
 
 <!-- upvote button -->
-<%= link_to "Edit", "./#{params[:id]}/edit" %>
-<%= link_to "Delete", "", method: :delete, data: { confirm: "Are you sure you want to delete '#{medium.title}'?" } %>
+<%= link_to "Edit", "./#{params[:id]}/edit", html_options = { class: "btn btn-warning", role: "button" } %>
+<%= link_to "Delete", "", html_options = { class: "btn btn-danger", role: "button", data: { confirm: "Are you sure you want to delete '#{medium.title}'?", method: :delete } } %>
 <%= link_to "View All #{medium.class.name}s", "./" %>
 <%= link_to "View All Media", media_path %>
