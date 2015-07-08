@@ -1,12 +1,3 @@
 <%= render partial: 'shared/show', locals: { medium: @album,
-                                             created_alias: "Recorded" } %>
-
-<%= button_to "Upvote", album_upvote_path(@album), { method: :put } %>
-
-<%= link_to "Edit #{@album.title}", edit_album_path(@album) %>
-
-<%= button_to "DELETE", @album, { method: :delete } %>
-
-<%= link_to "View All Albums", albums_path %>
-
-<%= link_to "View All Media", root_path %>
+                                             created_alias: "Recorded",
+                                             media_name: "Albums" } %>
