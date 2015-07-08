@@ -3,9 +3,6 @@ class Book < ActiveRecord::Base
 
    # Validations ----------------------------------------------------------------
    validates :name, presence: true
-   validates :author, presence: true
-   validates :description, presence: true
-   validates :rank, presence: true
 
    # Scopes ---------------------------------------------------------------------
   #  scope :on, -> (label) { where(label: label) }

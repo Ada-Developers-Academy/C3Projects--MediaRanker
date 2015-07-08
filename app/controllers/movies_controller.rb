@@ -20,11 +20,11 @@ class MoviesController < ApplicationController
 # redirect_to movie_path(@movie.id)
   end
 
-  def show
+  def edit
     @movie = Movie.find(params[:id])
   end
 
-  def edit
+  def show
     @movie = Movie.find(params[:id])
   end
 
@@ -42,8 +42,6 @@ class MoviesController < ApplicationController
     else
       render :edit
     end
-
-
     # redirect_to movie_path(@movie.id) #movie/:id
   end
 # @movie.ranking +=1
@@ -52,7 +50,6 @@ class MoviesController < ApplicationController
     #   @movie.votes.create
     #   redirect_to movies_path(@movie.id)
     # end
-
 
   def destroy
     Movie.destroy(params[:id])

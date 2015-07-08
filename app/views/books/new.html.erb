@@ -1,0 +1,15 @@
+<%= render "shared/header" %>
+<%= form_for @book do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_area :name %>
+
+    <%= f.label :author %>
+    <%= f.text_area :author %>
+
+    <%= f.label :description%>
+    <%= f.text_area :description %>
+
+    <%= f.submit 'Save' %>
+
+<% end %>

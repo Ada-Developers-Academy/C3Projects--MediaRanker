@@ -3,9 +3,6 @@ class Album < ActiveRecord::Base
 
    # Validations ----------------------------------------------------------------
    validates :name, presence: true
-   validates :artist, presence: true
-   validates :description, presence: true
-   validates :rank, presence: true
 
    # Scopes ---------------------------------------------------------------------
   #  scope :on, -> (label) { where(label: label) }

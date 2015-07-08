@@ -1,0 +1,15 @@
+<%= render "shared/header" %>
+<%= form_for @album do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_area :name %>
+
+    <%= f.label :artist %>
+    <%= f.text_area :artist %>
+
+    <%= f.label :description%>
+    <%= f.text_area :description %>
+
+    <%= f.submit 'Save' %>
+
+<% end %>
