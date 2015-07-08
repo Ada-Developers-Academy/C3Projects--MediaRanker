@@ -25,6 +25,7 @@ RSpec.describe Album, type: :model do
 
       expect(@album.errors.keys).to include(:rank)
     end
+
     it "requires rank to be less than 200" do
       @album = Album.new(name: "Lovely", rank: 250)
 
