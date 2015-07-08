@@ -1,0 +1,12 @@
+<%= form_for @medium do |f| %>
+  <%= f.label :title, "Name" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :director %>
+  <%= f.text_field :director %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "Save" %>
+<% end %>
