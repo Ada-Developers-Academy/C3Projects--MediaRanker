@@ -1,10 +1,8 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: [:show, :edit, :update, :upvote, :destroy]
+
   def index
     @books = Book.all_ranked
-  end
-
-  def show
-    @book = Book.find(params[:id])
   end
 
   def new
@@ -20,12 +18,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def edit
-    @book = Book.find(params[:id])
-  end
-
   def update
-    @book = Book.find(params[:id])
     @book.update(book_params)
     if @book.save
       redirect_to @book
@@ -35,20 +28,22 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    book = Book.find(params[:id])
-    book.add_vote
+    @book.add_vote
 
-    redirect_to book
+    redirect_to @book
   end
 
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
 
     redirect_to books_path
   end
 
   private
+
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
   def book_params
     params.require(:book).permit(:title, :author, :description, :rank)
