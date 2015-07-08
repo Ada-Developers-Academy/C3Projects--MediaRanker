@@ -81,6 +81,13 @@ RSpec.describe MediaController, type: :controller do
     end
   end
 
-
+  describe "upboat" do
+    it "increases ranking when upboat method is used" do
+      @medium = Medium.create!(name: "Book name", media_type: "book")
+      post :upvote, :id => @medium.id
+      @medium.reload
+      expect(@medium.ranking).to eq 1
+    end
+  end
 
 end
