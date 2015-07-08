@@ -42,6 +42,14 @@ class MediaController < ApplicationController
     redirect_to medium_path
   end
 
+  def destroy
+    @medium = Medium.destroy(params[:id])
+
+    redirect_to books_index_path
+
+
+  end
+
   private
 
   def create_params
