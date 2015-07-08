@@ -4,5 +4,5 @@
     <h4> <%= link_to "#{media.name}", send(media_path, media) %>
     <small> Ranked: <%= media.rank  %> </small> </h4>
   <% end %>
-<%= link_to "View More #{media_name}", send(all_media_path) %>
+<%= link_to "View More #{media_name}", send(all_media_path), class: "btn btn-primary" %>
 </div>
