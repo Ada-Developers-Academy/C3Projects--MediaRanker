@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
 
     @movie.save
 
-    redirect_to movie_path(@movie.id)
+    redirect_to(:back)
   end
 
   def destroy

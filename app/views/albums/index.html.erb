@@ -1,4 +1,4 @@
-<%= render partial: "shared/index.html.erb", collection: @albums, as: :object, locals: { path: "albums" } %>
+<%= render partial: "shared/index.html.erb", locals: { path: "albums", collection: @albums } %>
 
 <%= link_to "View All Media", root_path, class: "btn btn-default" %>
 <%= link_to "Add an Album", new_album_path, class: "btn btn-default" %>

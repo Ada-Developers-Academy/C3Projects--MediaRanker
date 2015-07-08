@@ -40,7 +40,7 @@ class AlbumsController < ApplicationController
 
     @album.save
 
-    redirect_to album_path(@album.id)
+    redirect_to(:back)
   end
 
   def destroy

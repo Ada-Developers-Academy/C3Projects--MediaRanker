@@ -1,11 +1,13 @@
 <div class="col-md-4">
  <h3><%= "Top #{object.name}s" %></h3>
+
   <% object.each do |detail| %>
     <h2>
       <%= link_to "#{detail.name} ", "#{object.name.downcase}s/#{detail.id}" %>
       <small><%= "Ranked as: #{detail.rank}" %></small>
     </h2>
   <% end %>
+
 <%= link_to "View All #{object.name}s", "/#{object.name.downcase}s", class: "btn btn-default" %>
 </div>
 

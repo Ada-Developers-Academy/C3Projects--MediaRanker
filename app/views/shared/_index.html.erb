@@ -3,9 +3,12 @@
   <th>Name</th>
   <th>Upvote</th>
   <tbody>
+    <% collection.each do |item| %>
     <tr>
-      <td><%= "Ranked as: #{object.rank}" %></td>
-      <td><%= link_to "#{object.name}", "#{path}/#{object.id}" %></td>
+      <td><%= "Ranked as: #{item.rank}" %></td>
+      <td><%= link_to "#{item.name}", "#{path}/#{item.id}" %></td>
+      <td><%= link_to "Upvote", "#{path}/#{item.id}/upvote", method: "patch" %></td>
     </tr>
+    <% end %>
   </tbody>
 </table>
