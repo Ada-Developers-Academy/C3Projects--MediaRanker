@@ -33,7 +33,7 @@ RSpec.describe MoviesController, type: :controller do
 
   describe "GET #edit" do
     # copy pasta'd from GET #show
-    # is this even good?
+    # is this even good? Nope. Re-do!
     it "locates the correct Movie" do
       @movie1 = Movie.new(id: 1, title: "a title")
       @movie1.save

@@ -21,10 +21,24 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "GET #edit" do
+    # copy pasta'd from GET #show
+    # is this even good? NOPE. Re-do!
+    it "locates the correct Movie" do
+      @movie1 = Movie.new(id: 1, title: "a title")
+      @movie1.save
+      movie2 = Movie.new(id: 2, title: "b title")
+      movie2.save
+      params = { id: 2 }
+
+      expect(Movie.find(params[:id]).title).to eq("b title")
+    end
+  end
+
   describe "PUT #update" do
     before :each do
-      @book1 = Book.new(id: 1, title: "a title")
-      @book1.save
+      book1 = Book.new(id: 1, title: "a title")
+      book1.save
       @book2 = Book.new(id: 2, title: "b title")
       @book2.save
       Book.new(id: 3, title: "c title").save
