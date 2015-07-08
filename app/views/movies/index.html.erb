@@ -1,4 +1,2 @@
-<%= render partial: "shared/index_table", locals: { objects: @movies } %>
-
-<%= link_to "View All Media", :root %>
-<%= link_to "Add a Movie", new_movie_path %>
+<%= render partial: "shared/index", locals: { objects: @movies,
+                                                    new_media_path: new_movie_path } %>
