@@ -33,14 +33,27 @@ RSpec.describe MoviesController, type: :controller do
       end
 
       it "updates votes" do
-        put :update, id: @movie.id, votes: @movie.votes, upvote: true
+        put :update, id: @movie.id, votes: @movie.votes, upvote: "true"
         expect(Movie.find(1).votes).to eq 2
       end
 
-      # it "redirects to movie show view" do
-      #   put :update, id: @movie
-      #   expect(subject).to redirect_to(movie_path(assigns(@movie)))
-      # end
+      it "redirects to movie show view" do
+        put :update, id: @movie, votes: @movie, upvote: "true"
+        expect(subject).to redirect_to(movie_path(@movie))
+      end
+    end
+    context "invalid movie params" do
+      before :each do
+        @movie = Movie.create(title: 'a', votes: 1)
+      end
+
+      it "does not update votes" do
+        put :update, id: @movie, votes: @movie
+        expect(Movie.find(1).votes).to eq 1 
+      end
     end
   end
 end
+
+# patch :update, id: @ladskj.id, ;alkdj: { what you're changing}
+# then relaod

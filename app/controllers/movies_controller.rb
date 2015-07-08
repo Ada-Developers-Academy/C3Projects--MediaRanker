@@ -6,10 +6,8 @@ class MoviesController < ApplicationController
   end
 
   def update
-    puts params.inspect
-    if params[:upvote] == true
+    if params[:upvote] == "true"
       Movie.upvote(@movie)
-      puts "updated"
       redirect_to movie_path(@movie)
     else
       render :index
@@ -22,5 +20,9 @@ class MoviesController < ApplicationController
   private
   def set_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def create_params
+    params.permit(movie: [:title, :directed_by, :votes, :description])
   end
 end
