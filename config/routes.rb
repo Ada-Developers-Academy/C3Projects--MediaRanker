@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post 'upvote'
     end
   end
+
   # get '/movies' => 'movies#index'
 
   # get '/movies/new' => 'movies#new'
