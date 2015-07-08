@@ -1,7 +1,8 @@
 class MoviesController < ApplicationController
 
   def index
-   @movies = Movie.all
+   @movies = Movie.ordered
+   # I called a scope called 'ordered' to have all the movies listed in order
   end
 
   def new
@@ -35,11 +36,10 @@ class MoviesController < ApplicationController
     description_input = params[:movie][:description]
 
     @movie.update(name: name_input, director: director_input , description: description_input)
-
     if @movie.save
       redirect_to movie_path(@movie.id)
     else
-      render :edit
+      render :edit # if the edit doesn't save due to a missing required field from the user, then it will render the edit page with the params
     end
   end
 
