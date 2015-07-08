@@ -10,7 +10,7 @@ class Medium < ActiveRecord::Base
     category.downcase.pluralize
   end
 
-  def creator
+  def creator_noun
     return "Author" if category == "Book"
     return "Director" if category == "Movie"
     return "Artist" if category == "Album"
@@ -20,6 +20,10 @@ class Medium < ActiveRecord::Base
     return "Written" if category == "Book"
     return "Directed" if category == "Movie"
     return "Produced" if category == "Album"
+  end
+
+  def upvote
+    upvotes += 1
   end
 
   def self.grab_category(category)

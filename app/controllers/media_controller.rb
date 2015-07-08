@@ -15,6 +15,7 @@ class MediaController < ApplicationController
     @current_record = Medium.find(params[:id])
   end
 
+
   def new
     set_category
     @medium = Medium.new(category: @singular_category)
@@ -23,6 +24,14 @@ class MediaController < ApplicationController
 
   def edit
     @current_record = Medium.find(params[:id])
+  end
+
+  def upvote
+    medium = Medium.find(params[:id])
+    # raise
+    medium.increment!(:upvotes, 1)
+
+    redirect_to "/#{ medium.plural_category }/#{ medium.id }"
   end
 
   def create
@@ -37,7 +46,13 @@ class MediaController < ApplicationController
     end
   end
 
-  def delete; end
+  def destroy
+    medium = Medium.find(params[:id])
+    category = medium.plural_category
+    medium.destroy
+
+    redirect_to "/#{ category }"
+  end
 
   private
 
@@ -58,7 +73,7 @@ class MediaController < ApplicationController
   end
 
   def set_creator(categorized_medium)
-    @creator = categorized_medium.creator
+    @creator = categorized_medium.creator_noun
     @created = categorized_medium.created
   end
 end
