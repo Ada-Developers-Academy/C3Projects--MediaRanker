@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all.order(rank: :desc)
+    @media = Movie.all.order(rank: :desc)
+    @new_media = Movie.new
+    @add_media = "a Movie"
   end
 
   def upvote

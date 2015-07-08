@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all.order(rank: :desc)
+    @media = Book.all.order(rank: :desc)
+    @new_media = Book.new
+    @add_media = "a Book"
   end
 
   def upvote
