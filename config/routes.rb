@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   categories = ['albums', 'books', 'movies']
 
   categories.each do |category|
-    resources :media, as: category, path: category, except: :index
+    get "/:category/new" => "media#new"
+    resources :media, as: category, path: category, except: [:index, :new]
     patch "/#{ category }/:id/upvote" => "media#upvote"
   end
 end

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20150707205013) do
 
   create_table "media", force: :cascade do |t|
     t.string   "title",       null: false
-    t.string   "artist"
+    t.string   "creator"
     t.text     "description"
     t.integer  "upvotes",     null: false
     t.string   "category",    null: false

@@ -3,112 +3,112 @@ movies = Medium.create([
     category: "Movie",
     upvotes: 0,
     title: "The Fifth Element",
-    artist: "Luc Besson",
+    creator: "Luc Besson",
     description: "A cab driver unwittingly becomes the central figure in the search for a legendary cosmic weapon to keep Evil at bay."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "[Rec]",
-    artist: "Jaume Balagueró & Paco Plaza",
+    creator: "Jaume Balagueró & Paco Plaza",
     description: "A TV reporter follows emergency workers into an apartment building and is locked inside with something terrifying."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "28 Days Later",
-    artist: "Danny Boyle",
+    creator: "Danny Boyle",
     description: "Four weeks after a mysterious, incurable virus spreads throughout the UK, a handful of survivors try to find sanctuary."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Låt den rätte komma in",
-    artist: "Tomas Alfredson",
+    creator: "Tomas Alfredson",
     description: "Oskar, an overlooked and bullied boy, finds love and revenge through Eli, a beautiful but peculiar girl."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Frostbiten",
-    artist: "Anders Banke",
+    creator: "Anders Banke",
     description: "Vampires terrorize a city in Norrbotten."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Soldier's Girl",
-    artist: "Frank Pierson" ,
+    creator: "Frank Pierson" ,
     description: "The true story of the price a young soldier paid for falling in love with a transsexual night-club performer."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "But I'm a Cheerleader",
-    artist: "Jamie Babbit",
+    creator: "Jamie Babbit",
     description: "A naive teenager is sent to rehab camp when her straitlaced parents and friends suspect her of being a lesbian."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Sommerstrum",
-    artist: "Marco Kreuzpaintner",
+    creator: "Marco Kreuzpaintner",
     description: "A close friendship between two crew teammates is tested when one slowly discovers he's gay and attracted to the other."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Yossi & Jagger",
-    artist: "Eytan Fox",
+    creator: "Eytan Fox",
     description: "Romance blooms between two soldiers (Knoller, Levi) stationed in an Israeli outpost on the Lebanese border."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Eurotrip",
-    artist: "Jeff Schaffer",
+    creator: "Jeff Schaffer",
     description: "Dumped by his girlfriend, a high school grad decides to embark on an overseas adventure in Europe with his friends."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Dark City",
-    artist: "Alex Proyas",
+    creator: "Alex Proyas",
     description: "A man struggles with memories of his past in a nightmarish world run by beings who seek the souls of humans."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Expedição Kon Tiki",
-    artist: "Joachim Rønning & Espen Sandberg",
+    creator: "Joachim Rønning & Espen Sandberg",
     description: "Legendary explorer Thor Heyerdal's epic 4,300-mile crossing of the Pacific on a balsawood raft in 1947."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Contact",
-    artist: "Robert Zemeckis",
+    creator: "Robert Zemeckis",
     description: "Dr. Ellie Arroway finds conclusive radio proof of intelligent aliens, who send plans for a mysterious machine."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "K-PAX",
-    artist: "Iain Softley",
+    creator: "Iain Softley",
     description: "Prot is a patient at a mental hospital who claims to be from a far away Planet."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "District 9",
-    artist: "Neill Blomkamp",
+    creator: "Neill Blomkamp",
     description: "Aliens forced to live in slum-like conditions on Earth find a kindred spirit in a human exposed to their biotechnology."
   },
   {
     category: "Movie",
     upvotes: 0,
     title: "Sphere",
-    artist: "hahahahahaha",
+    creator: "hahahahahaha",
     description: "STOP CALLING ME JERRY!"
   }
 ])
@@ -118,25 +118,25 @@ books = Medium.create([
     category: "Book",
     upvotes: 0,
     title: "Blood Music",
-    artist: "Greg Bear"
+    creator: "Greg Bear"
   },
   {
     category: "Book",
     upvotes: 0,
     title: "Red Mars",
-    artist: "Kim Stanley Robinson"
+    creator: "Kim Stanley Robinson"
   },
   {
     category: "Book",
     upvotes: 0,
     title: "Blue Mars",
-    artist: "Kim Stanley Robinson"
+    creator: "Kim Stanley Robinson"
   },
   {
     category: "Book",
     upvotes: 0,
     title: "Green Mars",
-    artist: "Kim Stanley Robinson"
+    creator: "Kim Stanley Robinson"
   },
   {
     category: "Book",
@@ -152,19 +152,19 @@ books = Medium.create([
     category: "Book",
     upvotes: 0,
     title: "The Color of Distance",
-    artist: "Kim Stanley Robinson"
+    creator: "Kim Stanley Robinson"
   },
   {
     category: "Book",
     upvotes: 0,
     title: "Red Mars",
-    artist: "Kim Stanley Robinson"
+    creator: "Kim Stanley Robinson"
   },
   {
     category: "Book",
     upvotes: 0,
     title: "The Lost World",
-    artist: "Sir Arthur Conan Doyle"
+    creator: "Sir Arthur Conan Doyle"
   },
   {
     category: "Book",
@@ -178,6 +178,6 @@ albums = Medium.create([
     category: "Album",
     upvotes: 0,
     title: "Kompressor Does Not Dance",
-    artist: "Kompressor"
+    creator: "Kompressor"
   }
 ])
