@@ -1,10 +1,8 @@
 class AlbumsController < ApplicationController
+  before_action :set_album, only: [:show, :edit, :update, :upvote, :destroy]
+
   def index
     @albums = Album.all_ranked
-  end
-
-  def show
-    @album = Album.find(params[:id])
   end
 
   def new
@@ -20,12 +18,7 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def edit
-    @album = Album.find(params[:id])
-  end
-
   def update
-    @album = Album.find(params[:id])
     @album.update(album_params)
     if @album.save
       redirect_to @album
@@ -35,20 +28,22 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    album = Album.find(params[:id])
-    album.add_vote
+    @album.add_vote
     
-    redirect_to album
+    redirect_to @album
   end
 
   def destroy
-    @album = Album.find(params[:id])
     @album.destroy
 
     redirect_to albums_path
   end
 
   private
+
+  def set_album
+    @album = Album.find(params[:id])
+  end
 
   def album_params
     params.require(:album).permit(:title, :artist, :description, :rank)
