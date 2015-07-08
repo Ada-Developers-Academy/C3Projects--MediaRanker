@@ -7,4 +7,9 @@ class Book < ActiveRecord::Base
   def creator
     author
   end
+
+  def add_vote
+    old_value = self.rank
+    update(rank: old_value + 1)
+  end
 end
