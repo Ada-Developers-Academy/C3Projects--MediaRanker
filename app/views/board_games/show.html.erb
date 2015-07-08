@@ -8,7 +8,7 @@
   <%= @board_game.description %>
 </p>
 
-<%= link_to "Upvote" %>
+<%= button_to "Upvote", upvote_board_game_path(@board_game.id)%>
 <%= link_to "Edit", edit_board_game_path %>
 <%= link_to "Delete", board_game_path(@board_game.id), :method => :delete %>
 <%= link_to "View all Board Games", board_games_path %>

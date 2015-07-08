@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   # upvote routes
   post "/video_games/:id/upvote"  => "video_games#upvote", as: :upvote_video_game
+  post "/story_games/:id/upvote"  => "story_games#upvote", as: :upvote_story_game
+  post "/board_games/:id/upvote"  => "board_games#upvote", as: :upvote_board_game
 
 
   # The priority is based upon order of creation: first created -> highest priority.

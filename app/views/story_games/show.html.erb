@@ -8,7 +8,7 @@
   <%= @story_game.description %>
 </p>
 
-<%= link_to "Upvote", :controller => :story_games, :action => :upvote %>
+<%= button_to "Upvote", upvote_story_game_path(@story_game.id)  %>
 <%= link_to "Edit", edit_story_game_path %>
 <%= link_to "Delete", story_game_path(@story_game.id), :method => :delete %>
 <%= link_to "View all Story Games", story_games_path %>

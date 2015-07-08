@@ -1,6 +1,6 @@
 class VideoGamesController < ApplicationController
   def index
-    @video_games = VideoGame.all.order('stars DESC')
+    @video_games = VideoGame.all
 
     render :index
   end

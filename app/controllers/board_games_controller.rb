@@ -1,6 +1,6 @@
 class BoardGamesController < ApplicationController
   def index
-    @board_games = BoardGame.all.order('meeples DESC')
+    @board_games = BoardGame.all
     render :index
   end
 
@@ -22,6 +22,15 @@ class BoardGamesController < ApplicationController
     redirect_to board_game_path(@board_game.id)
   end
 
+  # Upvote an existing Board Game
+  def upvote
+    @board_game_id = params[:id]
+    @board_game = BoardGame.find(@board_game_id)
+    @board_game.meeples += 1
+    @board_game.save
+
+    redirect_to board_game_path(@board_game.id)
+  end
   # Update an existing Board Game
   def edit
     @board_game_id = params[:id]

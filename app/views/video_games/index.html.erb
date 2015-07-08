@@ -23,7 +23,7 @@
         <%= link_to "#{game.title}", video_game_path(game.id)  %>
       </td>
       <td>
-        Upvote
+        <%= button_to "Upvote", upvote_video_game_path(game.id) %>
       </td>
     </tr>
     <% end  %>

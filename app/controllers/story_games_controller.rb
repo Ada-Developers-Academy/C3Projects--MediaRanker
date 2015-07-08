@@ -1,6 +1,6 @@
 class StoryGamesController < ApplicationController
   def index
-    @story_games = StoryGame.all.order('note_cards DESC')
+    @story_games = StoryGame.all
     render :index
   end
 
@@ -18,6 +18,16 @@ class StoryGamesController < ApplicationController
 
   def create
     @story_game = StoryGame.create(story_game_params[:story_game])
+
+    redirect_to story_game_path(@story_game.id)
+  end
+
+  # Upvote an existing Video Game
+  def upvote
+    @story_game_id = params[:id]
+    @story_game = StoryGame.find(@story_game_id)
+    @story_game.note_cards += 1
+    @story_game.save
 
     redirect_to story_game_path(@story_game.id)
   end

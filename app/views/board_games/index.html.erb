@@ -23,7 +23,7 @@
         <%= link_to "#{game.title}", board_game_path(game.id)  %>
       </td>
       <td>
-        Upvote
+        <%= button_to "Upvote", upvote_board_game_path(game.id)%>
       </td>
     </tr>
     <% end  %>
