@@ -7,7 +7,9 @@ class Movie < ActiveRecord::Base
 
   # Class Methods --------------------------------------------------------------
   def self.upvote(movie)
+    puts movie.inspect
      movie.votes += 1
      movie.save
+     puts movie.inspect
   end
 end
