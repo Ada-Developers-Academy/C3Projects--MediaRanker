@@ -1,14 +1,14 @@
 <h1>All Movies</h1>
 
-<%= render partial: 'shared/home_list', locals: { media: @movies } %>
+<%= render partial: 'home/movie', collection: @movies %>
 <%= link_to "View more movies", movies_path %>
 
 <h1>All Books</h1>
 
-<%= render partial: 'shared/home_list', locals: { media: @books } %>
+<%= render partial: 'home/book', collection: @books %>
 <%= link_to "View more books", books_path %>
 
 <h1>All Albums</h1>
 
-<%= render partial: 'shared/home_list', locals: { media: @albums } %>
+<%= render partial: 'home/album', collection: @albums %>
 <%= link_to "View more albums", albums_path %>
