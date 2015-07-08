@@ -11,7 +11,7 @@
   <%= link_to "Edit #{@single.name}", "/#{@controller}/#{@single.id}/edit", method: :get %>
   <%= link_to "Delete", "/#{@controller}/#{@single.id}", method: "delete",
             data: {:confirm => "Are you sure?"} %>
-  <%= link_to "View All #{@controller.capitalize}", "/" %>
+  <%= link_to "View All #{@controller.capitalize}", "/#{@controller}" %>
   <%= link_to "View All Media", root_path %>
   make above inline
 </div>

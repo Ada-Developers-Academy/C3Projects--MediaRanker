@@ -2,7 +2,7 @@
 <h1> Top Movies </h1>
 
 <ul>
-  <% Movie.by_rank.collect do |movie| %>
+  <% Movie.top(10).collect do |movie| %>
    <li>
      <%= link_to "#{movie.name}", "/movies/#{movie.id}" %> Ranked: <%= movie.rank %>
      <% end %>
@@ -15,7 +15,7 @@
 <h1> Top Books </h1>
 
 <ul>
-  <% Book.by_rank.collect do |book| %>
+  <% Book.top(10).collect do |book| %>
   <li>
     <%= link_to "#{book.name}", "/books/#{book.id}" %> Ranked: <%= book.rank %>
     <% end %>
@@ -28,7 +28,7 @@
 <h1> Top Albums </h1>
 
 <ul>
-  <% Album.by_rank.collect do |album| %>
+  <% Album.top(10).collect do |album| %>
   <li>
     <%= link_to "#{album.name}", "/albums/#{album.id}" %> Ranked: <%= album.rank %>
     <% end %>
