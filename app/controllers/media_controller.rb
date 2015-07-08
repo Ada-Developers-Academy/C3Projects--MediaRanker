@@ -28,7 +28,6 @@ class MediaController < ApplicationController
 
   def upvote
     medium = Medium.find(params[:id])
-    # raise
     medium.increment!(:upvotes, 1)
 
     redirect_to "/#{ medium.plural_category }/#{ medium.id }"

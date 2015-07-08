@@ -22,10 +22,6 @@ class Medium < ActiveRecord::Base
     return "Produced" if category == "Album"
   end
 
-  def upvote
-    upvotes += 1
-  end
-
   def self.grab_category(category)
     self.where(category: category)
   end
@@ -33,5 +29,7 @@ class Medium < ActiveRecord::Base
   def self.categorize
     all_records = self.all
     all_records.group_by { |record| record.category }
+
+    all_records
   end
 end
