@@ -9,15 +9,16 @@ RSpec.describe MediaController, type: :controller do
       expect(response).to render_template("index")
     end
 
-    it "loads media into their respective @movies, @books, and @albums" do
-      ["book", "movie", "album"].each do |type|
-      medium1 = Medium.create!(name: "new1", media_type: type)
-      medium2 = Medium.create!(name: "new2", media_type: type)
+    media_types = { book: "books", movie: "movies", album: "albums" }
+    media_types.each do |type, instance_variable|
+      it "loads media into @#{instance_variable}" do
+        medium1 = Medium.create!(name: "new1", media_type: type)
+        medium2 = Medium.create!(name: "new2", media_type: type)
+        get :index
+
+        expect(assigns(:"#{instance_variable}")).to match_array([medium1, medium2])
       end
-
-      expect(assigns(:book)).to match_array([medium1, medium2])
     end
-
 
   end
 
