@@ -6,9 +6,8 @@
   <% path = "books" %>
 <% end %>
 
-<%= "#{object.class}s" %>
-  <table>
-    <td><%= link_to "#{object.name}", "#{path}/#{object.id}" %></td>
-    <td><%= "Ranked as: #{object.rank}" %></td>
-  </table>
+<table>
+  <td><%= link_to "#{object.name}", "#{path}/#{object.id}" %></td>
+  <td><%= "Ranked as: #{object.rank}" %></td>
+</table>
 
