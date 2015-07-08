@@ -63,11 +63,61 @@ RSpec.describe BooksController, type: :controller do
     end
     
     context "valid book params" do
-
       it "updates an existing book record" do
-        book_params = { name: "title" }
-        patch :update, book_params
+        patch :update, id: @book.id, book: { name: "title" }
+        @book.reload
         expect(@book.name).to eq "title"
+      end
+
+      it "redirects to the Book show page" do
+        patch :update, id: @book.id, book: { name: "title" }
+        @book.reload
+        expect(subject).to redirect_to(book_path)
+      end
+    end
+
+    context "invalid book params" do
+      it "does not persist invalid record updates" do
+        patch :update, id: @book.id, book: { desc: "desc" }
+        expect(subject).to redirect_to(book_path)
+      end
+    end
+  end
+
+  describe "POST #upvote" do
+    before :each do 
+      @book = Book.create(name: "name", vote: 0)
+    end
+
+    context "clicking upvote button" do
+      it "increases the upvote count by 1" do
+        post :upvote, id: @book.id
+        @book.reload
+        expect(@book.vote).to eq 1
+      end
+
+      it "redirects to the Book show page" do
+        patch :upvote, id: @book.id
+        @book.reload
+        expect(subject).to redirect_to(book_path)
+      end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before :each do 
+      @book = Book.create(name: "name")
+    end
+
+    context "clicking the delete button" do
+      it "removes a record" do
+        delete :destroy, id: @book.id
+        expect(Book.count).to eq 0
+      end
+
+      it "redirects to the Book show page" do
+        delete :destroy, id: @book.id
+        expect(subject).to redirect_to(books_path)
       end
     end
   end
