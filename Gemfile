@@ -34,6 +34,9 @@ gem 'bootstrap-sass', '~> 3.3.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Elsa install pry, ap
+  gem 'pry'
+
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
@@ -52,6 +55,11 @@ group :development, :test do
   # Elsa install debugging gems
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # Elsa install testing gems
+  gem 'rspec-rails', '~> 3.0'
+  gem 'simplecov', require: false
+
 end
 
 group :production do
