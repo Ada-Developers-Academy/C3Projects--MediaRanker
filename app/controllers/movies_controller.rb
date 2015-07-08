@@ -50,7 +50,9 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-
+    @media = Movie.find(params[:id])
+    @media.destroy
+    redirect_to polymorphic_path(Movie)
   end
 
 

@@ -50,7 +50,9 @@ class BooksController < ApplicationController
   end
 
   def destroy
-
+    @media = Book.find(params[:id])
+    @media.destroy
+    redirect_to polymorphic_path(Book)
   end
 
 

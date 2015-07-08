@@ -50,7 +50,9 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-
+    @media = Album.find(params[:id])
+    @media.destroy
+    redirect_to polymorphic_path(Album)
   end
 
 
