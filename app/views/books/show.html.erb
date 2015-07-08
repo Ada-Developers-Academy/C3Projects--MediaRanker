@@ -1,9 +1,7 @@
-<h1> <%= @book.name %> </h1>
-<h3> Written by: <%= @book.creator %> </h3>
-<p> Ranked: <%= @book.rank %> </p>
-<p> <%= @book.description %> </p>
-<%= button_to "Upvote", book_upvote_path(@book.id), method: "patch" %>
-<%= button_to "Edit #{@book.name}", edit_book_path(@book.id), method: "get" %>
-<%= button_to "DELETE", book_path(@book.id), method: :delete, data: { confirm: "Are you sure?"} %>
-<%= button_to "View All Books", books_path, method: "get" %>
-<%= button_to "View All Media", root_path, method: "get" %>
+<%= render partial: "shared/show", locals: { media_name: "Books",
+                                             created: "Written",
+                                             media: @book,
+                                             media_path: "book_path",
+                                             upvote_path: "book_upvote_path",
+                                             edit_path: "edit_book_path",
+                                             all_media_path: "books_path" } %>

@@ -1,9 +1,7 @@
-<h1> <%= @movie.name %> </h1>
-<h3> Directed by: <%= @movie.creator %> </h3>
-<p> Ranked: <%= @movie.rank %> </p>
-<p> <%= @movie.description %> </p>
-<%= button_to "Upvote", movie_upvote_path(@movie.id), method: "patch" %>
-<%= button_to "Edit #{@movie.name}", edit_movie_path(@movie.id), method: "get" %>
-<%= button_to "DELETE", movie_path(@movie.id), method: :delete, data: { confirm: "Are you sure?"} %>
-<%= button_to "View All Movies", movies_path, method: "get" %>
-<%= button_to "View All Media", root_path, method: "get" %>
+<%= render partial: "shared/show", locals: { media_name: "Movies",
+                                             created: "Directed",
+                                             media: @movie,
+                                             media_path: "movie_path",
+                                             upvote_path: "movie_upvote_path",
+                                             edit_path: "edit_movie_path",
+                                             all_media_path: "movies_path" } %>
