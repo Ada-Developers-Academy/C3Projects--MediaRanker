@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
 
   resources :movies, :albums, :books do
-    collection do
-      post 'upvote'
+    member do
+      patch 'upvote'
     end
   end
 
