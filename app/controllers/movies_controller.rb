@@ -11,6 +11,6 @@ class MoviesController < ApplicationController
     movie = Movie.find(params[:id])
     movie.destroy
 
-    redirect_to :index
+    redirect_to media_path
   end
 end

@@ -1,44 +1,46 @@
-<div>
-  <h2>Top Movies</h2>
+<div class="row">
+  <div class="col-sm-4">
+    <h2>Top Movies</h2>
 
-  <ul>
-    <% @top_movies.each do |movie| %>
-    <li>
-      <%= link_to movie.title, movie_path(movie) %>
-      <br> Upvotes: <%= movie.ranking %>
-    </li>
-    <% end %>
-  </ul>
+    <ul>
+      <% @top_movies.each do |movie| %>
+      <li>
+        <%= link_to movie.title, movie_path(movie) %>
+        <br> Upvotes: <%= movie.ranking %>
+      </li>
+      <% end %>
+    </ul>
 
-  <%= link_to "View All Movies", movies_path %>
-</div>
+    <%= link_to "View All Movies", movies_path %>
+  </div>
 
-<div>
-  <h2>Top Books</h2>
+  <div class="col-sm-4">
+    <h2>Top Books</h2>
 
-  <ul>
-    <% @top_books.each do |book| %>
-    <li>
-      <%= link_to book.title, book_path(book) %>
-      <br> Upvotes: <%= book.ranking %>
-    </li>
-    <% end %>
-  </ul>
+    <ul>
+      <% @top_books.each do |book| %>
+      <li>
+        <%= link_to book.title, book_path(book) %>
+        <br> Upvotes: <%= book.ranking %>
+      </li>
+      <% end %>
+    </ul>
 
-  <%= link_to "View All Books", books_path %>
-</div>
+    <%= link_to "View All Books", books_path %>
+  </div>
 
-<div>
-  <h2>Top Albums</h2>
+  <div class="col-sm-4">
+    <h2>Top Albums</h2>
 
-  <ul>
-    <% @top_albums.each do |album| %>
-    <li>
-      <%= link_to album.title, album_path(album) %>
-      <br> Upvotes: <%= album.ranking %>
-    </li>
-    <% end %>
-  </ul>
+    <ul>
+      <% @top_albums.each do |album| %>
+      <li>
+        <%= link_to album.title, album_path(album) %>
+        <br> Upvotes: <%= album.ranking %>
+      </li>
+      <% end %>
+    </ul>
 
-  <%= link_to "View All Albums", albums_path %>
+    <%= link_to "View All Albums", albums_path %>
+  </div>
 </div>

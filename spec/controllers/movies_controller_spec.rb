@@ -42,24 +42,17 @@ RSpec.describe MoviesController, type: :controller do
 
     it "locates the correct Movie" do
       params = { id: 1 }
-
       expect(Movie.find(params[:id]).title).to eq("a title")
     end
 
     it "deletes the movie" do
-      expect(Movie.all).to include(@movie2)
-
-      @movie2.destroy
+      delete :destroy, id: @movie2.id
       expect(Movie.all).to_not include(@movie2)
     end
 
     it "redirects to the :index view" do
-      @movie1.destroy
-      get :index
-
-      # expect(response).to have_http_status(200)
-      # redirect_to doesn't work; receives 200 status instead
-      expect(subject).to render_template :index
+      delete :destroy, id: @movie1.id
+      expect(subject).to redirect_to(media_path)
     end
   end
 end
