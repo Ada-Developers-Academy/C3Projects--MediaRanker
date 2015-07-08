@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create(movie_params)
+    redirect_to movies_path
   end
 
 
@@ -21,11 +22,33 @@ class MoviesController < ApplicationController
     @index_path = movies_path
   end
 
-  def upvote
+  def edit
     @movie = Movie.find(params[:id])
     @method = :patch
-    @movie.votes += 1
+    if @movie.director.nil?
+      @creator = " "
+    else
+      @creator = @movie.director
+    end
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+    @movie.update(movie_params)
     render :show
+  end
+
+  def upvote
+    @movie = Movie.find(params[:id])
+    @movie.votes += 1
+    @movie.save
+    @method = :patch
+    redirect_to movie_path(@movie.id)
+  end
+
+  def destroy
+    movie = Movie.find(params[:id])
+    movie.destroy
   end
 
   def movie_params
