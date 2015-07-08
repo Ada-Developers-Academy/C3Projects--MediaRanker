@@ -1,11 +1,2 @@
-<%= render "shared/header" %>
-<table class="table table-hover">
+<%= render partial: 'shared/index', locals: { objects: @movies, object_path: "movies" } %>
 
-<%= render 'shared/index_sub_header' %>
-
-<%= render partial: "shared/index", collection: @movies, as: :object, locals: { object_path: "movies" } %>
-
-</table>
-
-<%= button_to "View All Media", root_path, method: :get %>
-<%= button_to "Add a Movie", new_movie_path, method: :get %>
