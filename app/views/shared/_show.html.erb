@@ -1,0 +1,7 @@
+<h2><%= media.title %><small><%= " #{creator} by: "%><%= created_by %></small></h2>
+
+<h4>Ranked: <%= media.votes %></h4>
+
+<p><%= media.description %></p>
+
+<%= button_to "Upvote", media, method: :put, params: { upvote: true }%>
