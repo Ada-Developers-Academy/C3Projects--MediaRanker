@@ -11,7 +11,7 @@ RSpec.describe Album, type: :model do
 
     it "sets ranking to default of 0" do
       album = Album.new
-      
+
       expect(album.ranking).to eq 0
     end
   end
