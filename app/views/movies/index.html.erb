@@ -10,7 +10,7 @@
   <tr>
     <td><%= movie.rank %></td>
     <td><%= link_to "#{movie.name}", movie_path(movie.id) %></td>
-    <td><%= button_to "Upvote", upvote_movies_path(movie.rank), method: :post %></td>
+    <td><%= button_to "Upvote", upvote_movie_path(movie.rank), method: :post %></td>
   </tr>
   <% end %>
 </table>
