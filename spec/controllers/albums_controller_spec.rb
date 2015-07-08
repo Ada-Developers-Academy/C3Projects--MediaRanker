@@ -20,7 +20,7 @@ RSpec.describe AlbumsController, type: :controller do
             {
               name: "Alumbzzz",
               creator: "Van Halen",
-              description: "Rock n Roll",
+              description: "Rock n Roll"
             }
         }
       end
@@ -30,28 +30,46 @@ RSpec.describe AlbumsController, type: :controller do
         expect(Album.count).to eq 1
       end
 
-      # it "rank is 0 after creation" do
-      #   post :create, album_params
-      #   expect(album.rank).to eq 0
+      it "rank is 0 right after creation" do
+        post :create, album_params
+        expect(Album.find.last.rank).to eq 0
       # need to set new album == instance variable
-      # end
+      end
     end # + context
 
     # - album params invalid
     context "Invalid media parameters" do
       let(:album_params) do
           { album:
-            { 
+            {
               creator: "Van Halen",
               description: "Rock n Roll",
             }
-        }
+          }
       end
 
-      it ""
+      it "does not create media" do
+        post :create, album_params
+        expect(Album.count).to eq 0
       end
-
+    end
     end
   end
 
-end
+  describe "POST #update" do
+    let(:album_params) do
+      { album:
+        {
+          name: "Alumbzzz",
+          creator: "Van Halen",
+          description: "Rock n Roll"
+        }
+      }
+    end
+
+    [ :name, :creator, :description ].each do |field|
+      it "sucessfully updates field" do
+
+      end
+    end
+  end # controller

@@ -1,7 +1,6 @@
 class AlbumsController < ApplicationController
 
   def index
-    @all = Album.all
     @controller = "albums"
     @model = Album
   end
