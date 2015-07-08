@@ -1,6 +1,6 @@
 <%= render partial: "shared/show.html.erb", locals: {object: @album, person_desc: "Recorded by: #{@album.artist}" } %>
 
-<%= link_to "Upvote Album", album_path(@album.id), method: "patch" %>
+<%= link_to "Upvote Album", album_upvote_path(@album.id), method: :patch %>
 <%= link_to "Edit Album", edit_album_path(@album.id) %>
 <%= link_to "Delete", album_path(@album.id), method: "delete" %>
 <%= link_to "View All Albums", albums_path %>

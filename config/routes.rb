@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :user, only: [:index]
 
+
   # resources :user, only:[] do
   #   resources :movies, only: [:index, :show]
   #   resources :books, only: [:index, :show]
@@ -31,6 +32,14 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  patch '/albums/:id/upvote' => 'albums#upvote', as: 'album_upvote'
+
+  patch '/books/:id/upvote' => 'books#upvote', as: 'book_upvote'
+
+  patch '/movies/:id/upvote' => 'movies#upvote', as: 'movie_upvote'
+
+
 
   # Example resource route with options:
   #   resources :products do
