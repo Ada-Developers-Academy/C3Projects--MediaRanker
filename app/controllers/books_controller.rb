@@ -19,8 +19,9 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.create(book_params)
-    if book.save
+    @media = Book.create(book_params)
+    @creator = :author
+    if @media.save
       redirect_to books_path
     else
       render :new
