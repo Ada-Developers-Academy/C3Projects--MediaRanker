@@ -1,0 +1,6 @@
+<footer>
+  <%= button_to "Edit #{media.title}", edit_item_path, method: "get" %>
+  <%= button_to "DELETE", delete_item_path, method: "delete", data: { confirm: "Are you sure?" } %>
+  <%= button_to "View All #{name}", view_all_path, method: "get" %>
+  <%= button_to "View All Media", root_path, method: "get" %>
+</footer>
