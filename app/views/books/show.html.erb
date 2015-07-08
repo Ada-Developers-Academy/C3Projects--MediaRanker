@@ -1,0 +1,7 @@
+<h2><%= @book.title %><small> Written by: <%= @book.written_by %></small></h2>
+
+<h4>Ranked: <%= @book.votes %></h4>
+
+<p><%= @book.description %></p>
+
+<%= button_to "Upvote", @books, method: :put, params: { upvote: true }%>

@@ -1,4 +1,4 @@
-<%= render 'shared/index_table', { objects: @books } %>
+<%= render partial: 'shared/index_table', locals: { objects: @books }  %>
 
 <%= link_to "View All Media", :root %>
 <%= link_to "Add a Book", new_book_path %>
