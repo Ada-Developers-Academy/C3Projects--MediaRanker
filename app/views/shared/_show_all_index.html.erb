@@ -15,18 +15,28 @@
       <td>
       <%= medium.rank %>
       </td>
-      <td>
-        <%= medium.title %>
-      </td>
-      <td>
-        <% if medium.class == Movie %>
+      <% if medium.class == Movie %>
+        <td>
+          <%= link_to "#{medium.title}", movie_path(id: medium.id) %>
+        </td>
+        <td>
           <%= button_to "Upvote", movie_path(id: medium.id), method: :put %>
-        <% elsif medium.class == Book %>
+        </td>
+      <% elsif medium.class == Book %>
+        <td>
+          <%= link_to "#{medium.title}", book_path(id: medium.id) %>
+        </td>
+        <td>
           <%= button_to "Upvote", book_path(id: medium.id), method: :put %>
-        <% elsif medium.class == Album %>
+        </td>
+      <% elsif medium.class == Album %>
+        <td>
+          <%= link_to "#{medium.title}", album_path(id: medium.id) %>
+        </td>
+        <td>
           <%= button_to "Upvote", album_path(id: medium.id), method: :put %>
-        <% end %>
-      </td>
+        </td>
+      <% end %>
     </tr>
   <% end %>
 </table>
