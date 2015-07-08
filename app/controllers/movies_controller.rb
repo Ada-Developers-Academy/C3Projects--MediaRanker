@@ -1,11 +1,14 @@
 class MoviesController < ApplicationController
+ 
+  def index
+    @movies = Movie.all
+  end
 
   def create
-    @movies = Movie.all
-    @new = Movie.new(create_params[:movie])
-    @new.save
+    @movie = Movie.new(permit_params[:movie])
+    @movie.save
 
-    render :index
+    redirect_to"/movies"
   end
 
   def new
@@ -40,9 +43,15 @@ class MoviesController < ApplicationController
   redirect_to(movie_path)
   end
 
+  def destroy
+    @movie = Movie.find(params[:id]).destroy
+
+    redirect_to(movies_path)
+  end
+
   private
 
-  def create_params
+  def permit_params
     params.permit(movie:[:name, :director, :description, :vote])
   end
 

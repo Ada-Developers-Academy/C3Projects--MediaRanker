@@ -1,4 +1,3 @@
-
 <table border "1">
 
 <tr>
@@ -9,7 +8,10 @@
     Movie Name
   </th>
   <th>
-    Vote
+    Director
+  </th>
+  <th>
+    Description
   </th>
 
 </tr>
@@ -20,10 +22,13 @@
       <%= movie.vote %>
     </td>
     <td>
-      <%= link_to "#{movie.name}", "/movie/#{movie.id}" %>
+      <%= link_to "#{movie.name}", "/movies/#{movie.id}" %>
     </td>
     <td>
-      <%= button_to "Upvote"   %>
+      <%= movie.description %>
+    </td>
+    <td>
+      <%= movie.vote %>
     </td>
   </tr>
   <% end %>

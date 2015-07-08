@@ -9,9 +9,13 @@ Rails.application.routes.draw do
 
   resources :albums
   resources :books
-  resources :movies
-  
+  resources :movies do
+    member do
+      get '/update_vote', action: 'update_vote', as: 'update_vote'
+    end
+  end
 
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
