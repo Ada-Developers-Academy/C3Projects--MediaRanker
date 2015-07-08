@@ -12,7 +12,11 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @media = Book.find(params[:id])
+    @created = "Written"
+    @creator = @media.author
+    @format = "Books"
+    @class = Book
   end
 
   def new

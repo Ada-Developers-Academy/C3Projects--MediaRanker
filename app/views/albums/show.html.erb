@@ -1,10 +1,1 @@
-<h1><%= @album.name %> <small>Recorded by: <%= @album.artist %></small></h1>
-<h4>Ranked: <%= @album.rank %></h4>
-<p>
-  <%= @album.description %>
-</p>
-<%= button_to "Upvote", upvote_album_path(@album), class: "btn btn-primary" %>
-<%= link_to "Edit #{@album.name}", edit_album_path, class: "btn btn-default" %>
-<%= link_to "DELETE", { action: "destroy", id: @album.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-<%= link_to "View All Albums", albums_path, class: "btn btn-default" %>
-<%= link_to "View All Media", root_path, class: "btn btn-default" %>
+<%= render 'shared/show' %>

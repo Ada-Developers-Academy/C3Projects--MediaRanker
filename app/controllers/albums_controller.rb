@@ -12,7 +12,11 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
+    @media = Album.find(params[:id])
+    @created = "Recorded"
+    @creator = @media.artist
+    @format = "Albums"
+    @class = Album
   end
 
   def new

@@ -1,10 +1,1 @@
-<h1><%= @book.name %> <small>Written by: <%= @book.author %></small></h1>
-<h4>Ranked: <%= @book.rank %></h4>
-<p>
-  <%= @book.description %>
-</p>
-<%= button_to "Upvote", upvote_book_path(@book), class: "btn btn-primary" %>
-<%= link_to "Edit #{@book.name}", edit_book_path, class: "btn btn-default" %>
-<%= link_to "DELETE", { action: "destroy", id: @book.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-<%= link_to "View All Books", books_path, class: "btn btn-default" %>
-<%= link_to "View All Media", root_path, class: "btn btn-default" %>
+<%= render 'shared/show' %>
