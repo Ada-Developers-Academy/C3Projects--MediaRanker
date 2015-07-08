@@ -9,6 +9,8 @@ class AlbumsController < ApplicationController
     if params[:upvote] == "true"
       Album.upvote(@album)
       redirect_to album_path(@album)
+    else
+      render :index
     end
   end
 
