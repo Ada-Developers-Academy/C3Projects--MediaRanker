@@ -2,3 +2,6 @@
 <% @movies.each do |movie| %>
 <p> <%= movie.name %> </p>
 <% end %>
+
+<p> <%= button_to "View All Media", root_path, method: :get %> </p>
+<p> <%= button_to "Add a Movie", new_movie_path , method: :get %> </p>

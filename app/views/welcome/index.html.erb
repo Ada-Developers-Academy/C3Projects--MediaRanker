@@ -7,6 +7,7 @@
       <small> ranked <%= movie.rank %> </small>
     </h2>
   <% end %>
+  <p><%= link_to "View More Movies", movies_path %></p>
 </div>
 
 <div class="index_column">
@@ -16,6 +17,7 @@
       <small> ranked <%= book.rank %> </small>
     </h2>
   <% end %>
+    <p><%= link_to "View More Books", books_path %></p>
 </div>
 
 <div class="index_column">
@@ -25,4 +27,5 @@
       <small> ranked <%= album.rank %> </small>
     </h2>
   <% end %>
+  <p><%= link_to "View More Albums", albums_path %></p>
 </div>
