@@ -17,6 +17,7 @@ RSpec.describe MediaController, type: :controller do
     { category: "Book", upvotes: 0, title: "The Color of Distance", creator: "Kim Stanley Robinson" },
     { category: "Book", upvotes: 0, title: "Red Mars", creator: "Kim Stanley Robinson" },
     { category: "Book", upvotes: 0, title: "The Lost World", creator: "Sir Arthur Conan Doyle" }])
+    # { category: "Album", upvotes: 855, title: "Kompressor Does Not Dance", creator: "Kompressor" }
   end
 
   describe "GET #root" do
@@ -55,39 +56,44 @@ RSpec.describe MediaController, type: :controller do
       end
     end
   end
-end
 
-RSpec.describe MediaController do
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
-      get :root, { category: "movies" }
+      get :index, { category: "movies" }
 
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
 
     it "renders the index template" do
-      get :root, { category: "movies" }
+      get :index, { category: "movies" }
 
       expect(response).to render_template("index")
     end
 
-    # { category: "Album", upvotes: 855, title: "Kompressor Does Not Dance", creator: "Kompressor" }
     context "loading the media" do
       it "loads all of the media into @all_records" do
-        get :root, { category: "movies" }
-      end
+        get :index, { category: "movies" }
 
-      it "loads ALL of the media from its specified category" do
-        get :root, { category: "movies" }
+        expect(assigns(:all_records).length).to eq(12)
       end
 
       it "loads the items in descending order (by upvotes)" do
-        get :root, { category: "movies" }
+        get :index, { category: "movies" }
+
+        expect(assigns(:all_records).first.title).to eq("The 70th Element")
+        expect(assigns(:all_records).last.title).to eq("The Fourth Element")
       end
 
       it "only loads the items from the specified category" do
-        get :root, { category: "movies" }
+        get :index, { category: "movies" }
+
+        assigns(:all_records).each do |rec|
+          expect(rec.category).to eq("Movie")
+          expect(rec.category).to_not eq("Book")
+          expect(rec.category).to_not eq("Album")
+          expect(rec.category).to_not eq("Potato")
+        end
       end
     end
   end
@@ -100,11 +106,11 @@ RSpec.describe MediaController do
       expect(response).to have_http_status(200)
     end
 
-#     it "renders the new template" do
-#       get :new
-#
-#       expect(response).to render_template("new")
-#     end
+    it "renders the new template" do
+      get :new, { category: "movies" }
+
+      expect(response).to render_template("new")
+    end
   end
 #
 #   describe "POST #create" do
