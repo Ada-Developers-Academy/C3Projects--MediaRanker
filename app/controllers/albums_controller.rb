@@ -1,6 +1,8 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    @media = Album.all.order(rank: :desc)
+    @new_media = Album.new
+    @add_media = "an Album"
   end
 
   def upvote
@@ -19,8 +21,9 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    album = Album.create(album_params)
-    if album.save
+    @media = Album.create(album_params)
+    @creator = :artist
+    if @media.save
       redirect_to albums_path
     else
       render :new
@@ -32,7 +35,7 @@ class AlbumsController < ApplicationController
     @creator = :artist
   end
 
-  def update
+  def update # no longer works with @media partial
     album = Album.find(params[:id])
     if album.update(album_params)
       redirect_to album_path(album)
