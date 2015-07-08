@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Album, type: :model do
   describe "model methods" do
+    describe "attributes" do
+      [:title, :recorded_by, :votes, :description].each do |method_name|
+        it { is_expected.to respond_to method_name}
+      end
+    end
+
     describe ".best" do
       before :each do
         @album1 = Album.create({ title: "Puppies Album", recorded_by: "Dog", votes: 10, description: "" })
