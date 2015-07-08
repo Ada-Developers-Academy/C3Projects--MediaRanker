@@ -1,4 +1,4 @@
-<%= render partial: "shared/index.html.erb", collection: @movies, as: :object %>
+<%= render partial: "shared/index.html.erb", collection: @movies, as: :object, locals: { path: "movies" } %>
 
 <%= link_to "View All Media", root_path %>
 <%= link_to "Add a Movie", new_movie_path %>

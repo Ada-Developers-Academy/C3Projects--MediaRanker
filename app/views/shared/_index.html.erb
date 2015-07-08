@@ -1,16 +1,8 @@
-<% if object.class == Album %>
-  <% path = "albums" %>
-<% elsif object.class == Movie %>
-  <% path = "movies" %>
-<% else %>
-  <% path = "books" %>
-<% end %>
-
 <table class="table table-condensed table-hover">
+  <th>Ranking</th>
+  <th>Name</th>
+  <th>Upvote</th>
   <tbody>
-    <th>Ranking</th>
-    <th>Name</th>
-    <th>Upvote</th>
     <tr>
       <td><%= "Ranked as: #{object.rank}" %></td>
       <td><%= link_to "#{object.name}", "#{path}/#{object.id}" %></td>
