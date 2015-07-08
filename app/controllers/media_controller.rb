@@ -29,15 +29,15 @@ class MediaController < ApplicationController
     medium = Medium.find(params[:id])
     medium.increment!(:upvotes, 1)
 
-    redirect_to "/#{ medium.plural_category }/#{ medium.id }"
+    redirect_to "#{ base_url medium }"
   end
 
   def update
     medium = Medium.find(params[:id])
-    if medium.update!(edit_params)
-      redirect_to "/#{ medium.plural_category }/#{ medium.id}"
+    if medium.update(edit_params)
+      redirect_to "#{ base_url medium }"
     else
-      redirect_to "/#{ medium.plural_category }/#{ medium.id}/edit"
+      redirect_to "#{ base_url medium }/edit"
     end
   end
 
@@ -47,7 +47,7 @@ class MediaController < ApplicationController
     if medium.valid?
       medium.save
 
-      redirect_to "/#{ medium.plural_category }/#{ medium.id }"
+      redirect_to "#{ base_url medium }"
     else
       redirect_to "/#{ medium.plural_category }/new"
     end
@@ -63,11 +63,15 @@ class MediaController < ApplicationController
 
   private
 
-  def create_params
-    stuff = edit_params
-    stuff[:medium][:upvotes] = 0
+  def base_url(medium)
+    "/#{ medium.plural_category }/#{ medium.id }"
+  end
 
-    return stuff
+  def create_params
+    medium = edit_params
+    medium[:upvotes] = 0
+
+    return medium
   end
 
   def edit_params
