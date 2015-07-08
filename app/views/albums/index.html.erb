@@ -11,7 +11,7 @@
   <tr>
     <td><%= album.rank %></td>
     <td><%= link_to "#{album.name}", album_path(album.id) %></td>
-    <td><%= button_to "Upvote", upvote_albums_path(album.rank), method: :post %></td>
+    <td><%= button_to "Upvote", upvote_album_path(album.id), method: :post %></td>
   </tr>
   <% end %>
 </table>
