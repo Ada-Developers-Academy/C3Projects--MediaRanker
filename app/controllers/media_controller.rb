@@ -15,7 +15,6 @@ class MediaController < ApplicationController
     @current_record = Medium.find(params[:id])
   end
 
-
   def new
     set_category
     @medium = Medium.new(category: @singular_category)
@@ -23,7 +22,7 @@ class MediaController < ApplicationController
   end
 
   def edit
-    @current_record = Medium.find(params[:id])
+    @medium = Medium.find(params[:id])
   end
 
   def upvote
@@ -33,8 +32,17 @@ class MediaController < ApplicationController
     redirect_to "/#{ medium.plural_category }/#{ medium.id }"
   end
 
+  def update
+    medium = Medium.find(params[:id])
+    if medium.update!(edit_params)
+      redirect_to "/#{ medium.plural_category }/#{ medium.id}"
+    else
+      redirect_to "/#{ medium.plural_category }/#{ medium.id}/edit"
+    end
+  end
+
   def create
-    medium = Medium.new(create_params[:medium])
+    medium = Medium.new(create_params)
 
     if medium.valid?
       medium.save
@@ -56,10 +64,14 @@ class MediaController < ApplicationController
   private
 
   def create_params
-    stuff = params.permit(medium: [:title, :creator, :description, :category])
+    stuff = edit_params
     stuff[:medium][:upvotes] = 0
 
     return stuff
+  end
+
+  def edit_params
+    params.permit(medium: [:title, :creator, :description, :category])[:medium]
   end
 
   def set_category
