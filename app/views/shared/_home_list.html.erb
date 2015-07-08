@@ -1,4 +1,6 @@
 <% media.each do |medium| %>
-  <p><%= link_to medium.title, send(item_path, medium) %></p>
+  <p><%= link_to medium.title, polymorphic_path(medium) %></p>
   <p>Ranked: <%= medium.rank %></p>
 <% end %>
+
+<!-- send(item_path, medium) -->
