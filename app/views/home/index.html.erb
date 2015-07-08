@@ -1,14 +1,17 @@
-<h1>All Movies</h1>
-
-<%= render partial: 'home/movie', collection: @movies %>
-<%= link_to "View more movies", movies_path %>
-
-<h1>All Books</h1>
-
-<%= render partial: 'home/book', collection: @books %>
-<%= link_to "View more books", books_path %>
-
-<h1>All Albums</h1>
-
-<%= render partial: 'home/album', collection: @albums %>
-<%= link_to "View more albums", albums_path %>
+<div class="row">
+  <div class="col-md-4">
+    <h1>All Movies</h1>
+    <%= render partial: 'home/movie', collection: @movies %>
+    <%= link_to "View More Movies", movies_path %>
+  </div>
+  <div class="col-md-4">
+    <h1>All Books</h1>
+    <%= render partial: 'home/book', collection: @books %>
+    <%= link_to "View More Books", books_path %>
+  </div>
+  <div class="col-md-4">
+    <h1>All Albums</h1>
+    <%= render partial: 'home/album', collection: @albums %>
+    <%= link_to "View More Albums", albums_path %>
+  </div>
+</div>
