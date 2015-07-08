@@ -17,7 +17,6 @@ class MoviesController < ApplicationController
     else
       render :new
     end
-# redirect_to movie_path(@movie.id)
   end
 
   def edit
@@ -43,13 +42,13 @@ class MoviesController < ApplicationController
       render :edit
     end
   end
-  # redirect_to movie_path(@movie.id) #movie/:id
-# @movie.ranking +=1
-    # def upvote
-    #   @movie = Movie.find(params[:id])
-    #   @movie.votes.create
-    #   redirect_to movies_path(@movie.id)
-    # end
+
+  def upvote
+    @movie = Movie.find(params[:id])
+    @movie.rank += 1
+    @movie.save
+    redirect_to movie_path(@movie.id)
+  end
 
   def destroy
     Movie.destroy(params[:id])

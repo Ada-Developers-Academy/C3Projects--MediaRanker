@@ -42,6 +42,13 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def upvote
+    @album = Album.find(params[:id])
+    @album.rank += 1
+    @album.save
+    redirect_to album_path(@album.id)
+  end
+
   def destroy
     Album.destroy(params[:id])
     redirect_to '/albums'

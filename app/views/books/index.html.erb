@@ -10,7 +10,7 @@
   <tr>
     <td><%= book.rank %></td>
     <td><%= link_to "#{book.name}", book_path(book.id) %></td>
-    <td><%= button_to "Upvote", upvote_books_path(book.rank), method: :post %></td>
+    <td><%= button_to "Upvote", upvote_books_path(book.id), method: :patch %></td>
   </tr>
   <% end %>
 </table>

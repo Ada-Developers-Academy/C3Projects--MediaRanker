@@ -1,4 +1,5 @@
 <%= render "shared/header" %>
+
 <h1>
   <%= @book.name %>
   <small> Written by: <%= @book.author %> </small>
@@ -6,7 +7,7 @@
 <h3> Ranked: <%= @book.rank %> </h3>
 <p> <%= @book.description %> </p>
 
-<p> <%= button_to "Upvote", upvote_movies_path(@book.rank), method: :post %> </p>
+<p> <%= button_to "Upvote", upvote_book_path(@book.id), method: :patch %> </p>
 
 
 <%= button_to "Edit #{@book.name}", { action: "edit", id: @book.id }, :method => "get" %>

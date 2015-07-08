@@ -6,7 +6,7 @@
 <h3> Ranked: <%= @album.rank %> </h3>
 <p> <%= @album.description %> </p>
 
-<p> <%= button_to "Upvote", upvote_movies_path(@album.rank), method: :post %> </p>
+<p> <%= button_to "Upvote", upvote_album_path(@album.id), method: :patch %> </p>
 
 
 <%= button_to "Edit #{@album.name}", { action: "edit", id: @album.id }, :method => "get" %>
