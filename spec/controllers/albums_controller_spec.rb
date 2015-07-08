@@ -83,18 +83,48 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PUT #update" do
-    context "Editing entry" do
+    context "Editing album entry" do
+      let(:attr) do
+        { :name => 'new name', :artist => 'new artist', :description => 'new description' }
+      end
+
+      before :each do
+        @old_album = Album.create(name: 'old name', artist: 'old artist', description: 'old descrip')
+
+        put :update, :id => @old_album.id, :album => attr
+        @old_album.reload
+      end
+
       it "replaces entry with new info" do
-        old_album = Album.create(name: 'old name', artist: 'old artist', description: 'old descrip')
+        expect(@old_album.name).to eq(attr[:name])
+        expect(@old_album.artist).to eq(attr[:artist])
+        expect(@old_album.description).to eq(attr[:description])
+      end
 
-        put :update, {:id => 1, :name => 'new name', :artist => 'new artist', :description => 'new description'}
-
-        expect(old_album.name).to eq('new name')
+      it "redirects to the Album show page" do
+        expect(subject).to redirect_to(album_path(assigns(:album)))
       end
     end
 
     context "Clicking upvote button" do
+      let(:attr) do
+        { :ranking => (@album.ranking + 1) }
+      end
 
+      before :each do
+        @album = Album.create(name: 'name', artist: 'artist', description: 'descrip')
+
+        put :update, :id => @album.id, :album => attr
+        @album.reload
+      end
+
+      it "increments ranking by 1" do
+        expect(@album.ranking).to eq 1
+      end
+
+      it "redirects to the Album show page" do
+        expect(subject).to redirect_to(album_path(assigns(:album)))
+      end
     end
   end
 
