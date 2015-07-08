@@ -1,0 +1,16 @@
+<div class="row">
+  <h1> <%= media.name %>
+  <small> <%= "#{created} by: " %>
+  <%= media.creator %> </small> </h1>
+</div>
+<div class="row">
+  <h4> Ranked: <%= media.rank %> </h4>
+  <p> <%= media.description %> </p>
+</div>
+<div class="">
+  <%= button_to "Upvote", send(upvote_path, media), method: "patch" %>
+  <%= button_to "Edit #{media.name}", send(edit_path, media), method: "get" %>
+  <%= button_to "DELETE", send(media_path, media), method: :delete, data: { confirm: "Are you sure?"} %>
+  <%= button_to "View All #{media_name}", send(all_media_path), method: "get" %>
+  <%= button_to "View All Media", root_path, method: "get" %>
+</div>
