@@ -8,7 +8,7 @@
 
 <%= form_for @medium do |f| %>
   <fieldset>
-    <legend>Add a <%= medium.capitalize %></legend>
+    <legend><%= legend_text + medium.capitalize %></legend>
     <%= f.label :name, "Name" %>
     <%= f.text_field :name, :required => true %>
 

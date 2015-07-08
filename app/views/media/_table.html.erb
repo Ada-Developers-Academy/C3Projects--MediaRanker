@@ -9,5 +9,6 @@
       <td><%= button_to 'Upvote', upvote_medium_path(medium.id) %></td>
     </tr>
   <% end %>
-  <td><%= button_to 'Add a ' + type.capitalize, button_path, method: "get" %></td>
 </table>
+
+<%= button_to 'Add a ' + type.capitalize, button_path, method: "get" %>

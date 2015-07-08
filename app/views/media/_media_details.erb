@@ -3,3 +3,6 @@
 <h4>Ranked: <%= @medium.ranking %></h4>
 <p><%= @medium.description %></p>
 <%= button_to 'Upvote', upvote_medium_path %>
+
+
+<%= button_to 'Edit ' + @medium.name, edit_medium_path, method: "get" %>

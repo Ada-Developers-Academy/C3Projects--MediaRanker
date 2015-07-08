@@ -1,0 +1,9 @@
+<%= render partial: "header" %>
+
+<% if @medium.media_type == "movie" %>
+  <%= render partial: "medium_form", locals: { medium: "movie", contributor: "Director", legend_text: "Edit "  } %>
+<% elsif @medium.media_type == "book" %>
+  <%= render partial: "medium_form", locals: { medium: "book", contributor: "Author", legend_text: "Edit "} %>
+<% elsif @medium.media_type == "album" %>
+  <%= render partial: "medium_form", locals: { medium: "album", contributor: "Artist", legend_text: "Edit " } %>
+<% end %>
