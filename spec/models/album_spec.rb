@@ -1,9 +1,12 @@
 require 'rails_helper'
+require 'shared_tests_for_models.rb'
 
 RSpec.describe Album, type: :model do
   describe "model methods" do
-    describe "attributes" do
-      [:title, :recorded_by, :votes, :description].each do |method_name|
+    it_behaves_like "a media model"
+
+    describe "unique attributes" do
+      [:recorded_by].each do |method_name|
         it { is_expected.to respond_to method_name}
       end
     end

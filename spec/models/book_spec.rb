@@ -2,6 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   describe "model methods" do
+    it_behaves_like "a media model"
+
+    describe "unique attributes" do
+      [:written_by].each do |method_name|
+        it { is_expected.to respond_to method_name}
+      end
+    end
+
     describe ".best" do
       before :each do
         @book1 = Book.create({ title: "Puppies Book", written_by: "Dog", votes: 10, description: "" })
