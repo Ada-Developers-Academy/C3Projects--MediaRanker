@@ -15,9 +15,12 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(create_params[:movie])
     @movie.ranking = 0
-    @movie.save
 
-    render :show
+    if @movie.save
+      render :show
+    else
+      render :new
+    end
   end
 
   def edit
@@ -32,12 +35,16 @@ class MoviesController < ApplicationController
     new_description = params[:movie][:description]
 
     @movie.update(name: new_name,
-                  director: new_director,
-                  description: new_description,
-                  )
+                director: new_director,
+                description: new_description,
+                )
     @movies = Movie.all
 
-    render :show
+    if @movie.save
+       redirect_to movie_path(@movie.id)
+    else
+      render :edit
+    end
   end
 
   def destroy

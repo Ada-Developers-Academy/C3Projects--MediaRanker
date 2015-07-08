@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
 # Validations ________________________________________________________________
-  # validates :name, presence: true
+  validates :name, presence: true
 
-# Scope_______________________________________________________________________
+# Scope_
   scope :best, -> { order('ranking DESC').limit(10) }
 end
