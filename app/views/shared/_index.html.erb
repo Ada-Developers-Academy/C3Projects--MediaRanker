@@ -6,8 +6,14 @@
   <% path = "books" %>
 <% end %>
 
-<table>
-  <td><%= link_to "#{object.name}", "#{path}/#{object.id}" %></td>
-  <td><%= "Ranked as: #{object.rank}" %></td>
+<table class="table table-condensed table-hover">
+  <tbody>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Upvote</th>
+    <tr>
+      <td><%= "Ranked as: #{object.rank}" %></td>
+      <td><%= link_to "#{object.name}", "#{path}/#{object.id}" %></td>
+    </tr>
+  </tbody>
 </table>
-

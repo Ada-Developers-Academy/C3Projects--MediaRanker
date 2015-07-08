@@ -1,19 +1,28 @@
-<%= form_for object do |f| %>
+<%= form_for object, html: {class: "form"} do |f| %>
 
-<fieldset>
-  <legend><%= "#{object.class} Details" %></legend>
-  <%= f.label :name, "Name: " %>
-  <%= f.text_field :name, :required => true %>
+  <fieldset>
+    <legend><%= "#{object.class} Details" %></legend>
 
-  <%= f.label person %>
-  <%= f.text_field person %>
+    <div class="form-group">
+      <%= f.label :name, "Name: " %>
+      <%= f.text_field :name, class: "form-control", :required => true %>
+    </div>
 
-  <%= f.label :description, "Description: " %>
-  <%= f.text_field :description %>
+    <div class="form-group">
+      <%= f.label person %>
+      <%= f.text_field person, class: "form-control" %>
+    </div>
 
-  <%= f.label :rank, "Rank: " %>
-  <%= f.number_field :rank %>
+    <div class="form-group">
+      <%= f.label :description, "Description: " %>
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
 
-</fieldset>
-  <%= f.submit "Edit #{object.class}", method: "patch" %>
+    <div class="form-group">
+      <%= f.label :rank, "Rank: " %>
+      <%= f.number_field :rank, class: "form-control" %>
+    </div>
+  </fieldset>
+
+  <%= f.submit "Edit #{object.class}", class: "btn btn-default", method: "patch" %>
 <% end %>
