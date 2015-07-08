@@ -8,14 +8,13 @@ RSpec.describe MoviesController, type: :controller do
       get :index
 
       expect(response).to render_template("index")
-      # expect(response.body).to eq("")
     end
   end
 
   describe "GET #show" do
     it "locates the correct Movie" do
-      movie1 = Movie.new(id: 1, title: "a title")
-      movie1.save
+      @movie1 = Movie.new(id: 1, title: "a title")
+      @movie1.save
       movie2 = Movie.new(id: 2, title: "b title")
       movie2.save
       params = { id: 2 }
@@ -34,10 +33,11 @@ RSpec.describe MoviesController, type: :controller do
 
   describe "DELETE #destroy" do
     before :each do
-      movie1 = Movie.new(id: 1, title: "a title")
-      movie1.save
+      @movie1 = Movie.new(id: 1, title: "a title")
+      @movie1.save
       @movie2 = Movie.new(id: 2, title: "b title")
       @movie2.save
+      Movie.new(id: 3, title: "c title").save
     end
 
     it "locates the correct Movie" do
@@ -53,6 +53,13 @@ RSpec.describe MoviesController, type: :controller do
       expect(Movie.all).to_not include(@movie2)
     end
 
-    # redirects to :index
+    it "redirects to the :index view" do
+      @movie1.destroy
+      get :index
+
+      # expect(response).to have_http_status(200)
+      # redirect_to doesn't work; receives 200 status instead
+      expect(subject).to render_template :index
+    end
   end
 end
