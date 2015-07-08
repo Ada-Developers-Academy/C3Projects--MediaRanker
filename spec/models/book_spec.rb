@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'shared_tests_for_models.rb'
 
 RSpec.describe Book, type: :model do
   describe "model methods" do
