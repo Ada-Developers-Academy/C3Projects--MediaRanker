@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
     @movie.description = permit_params[:movie][:description]
     @movie.save
     
-    redirect_to(root_path) 
+    redirect_to(movie_path(Movie.find(@movie.id))) 
   end
 
   def update_vote # UPDATE increase this number by one in the db

@@ -6,11 +6,11 @@
 <li><%= @movie.description %> </li>
 </ul>
 <br>
-<%= button_to "Upvote", "/movies/update_vote", method: :patch %>
+<%= button_to "Upvote", "/movies/update_vote/#{@movie.id}", method: :patch %>
 <br>
-<%= button_to "Edit #{@movie.id}", edit_movie_path, method: :get %>
+<%= button_to "Edit #{@movie.id}", edit_movie_path(@movie.id), method: :get %>
 <br>
-<%= button_to "Delete", movies_path, method: :delete, data: {confirm: "are you sure you want to delete this movie?"}  %>
+<%= button_to "Delete", movie_path(@movie.id), method: :delete, data: {confirm: "are you sure you want to delete this movie?"}  %>
 <br>
 <%= button_to "View All Movies", movies_path, method: :get %>
 <br>

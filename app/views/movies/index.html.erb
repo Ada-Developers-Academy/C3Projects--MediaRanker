@@ -22,7 +22,7 @@
       <%= movie.vote %>
     </td>
     <td>
-      <%= link_to "#{movie.name}", "/movies/#{movie.id}" %>
+      <%= link_to "#{movie.name}", movie_path(movie.id) %>
     </td>
     <td>
       <%= movie.description %>
