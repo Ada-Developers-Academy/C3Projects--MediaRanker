@@ -4,6 +4,8 @@ class Book < ActiveRecord::Base
   validates :rank, numericality: { only_integer: true }
 
   # Scopes ---------------------------------------------------------------------
+  scope :all_ranked, -> { all.order(rank: :desc) }
+
   def creator
     author
   end
