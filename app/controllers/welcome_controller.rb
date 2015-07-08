@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
   def index
-    @movies = Movie.all
-    @books = Book.all
-    @albums = Album.all
-    
+    @movies = Movie.all.rank_order
+    @books = Book.all.rank_order
+    @albums = Album.all.rank_order
+
     render :index
   end
 end

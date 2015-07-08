@@ -1,5 +1,3 @@
-<% media = media.sort_by(&:rank).reverse %>
-
 <% media.each do |medium| %>
   <% if medium.class == Movie %>
     <%= link_to "#{medium.title}", movie_path(id: medium.id) %>

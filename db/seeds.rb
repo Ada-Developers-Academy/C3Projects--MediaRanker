@@ -28,8 +28,8 @@ end
 
 # ALBUMS ------------------------------------------------------------------------------
 albums = [
-  [ "Wilder Mind", "Mumford & Sons", "ohhh yeah", 23 ],
-  [ "That's the Way of the World", "Earth, Wind, & Fire", "jammin'", 15 ]
+  [ "Wilder Mind", "Mumford & Sons", "ohhh yeah", 15 ],
+  [ "That's the Way of the World", "Earth, Wind, & Fire", "jammin'", 23 ]
 ]
 
 albums.each do |title, artist, description, rank|
