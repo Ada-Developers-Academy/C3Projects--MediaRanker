@@ -1,9 +1,10 @@
 <h1> New Album</h1>
 <ul>
-  <% @album.errors.each do |column, message| %>
+  <% @media.errors.each do |column, message| %>
     <li>
       <strong><%= column.capitalize %></strong> <%= message %>
     </li>
   <% end %>
 </ul>
-<%= render partial: "shared/form", locals: {media: @media, url: @url, method: @method}, class: "forms" %>
+
+<%= render partial: "shared/form", locals: {media: @media, url: @url, method: @method} %>

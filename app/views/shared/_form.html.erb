@@ -1,15 +1,21 @@
-<%= form_for @media, url: @url, method: @method do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
+<div class="col-sm-12">
+  <%= form_for @media, html: {class: "form"}, url: @url, method: @method do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
   <%= f.label @by %>
-  <%= f.text_field :author %>
-
+  <%= f.text_field :author, class: "form-control" %>
+  </div>
+  <div class="form-group">
   <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description, class: "form-control" %>
+  </div>
 
   <%= f.hidden_field :ranking, :value => 1 %>
 
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: "btn btn-default" %>
 
   <% end %>
+</div>

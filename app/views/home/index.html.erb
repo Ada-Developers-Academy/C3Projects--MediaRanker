@@ -1,19 +1,23 @@
+<div class="container-fluid">
 <h1>Media Ranking: Ranking the Best of Everything!</h1>
-  <h2>Bangin' Jams</h2>
-    <div>
-      <% @albums.each do |album| %>
-      <h3 class="ranking"><%= link_to "#{album.title}", albums_path, method: :get, class: "title" %> Ranking:<%= album.ranking %></h3>
-      <% end %>
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Bangin' Jams</h2>
+        <% @albums.each do |album| %>
+        <h3 class="ranking"><%= link_to "#{album.title}", albums_path, method: :get, class: "title" %> <small>Ranking:<%= album.ranking %></small></h3>
+        <% end %>
     </div>
-  <h2>Awesome Reads</h2>
-    <div>
+    <div class="col-sm-4">
+      <h2>Awesome Reads</h2>
       <% @books.each do |book| %>
       <h3 class="ranking"><%= link_to "#{book.title}", books_path, method: :get, class: "title" %> Ranking:<%= book.ranking %></h3>
       <% end %>
     </div>
-  <h2>Must Watch Movies</h2>
-    <div>
+    <div class="col-sm-4">
+      <h2>Must Watch Movies</h2>
       <% @movies.each do |movie| %>
       <h3 class="ranking"><%= link_to "#{movie.title}", movies_path, method: :get, class: "title" %> Ranking:<%= movie.ranking %></h3>
       <% end %>
     </div>
+  </div>
+</div>
