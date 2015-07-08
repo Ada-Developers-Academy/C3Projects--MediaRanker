@@ -1,7 +1,3 @@
-<h2><%= @album.title %><small> Recorded by: <%= @album.recorded_by %></small></h2>
-
-<h4>Ranked: <%= @album.votes %></h4>
-
-<p><%= @album.description %></p>
-
-<%= button_to "Upvote", @albums, method: :put, params: { upvote: true }%>
+<%= render partial: "shared/show", locals: { media: @album,
+                                             creator: 'Recorded',
+                                             created_by: @album.recorded_by } %>

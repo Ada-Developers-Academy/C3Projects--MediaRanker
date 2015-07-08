@@ -1,7 +1,3 @@
-<h2><%= @movie.title %><small> Directed by: <%= @movie.directed_by %></small></h2>
-
-<h4>Ranked: <%= @movie.votes %></h4>
-
-<p><%= @movie.description %></p>
-
-<%= button_to "Upvote", @movies, method: :put, params: { upvote: true }%>
+<%= render partial: "shared/show", locals: { media: @movie,
+                                             creator: 'Directed',
+                                             created_by: @movie.directed_by } %>
