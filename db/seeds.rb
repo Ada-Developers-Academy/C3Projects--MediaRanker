@@ -21,7 +21,7 @@ movies = [
   {name: "Fight Club", director: "David Fincher", desc: "An insomniac office worker, looking for a way to change his life, crosses paths with a devil-may-care soap maker, forming an underground fight club that evolves into something much, much more", vote: 0},
   {name: "Interstellar", director: "Christopher Nolan", desc: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.", vote: 0},
   {name: "Whiplash", director: "Damien Chazelle", desc: "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential.", vote: 0},
-  {name: "The Red Violin", director: "A perfect red-colored violin inspires passion, making its way through three centuries over several owners and countries, eventually ending up at an auction where it may find a new owner.", vote: 0}
+  {name: "The Red Violin", director: "François Girard", desc: "A perfect red-colored violin inspires passion, making its way through three centuries over several owners and countries, eventually ending up at an auction where it may find a new owner.", vote: 0}
 ]
 
 movies.each do |movie|
