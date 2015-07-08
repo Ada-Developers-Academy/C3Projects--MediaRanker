@@ -9,7 +9,7 @@ RSpec.describe Medium, type: :model do
       book3 = Medium.create!(ranking: "3", name: "ordered book 3", media_type: "book")
 
       correct_order = [book2, book1, book3]
-      expect(Medium.books.top(10)).to eq correct_order
+      expect(Medium.books.top_rank(10)).to eq correct_order
     end
   end
 

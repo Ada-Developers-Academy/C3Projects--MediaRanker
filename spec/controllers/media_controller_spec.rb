@@ -43,14 +43,14 @@ RSpec.describe MediaController, type: :controller do
     it { expect(@medium.description).to eq attr[:description] }
   end
 
-  describe "DELETE #destroy" do
-
-    context "when deletion succeeds" do
-
-      it "deletes the medium record" do
-        @medium = Medium.create!(ranking: "4", name: "Book name", media_type: "book")
-        expect { delete :destroy, :id => @medium.id }.to change(Medium, :count).by(-1)
-      end
-    end
-  end
+  # describe "DELETE #destroy" do
+  #
+  #   context "when deletion succeeds" do
+  #
+  #     it "deletes the medium record" do
+  #       @medium = Medium.create!(ranking: "4", name: "Book name", media_type: "book")
+  #       expect { delete :destroy, :id => @medium.id }.to change(Medium, :count).by(-1)
+  #     end
+  #   end
+  # end
 end
