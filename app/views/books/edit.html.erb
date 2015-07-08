@@ -1,2 +1,15 @@
 <%= render "shared/header" %>
-<%= render "shared/edit_book_form" %>
+<%= form_for @book, url: book_path, method: :patch do |f| %>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>
+
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+
+    <%= f.label :description%>
+    <%= f.text_field :description %>
+
+  </fieldset>
+    <%= f.submit 'Save' %>
+<% end %>
