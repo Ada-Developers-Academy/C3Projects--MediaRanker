@@ -1,15 +1,25 @@
-<%= form_for media  do |f| %>
-  <fieldset>
-    <%= f.label :name %>
-    <%= f.text_field :name, value: media.name, :required => true %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2> <%= "#{action} #{media_name}" %> </h2>
+    <%= form_for media, html: {class: "form"} do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, value: media.name, class: "form-control", :required => true %>
+      </div>
 
-    <%= f.label :creator, creator_type %>
-    <%= f.text_field :creator, value: media.creator  %>
+      <div class="form-group">
+        <%= f.label :creator, creator_type %>
+        <%= f.text_field :creator, value: media.creator, class: "form-control" %>
+      </div>
 
-    <%= f.label :description %>
-    <%= f.text_area :description, value: media.description  %>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, value: media.description, class: "form-control", rows: "2" %>
+      </div>
 
-  <section>
-    <%= f.submit "Save" %>
-  </section>
-<% end %>
+      <section>
+        <%= f.submit "Save", class: "btn btn-default" %>
+      </section>
+    <% end %>
+  </div>
+</div>
