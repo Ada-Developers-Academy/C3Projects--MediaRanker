@@ -4,7 +4,7 @@ RSpec.describe Movie, type: :model do
 
   describe "model validations" do
 
-    context "validating name"
+    context "validating name" do
       it "requires a name" do
         movie = Movie.new
 
@@ -13,7 +13,7 @@ RSpec.describe Movie, type: :model do
       end
     end
 
-    context "rank validating"
+    context "rank validating" do
       it "requires a rank" do
         movie = Movie.new
 
@@ -38,14 +38,14 @@ RSpec.describe Movie, type: :model do
     before :each do
       ranks = [2, 1, 3, 3, 4, 5, 0, 100, 50, 101, 24, 35, 0, 0, 40, -1, 51, -20]
       ranks.each do |rank|
-        Movie.create(title: "Test #{rank}", rank: rank)
+        Movie.create(name: "Test #{rank}", rank: rank)
       end
-      @excluded_movie = Movie.create(title: "Test", rank: 0)
-      @included_movie = Movie.create(title: "Test", rank: 4)
+      @excluded_movie = Movie.create(name: "Test", rank: 0)
+      @included_movie = Movie.create(name: "Test", rank: 4)
     end
 
     it "ranks by highest number first" do
-      expect(Movie.best_first(10).first).to eq(Movie.find(rank: 101))
+      expect(Movie.best_first(10).first).to eq(Movie.find_by(rank: 101))
     end
 
     it "includes the highest ranked movies (designated by total argument)" do
