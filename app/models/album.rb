@@ -2,9 +2,11 @@ class Album < ActiveRecord::Base
   # Associations ---------------------------------------------------------------
 
    # Validations ----------------------------------------------------------------
-   validates :name, presence: true
+  validates :name, presence: true
 
    # Scopes ---------------------------------------------------------------------
+
+  scope :top, -> { order('rank DESC').limit(5) }
   #  scope :on, -> (label) { where(label: label) }
   #  scope :available_formats, -> { select(:format).distinct.order(:format).pluck(:format) }
 
