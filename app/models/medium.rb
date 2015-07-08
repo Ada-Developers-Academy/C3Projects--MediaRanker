@@ -34,7 +34,7 @@ class Medium < ActiveRecord::Base
 
     CATEGORIES.each do |category, _value|
       first_ten_records = self.where(category: category.to_s.classify).order("upvotes DESC").limit(10)
-      all_records.push(first_ten_records)
+      all_records.push(first_ten_records) if first_ten_records.length > 0
     end
 
     all_records
