@@ -1,4 +1,12 @@
 <%= render partial: 'shared/show', locals: { medium: @book,
                                              created_alias: "Written" } %>
 
-<p>Edit this book</p>
+<%= button_to "Upvote", book_upvote_path(@book), { method: :put } %>
+
+<%= link_to "Edit #{@book.title}", edit_book_path(@book) %>
+
+<%= button_to "DELETE", @book, { method: :delete } %>
+
+<%= link_to "View All Movies", books_path %>
+
+<%= link_to "View All Media", root_path %>
