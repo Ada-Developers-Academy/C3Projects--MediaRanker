@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
     @media = Movie.create(movie_params)
     @creator = :director
     if @media.save
-      redirect_to movies_path
+      redirect_to movie_path(@media)
     else
       render :new
     end
@@ -40,9 +40,10 @@ class MoviesController < ApplicationController
   end
 
   def update
-    movie = Movie.find(params[:id])
-    if movie.update(movie_params)
-      redirect_to movie_path(movie)
+    @media = Movie.find(params[:id])
+    @creator = :director
+    if @media.update(movie_params)
+      redirect_to movie_path(@media)
     else
       render :edit
     end

@@ -28,7 +28,7 @@ class BooksController < ApplicationController
     @media = Book.create(book_params)
     @creator = :author
     if @media.save
-      redirect_to books_path
+      redirect_to book_path(@media)
     else
       render :new
     end
@@ -40,9 +40,10 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    if book.update(book_params)
-      redirect_to book_path(book)
+    @media = Book.find(params[:id])
+    @creator = :author
+    if @media.update(book_params)
+      redirect_to book_path(@media)
     else
       render :edit
     end

@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
     @media = Album.create(album_params)
     @creator = :artist
     if @media.save
-      redirect_to albums_path
+      redirect_to album_path(@media)
     else
       render :new
     end
@@ -39,10 +39,11 @@ class AlbumsController < ApplicationController
     @creator = :artist
   end
 
-  def update # no longer works with @media partial
-    album = Album.find(params[:id])
-    if album.update(album_params)
-      redirect_to album_path(album)
+  def update
+    @media = Album.find(params[:id])
+    @creator = :artist
+    if @media.update(album_params)
+      redirect_to album_path(@media)
     else
       render :edit
     end
