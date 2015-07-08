@@ -1,5 +1,4 @@
-class Movie < ActiveRecord::Base
-
+class Medium < ActiveRecord::Base
   before_save :default_votes
 
   def default_votes
@@ -7,9 +6,4 @@ class Movie < ActiveRecord::Base
       self.votes = 0
     end
   end
-
-  # def add_vote
-  #   movie = Movie.find()
-  # end
-
 end

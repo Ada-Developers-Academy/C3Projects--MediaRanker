@@ -1,9 +1,10 @@
-class CreateAlbums < ActiveRecord::Migration
+class CreateMedia < ActiveRecord::Migration
   def change
-    create_table :albums do |t|
+    create_table :media do |t|
       t.string :name
       t.string :description
-      t.string :artist
+      t.string :creator
+      t.string :format
       t.integer :votes
 
       t.timestamps null: false
