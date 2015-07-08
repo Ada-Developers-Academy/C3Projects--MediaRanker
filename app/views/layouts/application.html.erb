@@ -5,17 +5,17 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
+</head>  
+<div class="container">
 <body>
 <header>
-  <h1>
-    <%= image_tag "owl.jpg" %>
-    <%= link_to "Media Ranker", "/" %>
-    Ranking the Best of Everything
-  </h1>
+  <div class="row">
+    <div class="page-header">
+      <h1><%= link_to "Media Ranker", "/" %> <small>Ranking the Best of Everything</small></h1>
+    </div>
+  </div>
 </header>
-
 <%= yield %>
-
+</div>
 </body>
 </html>

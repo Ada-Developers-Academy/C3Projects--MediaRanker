@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <h1>Top Books</h1>
   <% @books.each do |book| %>
-    <h2><%= link_to book.name, book_path(book.id) %> votes: <%= book.vote %></h2>
+    <h2><%= link_to book.name, book_path(book.id) %> <small>votes: <%= book.vote %></small></h2>
   <% end %>
   <%= link_to "View all Books", books_path %>
 </div>
@@ -9,7 +9,7 @@
 <div class="col-md-4">
   <h1>Top Movies</h1>
   <% @movies.each do |movie| %>
-    <h2><%= link_to movie.name, movie_path(movie.id) %> votes: <%= movie.vote %></h2>
+    <h2><%= link_to movie.name, movie_path(movie.id) %> <small>votes: <%= movie.vote %></small></h2>
   <% end %>
   <%= link_to "View all Movies", movies_path %>
 </div>
@@ -17,7 +17,7 @@
 <div class="col-md-4">
   <h1>Top Albums</h1>
     <% @albums.each do |album| %>
-      <h2><%= link_to album.name, album_path(album.id) %> votes: <%= album.vote %></h2>
+      <h2><%= link_to album.name, album_path(album.id) %> <small>votes: <%= album.vote %></small></h2>
     <% end %>
     <%= link_to "View all Albums", albums_path %>
 </div>
