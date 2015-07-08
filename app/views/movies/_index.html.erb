@@ -1,5 +1,5 @@
 <h1> All Movies List</h1>
-<h3> Click On A Movie Title For More Info </h3>
+<h3> Click On Movie Title For More Info </h3>
 <table border="1">
   <tr>
     <th>
@@ -40,5 +40,4 @@
   <% end %>
 </table>
 <br>
-
-<%= link_to "Add new Movie", "/movies/new" %>
+<%= button_to "Add new Movie", "/movies/new", method: :get%>
