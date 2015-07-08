@@ -1,8 +1,7 @@
 <% @categorized_records.each do |category_group| %>
   <section class="category">
-    <% category_name = category_group.shift() + "s" %>
-    <% category_group.flatten! %>
-    <% route_helper = category_name.downcase %>
+    <% category_name = category_group.first.category %>
+    <% route_helper = category_group.first.plural_category %>
     <h1>Top <%= category_name %></h1>
     <% category_group.each do |item| %>
       <h2><%= link_to "#{ item.title }", "/#{ route_helper }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h2>
