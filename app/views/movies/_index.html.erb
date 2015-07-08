@@ -1,6 +1,6 @@
 <h1> All Movies List</h1>
-<h3> Click On A Movie Title For Detailed Information </h3>
-<table border ="1">
+<h3> Click On A Movie Title For More Info </h3>
+<table border="1">
   <tr>
     <th>
       Movie Title
@@ -10,7 +10,7 @@
     Vote For Movie
     </th>
 
-    <th> Total Votes
+    <th> Score
     </th>
   </tr>
 
@@ -21,11 +21,12 @@
       </td>
 
       <td>
-        <center>
-          <%= button_to "Awesome!", "/upvote/#{movie.id}", method: :patch %>
-
-          <%= button_to "Not Awesome!", "/downvote/#{movie.id}", method: :patch %>
-        </center>
+        <span style="float:left; margin:5px">
+          <%= button_to "   👍+1   ", "/upvote/#{movie.id}", method: :patch %>
+        </span>
+        <span style="float:right; margin:5px">
+          <%= button_to "   👎-1   ", "/downvote/#{movie.id}", method: :patch %>
+        </span>
       </td>
 
       <td>
