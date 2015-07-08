@@ -7,4 +7,8 @@ class Movie < ActiveRecord::Base
   def creator
     director
   end
+
+  # def add_vote
+  #   rank += 1
+  # end
 end
