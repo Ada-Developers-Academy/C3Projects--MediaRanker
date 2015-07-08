@@ -1,18 +1,4 @@
-<table>
-  <tr>
-    <th>Ranking</th>
-    <th>Name</th>
-    <th>Upvote</th>
-  </tr>
-
-  <% @media.each do |media| %>
-  <tr>
-    <td> Ranked: <%= media.rank %> </td>
-    <td> <%= link_to "#{media.name}", book_path(media.id) %></td>
-    <td> <%= button_to "Upvote", book_upvote_path(media.id), method: "patch" %> </td>
-  </tr>
-  <% end %>
-</table>
-
-<%= button_to "View All Media", root_path, method: "get" %>
-<%= button_to "Add a Book", new_book_path, method: "get" %>
+<%= render partial: "shared/index", locals: { media_name: "Book",
+                                              media_path: "book_path",
+                                              upvote_path: "book_upvote_path",
+                                              new_path: "new_book_path" } %>
