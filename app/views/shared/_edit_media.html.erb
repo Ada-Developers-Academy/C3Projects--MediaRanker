@@ -1,0 +1,22 @@
+<h2>Edit <%= medium.title %></h2>
+
+<%= form_for medium do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :placeholder => "#{medium.title}" %>
+
+  <% if medium.class == Movie %>
+    <%= f.label :director %>
+    <%= f.text_field :director, :placeholder => "#{medium.director}" %>
+  <% elsif medium.class == Book %>
+    <%= f.label :author %>
+    <%= f.text_field :author, :placeholder => "#{medium.author}" %>
+  <% elsif medium.class == Album %>
+    <%= f.label :artist %>
+    <%= f.text_field :artist, :placeholder => "#{medium.artist}" %>
+  <% end %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, :placeholder => "#{medium.description}" %>
+
+  <%= f.submit "Save" %>
+<% end %>

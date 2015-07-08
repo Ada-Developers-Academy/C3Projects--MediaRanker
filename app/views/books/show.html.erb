@@ -1,1 +1,12 @@
 <h1><%= @book.title %></h1>
+<h2>Written by: <%= @book.author %></h2>
+<h3>Ranked: <%= @book.rank %></h3>
+<p>
+  <%= @book.description %>
+</p>
+
+<%= button_to "Upvote", book_path, method: :put %>
+<%= button_to "Edit #{@book.title}", edit_book_path, method: :get %>
+<%= button_to "Delete", book_path, method: :delete, data: { confirm: "Are you sure?"} %>
+<%= button_to "View all Books", books_path, method: :get %>
+<%= button_to "View all Media", root_path, method: :get %>
