@@ -16,7 +16,6 @@ class AlbumsController < ApplicationController
     @created = "Recorded"
     @creator = @media.artist
     @format = "Albums"
-    @class = Album
   end
 
   def new

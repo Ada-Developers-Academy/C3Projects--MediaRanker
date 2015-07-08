@@ -16,7 +16,6 @@ class BooksController < ApplicationController
     @created = "Written"
     @creator = @media.author
     @format = "Books"
-    @class = Book
   end
 
   def new

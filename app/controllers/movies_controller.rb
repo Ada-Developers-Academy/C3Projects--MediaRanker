@@ -16,7 +16,6 @@ class MoviesController < ApplicationController
     @created = "Directed"
     @creator = @media.director
     @format = "Movies"
-    @class = Movie
   end
 
   def new
