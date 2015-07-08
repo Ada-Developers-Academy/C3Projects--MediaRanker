@@ -6,12 +6,12 @@
 
 <h1>All Books</h1>
 
-<%= render partial: 'shared/home_list', locals: { media: @books,
+<%# render partial: 'shared/home_list', locals: { media: @books,
                                                     item_path: "book_path" } %>
 <%= link_to "View more books", books_path %>
 
 <h1>All Albums</h1>
 
-<%= render partial: 'shared/home_list', locals: { media: @albums,
+<%# render partial: 'shared/home_list', locals: { media: @albums,
                                                     item_path: "album_path" } %>
 <%= link_to "View more albums", albums_path %>

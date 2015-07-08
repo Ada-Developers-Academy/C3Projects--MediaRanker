@@ -11,7 +11,7 @@
       <tr>
         <td><%= medium.rank %></td>
         <td><%= link_to medium.title, send(item_path, medium) %></td>
-        <td>upvote</td>
+        <td><%= button_to "Upvote", upvote_movie_path(medium), { method: :put } %></td>
       </tr>
     <% end %>
   </tbody>
