@@ -1,18 +1,13 @@
 <%= render "shared/header" %>
 
-<section>
-
-  <h1><%= @album.title %></h1>
-  <h3>Recorded by: <%= @album.artist %></h3>
-  <h4>Ranked: <%= @album.rank %></h4>
-  <p><%= @album.description %></p>
-  <%= button_to "Upvote", album_upvote_path(@album.id), method: "patch" %>
-
-</section>
+<%= render partial: "shared/item_info", locals: {
+  media: @album,
+  artist: @album.artist,
+  by: "Recorded by: ",
+  item_upvote_path: "album_upvote_path" } %>
 
 <%= render partial: "shared/footer", locals: {
   media: @album,
-  edit_item_path: "edit_album_path(#{@album.id})",
   delete_item_path: "/albums/#{@album.id}",
   name: "Albums",
   view_all_path: albums_path } %>

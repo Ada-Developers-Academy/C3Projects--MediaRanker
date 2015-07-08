@@ -10,7 +10,7 @@
       <% media.each do |item| %>
         <tr>
           <td>Ranked: <%= item.rank %></td>
-          <td><%= link_to "#{item.title}", send(item_path, item), method: "get" %></td>
+          <td><%= link_to "#{item.title}", polymorphic_path(item), method: "get" %></td>
           <td><%= button_to "Upvote", send(item_upvote_path, item), method: "patch", class: "btn btn-primary" %></td>
         </tr>
       <% end %>
