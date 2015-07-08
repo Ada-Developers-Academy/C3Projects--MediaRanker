@@ -1,0 +1,9 @@
+<h2><%= @movie.title %></h2>
+
+<h3>Directed by: <%= @movie.directed_by %></h3>
+
+<h4>Ranked: <%= @movie.votes %></h4>
+
+<p><%= @movie.description %></p>
+
+<%= button_to "Upvote", @movies, method: :put, params: { upvote: true }%>
