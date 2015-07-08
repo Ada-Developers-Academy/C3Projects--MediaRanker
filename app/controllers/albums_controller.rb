@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @medium = Album.new
+    @album = Album.new
   end
 
   def create
@@ -18,7 +18,7 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @medium = Album.find(params[:id])
+    @album = Album.find(params[:id])
   end
 
   def update

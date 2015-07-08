@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def new
-    @medium = Book.new
+    @book = Book.new
   end
 
   def create
@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @medium = Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
