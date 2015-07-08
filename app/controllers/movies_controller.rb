@@ -1,14 +1,17 @@
 class MoviesController < ApplicationController
 
   def create
-    @movie = Movie.new(permit_params[:movie])
-    @movie.save
+    @movies = Movie.all
+    @new = Movie.new(create_params[:movie])
+    @new.save
 
-    redirect_to(root_path)
+    render :index
   end
 
   def new
     @movie = Movie.new
+
+    render :new
   end
 
   def show
@@ -29,9 +32,17 @@ class MoviesController < ApplicationController
     redirect_to(root_path) 
   end
 
+  def update_vote # UPDATE increase this number by one in the db
+   @movie = Movie.find(params[:id])
+   @movie.vote += 1
+   @movie.save
+ #movie.increment!(:vote)
+  redirect_to(movie_path)
+  end
+
   private
 
-  def permit_params
+  def create_params
     params.permit(movie:[:name, :director, :description, :vote])
   end
 

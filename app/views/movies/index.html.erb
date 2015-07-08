@@ -1,0 +1,31 @@
+
+<table border "1">
+
+<tr>
+  <th>
+    Rank
+  </th>
+  <th>
+    Movie Name
+  </th>
+  <th>
+    Vote
+  </th>
+
+</tr>
+
+<% @movies.each do |movie| %>
+  <tr>
+    <td>
+      <%= movie.vote %>
+    </td>
+    <td>
+      <%= link_to "#{movie.name}", "/movie/#{movie.id}" %>
+    </td>
+    <td>
+      <%= button_to "Upvote"   %>
+    </td>
+  </tr>
+  <% end %>
+
+</table>
