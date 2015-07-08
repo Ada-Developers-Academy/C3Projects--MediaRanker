@@ -1,0 +1,12 @@
+<%= render 'shared/header' %>
+
+<h1><%= object.name %></h1>
+<h2>Recorded by: <%= creator %></h2>
+<h3>Ranked: <%= object.rank %></h3>
+<h4><%= object.description %></h4>
+
+<%= link_to "Upvote", "/#{object_path}/#{object.id}/upvote", class: "btn btn-default" %>
+<%= link_to "Edit #{object.name}", "/#{object_path}/#{object.id}/edit", method: :get, class: "btn btn-default" %>
+<%= link_to "Delete", "/#{object_path}/#{object.id}", method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this?"} %>
+
+

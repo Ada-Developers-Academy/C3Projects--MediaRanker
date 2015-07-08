@@ -1,11 +1,3 @@
-<%= render 'shared/header' %>
+<%= render partial: 'shared/show', locals: { object: @album, object_path: "albums", creator: @album.artist } %>
 
-<h1><%= @album.name %></h1>
-<h2>Recorded by: <%= @album.artist %></h2>
-<h3>Ranked: <%= @album.rank %></h3>
-<h4><%= @album.description %></h4>
-
-<%= button_to "Upvote", upvote_album_path(@album) %>
-<%= button_to "Edit #{@album.name}", edit_album_path, method: :get %>
-<%= button_to "Delete", "/albums/#{@album.id}", method: :delete, data: { confirm: "Are you sure you want to delete this?"} %>
 

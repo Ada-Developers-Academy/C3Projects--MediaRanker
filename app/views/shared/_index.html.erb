@@ -2,7 +2,7 @@
  <tr>
    <td><%= object.rank %></td>
    <td><%= link_to object.name, "/#{object_path}/#{object.id}" %></td>
-   <td><%= button_to "Upvote", "/#{object_path}/#{object.id}/upvote" %></td>
+   <td><%= link_to "Upvote", "/#{object_path}/#{object.id}/upvote", class: "btn btn-default" %></td>
  </tr>
 
 
