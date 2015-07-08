@@ -1,0 +1,34 @@
+<table>
+  <tr>
+    <th>
+      Ranking
+    </th>
+    <th>
+      Name
+    </th>
+    <th>
+      Upvote
+    </th>
+  </tr>
+  <% media.each do |medium| %>
+    <tr>
+      <td>
+      <%= medium.rank %>
+      </td>
+      <td>
+        <%= medium.title %>
+      </td>
+      <td>
+        <% if medium.class == Movie %>
+          <%= button_to "Upvote", movie_path(id: medium.id), method: :put %>
+        <% elsif medium.class == Book %>
+          <%= button_to "Upvote", book_path(id: medium.id), method: :put %>
+        <% elsif medium.class == Album %>
+          <%= button_to "Upvote", album_path(id: medium.id), method: :put %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "View all Media", root_path %>

@@ -1,7 +1,7 @@
 <%= render "shared/show_medium", medium: @album %>
 
 <%= button_to "Upvote", album_path, method: :put %>
-<%= button_to "Edit #{@album.title}", edit_album_path, method: :get %>
+<%= link_to "Edit #{@album.title}", edit_album_path %>
 <%= button_to "Delete", album_path, method: :delete, data: { confirm: "Are you sure?"} %>
-<%= button_to "View all Albums", albums_path, method: :get %>
-<%= button_to "View all Media", root_path, method: :get %>
+<%= link_to "View all Albums", albums_path %>
+<%= link_to "View all Media", root_path %>

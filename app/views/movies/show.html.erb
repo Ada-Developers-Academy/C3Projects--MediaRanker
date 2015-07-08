@@ -1,7 +1,7 @@
 <%= render "shared/show_medium", medium: @movie %>
 
 <%= button_to "Upvote", movie_path, method: :put %>
-<%= button_to "Edit #{@movie.title}", edit_movie_path, method: :get %>
+<%= link_to "Edit #{@movie.title}", edit_movie_path %>
 <%= button_to "Delete", movie_path, method: :delete, data: { confirm: "Are you sure?"} %>
-<%= button_to "View all Movies", movies_path, method: :get %>
-<%= button_to "View all Media", root_path, method: :get %>
+<%= link_to "View all Movies", movies_path %>
+<%= link_to "View all Media", root_path %>
