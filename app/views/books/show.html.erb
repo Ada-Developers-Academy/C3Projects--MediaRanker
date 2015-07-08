@@ -22,7 +22,7 @@
       <%= @book.title %>
     </td>
     <td>
-      <%= @book.artist %>
+      <%= @book.author %>
     </td>
     <td>
       <%= @book.description %>
@@ -37,5 +37,5 @@
 </table>
   <%= button_to "Delete Book", "/books/#{@book.id}", method: :delete, data: {confirm: "Are you Sure You Want to Delete This Book?" } %>
 <p>
-<a href="/">Go Back to Home Page</a>
+<a href="/">Go Back to All Media</a>
 </p>

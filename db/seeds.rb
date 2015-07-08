@@ -15,6 +15,15 @@ albums.each do |album|
   Album.create album
 end
 
+books = [
+  { title: "To Kill A Mockingbird", author: "Harper Lee", description: "The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it, To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.", vote: 10},
+  { title: "Pride and Prejudice", author: "Jane Austen", description: "So begins Pride and Prejudice, Jane Austen's witty comedy of manners--one of the most popular novels of all time--that features splendidly civilized sparring between the proud Mr. Darcy and the prejudiced Elizabeth Bennet as they play out their spirited courtship in a series of eighteenth-century drawing-room intrigues", vote: 26},
+]
+
+books.each do |book|
+  Book.create book
+end
+
 movies = [
   { title: "That Thing You Do!", director: "Tom Hanks", description: "Early boyband hijinx with a musical twist!", vote: 40},
   { title: "Charlies Angels", director: "Bret Ratner", description: "Three crime fighting heroines with fabulous hair solve crimes.", vote: 22},

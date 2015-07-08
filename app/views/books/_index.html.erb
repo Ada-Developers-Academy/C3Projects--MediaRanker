@@ -1,4 +1,4 @@
-<h1> All Books List</h1>
+<h1><%= link_to "All Books List", "/books"%></h1>
 <h3> Click On Book Title For More Info </h3>
 <table border="1">
   <tr>
@@ -23,10 +23,10 @@
 
       <td>
         <span style="float:left; margin:5px">
-          <%= button_to "   👍+1   ", "/upvote/#{book.id}", method: :patch %>
+          <%= button_to "   👍+1   ", "books/upvote/#{book.id}", method: :patch %>
         </span>
         <span style="float:right; margin:5px">
-          <%= button_to "   👎-1   ", "/downvote/#{book.id}", method: :patch %>
+          <%= button_to "   👎-1   ", "books/downvote/#{book.id}", method: :patch %>
         </span>
       </td>
 

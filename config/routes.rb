@@ -15,12 +15,16 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :movies
-  patch '/upvote/:id'        =>  'movies#upvote'
-  patch '/downvote/:id'      =>  'movies#downvote'
+  patch 'movies/upvote/:id'        =>  'movies#upvote'
+  patch 'movies/downvote/:id'      =>  'movies#downvote'
 
   resources :albums
-  resources :books
+  patch 'albums/upvote/:id'        =>  'albums#upvote'
+  patch 'albums/downvote/:id'      =>  'albums#downvote'
 
+  resources :books
+  patch 'books/upvote/:id'        =>  'books#upvote'
+  patch 'books/downvote/:id'      =>  'books#downvote'
   # Example resource route with options:
   #   resources :products do
   #     member do
