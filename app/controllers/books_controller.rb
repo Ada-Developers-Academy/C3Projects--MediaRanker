@@ -37,7 +37,7 @@ class BooksController < ApplicationController
 
     @book.update(name: name_input, author: author_input , description: description_input)
     if @book.save
-      redirect_to books_path(@book.id)
+      redirect_to book_path(@book.id)
     else
       render :edit
     end

@@ -38,12 +38,12 @@ class MoviesController < ApplicationController
     @movie.update(name: name_input, director: director_input , description: description_input)
 
     if @movie.save
-      redirect_to movies_path(@movie.id)
+      redirect_to movie_path(@movie.id)
     else
       render :edit
     end
-    # redirect_to movie_path(@movie.id) #movie/:id
   end
+  # redirect_to movie_path(@movie.id) #movie/:id
 # @movie.ranking +=1
     # def upvote
     #   @movie = Movie.find(params[:id])

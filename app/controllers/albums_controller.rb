@@ -36,7 +36,7 @@ class AlbumsController < ApplicationController
 
     @album.update(name: name_input, artist: artist_input, description: description_input)
     if @album.save
-      redirect_to albums_path(@album.id)
+      redirect_to album_path(@album.id)
     else
       render :edit
     end
