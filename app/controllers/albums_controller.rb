@@ -15,9 +15,12 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(create_params[:album])
     @album.ranking = 0
-    @album.save
 
-    render :show
+    if @album.save
+      render :show
+    else
+      render :new
+    end
   end
 
   def edit
@@ -36,7 +39,11 @@ class AlbumsController < ApplicationController
                  description: new_description)
     @albums = Album.all
 
-    render :show
+    if @album.save
+       redirect_to album_path(@album.id)
+    else
+      render :edit
+    end
   end
 
   def destroy

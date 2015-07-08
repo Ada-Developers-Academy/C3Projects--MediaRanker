@@ -1,6 +1,6 @@
 <%= render :partial => "shared/header"  %>
 
-<%= form_for @album, url: movie_path(@album.id) do |f| %>
+<%= form_for @album, url: album_path(@album.id) do |f| %>
    <legend>Edit Album</legend>
    <%= f.label :name %>
    <%= f.text_field :name %>

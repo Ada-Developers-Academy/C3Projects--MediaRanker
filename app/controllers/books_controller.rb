@@ -15,9 +15,12 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(create_params[:book])
     @book.ranking = 0
-    @book.save
 
-    render :show
+    if @book.save
+      render :show
+    else
+      render :new
+    end
   end
 
   def edit
@@ -35,7 +38,11 @@ class BooksController < ApplicationController
                  description: new_description)
     @books = Book.all
 
-    render :show
+    if @book.save
+       redirect_to book_path(@book.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
