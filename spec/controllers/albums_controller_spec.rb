@@ -38,6 +38,20 @@ RSpec.describe AlbumsController, type: :controller do
     end # + context
 
     # - album params invalid
+    context "Invalid media parameters" do
+      let(:album_params) do
+          { album:
+            { 
+              creator: "Van Halen",
+              description: "Rock n Roll",
+            }
+        }
+      end
+
+      it ""
+      end
+
+    end
   end
 
 end

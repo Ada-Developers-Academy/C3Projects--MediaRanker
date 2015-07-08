@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
   def index
     @all = Album.all
     @controller = "albums"
+    @model = Album
   end
 
   def show
@@ -17,7 +18,12 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.create(create_params[:album])
-    redirect_to "/albums/#{@album.id}"
+
+    if @album.save
+      redirect_to "/albums/#{@album.id}"
+    else
+      render :new
+    end
   end
 
   def edit

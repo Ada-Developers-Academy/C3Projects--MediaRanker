@@ -7,7 +7,7 @@
   </tr>
 
   <tr>
-    <% @all.each do |singular| %>
+    <% @model.by_rank.each do |singular| %>
     <td> <%= singular.rank %>
     <%= link_to "#{singular.name}", "/#{@controller}/#{singular.id}" %></td>
     <td> <%= singular.name %> </td>
