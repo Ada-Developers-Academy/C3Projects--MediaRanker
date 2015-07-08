@@ -1,18 +1,3 @@
 <h1> Let's add a new Movie! </h1>
 
-<%= form_for @new do |t| %>
-<fieldset>
-  <legend>Submit A New Movie </legend>
-  <%= t.label :title %>
-  <%= t.text_field :title %>
-
-  <%= t.label :director %>
-  <%= t.text_field :director %>
-
-  <%= t.label :description %>
-  <%= t.text_area :description %>
-
-</fieldset>
-<%=  t.submit "Add Movie To List!" %>
-
-<% end %>
+<%= render "movie_form" %>

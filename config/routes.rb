@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :movies
+  patch '/upvote/:id'        =>  'movies#upvote'
+  patch '/downvote/:id'      =>  'movies#downvote'
+
   resources :albums
   resources :books
 

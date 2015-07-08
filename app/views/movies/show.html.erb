@@ -10,6 +10,9 @@
     Description
     </th>
     <th>
+    Edit
+    </th>
+    <th>
     Votes
     </th>
     </tr>
@@ -25,11 +28,14 @@
       <%= @movie.description %>
     </td>
     <td>
-      <%=  %>
+      <%= button_to "Edit Movie Details", edit_movie_path(@movie.id), method: :get %>
+    </td>
+    <td>
+      <%= @movie.vote %>
     </td>
     </tr>
 </table>
-  <%= button_to "Delete Movie" %>
+  <%= button_to "Delete Movie", "/movies/#{@movie.id}", method: :delete, data: {confirm: "Are you Sure You Want to Delete This Movie?" } %>
 <p>
 <a href="/">Go Back to Home Page</a>
 </p>
