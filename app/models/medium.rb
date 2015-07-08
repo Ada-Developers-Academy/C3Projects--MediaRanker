@@ -13,7 +13,7 @@ class Medium < ActiveRecord::Base
   scope :movies, -> { where(media_type: "movie")}
   scope :albums, -> { where(media_type: "album")}
 
-  scope :top, -> (total) { order('ranking DESC').limit(total) }
-
+  scope :top_rank, -> (total) { order('ranking DESC').limit(total) }
+  scope :all_rank, -> { order('ranking DESC') }
 
 end

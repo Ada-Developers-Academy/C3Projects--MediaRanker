@@ -1,8 +1,8 @@
 class MediaController < ApplicationController
   def index
-    @movies = Medium.movies.top(10)
-    @books = Medium.books.top(10)
-    @albums = Medium.albums.top(10)
+    @movies = Medium.movies.top_rank(10)
+    @books = Medium.books.top_rank(10)
+    @albums = Medium.albums.top_rank(10)
   end
 
   def show

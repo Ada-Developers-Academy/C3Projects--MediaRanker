@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Medium.movies
+    @movies = Medium.movies.all_rank
   end
 end
