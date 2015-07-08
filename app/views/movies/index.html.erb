@@ -10,13 +10,13 @@
   <tbody>
   <% @movies.each do |movie| %>
     <tr>
-      <td><%= movie.vote %></td>
+      <td>Votes: <%= movie.vote %></td>
       <td><%= link_to movie.name, movie_path(movie.id) %></td>
-      <td><%= button_to "Upvote", upvote_movie_path(movie.id) %></td>
+      <td><%= button_to "Upvote", upvote_movie_path(movie.id), class: "btn btn-default" %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= button_to "View All Media", root_path, method: :get %>
-<%= button_to "Add a Movie", new_movie_path, method: :get %>
+<%= link_to "View All Media", root_path, class: "btn btn-default", method: :get %>
+<%= link_to "Add a Movie", new_movie_path, class: "btn btn-default", method: :get %>
