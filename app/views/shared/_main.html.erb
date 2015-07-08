@@ -5,7 +5,7 @@
       <td><%= link_to "#{detail.name}", "#{object.name.downcase}s/#{detail.id}" %></td>
       <td><%= "Ranked as: #{detail.rank}" %></td>
     </tr>
-    <th>
   <% end %>
 </table>
+<%= link_to "View All #{object.name}s", "/#{object.name.downcase}s" %>
 
