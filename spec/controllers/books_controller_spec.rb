@@ -10,6 +10,19 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    let (:book_params) do 
+      { 
+        book: { name: "name" }
+      }
+    end
+
+    it "creates a new instance of Book" do
+      get :new, book_params
+      expect(assigns(:book)).to be_kind_of(Book)
+    end
+  end
+
   describe "POST #create" do
     context "valid book params" do
       let(:book_params) do

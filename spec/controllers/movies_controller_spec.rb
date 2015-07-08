@@ -10,6 +10,19 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    let (:movie_params) do 
+      { 
+        movie: { name: "name" }
+      }
+    end
+
+    it "creates a new instance of Movie" do
+      get :new, movie_params
+      expect(assigns(:movie)).to be_kind_of(Movie)
+    end
+  end
+
   describe "POST #create" do
     context "valid movie params" do
       let(:movie_params) do

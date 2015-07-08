@@ -10,6 +10,19 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    let (:album_params) do 
+      { 
+        album: { name: "name" }
+      }
+    end
+
+    it "creates a new instance of Album" do
+      get :new, album_params
+      expect(assigns(:album)).to be_kind_of(Album)
+    end
+  end
+
   describe "POST #create" do
     context "valid album params" do
       let(:album_params) do
