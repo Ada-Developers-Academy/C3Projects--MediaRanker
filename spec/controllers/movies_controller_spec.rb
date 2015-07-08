@@ -47,6 +47,8 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     it "deletes the movie" do
+      expect(Movie.all).to include(@movie2)
+
       @movie2.destroy
       expect(Movie.all).to_not include(@movie2)
     end
