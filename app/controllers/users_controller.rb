@@ -5,5 +5,4 @@ class UsersController < ApplicationController
     @books = Book.best
     @albums = Album.best
   end
-
 end
