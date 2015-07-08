@@ -12,6 +12,18 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def new
+    @movie = Movie.new
+  end
+
+  def create
+    params = create_params[:movie]
+    params[:rank] = 0
+    @movie = Movie.create(params)
+
+    redirect_to '/movies'
+  end
+
   def update
     @movie = Movie.find(params[:id])
     @movie.update(create_params[:movie])
@@ -33,7 +45,6 @@ class MoviesController < ApplicationController
 
     redirect_to movie_path(params[:id])
   end
-
 
 ##################### PRIVATE METHODS #####################
   private

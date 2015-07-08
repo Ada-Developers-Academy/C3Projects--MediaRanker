@@ -8,6 +8,18 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def new
+    @book = Book.new
+  end
+
+  def create
+    params = create_params[:book]
+    params[:rank] = 0
+    @book = Book.create(params)
+
+    redirect_to '/books'
+  end
+
   def edit
     @book = Book.find(params[:id])
   end
@@ -24,6 +36,14 @@ class BooksController < ApplicationController
     @book.destroy
 
     redirect_to '/books'    
+  end
+
+  def upvote
+    @book = Book.find(params[:id])
+    @book.rank += 1
+    @book.save
+
+    redirect_to book_path(params[:id])
   end
 
 ##################### PRIVATE METHODS #####################
