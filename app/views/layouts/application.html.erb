@@ -7,16 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+       <h1>
+        <%= image_tag ("owl") %>
+        <%= link_to "Media Ranker", root_path %>
+        <small>Ranking the Best of Everything</small>
+       </h1>
+      </div>
+    </div>
 
-  <header>
-   <h1>
-    <%= image_tag ("owl") %>
-    <%= link_to "Media Ranker", root_path %>
-    <h3>Ranking the Best of Everything</h3>
-   </h1>
-  </header>
+    <%= yield %>
 
-<%= yield %>
-
+  </div>
 </body>
 </html>
