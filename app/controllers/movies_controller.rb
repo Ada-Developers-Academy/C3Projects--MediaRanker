@@ -22,15 +22,16 @@ class MoviesController < ApplicationController
   end
 
   def update
-    @movie = Movie.find(params[:id])
-    @movie.update(movie_params)
+    movie = Movie.find(params[:id])
+    movie.update(movie_params)
 
-    redirect_to @movie
+    redirect_to movie
   end
 
   def upvote
     movie = Movie.find(params[:id])
     movie.add_vote
+    
     redirect_to movie
   end
 
