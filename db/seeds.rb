@@ -7,17 +7,17 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 movies = [
-{ name: "Movie 1", director: "Director 1", description: "Words, words, words.", rank: 0 },
-{ name: "Movie 2", director: "Director 2", description: "Words, words, words.", rank: 0 },
-{ name: "Movie 3", director: "Director 3", description: "Words, words, words.", rank: 0 },
-{ name: "Movie 4", director: "Director 4", description: "Words, words, words.", rank: 0 }
+  { name: "Movie 1", director: "Director 1", description: "Words, words, words.", rank: 0 },
+  { name: "Movie 2", director: "Director 2", description: "Words, words, words.", rank: 0 },
+  { name: "Movie 3", director: "Director 3", description: "Words, words, words.", rank: 0 },
+  { name: "Movie 4", director: "Director 4", description: "Words, words, words.", rank: 0 }
 ]
 
 movies.each do |movie|
   Movie.create movie
 end
 
-###
+
 
 albums = [
   { name: "Album 1", artist: "Artist 1", description: "Words, words, words.", rank: 0 },
@@ -30,7 +30,7 @@ albums.each do |album|
   Album.create album
 end
 
-###
+
 
 books = [
   { name: "Book 1", author: "Author 1", description: "Words, words, words.", rank: 0 },
