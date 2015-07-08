@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album = Album.new
+    @medium = Album.new
   end
 
   def create

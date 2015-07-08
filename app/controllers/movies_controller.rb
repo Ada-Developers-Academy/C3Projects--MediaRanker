@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
+    @medium = Movie.new
   end
 
   def create
@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params[:id])
+    @medium = Movie.find(params[:id])
   end
 
   def update
