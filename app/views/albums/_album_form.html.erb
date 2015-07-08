@@ -1,0 +1,21 @@
+<%= form_for @album do |t| %>
+  <fieldset class="form">
+
+  <div class="form_field">
+    <%= t.label :title %>
+    <%= t.text_field :title, required: "required" %>
+  </div>
+
+  <div class="form_field">
+    <%= t.label :artist %>
+    <%= t.text_field :artist %>
+  </div>
+
+  <div class="form_field">
+    <%= t.label :description %>
+    <%= t.text_field :description %>
+  </div>
+
+</fieldset>
+    <%=  t.submit %>
+<% end %>

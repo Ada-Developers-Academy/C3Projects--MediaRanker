@@ -1,0 +1,44 @@
+<h1> All Albums List</h1>
+<h3> Click On An Album Title For More Info </h3>
+<table border="1">
+  <tr>
+    <th>
+      Album Title
+    </th>
+
+    <th>
+    Cast Vote For Album
+    </th>
+
+    <th>
+      Overall Score
+    </th>
+  </tr>
+
+      <% @albums.each do |album| %>
+    <tr>
+      <td>
+        <%= link_to "#{album.title}", "/albums/#{album.id}", method: :get %>
+      </td>
+
+      <td>
+        <span style="float:left; margin:5px">
+          <%= button_to "   👍+1   ", "/upvote/#{album.id}", method: :patch %>
+        </span>
+        <span style="float:right; margin:5px">
+          <%= button_to "   👎-1   ", "/downvote/#{album.id}", method: :patch %>
+        </span>
+      </td>
+
+      <td>
+        <center>
+          <%= album.vote %>
+        </center>
+      </td>
+
+      </tr>
+  <% end %>
+</table>
+<br>
+
+<%= link_to "Add new Album", "/albums/new" %>
