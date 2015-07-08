@@ -7,7 +7,7 @@
     <tr>
       <td><%= "Ranked as: #{item.rank}" %></td>
       <td><%= link_to "#{item.name}", "#{path}/#{item.id}" %></td>
-      <td><%= link_to "Upvote", "#{path}/#{item.id}/upvote", method: "patch" %></td>
+      <td><%= link_to "Upvote", "#{path}/#{item.id}/upvote", method: "patch", class: "btn btn-default", role: "button" %></td>
     </tr>
     <% end %>
   </tbody>

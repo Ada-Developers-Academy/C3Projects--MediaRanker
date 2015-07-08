@@ -1,7 +1,7 @@
 <%= render partial: "shared/show.html.erb", locals: {object: @album, person_desc: "Recorded by: #{@album.artist}" } %>
 
-<%= link_to "Upvote Album", album_upvote_path(@album.id), method: :patch %>
-<%= link_to "Edit Album", edit_album_path(@album.id) %>
-<%= link_to "Delete", album_path(@album.id), method: "delete" %>
-<%= link_to "View All Albums", albums_path %>
-<%= link_to "View All Media", root_path %>
+<%= link_to "Upvote Album", album_upvote_path(@album.id), method: :patch, class: "btn btn-success", role: "button" %>
+<%= link_to "Edit Album", edit_album_path(@album.id), class: "btn btn-default", role: "button"%>
+<%= link_to "Delete", album_path(@album.id), method: :delete, class: "btn btn-danger", role: "button"%>
+<%= link_to "View All Albums", albums_path, class: "btn btn-default", role: "button"%>
+<%= link_to "View All Media", root_path, class: "btn btn-default", role: "button"%>

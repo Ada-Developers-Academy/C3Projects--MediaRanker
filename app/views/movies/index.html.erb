@@ -1,4 +1,4 @@
 <%= render partial: "shared/index.html.erb", locals: { path: "movies", collection: @movies } %>
 
-<%= link_to "View All Media", root_path %>
-<%= link_to "Add a Movie", new_movie_path %>
+<%= link_to "View All Media", root_path, class: "btn btn-default", role: "button" %>
+<%= link_to "Add a Movie", new_movie_path, class: "btn btn-default", role: "button" %>

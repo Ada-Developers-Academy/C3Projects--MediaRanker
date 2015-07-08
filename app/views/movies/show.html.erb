@@ -1,7 +1,7 @@
 <%= render partial: "shared/show.html.erb", locals: {object: @movie, person_desc: "Directed by: #{@movie.director}" } %>
 
-<%= link_to "Upvote Movie", movie_upvote_path(@movie.id), method: :patch %>
-<%= link_to "Edit Movie", edit_movie_path(@movie.id) %>
-<%= link_to "Delete", movie_path(@movie.id), method: "delete" %>
-<%= link_to "View All Movies", movies_path %>
-<%= link_to "View All Media", root_path %>
+<%= link_to "Upvote Movie", movie_upvote_path(@movie.id), method: :patch, class: "btn btn-success", role: "button" %>
+<%= link_to "Edit Movie", edit_movie_path(@movie.id), class: "btn btn-default", role: "button" %>
+<%= link_to "Delete", movie_path(@movie.id), method: :delete, class: "btn btn-danger", role: "button" %>
+<%= link_to "View All Movies", movies_path, class: "btn btn-default", role: "button" %>
+<%= link_to "View All Media", root_path, class: "btn btn-default", role: "button" %>

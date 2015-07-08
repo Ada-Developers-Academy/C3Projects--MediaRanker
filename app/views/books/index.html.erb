@@ -1,5 +1,5 @@
 <%= render partial: "shared/index.html.erb", locals: { path: "books", collection: @books } %>
 
 
-<%= link_to "View All Media", root_path %>
-<%= link_to "Add a Book", new_book_path %>
+<%= link_to "View All Media", root_path, class: "btn btn-default", role: "button" %>
+<%= link_to "Add a Book", new_book_path, class: "btn btn-default", role: "button" %>
