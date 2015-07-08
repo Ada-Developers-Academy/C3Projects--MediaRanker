@@ -119,7 +119,7 @@ RSpec.describe AlbumsController, type: :controller do
       end
 
       it "increments ranking by 1" do
-        expect(@album.ranking).to eq 1
+        expect(@album.ranking).to eq(attr[:ranking])
       end
 
       it "redirects to the Album show page" do
