@@ -1,6 +1,6 @@
 class Album < ActiveRecord::Base
   # Validations ----------------------------------------------------------------
-  validates :title, :creator, :description, presence: true
+  validates :title, presence: true
   validates :rank, numericality: { only_integer: true }
 
   # Scopes ---------------------------------------------------------------------
