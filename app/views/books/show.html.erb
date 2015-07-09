@@ -1,13 +1,6 @@
-<h1> <%= @book.name %> Directed by: <%= @book.author %> </h1>
-
-<h4>Ranked: <%= @book.ranking %> </h4>
-
-<p> <%= @book.description %> </p>
-
-
-<%= button_to "Upvote", book_path(@book), method: "patch" %>
-<%= button_to "Edit #{@book.name}", edit_book_path, method: "get" %>
-<%= button_to "Delete", book_path(@book), method: "delete", data: { confirm: "Are you sure you want to delete?" } %>
-
-<%= button_to "View All Books", books_path, method: "get" %>
-<%= button_to "View All Media", root_path, method: "get" %>
+<%= render :partial => 'shared/show',
+           :locals => { :object           => @book,
+                        :creator          => "Written by: #{@book.author}",
+                        :edit_medium_path => method(:edit_book_path),
+                        :medium_path      => method(:book_path),
+                        :media_path       => method(:books_path) } %>
