@@ -21,7 +21,6 @@ class MoviesController < ApplicationController
   def update
     @movie.update(movie_params)
     if @movie.save
-      raise
       redirect_to @movie
     else
       render :edit
