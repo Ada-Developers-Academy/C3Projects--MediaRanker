@@ -2,7 +2,7 @@
 <small><%= byline + @medium.contributor %></small></h1>
 <h4>Ranked: <%= @medium.ranking %></h4>
 <p><%= @medium.description %></p>
-<%= button_to 'Upvote', upvote_medium_path, class: "btn btn-primary"%>
+<%= button_to 'Upvote', upvote_medium_path, class: "btn btn-primary", method: "patch"%>
 
 
 <%= button_to 'Edit ' + @medium.name, edit_medium_path, method: "get", class: "btn btn-default" %>

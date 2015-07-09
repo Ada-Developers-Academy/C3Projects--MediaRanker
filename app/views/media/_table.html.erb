@@ -6,7 +6,7 @@
     <tr>
       <td>Ranked: <%= medium.ranking %></td>
       <td><%= link_to medium.name, medium_path(medium.id) %></td>
-      <td><%= button_to 'Upvote', upvote_medium_path(medium.id), :class => "btn btn-default" %></td>
+      <td><%= button_to 'Upvote', upvote_medium_path(medium.id), class: "btn btn-default", method: "patch" %></td>
     </tr>
   <% end %>
 </table>
