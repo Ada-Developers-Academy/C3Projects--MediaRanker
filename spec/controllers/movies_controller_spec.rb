@@ -33,7 +33,7 @@ RSpec.describe MoviesController, type: :controller do
           expect(Movie.count).to eq 1
         end
 
-        it "redirects to the movie show page" do
+        it "renders to the movie's show page" do
           post :create, movie_params
           expect(subject).to render_template("show")
         end
@@ -65,18 +65,31 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    context "successful deletion" do
-      it " "
 
+    before :each do
+      @movie = Movie.create(:name => "Chipmunk Warz")
+    end
+
+    context "successful deletion" do
+
+      it "deletes a record" do
+        delete :destroy, id: @movie.id
+        expect(Movie.count).to eq 0
+      end
+
+      it "redirects to the movie index page" do
+        delete :destroy, id: @movie.id
+        expect(subject).to redirect_to(movies_path)
+      end
     end
 
 
 
-  # describe "GET welcome#index" do
-  #   it "renders the root_path" do
-  #      get :index
-  #      expect(response).to render_template("index")
-  #   end
-  # end
-
+    # describe "GET welcome#index" do
+    #   it "renders the root_path" do
+    #      get :index
+    #      expect(response).to render_template("index")
+    #   end
+    # end
+  end
 end
