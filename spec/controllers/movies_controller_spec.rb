@@ -16,8 +16,9 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "POST create" do
+
     context "Valid movie params" do
-        let(:movie_params) do
+        let(:movie_params) do # any name to rep the params
           {
             movie: {
               name: 'Jurassic Universe',
@@ -29,7 +30,7 @@ RSpec.describe MoviesController, type: :controller do
         end
 
         it "creates an Movie record" do
-          post :create, movie_params
+          post :create, movie_params # this calls the let
           expect(Movie.count).to eq 1
         end
 
@@ -37,29 +38,29 @@ RSpec.describe MoviesController, type: :controller do
           post :create, movie_params
           expect(subject).to render_template("show")
         end
-      end
+    end
 
-      context "Invalid movie params" do
-        let(:movie_params) do
-          {
-            movie: {
-              director: 'Steven',
-              description: 'Tiny arms galore',
-              rank: 2
-            }
+    context "Invalid movie params" do
+      let(:movie_params) do
+        {
+          movie: {
+            director: 'Steven',
+            description: 'Tiny arms galore',
+            rank: 2
           }
-        end
-
-        it "does not persist invalid records" do
-          post :create, movie_params
-          expect(Movie.count).to eq 0
-        end
-
-        it "renders the :new view (to allow users to fix invalid data)" do
-          post :create, movie_params
-          expect(response).to render_template("new")
-        end
+        }
       end
+
+      it "does not persist invalid records" do
+        post :create, movie_params
+        expect(Movie.count).to eq 0
+      end
+
+      it "renders the :new view (to allow users to fix invalid data)" do
+        post :create, movie_params
+        expect(response).to render_template("new")
+      end
+    end
 
 
   end
@@ -71,7 +72,6 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     context "successful deletion" do
-
       it "deletes a record" do
         delete :destroy, id: @movie.id
         expect(Movie.count).to eq 0
@@ -82,14 +82,37 @@ RSpec.describe MoviesController, type: :controller do
         expect(subject).to redirect_to(movies_path)
       end
     end
+  end
+    # let(:edited_info) do
+    #   { :name => 'New Movie Name' }
+    # end
 
+  describe "PATCH #update" do
 
+    before(:each) do
+      @movie = Movie.create(name: 'Movie Name')
+    end
 
-    # describe "GET welcome#index" do
+    context "valid movie params" do
+      it "updates an an existing movie record" do
+        patch :update, id: @movie.id, movie: { name: "Different Movie Name" }
+        @movie.reload
+        expect(@movie.name).to eq "Different Movie Name"
+      end
+
+      it "redirects to tne movie's show page" do
+        patch :update, id: @movie.id, movie: { name: "Different Movie Name" }
+        @movie.reload
+        expect(subject).to redirect_to(movie_path)
+      end
+
+    end
+    # describe "get welcome#index" do
     #   it "renders the root_path" do
     #      get :index
     #      expect(response).to render_template("index")
     #   end
     # end
   end
+
 end
