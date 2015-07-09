@@ -1,9 +1,9 @@
 <ol class="breadcrumb">
-  <li><a href="/">Home</a></li>
-  <li><a href="/<%= @category %>">All <%= @category.capitalize %></a></li>
+  <%= render partial: "all_media", locals: { active: false } %>
+  <%= render partial: "category", locals: { active: false } %>
   <li class="active">New</li>
 </ol>
 
 <section class="new-edit-form">
-  <%= render partial: "form", locals: { message: "Create a New #{ @singular_category }" } %>
+  <%= render partial: "form", locals: { message: "Create a New #{ @category.display_name }" } %>
 </section>

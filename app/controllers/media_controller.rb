@@ -24,15 +24,15 @@ class MediaController < ApplicationController
     @medium = Medium.find(params[:id])
     @medium.increment!(:upvotes, 1)
 
-    redirect_to "#{ base_url }"
+    redirect_to "#{ @medium.url }"
   end
 
   def update
     medium = Medium.find(params[:id])
     if medium.update(edit_params)
-      redirect_to "#{ base_url }"
+      redirect_to "#{ @medium.url }"
     else
-      redirect_to "#{ base_url }/edit"
+      redirect_to "#{ @medium.url }/edit"
     end
   end
 
@@ -42,26 +42,21 @@ class MediaController < ApplicationController
     if @medium.valid?
       @medium.save
 
-      redirect_to "#{ base_url }"
+      redirect_to "#{ @medium.url }"
     else
-      redirect_to "/#{ base_url }/new"
+      redirect_to "/#{ @medium.url_base }/new"
     end
   end
 
   def destroy
     medium = Medium.find(params[:id])
-    category = medium.plural_category
+    url_base = medium.url_base
     medium.destroy
 
-    redirect_to "/#{ category }"
+    redirect_to "/#{ url_base }"
   end
 
   private
-
-  def base_url
-    id = params[:id] || @medium.id
-    return id ? "/#{ @medium.category.plural }/#{ id }" : "/#{ @medium.category.plural }"
-  end
 
   def set_defaults
     path = request.path.split("/")
@@ -74,6 +69,7 @@ class MediaController < ApplicationController
   def create_params
     medium = edit_params
     medium[:upvotes] = 0
+    medium[:category_id] = @category.id
 
     return medium
   end

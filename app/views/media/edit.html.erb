@@ -1,10 +1,10 @@
 <ol class="breadcrumb">
-  <li><a href="/">Home</a></li>
-  <li><a href="/<%= @category %>">All <%= @category.capitalize %></a></li>
-  <li><a href="/<%= @category %>/<%= @medium.id %>"><%= "#{ @medium.creator }'s #{ @medium.title }" %></a></li>
+  <%= render partial: "all_media", locals: { active: false } %>
+  <%= render partial: "category", locals: { active: false } %>
+  <%= render partial: "medium", locals: { active: false } %>
   <li class="active">Edit</li>
 </ol>
 
 <section class="new-edit-form">
-  <%= render partial: "form", locals: { message: "Edit #{ @medium.creator }'s #{ @medium.title }" } %>
+  <%= render partial: "form", locals: { message: "Edit #{ @medium.creator_phrase }" } %>
 </section>

@@ -1,18 +1,18 @@
 <ol class="breadcrumb">
-  <li><a href="/">Home</a></li>
-  <li><a href="/<%= @category %>">All <%= @category.capitalize %></a></li>
-  <li class="active"><%= "#{ @medium.creator }'s #{ @medium.title }" %></li>
+  <%= render partial: "all_media", locals: { active: false } %>
+  <%= render partial: "category", locals: { active: false } %>
+  <%= render partial: "medium", locals: { active: true } %>
 </ol>
 
 <div class="row">
   <div class="col-sm-7 col-sm-offset-2">
     <h2>
       <%= @medium.title %>
-      <small><%= @medium.created %> by: <%= @medium.creator %></small>
+      <small><%= @medium.created_by %></small>
     </h2>
   </div>
   <div class="col-sm-1">
-    <%= link_to "Upvote", "#{ @medium.id }/upvote", method: :patch, class: "btn btn-info" %>
+    <%= link_to "Upvote", "#{ @medium.url }/upvote", method: :patch, class: "btn btn-info" %>
   </div>
 </div>
 <div class="row">
@@ -28,8 +28,8 @@
       <p><%= @medium.description %></p>
     </blockquote>
     <%= link_to "Delete", "#{ @medium.id }", method: :delete, data: { confirm: "Are you sure you want to delete this record? This is permanent."}, class: "btn btn-danger" %>
-    <%= link_to "Edit #{ @medium.title }", "#{ @medium.id }/edit", class: "btn btn-default" %>
-    <%= link_to "View All #{ @medium.category + "s" }", "/#{ @medium.plural_category }", class: "btn btn-default" %>
+    <%= link_to "Edit #{ @medium.title }", "#{ @medium.url }/edit", class: "btn btn-default" %>
+    <%= link_to "View All #{ @medium.category.display_name }s", "#{ @medium.url_base }", class: "btn btn-default" %>
     <%= link_to "View All Media", "/", class: "btn btn-default" %>
   </div>
 </div>

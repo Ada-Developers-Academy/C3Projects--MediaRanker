@@ -9,15 +9,13 @@
       <%= f.text_field :title, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label @medium.creator_noun %>
+      <%= f.label @category.creator_noun %>
       <%= f.text_field :creator, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :description %>
       <%= f.text_area :description, class: "form-control" %>
     </div>
-
-    <%= f.hidden_field :category, value: @medium.category %>
 
     <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>

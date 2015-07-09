@@ -18,8 +18,8 @@
     </tr>
     <% @media.each do |record| %>
       <tr>
-        <td><%= record.upvotes || 0 %></td>
-        <td><%= link_to "#{ record.title }", "#{ record.url_base }" %></td>
+        <td><%= record.upvotes %></td>
+        <td><%= link_to "#{ record.title }", "#{ record.url }" %></td>
         <td><%= link_to "Upvote", "#{ record.url }/upvote", method: :patch, class: "btn btn-info" %></td>
       </tr>
     <% end %>
