@@ -10,7 +10,7 @@ RSpec.describe AlbumsController, type: :controller do
       expect(response).to have_http_status(200)
       # when you create instance variables in controllers, can access them through the assigns in terminal
     end
-  end
+  end #describe
 
   describe "POST #create" do
     # + album params valid
@@ -23,7 +23,7 @@ RSpec.describe AlbumsController, type: :controller do
               description: "Rock n Roll"
             }
         }
-      end
+      end #let
 
       it "creates an Album record" do
         post :create, album_params
@@ -53,23 +53,43 @@ RSpec.describe AlbumsController, type: :controller do
         expect(Album.count).to eq 0
       end
     end
+  end # POST #create
+
+  describe "DELETE #destroy" do
+
+    it "destroys the album" do
+      @album = Album.create!(
+        name: "Alumbzzz",
+        creator: "Van Halen",
+        description: "Rock n Roll"
+      )
+      delete :destroy, :id => @album.id
+      expect(Album.all.count).to eq 0
     end
+
+  end # DELETE
+
+  describe "PUT #update" do
+
+    it "sucessfully updates name" do
+      @album = Album.create!(
+        name: "Alumbzzz",
+        creator: "Van Halen",
+        description: "Rock n Roll"
+      )
+
+      put :update, :id => @album.id, :name => "Albums"
+      @album.reload
+
+      expect(Album.first.name).to eq("Albums")
+
+    end
+    binding.pry
+
   end
 
-  describe "POST #update" do
-    let(:album_params) do
-      { album:
-        {
-          name: "Alumbzzz",
-          creator: "Van Halen",
-          description: "Rock n Roll"
-        }
-      }
-    end
 
-    [ :name, :creator, :description ].each do |field|
-      it "sucessfully updates field" do
 
-      end
-    end
+
+
   end # controller
