@@ -5,11 +5,11 @@ class Category < ActiveRecord::Base
   validates :creator_noun, presence: true
   validates :created_verb, presence: true
 
-  def url_plural
+  def plural
     name.downcase.pluralize
   end
 
-  def plural
-    name.pluralize
-  end
+  # def name_plural
+  #   name.pluralize
+  # end
 end

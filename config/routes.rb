@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'media#root'
 
-  categories = Category.all.map { |category| category.url_plural }
+  categories = Category.all.map { |category| category.plural }
 
   regexp_string = ''
   last_index = categories.length - 1

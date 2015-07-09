@@ -1,55 +1,51 @@
 class MediaController < ApplicationController
-  before_action :set_category
+  before_action :set_default_medium
+  skip_before_action :set_default_medium, only: :root
 
   def root
     @media = Medium.categorize
   end
 
   def index
-    set_category
-
-    @media = Medium.grab_category(@singular_category)
+    group = @medium.category.plural
+    @media = Medium.group
   end
 
   def show
     @medium = Medium.find(params[:id])
   end
 
-  def new
-    set_category
-    @medium = Medium.new(category: @singular_category)
-    set_creator(@medium)
-  end
+  def new; end
 
   def edit
     @medium = Medium.find(params[:id])
   end
 
   def upvote
-    medium = Medium.find(params[:id])
-    medium.increment!(:upvotes, 1)
+    @medium = Medium.find(params[:id])
+    @medium.increment!(:upvotes, 1)
 
-    redirect_to "#{ base_url medium }"
+    redirect_to "#{ base_url }"
   end
 
   def update
     medium = Medium.find(params[:id])
     if medium.update(edit_params)
-      redirect_to "#{ base_url medium }"
+      redirect_to "#{ base_url }"
     else
-      redirect_to "#{ base_url medium }/edit"
+      redirect_to "#{ base_url }/edit"
     end
   end
 
   def create
-    medium = Medium.new(create_params)
+    @medium = Medium.new(create_params)
 
-    if medium.valid?
-      medium.save
+    if @medium.valid?
+      @medium.save
 
-      redirect_to "#{ base_url medium }"
+      redirect_to "#{ base_url }"
     else
-      redirect_to "/#{ medium.plural_category }/new"
+      redirect_to "/#{ base_url }/new"
     end
   end
 
@@ -63,8 +59,17 @@ class MediaController < ApplicationController
 
   private
 
-  def base_url(medium)
-    "/#{ medium.plural_category }/#{ medium.id }"
+  def base_url
+    id = params[:id] || @medium.id
+    return id ? "/#{ @medium.category.plural }/#{ id }" : "/#{ @medium.category.plural }"
+  end
+
+  def set_default_medium
+    path = request.path.split("/")
+    category = path[1] # 0 is "" because path is like: /movies/134
+    category_id = Category.where(name: category.classify).id
+
+    @medium = Medium.new(category_id: category_id)
   end
 
   def create_params
@@ -75,29 +80,6 @@ class MediaController < ApplicationController
   end
 
   def edit_params
-    params.permit(medium: [:title, :creator, :description, :category])[:medium]
-  end
-
-  def set_category
-    if request.path.include? "movies"
-      @category = "movies"
-    elsif request.path.include? "books"
-      @category = "books"
-    elsif request.path.include? "albums"
-      @category = "albums"
-    end
-
-    if @category
-      @singular_category = singular_category(@category)
-    end
-  end
-
-  def singular_category(plural)
-    return plural.classify
-  end
-
-  def set_creator(categorized_medium)
-    @creator = categorized_medium.creator_noun
-    @created = categorized_medium.created
+    params.permit(medium: [:title, :creator, :description, :category_id])[:medium]
   end
 end

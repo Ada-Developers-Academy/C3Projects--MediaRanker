@@ -5,13 +5,14 @@
 <% @media.each do |group| %>
   <div class="col-sm-4">
     <section class="category">
-      <% category_name = group.first.category + "s" %>
-      <% route_helper = group.first.plural_category %>
+      <% category = group.first.category %>
+      <% category_name = category.full_name || category.name %>
+      <% category_name += "s" %>
       <h1>Top <%= category_name %></h1>
       <% group.each do |item| %>
-        <h4><%= link_to "#{ item.title }", "/#{ route_helper }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h4>
+        <h4><%= link_to "#{ item.title }", "/#{ category.plural }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h4>
       <% end %>
-      <%= link_to "View More #{ category_name }", "/#{ route_helper }" %>
+      <%= link_to "View More #{ category_name }", "/#{ category.plural }" %>
     </section>
   </div>
 <% end %>
