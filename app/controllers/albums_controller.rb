@@ -1,7 +1,13 @@
 class AlbumsController < ApplicationController
 
+  def self.model
+    Album
+  end
+
   def index
-    @albums = Album.ranking(15)
+    albums = Album.all
+    count = albums.count
+    @albums = Album.ranking(count)
   end
 
   def show

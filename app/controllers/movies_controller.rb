@@ -1,7 +1,13 @@
 class MoviesController < ApplicationController
 
+  def self.model
+    Movie
+  end
+
   def index
-    @movies = Movie.ranking(15)
+    movies = Movie.all
+    count = movies.count
+    @movies = Movie.ranking(count)
   end
 
   def show

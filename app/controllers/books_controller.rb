@@ -1,7 +1,13 @@
 class BooksController < ApplicationController
 
+  def self.model
+    Book
+  end
+
   def index
-    @books = Book.ranking(15)
+    books = Book.all
+    count = books.count
+    @books = Book.ranking(count)
   end
 
   def show
