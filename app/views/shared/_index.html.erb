@@ -10,7 +10,7 @@
         <tr>
           <td>Ranked:<%= object.votes %></td>
           <td><%= link_to "#{object.title}", "/#{media}/#{object.id}" %></td>
-          <td><%= link_to "Upvote", object, method: :put, class: "btn btn-default", params: { upvote: true }%></td>
+          <td><%= button_to "Upvote", object, method: :put, class: "btn btn-default", params: { upvote: "true" }%></td>
         </tr>
       <% end %>
     </table>

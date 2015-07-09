@@ -49,6 +49,6 @@ class AlbumsController < ApplicationController
   end
 
   def create_params
-    params.require(:album).permit(:title, :recorded_by, :description)
+    params.require(:album).permit(:title, :recorded_by, :votes, :description)
   end
 end
