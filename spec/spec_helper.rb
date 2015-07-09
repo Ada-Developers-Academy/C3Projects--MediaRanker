@@ -20,6 +20,9 @@ RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
+
+Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
@@ -28,7 +31,6 @@ RSpec.configure do |config|
     #     # => "be bigger than 2 and smaller than 4"
     # ...rather than:
     #     # => "be bigger than 2"
-    Dir["./spec/support/**/*.rb"].sort.each { |f| require f}
 
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
