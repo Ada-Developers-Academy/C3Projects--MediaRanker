@@ -9,7 +9,7 @@
 <p><%= object.description %></p>
 
 <%= button_to "Upvote", upvote_route, class: "btn btn-primary", method: "patch" %>
-
+<div></div>
 <%= link_to "Edit #{object.name}", edit_single_route, class: "btn btn-default", method: "get" %>
 
 <%= link_to "DELETE", single_route, method: "delete", class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
