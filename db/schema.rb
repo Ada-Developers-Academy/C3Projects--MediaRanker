@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707160548) do
+ActiveRecord::Schema.define(version: 20150709012057) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title"
-    t.string   "artist"
+    t.string   "creator"
     t.text     "description"
     t.integer  "rank",        default: 0
     t.datetime "created_at",              null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150707160548) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
-    t.string   "author"
+    t.string   "creator"
     t.text     "description"
     t.integer  "rank",        default: 0
     t.datetime "created_at",              null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150707160548) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
-    t.string   "director"
+    t.string   "creator"
     t.text     "description"
     t.integer  "rank",        default: 0
     t.datetime "created_at",              null: false

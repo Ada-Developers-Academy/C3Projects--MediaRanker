@@ -2,7 +2,7 @@ class CreateAlbums < ActiveRecord::Migration
   def change
     create_table :albums do |t|
       t.string :title
-      t.string :artist
+      t.string :creator
       t.text :description
       t.integer :rank, default: 0
 
