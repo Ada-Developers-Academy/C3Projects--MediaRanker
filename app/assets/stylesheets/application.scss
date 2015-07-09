@@ -13,13 +13,14 @@
 
  */
 
+.page-header {
+  background-image: url('owl.jpg');
+  background-repeat: no-repeat;
+  padding-left: 150px;
+}
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
- .owl {
-  height: 40px;
-  padding-right: 15spx;
- }
 
 
 
