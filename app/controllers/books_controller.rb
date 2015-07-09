@@ -3,10 +3,6 @@ class BooksController < ApplicationController
     @books = Book.all.order('ranking DESC')
   end
 
-  def show
-    @book = Book.find(params[:id])
-  end
-
   def new
     @book = Book.new
   end
@@ -16,6 +12,10 @@ class BooksController < ApplicationController
     book.save # opportunity for validity checks
 
     redirect_to book_path(book)
+  end
+
+  def show
+    @book = Book.find(params[:id])
   end
 
   def edit

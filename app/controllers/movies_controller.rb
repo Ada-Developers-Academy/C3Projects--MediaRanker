@@ -3,6 +3,17 @@ class MoviesController < ApplicationController
     @movies = Movie.all.order('ranking DESC')
   end
 
+  def new
+    @movie = Movie.new
+  end
+
+  def create
+    movie = Movie.new(create_params[:movie])
+    movie.save # opportunity for validity checks
+
+    redirect_to movie_path(movie)
+  end
+
   def show
     @movie = Movie.find(params[:id])
   end

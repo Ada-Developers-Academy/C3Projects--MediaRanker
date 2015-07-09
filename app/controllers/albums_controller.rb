@@ -3,6 +3,18 @@ class AlbumsController < ApplicationController
     @albums = Album.all.order('ranking DESC')
   end
 
+  def new
+    @album = Album.new
+  end
+
+  def create
+    album = Album.new(create_params[:album])
+    album.save # opportunity for validity checks
+
+    redirect_to album_path(album)
+  end
+
+
   def show
     @album = Album.find(params[:id])
   end
