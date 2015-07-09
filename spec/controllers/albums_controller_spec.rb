@@ -2,6 +2,18 @@ require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
 
+    describe "GET #new" do
+      before(:each) do
+        get :new
+      end
+
+      it "creates a new item" do
+        expect(assigns(:album)).to be_a_new(Album)
+      end
+
+    end
+
+
     describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index
@@ -69,9 +81,9 @@ RSpec.describe AlbumsController, type: :controller do
       end #before
 
       it "album counts changes by -1" do
-
-        # delete :destroy, id: @album_del.id
         expect{delete :destroy, {id: @album_del.id}}.to change(Album, :count).by(-1)
+        # Album count should decrease by 1 if album sucessfully deleted.
+        # If say album count = 0, may not be correct b/c of persistent test data
       end
 
       it "redirect_to :albums" do
