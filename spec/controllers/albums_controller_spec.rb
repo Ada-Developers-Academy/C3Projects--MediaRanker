@@ -42,21 +42,18 @@ RSpec.describe AlbumsController, type: :controller do
     # positive test - album params are valid
     context "valid album params" do
       let(:album_params) do
-        {
-          album: {
-            title: 'some album', 
-            rank: 5
-          }
-        }
+        { album: { title: 'some album', rank: 5 } }
+      end
+
+      before(:each) do
+        post :create, album_params
       end
 
       it "creates an Album record" do
-        post :create, album_params
         expect(Album.count).to eq 1
       end
 
       it "redirect to the album show page" do
-        post :create, album_params
         expect(subject).to redirect_to(album_path(assigns(:medium)))
       end
     end
@@ -105,40 +102,64 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PUT #update" do
+    before(:each) do
+      @album = Album.create(title: 'some title', creator: 'some person')
+    end
+
     context "valid album params" do
-      let(:album) { Album.create(title: 'some title', creator: 'some person') }
+      before(:each) do
+        post :update, id: @album, album: { title: "updated title", creator: 'some person' }
+      end
 
       it "updates an item with valid params" do
-        post :update, id: album, album: { title: "updated title", creator: 'some person' }
-        album.reload
-        expect(album.title).to eq("updated title")
+        @album.reload
+        expect(@album.title).to eq("updated title")
+      end
+
+      it "redirects to album_path" do
+        expect(subject).to redirect_to(album_path(assigns(:medium)))
+      end
+    end
+
+    context "invalid album params" do
+      before(:each) do
+        post :update, id: @album, album: { title: "", creator: 'some person' }
       end
 
       it "does not update an item with invalid params" do
-        post :update, id: album, album: { title: "", creator: 'some person' }
-        album.reload
-        expect(album.title).to eq("some title")
+        @album.reload
+        expect(@album.title).to eq("some title")
+      end
+
+      it "renders :edit template" do
+        expect(response).to render_template("edit")
       end
     end
   end
 
   describe "PUT #upvote" do
-    let(:medium) { Album.create(title: 'a title', rank: 5) }
+
+    before(:each) do
+      @album = Album.create(title: 'a title', rank: 5)
+      put :upvote, id: @album
+    end
 
     it "increases rank of record by one" do
-      put :upvote, id: medium
-      medium.reload
-      expect(medium.rank).to eq 6
+      @album.reload
+      expect(@album.rank).to eq 6
     end
 
     it "only affects the particular record" do
-      medium2 = Album.create(title: 'b title', rank: 5)
+      album2 = Album.create(title: 'b title', rank: 5)
 
-      put :upvote, id: medium
-      medium.reload
-      medium2.reload
-      expect(medium.rank).to eq 6
-      expect(medium2.rank).to eq 5
+      @album.reload
+      album2.reload
+      expect(@album.rank).to eq 6
+      expect(album2.rank).to eq 5
+    end
+
+    it "redirects to the album_path" do
+      expect(subject).to redirect_to(album_path(assigns(:album)))
     end
   end
 
@@ -151,17 +172,12 @@ RSpec.describe AlbumsController, type: :controller do
       delete :destroy, id: @medium3
     end
 
-    it "deletes an object" do
-      expect(Album.count).to eq 2
-    end
-
     it "deletes a particular object" do
       expect(Album.all).to_not include @medium3
     end
 
-    it "does not delete other objects" do
-      expect(Album.all).to include @medium1
-      expect(Album.all).to include @medium2
+    it "redirects to the albums_path" do
+      expect(response).to redirect_to(albums_path)
     end
   end
 end
