@@ -9,15 +9,11 @@
     <% end %>
   </tr>
   <tr>
-    <td>
-      <%= render "shared/home_display", media: @movies %>
-    </td>
-    <td>
-      <%= render "shared/home_display", media: @books %>
-    </td>
-    <td>
-      <%= render "shared/home_display", media: @albums %>
-    </td>
+    <% @media.each do |media| %>
+      <td>
+        <%= render partial: "shared/home_display", locals: { media: media } %>
+      </td>
+    <% end %>
   </tr>
   <tr>
     <td>

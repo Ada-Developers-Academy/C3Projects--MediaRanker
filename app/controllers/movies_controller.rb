@@ -37,6 +37,7 @@ class MoviesController < ApplicationController
   end
 
   def create
+    params[:movie][:rank] = 0
     movie = Movie.create(movie_params)
 
     redirect_to movie_path(id: movie.id)

@@ -4,6 +4,8 @@ class WelcomeController < ApplicationController
     @books = Book.all.rank_order_top_ten
     @albums = Album.all.rank_order_top_ten
 
+    @media = [ @movies, @books, @albums ]
+
     render :index
   end
 end

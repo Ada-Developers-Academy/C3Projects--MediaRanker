@@ -37,6 +37,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    params[:book][:rank] = 0
     book = Book.create(book_params)
 
     redirect_to book_path(id: book.id)
