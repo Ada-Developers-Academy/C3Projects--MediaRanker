@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'albums/index'
+  get 'albums/index'  # to controller action
 
   get 'books/index'
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :media do
     member do
-      post 'upvote'
+      patch 'upvote'
     end
   end
 
