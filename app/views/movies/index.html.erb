@@ -1,18 +1,11 @@
 <table>
-  <tr>
-    <th>Ranking<th>
-    <th>Name</th>
-    <th>Upvote</th>
-  </tr>
+  <%= render partial: "shared/table_header" %>
 
-  <% @movies.each do |movie| %>
-  <tr>
-    <th>Ranked: <%= movie.ranking %></th>
-    <th><%= link_to "#{movie.name}", movie_path(movie.id) %></th>
-    <th><%= button_to "Upvote", upvote_movie_path(movie.id), method: "patch" %></th>
-  </tr>
-  <% end %>
+    <% @movies.each do |movie| %>
+
+    <%= render partial: "shared/index_content", locals: {name: movie.name, ranking: movie.ranking, name_path: movie_path(movie.id), upvote_name_path: upvote_movie_path(movie.id), new_name_path: new_movie_path } %>
+
+    <% end %>
 </table>
 
-<%= button_to "View All Media", root_path, method: "get" %>
-<%= button_to "Add a Movie", new_movie_path, method: "get" %>
+<%= render partial: "shared/buttons_view_all_and_add_new", locals: {name: "Movie", new_name_path: new_movie_path } %>

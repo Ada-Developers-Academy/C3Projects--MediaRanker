@@ -1,0 +1,5 @@
+<tr>
+  <th>Ranked: <%= ranking %></th>
+  <th><%= link_to "#{name}", name_path %></th>
+  <th><%= button_to "Upvote", upvote_name_path, method: "patch" %></th>
+</tr>
