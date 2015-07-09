@@ -1,0 +1,25 @@
+<ul class="list-group col-sm-5">
+
+  <% media.each do |medium| %>
+    <li class="list-group-item">
+      <div>
+        <span class="badge"><%= medium.ranking %></span>
+      </div>
+
+      <div>
+        <%= medium.title %>
+      </div>
+
+      <div>
+        <% if medium.has_attribute?(:director) %>
+            Directed by: <%= medium.director %>
+        <% elsif medium.has_attribute?(:author) %>
+            Written by: <%= medium.author %>
+        <% elsif medium.has_attribute?(:artist) %>
+            Artist: <%= medium.artist %>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+
+</ul>

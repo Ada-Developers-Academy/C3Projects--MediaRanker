@@ -1,4 +1,8 @@
 class AlbumsController < ApplicationController
+  def index
+    @albums = Album.all.order('ranking DESC')
+  end
+
   def show
     @album = Album.find(params[:id])
   end
