@@ -15,10 +15,14 @@
  @import "bootstrap";
 
  .page-header {
-   background: url('owl.jpg');
-   background-repeat: no-repeat;
+  background: url('owl.jpg');
+  background-repeat: no-repeat;
  }
 
-.table-hover th {
-  text-align: center;
+.header {
+  padding-left: 150px;
+}
+
+.inline {
+  display: inline;
 }
