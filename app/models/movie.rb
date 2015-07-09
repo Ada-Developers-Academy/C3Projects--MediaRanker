@@ -4,7 +4,9 @@ class Movie < ActiveRecord::Base
   validates :rank, numericality: { only_integer: true }
 
   # Scopes ---------------------------------------------------------------------
-  scope :all_ranked, -> { all.order(rank: :desc) }
+  scope :ranked,      -> { order(rank: :desc) }
+  scope :all_ranked,  -> { all.ranked }
+  scope :top_ranked,  -> { all_ranked.limit(10) }
 
   def creator
     director
