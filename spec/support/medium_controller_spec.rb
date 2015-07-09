@@ -44,7 +44,7 @@ RSpec.shared_examples "medium" do
       @medium2.save
       described_class.model.new(id: 3, title: "c title").save
 
-      @params = { described_class.model.name.downcase.to_sym => { title: "If You're Reading This It's Too Late", artist: "Drake", description: "" }, id: "2" }
+      @params = { described_class.model.name.downcase.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: "2" }
     end
 
     it "locates the correct described_class.model" do
@@ -54,13 +54,13 @@ RSpec.shared_examples "medium" do
 
     it "updates and saves the new information" do
       original_title       = @medium2.title
-      original_artist      = @medium2.artist
+      # removed check for .artist/.director/.author
+      # felt like unnecessary overcomplication
       original_description = @medium2.description
       put :update, @params
       @medium2.reload
 
       expect(@medium2.title).to_not       eq original_title
-      expect(@medium2.artist).to_not      eq original_artist
       expect(@medium2.description).to_not eq original_description
     end
 
