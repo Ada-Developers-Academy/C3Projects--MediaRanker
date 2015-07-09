@@ -56,6 +56,35 @@ RSpec.describe MoviesController, type: :controller do
         expect(response).to render_template("new")
       end
     end
-  end # POST test end
+  end # POST create test end
+
+  describe "PATCH #update" do
+    let(:movie_params) do
+      {
+        movie: { # invalid because it's missing the :description key
+          name: 'new movie',
+          director: 'johnny appleseed',
+          description: 'my description'
+        }
+      }
+    end
+
+    # positive test - it updates the movie's attributes
+    it "updates a movie's attributes" do
+      movie = Movie.new(movie_params[:movie])
+
+      movie[:director] = 'orlando bloom'
+
+      expect(movie[:director]).to eq('orlando bloom')
+    end
+
+    it "redirects to the movie index page" do
+      patch :update, movie_params
+      expect(subject).to redirect_to(movie_path(assigns(movie_params[:movie]).id))
+    end
+  end # PATCH update test end
 
 end # Rspec end
+
+
+
