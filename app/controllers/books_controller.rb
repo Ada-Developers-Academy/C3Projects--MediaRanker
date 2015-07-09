@@ -21,7 +21,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.vote = 0
     if @book.save
       redirect_to book_path(@book.id)
     else
