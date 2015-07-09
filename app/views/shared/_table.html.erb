@@ -9,7 +9,7 @@
       <tr>
         <td>Ranked: <%= medium.rank %></td>
         <td><%= link_to medium.title, polymorphic_path(medium) %></td>
-        <td><%= button_to "Upvote", polymorphic_path([:upvote, medium]), { method: :put } %></td>
+        <td><%= button_to "Upvote", polymorphic_path([:upvote, medium]), { method: :put, class: "btn btn-default" } %></td>
       </tr>
     <% end %>
   </tbody>
