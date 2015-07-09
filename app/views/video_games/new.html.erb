@@ -1,6 +1,11 @@
 <% content_for :style_sheet do %>
   <%= stylesheet_link_tag 'video_games' %>
 <% end %>
+
+<% if flash[:error] %>
+  <p class="alert alert-danger"><%= flash[:error] %></p>
+<% end %>
+
 <%= form_for @video_game do |f| %>
   <%= f.label :title %>:
   <%= f.text_field :title, placeholder: "Chrono Trigger" %><br />

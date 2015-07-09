@@ -20,7 +20,7 @@
     <% @video_games.each do |game| %>
     <tr>
       <td>
-        <%= game.stars %>
+        <%= game.rating %>
       </td>
       <td>
         <%= link_to "#{game.title}", video_game_path(game.id) %>

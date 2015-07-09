@@ -18,16 +18,20 @@ class VideoGamesController < ApplicationController
   end
 
   def create
-    @video_game= VideoGame.create(video_game_params[:video_game])
-
-    redirect_to video_game_path(@video_game.id)
+    @video_game = VideoGame.create(video_game_params[:video_game])
+    if @video_game.save
+      redirect_to video_game_path(@video_game.id)
+    else
+      flash[:error] = "You must include a title."
+      redirect_to new_video_game_path
+    end
   end
 
   # Upvote an existing Video Game
   def upvote
     @video_game_id = params[:id]
     @video_game = VideoGame.find(@video_game_id)
-    @video_game.stars += 1
+    @video_game.rating += 1
     @video_game.save
 
     redirect_to video_game_path(@video_game.id)

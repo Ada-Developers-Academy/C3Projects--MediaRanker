@@ -19,5 +19,92 @@ RSpec.describe BoardGamesController, type: :controller do
 
       expect(BoardGame.all).to match_array([board_game1, board_game2])
     end
+  end # end of describe
+
+  describe "GET #show" do
+    it "responds successfully with an HTTP 200 status code" do
+      board_game = BoardGame.create(title: "Board Game")
+      get :show, id: board_game.id
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+    it "displays information related to the given record" do
+      board_game = BoardGame.create(title: "Board Game")
+      get :show, id: board_game.id
+      expect(board_game.title).to eq 'Board Game'
+    end
+  end # end of describe block
+
+  describe "POST #create" do
+    context "valid board game params" do
+      let(:board_game_params) do {
+        board_game:{
+          title: 'a title',
+          author: 'an author',
+          description: 'a description'
+        }
+      }
+      end
+
+      it "creates a board game record" do
+        post :create, board_game_params
+        expect(BoardGame.count).to eq 1
+      end
+
+      it "redirects to the board game show page" do
+        post :create, board_game_params
+        expect(response).to redirect_to(board_game_path(assigns(:board_game)))
+      end #
+    end # end of let
+
+    # negative test, board game params are invalid
+    context "invalid board game params" do
+      let(:board_game_params) do {
+        board_game:{
+          author: 'author',
+          description: 'description'
+        }
+      }
+      end
+
+      it "does not persist invalid records" do
+        post :create, board_game_params
+        expect(BoardGame.count).to eq 0
+      end
+
+      it "redirects to the #new page after input fails" do
+        post :create, board_game_params
+        expect(response).to redirect_to(new_board_game_path)
+      end
+    end #end of let
+  end #end of describe block
+
+  describe "PUT #edit" do
+    let(:board_game) {BoardGame.create(title: "Game Title")}
+      it "updates an existing record" do
+        post :update, id: board_game, board_game: {title: "Title"}
+        board_game.reload
+        expect(board_game.title).to eq("Title")
+      end
+  end #end of describe block
+
+  describe "DELETE #destroy" do
+    it "deletes the given Board game record" do
+      board_game = BoardGame.create(title: "Board game")
+      expect {
+        delete :destroy, {:id => board_game.to_param}
+      }.to change(BoardGame, :count).by(-1)
+    end
+  end # end of describe block
+
+  describe "POST #upvote" do
+    it "updates the ranking by 1 with each upvote" do
+      board_game = BoardGame.create(title: "Board game")
+      post :upvote, id: board_game
+      board_game.reload
+      expect(board_game.rating).to eq 2
+    end
   end
-end
+
+end # end of describe for Board Games Controller

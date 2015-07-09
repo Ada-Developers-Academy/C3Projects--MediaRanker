@@ -2,6 +2,10 @@
   <%= stylesheet_link_tag 'board_games' %>
 <% end %>
 
+<% if flash[:error] %>
+  <p class="alert alert-danger"><%= flash[:error] %></p>
+<% end %>
+
 <%= form_for @board_game do |f| %>
   <%= f.label :title %>:
   <%= f.text_field :title, placeholder: 'Settlers of Catan' %><br />

@@ -2,6 +2,10 @@
   <%= stylesheet_link_tag 'story_games' %>
 <% end %>
 
+<% if flash[:error] %>
+  <p class="alert alert-danger"><%= flash[:error] %></p>
+<% end %>
+
 <%= form_for @story_game do |f| %>
   <%= f.label :title %>:
   <%= f.text_field :title, placeholder: "Fiasco" %><br />

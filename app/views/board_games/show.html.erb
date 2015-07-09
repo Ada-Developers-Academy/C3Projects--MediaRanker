@@ -5,7 +5,7 @@
 <h1><%= @board_game.title %></h1>
 <h3>Created by: <%= @board_game.author %></h3>
 <p>
-  Ranked:  <%= @board_game.meeples %> <%= button_to "Upvote", upvote_board_game_path(@board_game.id), class: "btn btn-primary board-btn" %>
+  Ranked:  <%= @board_game.rating %> <%= button_to "Upvote", upvote_board_game_path(@board_game.id), class: "btn btn-primary board-btn" %>
 </p>
 
 <p>

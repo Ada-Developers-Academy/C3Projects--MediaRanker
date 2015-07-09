@@ -5,7 +5,7 @@
 <h1><%= @story_game.title %></h1>
 <h3>Created by: <%= @story_game.author %></h3>
 <p>
-  Ranked:  <%= @story_game.note_cards %> <%= button_to "Upvote", upvote_story_game_path(@story_game.id), class: "btn btn-primary story-btn" %>
+  Ranked:  <%= @story_game.rating %> <%= button_to "Upvote", upvote_story_game_path(@story_game.id), class: "btn btn-primary story-btn" %>
 </p>
 
 <p>

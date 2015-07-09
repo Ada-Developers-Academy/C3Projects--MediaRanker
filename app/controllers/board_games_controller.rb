@@ -18,15 +18,19 @@ class BoardGamesController < ApplicationController
 
   def create
     @board_game = BoardGame.create(board_game_params[:board_game])
-
-    redirect_to board_game_path(@board_game.id)
+    if @board_game.save
+      redirect_to board_game_path(@board_game.id)
+    else
+      flash[:error] = "You must include a title."
+      redirect_to new_board_game_path
+    end
   end
 
   # Upvote an existing Board Game
   def upvote
     @board_game_id = params[:id]
     @board_game = BoardGame.find(@board_game_id)
-    @board_game.meeples += 1
+    @board_game.rating += 1
     @board_game.save
 
     redirect_to board_game_path(@board_game.id)

@@ -20,7 +20,7 @@
     <% @story_games.each do |game| %>
     <tr>
       <td>
-        <%= game.note_cards %>
+        <%= game.rating %>
       </td>
       <td>
         <%= link_to "#{game.title}", story_game_path(game.id)  %>

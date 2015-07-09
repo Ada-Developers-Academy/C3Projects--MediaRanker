@@ -20,7 +20,7 @@
     <% @board_games.each do |game| %>
     <tr>
       <td>
-        <%= game.meeples %>
+        <%= game.rating %>
       </td>
       <td>
         <%= link_to "#{game.title}", board_game_path(game.id)  %>

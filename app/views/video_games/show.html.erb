@@ -5,7 +5,7 @@
 <h1><%= @video_game.title %></h1>
 <h3>Created by: <%= @video_game.studio %></h3>
 <p>
-  Ranked:  <%= @video_game.stars %> <%= button_to "Upvote", upvote_video_game_path(@video_game.id), class: "btn btn-primary video-btn" %>
+  Ranked:  <%= @video_game.rating %> <%= button_to "Upvote", upvote_video_game_path(@video_game.id), class: "btn btn-primary video-btn" %>
 </p>
 
 <p>
