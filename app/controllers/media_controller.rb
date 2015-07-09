@@ -1,5 +1,5 @@
 class MediaController < ApplicationController
-  # before_action :set_category
+  before_action :set_category
 
   def root
     @categorized_records = Medium.categorize
@@ -87,7 +87,9 @@ class MediaController < ApplicationController
       @category = "albums"
     end
 
-    @singular_category = singular_category(@category)
+    if @category
+      @singular_category = singular_category(@category)
+    end
   end
 
   def singular_category(plural)
