@@ -24,18 +24,18 @@ RSpec.describe Album, type: :model do
   describe "ranked scope" do
     # positive test
     it "orders the albums descending by rank" do
-      album1 = Album.create(title: 'a', rank: 1)
-      album2 = Album.create(title: 'b', rank: 2)
-      album3 = Album.create(title: 'c', rank: 3)
+      medium1 = Album.create(title: 'a', rank: 1)
+      medium2 = Album.create(title: 'b', rank: 2)
+      medium3 = Album.create(title: 'c', rank: 3)
 
-      expect(Album.ranked.first).to eq album3
+      expect(Album.ranked.first).to eq medium3
     end
 
     # negative test
     it "does not order the albums by id" do
-      album1 = Album.create(title: 'a', rank: 1)
-      album2 = Album.create(title: 'b', rank: 2)
-      album3 = Album.create(title: 'c', rank: 3)
+      medium1 = Album.create(title: 'a', rank: 1)
+      medium2 = Album.create(title: 'b', rank: 2)
+      medium3 = Album.create(title: 'c', rank: 3)
 
       expect(Album.ranked.first).to_not eq Album.find(1)
     end
@@ -43,23 +43,23 @@ RSpec.describe Album, type: :model do
 
   describe "top_ranked scope" do
     before :each do
-      @album1 = Album.create(title: 'a', rank: 1)
-      @album2 = Album.create(title: 'b', rank: 2)
-      @album3 = Album.create(title: 'c', rank: 3)
-      @album4 = Album.create(title: 'd', rank: 4)
-      @album5 = Album.create(title: 'e', rank: 5)
-      @album6 = Album.create(title: 'f', rank: 6)
-      @album7 = Album.create(title: 'g', rank: 7)
-      @album8 = Album.create(title: 'h', rank: 8)
-      @album9 = Album.create(title: 'i', rank: 9)
-      @album10 = Album.create(title: 'j', rank: 10)
-      @album11 = Album.create(title: 'k', rank: 11)
-      @album12 = Album.create(title: 'l', rank: 12)
+      @medium1 = Album.create(title: 'a', rank: 1)
+      @medium2 = Album.create(title: 'b', rank: 2)
+      @medium3 = Album.create(title: 'c', rank: 3)
+      @medium4 = Album.create(title: 'd', rank: 4)
+      @medium5 = Album.create(title: 'e', rank: 5)
+      @medium6 = Album.create(title: 'f', rank: 6)
+      @medium7 = Album.create(title: 'g', rank: 7)
+      @medium8 = Album.create(title: 'h', rank: 8)
+      @medium9 = Album.create(title: 'i', rank: 9)
+      @medium10 = Album.create(title: 'j', rank: 10)
+      @medium11 = Album.create(title: 'k', rank: 11)
+      @medium12 = Album.create(title: 'l', rank: 12)
     end
 
     # positive test
     it "orders the albums descending by rank" do
-      expect(Album.top_ranked.first).to eq @album12
+      expect(Album.top_ranked.first).to eq @medium12
     end
 
     it "only has 10 elements" do
@@ -72,7 +72,7 @@ RSpec.describe Album, type: :model do
     end
 
     it "does not include the lowest ranking albums" do
-      expect(Album.top_ranked).to_not include @album1
+      expect(Album.top_ranked).to_not include @medium1
     end
   end
 end
