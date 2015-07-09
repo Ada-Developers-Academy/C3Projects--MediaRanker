@@ -1,9 +1,13 @@
+<h2>New <%= title %></h2>
+
 <%= form_for object, method: http_verb do |f| %>
 
   <fieldset>
     <% details.each do |detail| %>
-      <%= f.label detail %>
-      <%= f.text_field detail %>
+      <div class="form-group">
+        <%= f.label detail %>
+        <%= f.text_field detail %>
+      </div>
     <% end %>
   </fieldset>
 

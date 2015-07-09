@@ -13,11 +13,13 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    album = Album.create(permit_params)
-    album.rank = 0
-    album.save
-
-    super
+    @album = Album.new(permit_params)
+    @album.rank = 0
+    if @album.save
+      super
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,9 +27,12 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    Album.find(params[:id]).update(permit_params)
-
-    super
+    @album = Album.find(params[:id])
+    if @album.update(permit_params)
+      super
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -13,11 +13,13 @@ class MoviesController < ApplicationController
   end
 
   def create
-    movie = Movie.create(permit_params)
-    movie.rank = 0
-    movie.save
-
-    super
+    @movie = Movie.new(permit_params)
+    @movie.rank = 0
+    if @movie.save
+      super
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,9 +27,12 @@ class MoviesController < ApplicationController
   end
 
   def update
-    Movie.find(params[:id]).update(permit_params)
-
-    super
+    @movie = Movie.find(params[:id])
+    if @movie.update(permit_params)
+      super
+    else
+      render :edit
+    end
   end
 
   def destroy

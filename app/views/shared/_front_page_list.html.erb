@@ -1,11 +1,16 @@
 <% categories.each do |category, objects| %>
-  <div>
+  <div class="col-md-4">
 
     <h1>Top <%= category.capitalize %></h1>
 
-    <ol>
+    <ol class="list-unstyled">
       <% objects.each do |object| %>
-        <li><%= link_to object.name, "/#{category}/#{object.id}" %> Ranked: <%= object.rank %></li>
+        <li><h2>
+          <%= link_to object.name, "/#{category}/#{object.id}" %>
+          <small>
+            Ranked: <%= object.rank %>
+          </small>
+        </li></h2>
       <% end %>
     </ol>
 

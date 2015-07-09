@@ -1,15 +1,19 @@
-<h2><%= object.name %></h2>
-<h3><%= by + object_person %></h3>
+<h1>
+  <%= object.name %>
+  <small>
+    <%= by + object_person %>
+  </small>
+</h1>
 
-<p>Ranked: <%= object.rank %></p>
+<h4>Ranked: <%= object.rank %></h4>
 <p><%= object.description %></p>
 
-<%= button_to "Upvote", upvote_route, method: "patch" %>
+<%= button_to "Upvote", upvote_route, class: "btn btn-primary", method: "patch" %>
 
-<%= link_to "Edit #{object.name}", edit_single_route, method: "get" %>
+<%= link_to "Edit #{object.name}", edit_single_route, class: "btn btn-default", method: "get" %>
 
-<%= link_to "DELETE", single_route, method: "delete", data: { confirm: "Are you sure?" } %>
+<%= link_to "DELETE", single_route, method: "delete", class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
 
-<%= link_to "View All #{object_type}", multi_route, method: "get" %>
+<%= link_to "View All #{object_type}", multi_route, class: "btn btn-default", class: "btn btn-default", method: "get" %>
 
-<%= link_to "View All Media", root_path, method: "get" %>
+<%= link_to "View All Media", root_path, class: "btn btn-default", method: "get" %>

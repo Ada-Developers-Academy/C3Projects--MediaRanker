@@ -13,11 +13,13 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.create(permit_params)
-    book.rank = 0
-    book.save
-
-    super
+    @book = Book.new(permit_params)
+    @book.rank = 0
+    if @book.save
+      super
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,9 +27,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    Book.find(params[:id]).update(permit_params)
-
-    super
+    @book = Book.find(params[:id])
+    if @book.update(permit_params)
+      super
+    else
+      render :edit
+    end
   end
 
   def destroy
