@@ -62,7 +62,6 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "POST #create" do
-    # positive test
     context "valid movie params"do
       let(:movie) do
         {
@@ -82,7 +81,7 @@ RSpec.describe MoviesController, type: :controller do
         expect(subject).to redirect_to(movie_path(assigns(:movie)))
       end
     end
-    # negative test
+
     context "invalid movie params" do
       let(:movie) do
         {
