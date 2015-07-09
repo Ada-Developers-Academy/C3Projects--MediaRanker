@@ -1,13 +1,4 @@
-<%= form_for @movie do |f| %>
-  <h2>New Movie</h2>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :director %>
-  <%= f.text_field :director %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-
-  <%= f.submit "Save" %>
-<% end %>
+<%= render :partial => 'shared/form',
+           :locals => { :media     => @movie,
+                        :form_name => "New Movie",
+                        :creator   => :director } %>
