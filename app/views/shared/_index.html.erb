@@ -9,7 +9,7 @@
       <tr>
         <td> Ranked: <%= media.ranking %> </td>
         <td> <%= link_to media.name, media_path.call(media) %> </td>
-        <td> <%= link_to "Upvote", media_path.call(media), method: "patch", class: "btn btn-primary" %> </td>
+        <td> <%= button_to "Upvote", media_path.call(media), method: "patch", class: "btn btn-primary" %> </td>
       </tr>
     <% end %>
   </tbody>

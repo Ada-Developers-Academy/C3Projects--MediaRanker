@@ -6,10 +6,8 @@
 
     <p> <%= object.description %> </p>
 
-    <%= link_to "Upvote", medium_path.call(object), method: "patch", class: "btn btn-primary" %>
-
+    <%= button_to "Upvote", medium_path.call(object), method: "patch", class: "btn btn-primary" %>
     <br>
-
     <%= link_to "Edit #{object.name}", edit_medium_path.call, class: "btn btn-default" %>
     <%= link_to "Delete", medium_path.call(object), method: "delete", data: { confirm: "Are you sure you want to delete?" }, class: "btn btn-danger" %>
 
