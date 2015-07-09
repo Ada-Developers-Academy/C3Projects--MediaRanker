@@ -114,12 +114,13 @@ RSpec.describe AlbumsController, type: :controller do
       before :each do
         @album = Album.create(name: 'name', artist: 'artist', description: 'descrip')
 
-        put :update, :id => @album.id, :album => attr
+        put :update, :id => @album.id
         @album.reload
+        # this update is going through the wrong path in update's if else conditional
       end
 
       it "increments ranking by 1" do
-        expect(@album.ranking).to eq(attr[:ranking])
+        expect(@album.ranking).to eq(1)
       end
 
       it "redirects to the Album show page" do
