@@ -32,7 +32,7 @@ RSpec.describe BooksController, type: :controller do
       expect(response).to render_template("new")
     end
   end
-  
+
   describe "PUT #update" do
     context "valid book params" do
       before :each do
@@ -98,6 +98,22 @@ RSpec.describe BooksController, type: :controller do
         post :create, book
         expect(response).to render_template("new")
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before :each do
+      @book = Book.create(title: 'a')
+    end
+
+    it "deletes a book" do
+      post :destroy, id: @book
+      expect(Book.count).to eq 0
+    end
+
+    it "redirects to the book index page" do
+      post :destroy, id: @book
+      expect(subject).to redirect_to(books_path)
     end
   end
 end
