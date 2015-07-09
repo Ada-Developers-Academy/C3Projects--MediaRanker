@@ -1,0 +1,12 @@
+<h1> <%= object.name %> <%= creator %> </h1>
+
+<h4>Ranked: <%= object.ranking %> </h4>
+
+<p> <%= object.description %> </p>
+
+<%= button_to "Upvote", medium_path.call(object), method: "patch" %>
+<%= button_to "Edit #{object.name}", edit_medium_path.call, method: "get" %>
+<%= button_to "Delete", medium_path.call(object), method: "delete", data: { confirm: "Are you sure you want to delete?" } %>
+
+<%= button_to "View All Movies", media_path.call, method: "get" %>
+<%= button_to "View All Media", root_path, method: "get" %>
