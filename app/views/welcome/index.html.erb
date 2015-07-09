@@ -1,23 +1,4 @@
 <% @media_types = ["Movies", "Books", "Albums"] %>
-
-<div class="row">
-  <% @media_types.each do |medium| %>
-    <div class="col-md-4">
-      <h1>Top <%= medium %></h1>
-    </div>
-  <% end %>
-</div>
-
-<%= render partial: "shared/home_display", locals: { media: @media } %>
-
-<div class="row">
-  <div class="col-md-4">
-    <%= link_to "View more movies", movies_path %>
-  </div>
-  <div class="col-md-4">
-    <%= link_to "View more albums", albums_path %>
-  </div>
-  <div class="col-md-4">
-    <%= link_to "View more albums", albums_path %>
-  </div>
+<div class="container">
+  <%= render partial: "shared/home_display", locals: { media: @media } %>
 </div>

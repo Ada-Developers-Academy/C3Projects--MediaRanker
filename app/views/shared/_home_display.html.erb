@@ -1,18 +1,35 @@
 <div class="row">
   <% @media.each do |all_of_one_media| %>
     <div class="col-md-4">
-      <% all_of_one_media.each do |medium| %>
-      <div class="">
-        <% if medium.class == Movie %>
-          <%= link_to "#{medium.title}", movie_path(id: medium.id) %>
-        <% elsif medium.class == Book %>
-          <%= link_to "#{medium.title}", book_path(id: medium.id) %>
-        <% elsif medium.class == Album %>
-          <%= link_to "#{medium.title}", album_path(id: medium.id) %>
-        <% end %>
-        Ranked: <%= medium.rank %>
-      </div>
+      <% if all_of_one_media == @movies %>
+        <h1>Top Movies</h1>
+      <% elsif all_of_one_media == @books %>
+        <h1>Top Books</h1>
+      <% elsif all_of_one_media == @albums %>
+        <h1>Top Albums</h1>
       <% end %>
+
+      <% all_of_one_media.each do |medium| %>
+        <% if medium.class == Movie %>
+          <h2><%= link_to "#{medium.title}", movie_path(id: medium.id) %>
+            <small>Ranked: <%= medium.rank %></small></h2>
+        <% elsif medium.class == Book %>
+          <h2><%= link_to "#{medium.title}", book_path(id: medium.id) %>
+            <small>Ranked: <%= medium.rank %></small></h2>
+        <% elsif medium.class == Album %>
+          <h2><%= link_to "#{medium.title}", album_path(id: medium.id) %>
+            <small>Ranked: <%= medium.rank %></small></h2>
+        <% end %>
+      <% end %>
+
+      <% if all_of_one_media == @movies %>
+        <%= link_to "View more movies", movies_path %>
+      <% elsif all_of_one_media == @books %>
+        <%= link_to "View more books", books_path %>
+      <% elsif all_of_one_media == @albums %>
+        <%= link_to "View more albums", albums_path %>
+      <% end %>
+
     </div>
   <% end %>
 </div>
