@@ -1,28 +1,10 @@
 require 'rails_helper'
 
+RSpec.describe Book do
+  it_behaves_like "a book"
+end
+
 RSpec.describe Book, type: :model do
-  describe "model validations" do
-    it "requires a name to be present" do
-      book = Book.new
-
-      expect(book).to_not be_valid
-      expect(book.errors.keys).to include(:name)
-    end
-
-    it "requires a unique name" do
-      book1 = Book.create(name: "a book", author: "author", desc: "novel desc", vote: 0)
-      book2 = Book.create(name: "a book", author: "author", desc: "novel desc", vote: 0)
-
-      expect(book2).to_not be_valid
-      expect(book2.errors.keys).to include(:name)
-    end
-
-    it "defaults votes to 0" do
-      book = Book.create(name: "name")
-
-      expect(book.vote).to eq 0
-    end
-  end
 
   describe ":best scope" do
     before :each do

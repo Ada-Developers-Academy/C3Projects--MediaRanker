@@ -1,28 +1,11 @@
 require 'rails_helper'
+require 'support/shared_examples'
+
+RSpec.describe Movie do
+  it_behaves_like "a book"
+end
 
 RSpec.describe Movie, type: :model do
-  describe "model validations" do
-    it "requires a name to be present" do
-      movie = Movie.new
-
-      expect(movie).to_not be_valid
-      expect(movie.errors.keys).to include(:name)
-    end
-
-    it "requires a unique name" do
-      movie1 = Movie.create(name: "a movie", director: "director", desc: "desc", vote: 0)
-      movie2 = Movie.create(name: "a movie", director: "director", desc: "desc", vote: 0)
-
-      expect(movie2).to_not be_valid
-      expect(movie2.errors.keys).to include(:name)
-    end
-
-    it "defaults votes to 0" do
-      movie = Movie.create(name: "name")
-
-      expect(movie.vote).to eq 0
-    end
-  end
 
   describe ":best scope" do
     before :each do

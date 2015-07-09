@@ -1,28 +1,11 @@
 require 'rails_helper'
+require 'support/shared_examples'
+
+RSpec.describe Album do
+  it_behaves_like "a book"
+end
 
 RSpec.describe Album, type: :model do
-  describe "model validations" do
-    it "requires a name to be present" do
-      album = Album.new
-
-      expect(album).to_not be_valid
-      expect(album.errors.keys).to include(:name)
-    end
-
-    it "requires a unique name" do
-      album1 = Album.create(name: "a album", artist: "artist", desc: "desc", vote: 0)
-      album2 = Album.create(name: "a album", artist: "artist", desc: "desc", vote: 0)
-
-      expect(album2).to_not be_valid
-      expect(album2.errors.keys).to include(:name)
-    end
-
-    it "defaults votes to 0" do
-      album = Album.create(name: "name")
-
-      expect(album.vote).to eq 0
-    end
-  end
 
   describe ":best scope" do
     before :each do
