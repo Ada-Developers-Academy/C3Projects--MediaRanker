@@ -14,3 +14,44 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  margin: 30px 20px;
+}
+
+h6 {
+  color: gray;
+}
+
+.no-margins {
+  margin: 0;
+}
+
+.media-list li {
+  padding: 10px;
+}
+
+// SHARED/DETAILS
+.outer-wrapper {
+  margin: 0 auto;
+  float: none;
+}
+
+.inner-wrapper {
+  margin: 20px 0;
+  padding: 0;
+}
+
+.btn-mutators {
+  text-align: right;
+  margin-bottom: 5px;
+  width: 100%;
+}
+.btn-mutators a {
+  margin-left: 5px;
+}
+
+.float-right {
+  float: right;
+  display: inline;
+}

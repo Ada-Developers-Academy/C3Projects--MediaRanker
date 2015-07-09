@@ -2,45 +2,45 @@
   <div class="col-sm-4">
     <h2>Top Movies</h2>
 
-    <ul>
+    <ul class="media-list list-group">
       <% @top_movies.each do |movie| %>
-      <li>
-        <%= link_to movie.title, movie_path(movie) %>
-        <br> Upvotes: <%= movie.ranking %>
+      <li class="list-group-item">
+        <h6 class="text-uppercase no-margins"><%= movie.ranking %> Upvotes</h6>
+        <h2 class="no-margins"><%= link_to movie.title, movie_path(movie) %></h2>
       </li>
       <% end %>
     </ul>
 
-    <%= link_to "View All Movies", movies_path %>
+    <p class="text-right"><%= link_to "View All Movies", movies_path %></p>
   </div>
 
   <div class="col-sm-4">
     <h2>Top Books</h2>
 
-    <ul>
+    <ul class="media-list list-group">
       <% @top_books.each do |book| %>
-      <li>
-        <%= link_to book.title, book_path(book) %>
-        <br> Upvotes: <%= book.ranking %>
+      <li class="list-group-item">
+        <h6 class="text-uppercase no-margins"><%= book.ranking %> Upvotes</6>
+        <h2 class="no-margins"><%= link_to book.title, book_path(book) %></h2>
       </li>
       <% end %>
     </ul>
 
-    <%= link_to "View All Books", books_path %>
+    <p class="text-right"><%= link_to "View All Books", books_path %></p>
   </div>
 
   <div class="col-sm-4">
     <h2>Top Albums</h2>
 
-    <ul>
+    <ul class="media-list list-group">
       <% @top_albums.each do |album| %>
-      <li>
-        <%= link_to album.title, album_path(album) %>
-        <br> Upvotes: <%= album.ranking %>
+      <li class="list-group-item">
+        <h6 class="text-uppercase no-margins"><%= album.ranking %> Upvotes</h6>
+        <h2 class="no-margins"><%= link_to album.title, album_path(album) %></h2>
       </li>
       <% end %>
     </ul>
 
-    <%= link_to "View All Albums", albums_path %>
+    <p class="text-right"><%= link_to "View All Albums", albums_path %></p>
   </div>
 </div>
