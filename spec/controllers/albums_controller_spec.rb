@@ -107,10 +107,6 @@ RSpec.describe AlbumsController, type: :controller do
     end
 
     context "Clicking upvote button" do
-      let(:attr) do
-        { :ranking => (@album.ranking + 1) }
-      end
-
       before :each do
         @album = Album.create(name: 'name', artist: 'artist', description: 'descrip')
 
@@ -126,6 +122,15 @@ RSpec.describe AlbumsController, type: :controller do
       it "redirects to the Album show page" do
         expect(subject).to redirect_to(album_path(assigns(:album)))
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it "deletes existing entry" do
+      @album = Album.create(name: 'name', artist: 'artist', description: 'descrip')
+
+      delete :destroy, :id => @album.id
+      expect(Album.count).to eq(0)
     end
   end
 
