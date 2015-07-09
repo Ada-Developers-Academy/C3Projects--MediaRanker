@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Album, type: :model do
+  
   describe Album do
-    it_behaves_like "medium"
+    it_behaves_like "a medium"
   end
 
   describe "model validations " do
