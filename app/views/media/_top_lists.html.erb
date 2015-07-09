@@ -1,33 +1,9 @@
-<div class="row">
-
-
-  <div class="col-md-3">
-    <h1>Top Movies</h1>
-      <ul>
-        <% @movies.each do |movie| %>
-          <li><%= link_to movie.name, medium_path(movie.id) %> Ranked: <%= movie.ranking %></li>
-        <% end %>
-      <%= link_to "View More Movies", movies_index_path %>
-      </ul>
-  </div>
-
-  <div class="col-md-3">
-    <h1>Top Books</h1>
-      <ul>
-      <% @books.each do |book| %>
-        <li><%= link_to book.name, medium_path(book.id) %> Ranked: <%= book.ranking %></li>
+<div class="col-md-4">
+  <h1>Top <%= title %> </h1>
+    <ul>
+      <% media.each do |item| %>
+        <li><%= link_to item.name, polymorphic_path(item) %> Ranked: <%= item.ranking %></li>
       <% end %>
-      <%= link_to "View More Books", books_index_path %>
+    <%= link_to "View More #{title}", polymorphic_path("#{title.downcase}_index") %>
     </ul>
-  </div>
-
-  <div class="col-md-3">
-    <h1>Top Albums</h1>
-      <ul>
-        <% @albums.each do |album| %>
-          <li><%= link_to album.name, medium_path(album.id) %> Ranked: <%= album.ranking %></li>
-        <% end %>
-      <%= link_to "View More Albums", albums_index_path %>
-    </ul>
-  </div>
 </div>
