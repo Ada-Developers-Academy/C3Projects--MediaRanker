@@ -7,4 +7,5 @@ class Album < ActiveRecord::Base
 
   # Scopes -------------
   scope :top, -> { order(rank: :desc).limit(5) }
+  scope :rank_order, -> { order(rank: :desc) }
 end
