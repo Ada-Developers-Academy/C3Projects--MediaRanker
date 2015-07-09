@@ -1,26 +1,7 @@
 <%= render partial: "header" %>
 
-
-<h3>Top Movies</h3>
-  <ul>
-    <% @movies.each do |movie| %>
-      <li><%= link_to movie.name, medium_path(movie.id) %> Ranked: <%= movie.ranking %></li>
-    <% end %>
-  <%= link_to "View More Movies", movies_index_path %>
-  </ul>
-
-  <h3>Top Books</h3>
-  <ul>
-    <% @books.each do |book| %>
-    <li><%= link_to book.name, medium_path(book.id) %> Ranked: <%= book.ranking %></li>
-    <% end %>
-    <%= link_to "View More Books", books_index_path %>
-  </ul>
-
-  <h3>Top Albums</h3>
-  <ul>
-    <% @albums.each do |album| %>
-    <li><%= link_to album.name, medium_path(album.id) %> Ranked: <%= album.ranking %></li>
-    <% end %>
-    <%= link_to "View More Albums", albums_index_path %>
-  </ul>
+<div "row">
+  <div "col-md-3">
+<%= render partial: "top_lists", locals: { } %>
+  </div>
+</div>

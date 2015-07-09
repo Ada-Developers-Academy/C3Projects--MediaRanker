@@ -1,0 +1,23 @@
+<h1>Top Movies</h1>
+  <ul>
+    <% @movies.each do |movie| %>
+      <li><%= link_to movie.name, medium_path(movie.id) %> Ranked: <%= movie.ranking %></li>
+    <% end %>
+  <%= link_to "View More Movies", movies_index_path %>
+  </ul>
+
+  <h1>Top Books</h1>
+  <ul>
+    <% @books.each do |book| %>
+    <li><%= link_to book.name, medium_path(book.id) %> Ranked: <%= book.ranking %></li>
+    <% end %>
+    <%= link_to "View More Books", books_index_path %>
+  </ul>
+
+  <h1>Top Albums</h1>
+  <ul>
+    <% @albums.each do |album| %>
+    <li><%= link_to album.name, medium_path(album.id) %> Ranked: <%= album.ranking %></li>
+    <% end %>
+    <%= link_to "View More Albums", albums_index_path %>
+  </ul>
