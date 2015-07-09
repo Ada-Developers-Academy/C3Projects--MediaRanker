@@ -1,14 +1,14 @@
 <div class="row">
 <div class="col-sm-10">
-  <h1> <%= media.name %>
+  <h1> <%= @media.name %>
   <small> <%= "#{created} by: " %>
-  <%= media.creator %> </small> </h1>
-  <h4> Ranked: <%= media.rank %> </h4>
-  <p> <%= media.description %> </p>
-  <%= button_to "Upvote", send(upvote_path, media), method: "patch", class: "btn btn-primary" %>
+  <%= @media.creator %> </small> </h1>
+  <h4> Ranked: <%= @media.rank %> </h4>
+  <p> <%= @media.description %> </p>
+  <%= button_to "Upvote", send(upvote_path, @media), method: "patch", class: "btn btn-primary" %>
 <div class="spacer">
-  <%= link_to "Edit #{media.name}", send(edit_path, media), class: "btn btn-default" %>
-  <%= link_to "DELETE", send(media_path, media), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>
+  <%= link_to "Edit #{@media.name}", send(edit_path, @media), class: "btn btn-default" %>
+  <%= link_to "DELETE", send(media_path, @media), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>
   <%= link_to "View All #{media_name}", send(all_media_path), class: "btn btn-default" %>
   <%= link_to "View All Media", root_path, class: "btn btn-default" %>
 </div>

@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
+    @media = Album.find(params[:id])
   end
 
     def new
@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(create_params[:album])
     @album.save
-    redirect_to album_path(@album.id)
+    redirect_to album_path(@album)
   end
 
   def edit
@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
   def update
     @album = Album.find(params[:id])
     @album.update(create_params[:album])
-    redirect_to album_path(@album.id)
+    redirect_to album_path(@album)
   end
 
   def destroy
