@@ -1,9 +1,13 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:update]
+  before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
     @movies = Movie.all
   end
+
+  # # implicitly defined
+  # def show
+  # end
 
   def update
     if params[:upvote] == "true"
