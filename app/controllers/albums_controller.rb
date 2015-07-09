@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
 
   def upvote
     album = Album.find(params[:id])
-    album.rank += 1
+    album.add_vote
     album.save
 
     redirect_to album_path

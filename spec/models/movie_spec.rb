@@ -29,6 +29,11 @@ RSpec.describe Movie, type: :model do
       correct_order = [@movie2, @movie1, @movie3]
       expect(Movie.ranking(3)).to eq correct_order
     end
+
+    it "includes only the top ranked movie when total equals 1" do
+      expect(Movie.ranking(1).count).to eq 1
+      expect(Movie.ranking(1)).to_not include (@movie1)
+    end
   end
 
 end

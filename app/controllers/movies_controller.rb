@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
 
   def upvote
     movie = Movie.find(params[:id])
-    movie.rank += 1
+    movie.add_vote
     movie.save
 
     redirect_to movie_path

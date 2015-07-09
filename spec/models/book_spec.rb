@@ -30,6 +30,11 @@ describe "model validations" do
       correct_order = [@book2, @book1, @book3]
       expect(Book.ranking(3)).to eq correct_order
     end
+
+    it "includes only the top ranked book when total equals 1" do
+      expect(Book.ranking(1).count).to eq 1
+      expect(Book.ranking(1)).to_not include (@book1)
+    end
   end
 
 end

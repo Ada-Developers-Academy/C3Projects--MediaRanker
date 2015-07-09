@@ -1,2 +1,4 @@
-<%= render partial: 'shared/index', locals: { objects: @movies, object_path: "movies" } %>
+<%= render partial: 'shared/index', locals: { objects: @movies } %>
+
+<%= link_to "Add a Movie", new_movie_path, class: "btn btn-default" %>
 

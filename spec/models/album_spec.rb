@@ -29,6 +29,11 @@ describe "model validations" do
       correct_order = [@album2, @album1, @album3]
       expect(Album.ranking(3)).to eq correct_order
     end
+
+    it "includes only the top ranked album when total equals 1" do
+      expect(Album.ranking(1).count).to eq 1
+      expect(Album.ranking(1)).to_not include (@album1)
+    end
   end
 
 end
