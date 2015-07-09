@@ -1,3 +1,4 @@
-<%= render 'shared/header' %>
-
-<%= render partial: 'shared/form', locals: { object: @book, creator: "Author" } %>
+<%= render partial: 'shared/form', locals: {  object: @book,
+                                              creator: "Author",
+                                              action: "Edit"
+                                            } %>

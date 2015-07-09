@@ -21,11 +21,14 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create(create_params[:movie])
+    @movie = Movie.new(create_params[:movie])
     @movie.rank = 0
-    @movie.save
 
-    redirect_to movie_path(@movie)
+    if @movie.save
+      redirect_to movie_path(@movie)
+    else
+      render :new
+    end
   end
 
   def edit

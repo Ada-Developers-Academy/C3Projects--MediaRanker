@@ -14,9 +14,9 @@ describe "model validations" do
   describe "ranking scope" do
 
     before :each do
-      @book1 = Book.create(name: "Cool Book", author: "some person", description: "cool", rank: 5)
-      @book2 = Book.create(name: "Rad Book", author: "some person", description: "rad", rank: 11)
-      @book3 = Book.create(name: "Neat Book", author: "some person", description: "neat", rank: 3)
+      @book1 = Book.create(name: "Cool Book", creator: "some person", description: "cool", rank: 5)
+      @book2 = Book.create(name: "Rad Book", creator: "some person", description: "rad", rank: 11)
+      @book3 = Book.create(name: "Neat Book", creator: "some person", description: "neat", rank: 3)
     end
 
     it "returns n number of books based on argument" do
@@ -39,7 +39,7 @@ describe "model validations" do
 
   describe "add_vote" do
     before :each do
-      @book1 = Book.create(name: "Cool Book", author: "some person", description: "cool", rank: 5)
+      @book1 = Book.create(name: "Cool Book", creator: "some person", description: "cool", rank: 5)
     end
     it "adds 1 to an Book rank" do
       @book1.add_vote

@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   scope :ranking, -> (total) { order("rank DESC").limit(total) }
 

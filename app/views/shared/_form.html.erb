@@ -1,9 +1,11 @@
-<h2>New <%= "#{object.class}" %></h2>
+<%= render 'shared/header' %>
+
+<h2><%="#{action} #{object.class}" %></h2>
 
 <%= form_for object, html: {class: "form"} do |f| %>
   <% {name: :name, creator: "#{creator}", description: :description}.each do |key, value| %>
     <div class="form-group">
-    <%= f.label value %>:
+    <%= f.label value %>
     <%= f.text_field key, class: "form-control" %>
     </div>
   <% end %>

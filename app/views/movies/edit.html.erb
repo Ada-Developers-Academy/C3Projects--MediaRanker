@@ -1,3 +1,5 @@
-<%= render 'shared/header' %>
 
-<%= render partial: 'shared/form', locals: { object: @movie, creator: "Director" } %>
+<%= render partial: 'shared/form', locals: {  object: @movie,
+                                              creator: "Director",
+                                              action: "Edit"
+                                            } %>

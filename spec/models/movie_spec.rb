@@ -13,9 +13,9 @@ RSpec.describe Movie, type: :model do
   describe "ranking scope" do
 
     before :each do
-      @movie1 = Movie.create(name: "Cool Movie", director: "some person", description: "cool", rank: 5)
-      @movie2 = Movie.create(name: "Rad Movie", director: "some person", description: "rad", rank: 11)
-      @movie3 = Movie.create(name: "Neat Movie", director: "some person", description: "neat", rank: 3)
+      @movie1 = Movie.create(name: "Cool Movie", creator: "some person", description: "cool", rank: 5)
+      @movie2 = Movie.create(name: "Rad Movie", creator: "some person", description: "rad", rank: 11)
+      @movie3 = Movie.create(name: "Neat Movie", creator: "some person", description: "neat", rank: 3)
     end
 
     it "returns n number of movies based on argument" do
@@ -38,7 +38,7 @@ RSpec.describe Movie, type: :model do
 
   describe "add_vote" do
     before :each do
-      @movie1 = Movie.create(name: "Cool Movie", director: "some person", description: "cool", rank: 5)
+      @movie1 = Movie.create(name: "Cool Movie", creator: "some person", description: "cool", rank: 5)
     end
     it "adds 1 to an album rank" do
       @movie1.add_vote

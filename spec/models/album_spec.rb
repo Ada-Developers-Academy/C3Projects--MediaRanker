@@ -13,9 +13,9 @@ describe "model validations" do
   describe "ranking scope" do
 
     before :each do
-      @album1 = Album.create(name: "Cool Album", artist: "some person", description: "cool", rank: 5)
-      @album2 = Album.create(name: "Rad Album", artist: "some person", description: "rad", rank: 11)
-      @album3 = Album.create(name: "Neat Album", artist: "some person", description: "neat", rank: 3)
+      @album1 = Album.create(name: "Cool Album", creator: "some person", description: "cool", rank: 5)
+      @album2 = Album.create(name: "Rad Album", creator: "some person", description: "rad", rank: 11)
+      @album3 = Album.create(name: "Neat Album", creator: "some person", description: "neat", rank: 3)
     end
 
     it "returns n number of Albums based on argument" do
@@ -38,7 +38,7 @@ describe "model validations" do
 
   describe "add_vote" do
     before :each do
-      @album1 = Album.create(name: "Cool Album", artist: "some person", description: "cool", rank: 5)
+      @album1 = Album.create(name: "Cool Album", creator: "some person", description: "cool", rank: 5)
     end
     it "adds 1 to an album rank" do
       @album1.add_vote
