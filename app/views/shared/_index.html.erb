@@ -9,12 +9,12 @@
       <tr>
         <td> Ranked: <%= media.ranking %> </td>
         <td> <%= link_to media.name, media_path.call(media) %> </td>
-        <td> <%= button_to "Upvote", media_path.call(media), method: "patch", class: "btn btn-default" %> </td>
+        <td> <%= link_to "Upvote", media_path.call(media), method: "patch", class: "btn btn-default" %> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 
-<%= button_to "View All Media", root_path, method: "get", class: "btn btn-default" %>
-<%= button_to "Add a #{media_name}", new_media_path.call, method: "get", class: "btn btn-default" %>
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
+<%= link_to "Add a #{media_name}", new_media_path.call, class: "btn btn-default" %>
