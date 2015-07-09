@@ -21,6 +21,9 @@ class MoviesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     if params[:upvote] == "true"
       Movie.upvote(@movie)
