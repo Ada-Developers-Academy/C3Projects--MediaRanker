@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
   # Validations ----------------------------------------------------------------
   validates :title, presence: true
-  validates :rank, numericality: { only_integer: true }
+  validates :rank, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   # Scopes ---------------------------------------------------------------------
   scope :ranked,      -> { order(rank: :desc) }
