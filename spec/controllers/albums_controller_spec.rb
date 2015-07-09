@@ -100,4 +100,20 @@ RSpec.describe AlbumsController, type: :controller do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    before :each do
+      @album = Album.create(title: 'a')
+    end
+
+    it "deletes a album" do
+      post :destroy, id: @album
+      expect(Album.count).to eq 0
+    end
+
+    it "redirects to the album index page" do
+      post :destroy, id: @album
+      expect(subject).to redirect_to(albums_path)
+    end
+  end
 end
