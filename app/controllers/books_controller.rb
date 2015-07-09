@@ -15,9 +15,13 @@ class BooksController < ApplicationController
   def create
     params = create_params[:book]
     params[:rank] = 0
-    @book = Book.create(params)
+    @book = Book.new(params)
 
-    redirect_to '/books'
+    if @book.save
+      redirect_to books_path
+    else
+      render :new
+    end
   end
 
   def edit

@@ -19,9 +19,14 @@ class MoviesController < ApplicationController
   def create
     params = create_params[:movie]
     params[:rank] = 0
-    @movie = Movie.create(params)
+    @movie = Movie.new(params)
 
-    redirect_to '/movies'
+    if @movie.save
+      redirect_to movies_path
+    else
+      render :new
+    end
+    
   end
 
   def update

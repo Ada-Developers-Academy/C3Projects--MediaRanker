@@ -15,9 +15,13 @@ class AlbumsController < ApplicationController
   def create
     params = create_params[:album]
     params[:rank] = 0
-    @album = Album.create(params)
+    @album = Album.new(params)
 
-    redirect_to '/albums'
+    if @album.save
+      redirect_to albums_path
+    else
+      render :new
+    end
   end
 
   def edit
