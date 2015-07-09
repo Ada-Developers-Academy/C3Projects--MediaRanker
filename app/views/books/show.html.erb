@@ -1,0 +1,17 @@
+<h1>Book </h1>
+<ul>
+<li> <%= @book.name %> </li>
+<li><%= @book.author %> </li>
+<li><%= @book.vote %> </li>
+<li><%= @book.description %> </li>
+</ul>
+<br>
+<%= button_to "Upvote", "#{@book.id}/yes_vote", method: :patch %>
+<br>
+<%= button_to "Edit #{@book.name}", edit_book_path(@book.id), method: :get %>
+<br>
+<%= button_to "Delete", book_path(@book.id), method: :delete, data: {confirm: "are you sure you want to delete this book?"}  %>
+<br>
+<%= button_to "View All Books", books_path, method: :get %>
+<br>
+<%= button_to "View All Media", root_path, method: :get %>

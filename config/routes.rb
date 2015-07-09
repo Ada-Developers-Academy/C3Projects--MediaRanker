@@ -11,9 +11,15 @@ Rails.application.routes.draw do
   resources :books
   resources :movies do
     member do
-      get '/update_vote', action: 'update_vote', as: 'update_vote'
+      patch 'yes_vote', action:'yes_vote', as: 'yes_vote'
     end
   end
+
+
+
+    
+      # patch 'yes_vote/:id' =>    'movies#yes_vote'
+
 
   
   # Example of regular route:

@@ -35,12 +35,12 @@ class MoviesController < ApplicationController
     redirect_to(movie_path(Movie.find(@movie.id))) 
   end
 
-  def update_vote # UPDATE increase this number by one in the db
+  def yes_vote # PATCH increase this number by one in the db
    @movie = Movie.find(params[:id])
-   @movie.vote += 1
-   @movie.save
- #movie.increment!(:vote)
-  redirect_to(movie_path)
+   # @movie.vote += 1
+   # @movie.save
+    @movie.increment!(:vote)
+  redirect_to(movie_path(Movie.find(@movie.id)))
   end
 
   def destroy

@@ -5,10 +5,10 @@
     Rank
   </th>
   <th>
-    Movie Name
+    Album Name
   </th>
   <th>
-    Director
+    Artist
   </th>
   <th>
     Description
@@ -16,23 +16,21 @@
 
 </tr>
 
-<% @movies.each do |movie| %>
+<% @albums.each do |album| %>
   <tr>
     <td>
-      <%= movie.vote %>
+      <%= album.vote %>
     </td>
     <td>
-      <%= link_to "#{movie.name}", movie_path(movie.id) %>
+      <%= link_to "#{album.name}", album_path(album.id) %>
     </td>
     <td>
-      <%= movie.description %>
+      <%= album.description %>
     </td>
     <td>
-      <%= movie.vote %>
+      <%= album.vote %>
     </td>
   </tr>
   <% end %>
 
 </table>
-
-
