@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:update, :show,]
+  before_action :set_movie, only: [:update, :show]
 
   def index
     @movies = Movie.all
@@ -36,6 +36,6 @@ class MoviesController < ApplicationController
   end
 
   def create_params
-    params.permit(movie: [:title, :directed_by, :votes, :description])
+    params.require(:movie).permit(:title, :directed_by, :description)
   end
 end
