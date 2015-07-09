@@ -1,7 +1,12 @@
-<h2><%= media.title %><small><%= " #{creator} by: "%><%= created_by %></small></h2>
+<h2><%= medium.title %><small><%= " #{creator} by: "%><%= created_by %></small></h2>
 
-<h4>Ranked: <%= media.votes %></h4>
+<h4>Ranked: <%= medium.votes %></h4>
 
-<p><%= media.description %></p>
+<p><%= medium.description %></p>
 
-<%= button_to "Upvote", media, method: :put, params: { upvote: true }%>
+<%= button_to "Upvote", medium, method: :put, params: { upvote: true }%>
+
+<%= link_to "Edit #{medium.title}", edit_medium_path %>
+<%= button_to "DELETE", "delete/#{medium.id}", method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+<%= link_to "View All #{media}", media_path %>
+<%= link_to "View All Media", root_path %>

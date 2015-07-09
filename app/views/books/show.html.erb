@@ -1,3 +1,6 @@
-<%= render partial: "shared/show", locals: { media: @book,
+<%= render partial: "shared/show", locals: { medium: @book,
                                              creator: 'Written',
-                                             created_by: @book.written_by } %>
+                                             created_by: @book.written_by,
+                                             edit_medium_path: edit_book_path,
+                                             media_path: books_path,
+                                             media: 'Books'} %>
