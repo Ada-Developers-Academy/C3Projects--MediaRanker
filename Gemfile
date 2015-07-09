@@ -36,6 +36,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  gem 'pry'
+
+  gem 'simplecov', require: false
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -43,5 +47,9 @@ group :development, :test do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'rails-erd'
+  gem 'rspec-rails', '~> 3.0'
+
 end
 
