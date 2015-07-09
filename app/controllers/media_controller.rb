@@ -59,8 +59,9 @@ class MediaController < ApplicationController
   private
 
   def set_defaults
-    path = request.path.split("/")
-    category = path[1] # 0 is "" because path is like: /movies/134
+    # path = request.path.split("/")
+    # category = path[1] # 0 is "" because path is like: /movies/134
+    category = params[:category]
 
     @category = Category.where(name: category.classify)[0]
     @medium = Medium.new(category_id: @category.id)

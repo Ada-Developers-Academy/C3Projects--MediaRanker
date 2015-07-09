@@ -2,8 +2,8 @@ class Medium < ActiveRecord::Base
   belongs_to :category
 
   validates :title, presence: true
-  validates :upvotes, presence: true, numericality: { only_integer: true }
-  validates :category_id, presence: true, numericality: { only_integer: true }
+  validates :upvotes, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :category_id, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
   scope :by_upvotes, -> { order("upvotes DESC") }
   scope :only_ten, -> { limit(10) }
