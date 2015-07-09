@@ -1,6 +1,5 @@
 class MediaController < ApplicationController
-  before_action :set_defaults
-  skip_before_action :set_defaults, only: :root
+  before_action :set_defaults, except: :root
 
   def root
     @media = Medium.categorize
@@ -59,8 +58,6 @@ class MediaController < ApplicationController
   private
 
   def set_defaults
-    # path = request.path.split("/")
-    # category = path[1] # 0 is "" because path is like: /movies/134
     category = params[:category]
 
     @category = Category.where(name: category.classify)[0]
