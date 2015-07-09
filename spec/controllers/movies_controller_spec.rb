@@ -21,7 +21,13 @@ RSpec.describe MoviesController, type: :controller do
 
       expect(Movie.find(@movie.id).rank).to eq 1
     end
+
     # positive test - when form is edited, it updates the form information
+    it "updates the description when you edit the form" do
+      put :update, id: @movie.id, movie: { description: "yes" }
+
+      expect(Movie.find(@movie.id).description).to eq "yes"
+    end
     # when it updates the form information, the upvote isn't changed
     # it redirects to the show page
   end
