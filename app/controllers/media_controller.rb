@@ -2,18 +2,21 @@ class MediaController < ApplicationController
   before_action :set_category
 
   def root
-    @media = Medium.categorize
+    @categorized_records = Medium.categorize
   end
 
   def index
-    @media = Medium.grab_category(@category)
+    set_category
+
+    @all_records = Medium.grab_category(@singular_category)
   end
 
   def show
-    @medium = Medium.find(params[:id])
+    @current_record = Medium.find(params[:id])
   end
 
   def new
+    set_category
     @medium = Medium.new(category: @singular_category)
     set_creator(@medium)
   end
@@ -31,7 +34,6 @@ class MediaController < ApplicationController
 
   def update
     medium = Medium.find(params[:id])
-
     if medium.update(edit_params)
       redirect_to "#{ base_url medium }"
     else
@@ -47,22 +49,22 @@ class MediaController < ApplicationController
 
       redirect_to "#{ base_url medium }"
     else
-      redirect_to "/#{ @category }/new"
+      redirect_to "/#{ medium.plural_category }/new"
     end
   end
 
   def destroy
     medium = Medium.find(params[:id])
+    category = medium.plural_category
     medium.destroy
 
-    redirect_to "/#{ @category }"
+    redirect_to "/#{ category }"
   end
 
   private
 
-  def base_url(medium=nil)
-    return "/#{ medium.plural_category }/#{ medium.id }" unless medium == nil
-    return ""
+  def base_url(medium)
+    "/#{ medium.plural_category }/#{ medium.id }"
   end
 
   def create_params
