@@ -1,12 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
-  describe "GET #index" do
-    it "responds sucessfully with an HTTP 200 status code" do
-      get :index
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
-    end
+  describe AlbumsController do
+    it_behaves_like "a media controller"
   end
 
   describe "POST #create" do
@@ -51,34 +47,6 @@ RSpec.describe AlbumsController, type: :controller do
         post :create, album_params
         expect(subject).to render_template("new")
       end
-    end
-  end
-
-  describe "GET #new" do
-    it "responds sucessfully with an HTTP 200 status code" do
-      get :new
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
-    end
-  end
-
-  describe "GET #edit" do
-    it "responds sucessfully with an HTTP 200 status code" do
-      album = Album.create(name: 'whatever')
-
-      get :edit, {:id => '1'}
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
-    end
-  end
-
-  describe "GET #show" do
-    it "responds sucessfully with an HTTP 200 status code" do
-      album = Album.create(name: 'whatever')
-
-      get :edit, {:id => '1'}
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
     end
   end
 
