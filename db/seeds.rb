@@ -6,41 +6,31 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-movies = [
-  { title: "Puppies Movie", directed_by: "Dog", votes: 10, description: "" },
-  { title: "Kitties Movie", directed_by: "Cat", votes: 9, description: "" },
-  { title: "Fishies Movie", directed_by: "Fish", votes: 0, description: "" },
-  { title: "Llamas Movie", directed_by: "The Llama", votes: 6, description: "" },
-  { title: "Orangutans Movie", directed_by: "Orangutan", votes: 7, description: "" },
-  { title: "Elephants Movie", directed_by: "Elephant", votes: 0, description: "" }
+
+# NOTE: only including `description: ""` on some
+# because I'm playing with whether or not there's a difference,
+# now that I set a default value in the model.
+media = [
+  { title: "Puppies Movie", creator: "Dog", votes: 10, format: "movie" },
+  { title: "Kitties Movie", creator: "Cat", votes: 9, format: "movie" },
+  { title: "Fishies Movie", creator: "Fish", format: "movie" },
+  { title: "Llamas Movie", creator: "The Llama", votes: 6, format: "movie" },
+  { title: "Orangutans Movie", creator: "Orangutan", votes: 7, format: "movie" },
+  { title: "Elephants Movie", creator: "Elephant", description: "", format: "movie" },
+  { title: "Puppies Book", creator: "Dog", votes: 10, description: "", format: "book" },
+  { title: "Kitties Book", creator: "Cat", votes: 9, description: "", format: "book" },
+  { title: "Fishies Book", creator: "Fish", description: "", format: "book" },
+  { title: "Llamas Book", creator: "The Llama", votes: 6, description: "", format: "book" },
+  { title: "Orangutans Book", creator: "Orangutan", votes: 7, description: "", format: "book" },
+  { title: "Elephants Book", creator: "Elephant", description: "", format: "book" },
+  { title: "Puppies Album", creator: "Dog", votes: 10, description: "", format: "album" },
+  { title: "Kitties Album", creator: "Cat", votes: 9, description: "", format: "album" },
+  { title: "Fishies Album", creator: "Fish", description: "", format: "album" },
+  { title: "Llamas Album", creator: "The Llama", votes: 6, description: "", format: "album" },
+  { title: "Orangutans Album", creator: "Orangutan", votes: 7, description: "", format: "album" },
+  { title: "Elephants Album", creator: "Elephant", description: "", format: "album" }
 ]
 
-movies.each do |movie|
-  Movie.create(movie)
-end
-
-books = [
-  { title: "Puppies Book", written_by: "Dog", votes: 10, description: "" },
-  { title: "Kitties Book", written_by: "Cat", votes: 9, description: "" },
-  { title: "Fishies Book", written_by: "Fish", votes: 0, description: "" },
-  { title: "Llamas Book", written_by: "The Llama", votes: 6, description: "" },
-  { title: "Orangutans Book", written_by: "Orangutan", votes: 7, description: "" },
-  { title: "Elephants Book", written_by: "Elephant", votes: 0, description: "" }
-]
-
-books.each do |book|
-  Book.create(book)
-end
-
-albums = [
-  { title: "Puppies Album", recorded_by: "Dog", votes: 10, description: "" },
-  { title: "Kitties Album", recorded_by: "Cat", votes: 9, description: "" },
-  { title: "Fishies Album", recorded_by: "Fish", votes: 0, description: "" },
-  { title: "Llamas Album", recorded_by: "The Llama", votes: 6, description: "" },
-  { title: "Orangutans Album", recorded_by: "Orangutan", votes: 7, description: "" },
-  { title: "Elephants Album", recorded_by: "Elephant", votes: 0, description: "" }
-]
-
-albums.each do |album|
-  Album.create(album)
+media.each do |medium|
+  Medium.create(medium)
 end
