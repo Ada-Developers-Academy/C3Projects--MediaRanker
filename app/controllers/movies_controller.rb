@@ -1,29 +1,28 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :upvote, :destroy]
-  before_action :set_medium, only: [:edit, :update]
+  before_action :set_movie, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
     @movies = Movie.ranked
   end
 
   def new
-    @medium = Movie.new
+    @movie = Movie.new
   end
 
   def create
-    @medium = Movie.create(movie_params)
-    if @medium.save
-      redirect_to @medium
+    @movie = Movie.create(movie_params)
+    if @movie.save
+      redirect_to @movie
     else
       render :new
     end
   end
 
   def update
-    @medium.update(movie_params)
-    if @medium.save
+    @movie.update(movie_params)
+    if @movie.save
       raise
-      redirect_to @medium
+      redirect_to @movie
     else
       render :edit
     end
@@ -45,10 +44,6 @@ class MoviesController < ApplicationController
 
   def set_movie
     @movie = Movie.find(params[:id])
-  end
-
-  def set_medium
-    @medium = Movie.find(params[:id])
   end
 
   def movie_params

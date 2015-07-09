@@ -1,29 +1,27 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [:show, :upvote, :destroy]
-  before_action :set_medium, only: [:edit, :update]
-
+  before_action :set_album, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
     @albums = Album.ranked
   end
 
   def new
-    @medium = Album.new
+    @album = Album.new
   end
 
   def create
-    @medium = Album.create(album_params)
-    if @medium.save
-      redirect_to @medium
+    @album = Album.create(album_params)
+    if @album.save
+      redirect_to @album
     else
       render :new  
     end
   end
 
   def update
-    @medium.update(album_params)
-    if @medium.save
-      redirect_to @medium
+    @album.update(album_params)
+    if @album.save
+      redirect_to @album
     else
       render :edit
     end
@@ -45,10 +43,6 @@ class AlbumsController < ApplicationController
 
   def set_album
     @album = Album.find(params[:id])
-  end
-
-  def set_medium
-    @medium = Album.find(params[:id])
   end
 
   def album_params

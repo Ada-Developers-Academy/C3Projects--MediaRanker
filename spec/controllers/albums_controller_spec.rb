@@ -34,7 +34,7 @@ RSpec.describe AlbumsController, type: :controller do
     it "creates a new album" do
       get :new
 
-      expect(assigns(:medium)).to be_a_new(Album)
+      expect(assigns(:album)).to be_a_new(Album)
     end
   end
 
@@ -54,7 +54,7 @@ RSpec.describe AlbumsController, type: :controller do
       end
 
       it "redirect to the album show page" do
-        expect(subject).to redirect_to(album_path(assigns(:medium)))
+        expect(subject).to redirect_to(album_path(assigns(:album)))
       end
     end
 
@@ -93,7 +93,7 @@ RSpec.describe AlbumsController, type: :controller do
     end
 
     it "finds a specific album" do
-      expect(assigns(:medium)).to eq(album)
+      expect(assigns(:album)).to eq(album)
     end
 
     it "renders the :edit template" do
@@ -117,7 +117,7 @@ RSpec.describe AlbumsController, type: :controller do
       end
 
       it "redirects to album_path" do
-        expect(subject).to redirect_to(album_path(assigns(:medium)))
+        expect(subject).to redirect_to(album_path(assigns(:album)))
       end
     end
 

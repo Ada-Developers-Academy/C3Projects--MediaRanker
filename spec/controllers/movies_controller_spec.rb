@@ -29,7 +29,7 @@ RSpec.describe MoviesController, type: :controller do
 
       it "redirect to the movie show page" do
         post :create, movie_params
-        expect(subject).to redirect_to(movie_path(assigns(:medium)))
+        expect(subject).to redirect_to(movie_path(assigns(:movie)))
       end
     end
 

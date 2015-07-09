@@ -29,7 +29,7 @@ RSpec.describe BooksController, type: :controller do
 
       it "redirect to the book show page" do
         post :create, book_params
-        expect(subject).to redirect_to(book_path(assigns(:medium)))
+        expect(subject).to redirect_to(book_path(assigns(:book)))
       end
     end
 

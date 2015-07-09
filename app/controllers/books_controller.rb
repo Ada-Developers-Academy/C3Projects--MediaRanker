@@ -1,28 +1,27 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :upvote, :destroy]
-  before_action :set_medium, only: [:edit, :update]
+  before_action :set_book, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
     @books = Book.ranked
   end
 
   def new
-    @medium = Book.new
+    @book = Book.new
   end
 
   def create
-    @medium = Book.create(book_params)
-    if @medium.save
-      redirect_to @medium
+    @book = Book.create(book_params)
+    if @book.save
+      redirect_to @book
     else
       render :new
     end
   end
 
   def update
-    @medium.update(book_params)
-    if @medium.save
-      redirect_to @medium
+    @book.update(book_params)
+    if @book.save
+      redirect_to @book
     else
       render :edit
     end
@@ -44,10 +43,6 @@ class BooksController < ApplicationController
 
   def set_book
     @book = Book.find(params[:id])
-  end
-
-  def set_medium
-    @medium = Book.find(params[:id])
   end
 
   def book_params
