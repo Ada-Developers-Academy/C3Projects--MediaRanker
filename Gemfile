@@ -58,5 +58,6 @@ group :development, :test do
 
   # testing
   gem 'rspec-rails', '~> 3.0'
+  gem 'simplecov', require: false
 end
 
