@@ -30,6 +30,10 @@
               Artist: <%= medium.artist %>
           <% end %>
         </div>
+
+        <div>
+          <%= button_to "Upvote", { action: "upvote", id: medium.id }, {class: 'btn btn-default', method: :patch } %>
+        </div>
       </li>
     <% end %>
   </ul>

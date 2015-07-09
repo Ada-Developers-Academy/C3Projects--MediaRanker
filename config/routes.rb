@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  patch 'movies/:id' => 'movies#upvote'
-  patch 'books/:id' => 'books#upvote'
-  patch 'albums/:id' => 'albums#upvote'
+  patch '/movies/:id' => 'movies#upvote'
+  patch '/books/:id' => 'books#upvote'
+  patch '/albums/:id' => 'albums#upvote'
+
+  patch '/movies' => 'movies#upvote'
+  patch '/books' => 'books#upvote'
+  patch '/albums' => 'albums#upvote'
 
 
   resources :movies, :books, :albums
