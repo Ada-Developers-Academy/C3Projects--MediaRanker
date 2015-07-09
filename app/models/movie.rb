@@ -4,9 +4,8 @@ class Movie < ActiveRecord::Base
    # Validations ----------------------------------------------------------------
   validates :name, presence: true
 
-
    # Scopes ---------------------------------------------------------------------
-  scope :top, -> { order('rank DESC').limit(5) }
+  scope :top, -> { order('rank DESC').limit(10) }
   scope :ordered, -> { order('rank DESC') }
     #
     # scope :desc, order("event_at DESC")
