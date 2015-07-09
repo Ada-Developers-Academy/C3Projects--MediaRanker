@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
+  # Testing Scopes:
   describe "scopes" do
     let(:movie1) { Movie.create(title: "a title", rank: 56) }
     let(:movie2) { Movie.create(title: "b title", rank: 6) }
@@ -26,6 +27,10 @@ RSpec.describe Movie, type: :model do
         expect(Movie.top.count).to eq 5
         expect(order_top).to eq correct_order_top
       end
+
+      it "does not include the 6th highest ranked" do
+        expect(Movie.top).to_not include(Movie.where(rank: 3))
+      end
     end
 
     describe "rank_order scope" do
@@ -35,10 +40,6 @@ RSpec.describe Movie, type: :model do
       end
     end
   end
-
-  # Testing Scope:
-
-  # negative test - Movie.top does not list 6th highest ranked
 
   # Testing Validations:
   describe "model validations" do
