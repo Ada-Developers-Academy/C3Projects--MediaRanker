@@ -9,7 +9,6 @@ class Album < ActiveRecord::Base
   scope :top_ranked,  -> { all_ranked.limit(10) }
 
   def add_vote
-    old_value = self.rank
-    update(rank: old_value + 1)
+    update(rank: self.rank + 1)
   end
 end
