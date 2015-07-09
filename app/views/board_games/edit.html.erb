@@ -1,3 +1,7 @@
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'board_games' %>
+<% end %>
+
 <%= form_for @board_game do |f| %>
   <%= f.label :title %>:
   <%= f.text_field :title, placeholder: "#{@board_game.title}" %><br />

@@ -3,19 +3,20 @@
 <head>
   <title>Game Guru</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= yield :style_sheet %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<body class="container">
   <header>
     <h1><%= link_to "Game Guru", "/"%> <small>Game rankings by and for the community</small></h1>
-
   </header>
 
 <%= yield %>
-</body>
+
   <footer>
-    <p><%= link_to "Game Guru", "/"%></p>
-    <p>by Brenna Leker © <%= Time.now.year %></p>
+    <p class="muted">by Brenna Leker © <%= Time.now.year %></p>
   </footer>
+</body>
 </html>

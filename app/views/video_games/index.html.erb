@@ -1,5 +1,8 @@
-<h1>All Video Games</h1>
-<table>
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'video_games' %>
+<% end %>
+
+<table class="table table-hover">
   <thead>
     <tr>
       <th>
@@ -23,12 +26,12 @@
         <%= link_to "#{game.title}", video_game_path(game.id)  %>
       </td>
       <td>
-        <%= button_to "Upvote", upvote_video_game_path(game.id) %>
+        <%= button_to "Upvote", upvote_video_game_path(game.id), class: "btn btn-primary" %>
       </td>
     </tr>
     <% end  %>
   </tbody>
 </table>
-
+</div>
 <%= link_to "View All Games", welcomes_path %>
 <%= link_to "Add a Video Game", new_video_game_path %>
