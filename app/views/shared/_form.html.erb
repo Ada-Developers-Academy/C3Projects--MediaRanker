@@ -1,13 +1,25 @@
-<%= form_for media do |f| %>
-  <h2><%= form_name %></h2>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= form_for media, html: { class:"form" } do |f| %>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2><%= form_name %></h2>
+      <div class="form_group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:"form-control" %>
+      </div>
 
-  <%= f.label creator %>
-  <%= f.text_field creator %>
+      <div class="form_group">
+        <%= f.label creator %>
+        <%= f.text_field creator, class:"form-control" %>
+      </div>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+      <div class="form_group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class:"form-control" %>
+      </div>
+      <br>
 
-  <%= f.submit "Save" %>
+      <%= f.submit "Save", class:"btn btn-default" %>
+    </div>
+  </div>
+
 <% end %>
