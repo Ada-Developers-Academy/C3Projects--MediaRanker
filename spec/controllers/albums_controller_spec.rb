@@ -11,4 +11,17 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "GET index" do
+    it "assigns @albums" do
+      album = Album.create(name: "Rumors", rank: 89)
+      get :index
+      expect(assigns(:albums)).to eq([album])
+    end
+
+    it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
+    end
+  end
+
 end
