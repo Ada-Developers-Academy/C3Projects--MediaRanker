@@ -4,8 +4,7 @@
   <div class="col-xs-4 col-sm-4">
     <h1>Top Movies</h1>
     <% @movies.each do |movie| %>
-      <h2><%= link_to "#{movie.title}", movie_path(movie.id), method: "get" %></h2>
-      <p>Ranked: <%= movie.rank %></p>
+      <h3><%= link_to "#{movie.title}", movie_path(movie.id), method: "get" %><small> Ranked: <%= movie.rank %></small></h3>
     <% end %>
 
     <%= link_to "View More Movies", movies_path %>
@@ -14,8 +13,7 @@
   <div class="col-xs-4 col-sm-4">
     <h1>Top Books</h1>
     <% @books.each do |book| %>
-      <h2><%= link_to "#{book.title}", book_path(book.id), method: "get" %></h2>
-      <p>Ranked: <%= book.rank %></p>
+      <h3><%= link_to "#{book.title}", book_path(book.id), method: "get" %><small> Ranked: <%= book.rank %></small></h3>
     <% end %>
 
     <%= link_to "View More Books", books_path %>
@@ -24,8 +22,7 @@
   <div class="col-xs-4 col-sm-4">
     <h1>Top Albums</h1>
     <% @albums.each do |album| %>
-      <h2><%= link_to "#{album.title}", album_path(album.id), method: "get" %></h2>
-      <p>Ranked: <%= album.rank %></p>
+      <h3><%= link_to "#{album.title}", album_path(album.id), method: "get" %><small> Ranked: <%= album.rank %></small></h3>
     <% end %>
 
     <%= link_to "View More Albums", albums_path %>
