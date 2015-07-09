@@ -8,7 +8,6 @@ RSpec.describe AlbumsController, type: :controller do
 
       expect(response).to be_success
       expect(response).to have_http_status(200)
-      # when you create instance variables in controllers, can access them through the assigns in terminal
     end
 
     it "renders the index template" do
@@ -39,6 +38,11 @@ RSpec.describe AlbumsController, type: :controller do
         expect(Album.last.rank).to eq 0
       # need to set new album == instance variable
       end
+
+      # it "redirect_to #show" do
+      #   post :create, album_params
+      #   expect(response).to redirect_to(Album.last)
+      # end
     end # + context
 
     # - album params invalid
@@ -62,16 +66,22 @@ RSpec.describe AlbumsController, type: :controller do
   describe "DELETE #destroy" do
     # + case: album is destroyed
     context "when resource is found" do
-      it "destroys the album" do
-        @album = Album.create!(
-          name: "Alumbzzz",
-          creator: "Van Halen",
-          description: "Rock n Roll"
-        )
-        delete :destroy, :id => @album.id
-        expect(Album.all.count).to eq 0
+      let (:album_params) do
+        {
+          album:
+          { id: 20, name: "Alumbzzz", creator: "Van Halen", description: "Rock n Roll"}
+        }
+      end #let
+
+      it "album counts changes by -1" do
+
+        @album_del = Album.new{:album}
+        binding.pry
+        delete :destroy, {id: @album_del.id}
+        expect(Album.count).to change_by(-1)
+
       end
-    end
+    end # context
 
     # - case: album not found
     context 'when resource is not found' do
@@ -83,27 +93,32 @@ RSpec.describe AlbumsController, type: :controller do
 
   end # DELETE
 
-  describe "PUT #update" do
-
-    it "sucessfully updates name" do
-
-      @album = Album.create!(
-        name: "Alumbzzz",
-        creator: "Van Halen",
-        description: "Rock n Roll"
-      )
-
-      put :update, :id => @album.id, :name => {name: "Albums"}
-      @album.reload
-
-      expect(@album.name).to eq("Albums")
-
-    end
-    binding.pry
-
-  end
+  # describe "PUT #update" do
+  #
+  #   it "sucessfully updates name" do
+  #
+  #     @album = Album.create!(
+  #       name: "Alumbzzz",
+  #       creator: "Van Halen",
+  #       description: "Rock n Roll"
+  #     )
+  #
+  #     put :update, :id => @album.id, :name => {name: "Albums"}
+  #     @album.reload
+  #
+  #     expect(@album.name).to eq("Albums")
+  #
+  #   end
+  #   binding.pry
+  #
+  # end
 
   describe "POST #upvote" do
+    before(:each) do
+
+
+
+    end
     it "increases rank by 1" do
       @album = Album.create!(
         name: "Alumbzzz",
