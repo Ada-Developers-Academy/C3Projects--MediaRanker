@@ -1,5 +1,7 @@
 Jeri
 
+IMPORTANT NOTE: you have to comment out the routes in order for db:reset / db:migrate to work correctly
+
 #### useful links
 
 [my trello board][trello]

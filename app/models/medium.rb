@@ -27,6 +27,6 @@ class Medium < ActiveRecord::Base
       categorized.push(media) if media.length > 0
     end
 
-    return categorized
+    categorized.sort_by { |cat| cat.length }
   end
 end

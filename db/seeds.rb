@@ -205,6 +205,11 @@ books = [
     upvotes: 9_000 + random_number, # I also love this book the most.
     title: "Earth",
     creator: "David Brin"
+  },
+  {
+    upvotes: 9_000 + random_number, # Don't judge me!
+    title: "커피프린스 1호점",
+    creator: "이선미"
   }
 ]
 
@@ -241,6 +246,111 @@ albums = [
   }
 ]
 
+shows = [
+  {
+    upvotes: random_number,
+    title: "Orange Is the New Black",
+    creator: "Jenji Kohan"
+  },
+  {
+    upvotes: random_number,
+    title: "ラストエグザイル",
+    creator: "村田 蓮爾"
+  },
+  {
+    upvotes: random_number,
+    title: "조선 여형사 다모",
+    creator: "이재규"
+  }
+]
+
+comics = [
+  {
+    upvotes: random_number,
+    title: "14 Nights",
+    creator: "Kristina Stipetic"
+  },
+  {
+    upvotes: 9_000 + random_number, # <3
+    title: "Xkcd",
+    creator: "Randall Munroe"
+  },
+  {
+    upvotes: random_number,
+    title: "Sinfest",
+    creator: "Tatsuya Ishida"
+  },
+  {
+    upvotes: random_number,
+    title: "Gunnerkrigg Court",
+    creator: "Tom Siddell"
+  }
+]
+
+games = [
+  {
+    upvotes: random_number,
+    title: "Carcassonne"
+  },
+  {
+    upvotes: random_number,
+    title: "Ticket to Ride"
+  },
+  {
+    upvotes: random_number,
+    title: "Mansions of Madness",
+    creator: "Call of Cthulhu"
+  },
+  {
+    upvotes: random_number,
+    title: "Small World"
+  },
+  {
+    upvotes: random_number,
+    title: "Betrayal at the House on the Hill"
+  },
+  {
+    upvotes: random_number,
+    title: "Battleblock Theater"
+  },
+  {
+    upvotes: random_number,
+    title: "Mount Your Friends"
+  },
+  {
+    upvotes: random_number,
+    title: "No Luca No"
+  },
+  {
+    upvotes: random_number,
+    title: "Techo Kitten Adventure"
+  },
+  {
+    upvotes: random_number,
+    title: "Freecell"
+  },
+  {
+    upvotes: random_number,
+    title: "Minesweeper"
+  },
+  {
+    upvotes: random_number,
+    title: "Race for the Galaxy"
+  },
+  {
+    upvotes: random_number,
+    title: "Dominion"
+  },
+  {
+    upvotes: random_number,
+    title: "Mystery at the Abbey"
+  },
+  {
+    upvotes: random_number,
+    title: "Shadows over Waterdeep"
+  }
+]
+
 movies.each do |movie|
   movie[:category_id] = 1
   Medium.create(movie)
@@ -254,4 +364,19 @@ end
 albums.each do |album|
   album[:category_id] = 3
   Medium.create(album)
+end
+
+shows.each do |show|
+  show[:category_id] = 4
+  Medium.create(show)
+end
+
+comics.each do |comic|
+  comic[:category_id] = 5
+  Medium.create(comic)
+end
+
+games.each do |game|
+  game[:category_id] = 6
+  Medium.create(game)
 end
