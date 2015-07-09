@@ -26,6 +26,13 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    it "renders the new view" do
+      get :new
+      expect(response).to render_template("new")
+    end
+  end
+  
   describe "PUT #update" do
     context "valid book params" do
       before :each do
@@ -50,6 +57,46 @@ RSpec.describe BooksController, type: :controller do
       it "does not update votes" do
         put :update, id: @book, votes: @book
         expect(Book.find(1).votes).to eq 1
+      end
+    end
+  end
+
+  describe "POST #create" do
+    context "valid book params"do
+      let(:book) do
+        {
+          book: {
+            title: 'a'
+          }
+        }
+      end
+
+      it "creates a book" do
+        post :create, book
+        expect(Book.count).to eq 1
+      end
+
+      it "redirects to the book show page" do
+        post :create, book
+        expect(subject).to redirect_to(book_path(assigns(:book)))
+      end
+    end
+
+    context "invalid book params" do
+      let(:book) do
+        {
+          book: { title: '' }
+        }
+      end
+
+      it "does not persist invalid records" do
+        post :create, book
+        expect(Book.count).to eq 0
+      end
+
+      it "renders the new page so the record can be fixed" do
+        post :create, book
+        expect(response).to render_template("new")
       end
     end
   end
