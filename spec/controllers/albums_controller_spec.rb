@@ -122,22 +122,25 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
-  # describe "PUT #upvote" do
-  #   let(:album_params) do
-  #       {
-  #         title: 'some thing',
-  #         creator: 'some person',
-  #         description: 'an interesting thing',
-  #         rank: 5
-  #       }
-  #   end
+  describe "PUT #upvote" do
+    let(:medium) { Album.create(title: 'a title', rank: 5) }
 
-  #   it "increases rank of record by one" do
-  #     medium = Album.create(:album_params)
-  #     put :upvote, medium
-  #     expect(medium.rank).to eq 6
-  #   end
-  # end
+    it "increases rank of record by one" do
+      put :upvote, id: medium
+      medium.reload
+      expect(medium.rank).to eq 6
+    end
+
+    it "only affects the particular record" do
+      medium2 = Album.create(title: 'b title', rank: 5)
+
+      put :upvote, id: medium
+      medium.reload
+      medium2.reload
+      expect(medium.rank).to eq 6
+      expect(medium2.rank).to eq 5
+    end
+  end
 
   # describe "DELETE #destroy" do
   #   # how to test around confirm button?
