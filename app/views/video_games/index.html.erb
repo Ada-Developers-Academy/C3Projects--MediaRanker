@@ -23,10 +23,10 @@
         <%= game.stars %>
       </td>
       <td>
-        <%= link_to "#{game.title}", video_game_path(game.id)  %>
+        <%= link_to "#{game.title}", video_game_path(game.id) %>
       </td>
       <td>
-        <%= button_to "Upvote", upvote_video_game_path(game.id), class: "btn btn-primary" %>
+        <%= button_to "Upvote", upvote_video_game_path(game.id), class: "stars" %>
       </td>
     </tr>
     <% end  %>

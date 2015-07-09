@@ -26,7 +26,7 @@
         <%= link_to "#{game.title}", story_game_path(game.id)  %>
       </td>
       <td>
-        <%= button_to "Upvote", upvote_story_game_path(game.id)  %>
+        <%= button_to "Upvote", upvote_story_game_path(game.id), class: "note_cards" %>
       </td>
     </tr>
     <% end  %>

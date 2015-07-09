@@ -5,14 +5,13 @@
 <h1><%= @video_game.title %></h1>
 <h3>Created by: <%= @video_game.studio %></h3>
 <p>
-  Ranked:  <%= @video_game.stars %>
+  Ranked:  <%= @video_game.stars %> <%= button_to "Upvote", upvote_video_game_path(@video_game.id), class: "stars" %>
 </p>
 
 <p>
   <%= @video_game.description %>
 </p>
 
-<%= button_to "Upvote", upvote_video_game_path(@video_game.id), class: "btn btn-primary" %>
 <%= link_to "Edit", edit_video_game_path, class: "btn btn-primary"  %>
 <%= link_to "Delete", video_game_path(@video_game.id), class: "btn btn-primary",  :method => :delete %>
 <%= link_to "View all Video Games", video_games_path, class: "btn btn-primary" %>
