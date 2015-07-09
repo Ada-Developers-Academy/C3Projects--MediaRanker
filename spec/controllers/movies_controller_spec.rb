@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
-  context "when newing up an Movie" do
+  context "when newing up a Movie" do
     before(:each) do
       get :new
     end

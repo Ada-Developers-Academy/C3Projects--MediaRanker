@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-  context "when newing up an Book" do
+  context "when newing up a Book" do
     before(:each) do
       get :new
     end
