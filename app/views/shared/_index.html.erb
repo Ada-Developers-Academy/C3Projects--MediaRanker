@@ -9,11 +9,11 @@
   <% objects.each do |object| %>
     <tr>
       <td>Ranked:<%= object.votes %></td>
-      <td><%= object.title %></td>
+      <td><%= link_to "#{object.title}", "/#{media}/#{object.id}" %></td>
       <td><%= button_to "Upvote", object, method: :put, params: { upvote: true }%></td>
     </tr>
   <% end %>
 </table>
 
 <%= link_to "View All Media", :root %>
-<%= link_to "Add #{media}", new_media_path %>
+<%= link_to "Add #{medium}", new_medium_path %>
