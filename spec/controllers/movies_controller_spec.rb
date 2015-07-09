@@ -49,7 +49,55 @@ RSpec.describe MoviesController, type: :controller do
 
       it "does not update votes" do
         put :update, id: @movie, votes: @movie
-        expect(Movie.find(1).votes).to eq 1 
+        expect(Movie.find(1).votes).to eq 1
+      end
+    end
+  end
+
+  describe "GET #new" do
+    it "renders the new view" do
+      get :new
+      expect(response).to render_template("new")
+    end
+  end
+
+  describe "POST #create" do
+    # positive test
+    context "valid movie params"do
+      let(:movie) do
+        {
+          movie: {
+            title: 'a'
+          }
+        }
+      end
+
+      it "creates a movie" do
+        post :create, movie
+        expect(Movie.count).to eq 1
+      end
+
+      it "redirects to the movie show page" do
+        post :create, movie
+        expect(subject).to redirect_to(movie_path(assigns(:movie)))
+      end
+    end
+    # negative test
+    context "invalid movie params" do
+      let(:movie) do
+        {
+          movie: { title: '' }
+        }
+      end
+
+      it "does not persist invalid records" do
+        post :create, movie
+        expect(Movie.count).to eq 0
+      end
+
+      it "renders the new page so the record can be fixed" do
+        post :create, movie
+        expect(response).to render_template("new")
       end
     end
   end
