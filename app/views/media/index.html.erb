@@ -10,7 +10,7 @@
     <tr>
       <td>Number of Votes: <%= media.votes %></td>
       <td><%= media.name %></td>
-      <td><%= link_to "Upvote", send(pick_upvote_path)%>
+      <td><%= link_to "Upvote", pick_upvote_path(media), method: :patch %>
     </tr>
   <% end %>
 

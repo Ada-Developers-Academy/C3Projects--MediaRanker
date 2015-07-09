@@ -1,39 +1,46 @@
 module ApplicationHelper
   def pick_upvote_path(media)
-    path = "#{media.format}_upvote_path"
+    "/#{media.format}s/#{media.id}/upvote"
   end
 
   def pick_delete_path(media)
-    path = media.format
-    path += "_path(#{media.id})"
-    path
+    if media.format == "book"
+      book_path(media.id)
+    elsif media.format == "album"
+      album_path(media.id)
+    else
+      movie_path(media.id)
+    end
   end
 
   def pick_edit_path(media)
-    path = "edit_#{media.format}_path(#{media.id})"
-    path 
-  end
-
-  def creator(media)
-    if media.class == Movie
-      :director
-    elsif media.class == Book 
-      :author
+    if media.format == "book"
+      edit_book_path
+    elsif media.format == "album"
+      edit_album_path
     else
-      :artist
+      edit_movie_path
     end
   end
 
   def pick_index_path(media)
-    path = "#{media.format}_index_path"
-    path
-
+    if media.format == "book"
+      book_index_path
+    elsif media.format == "album"
+      album_index_path
+    else
+      movie_index_path
+    end
   end
 
   def pick_new_path(media)
-    path = "new_"
-    path += media.first.class.to_s.downcase
-    path += "_path"
+    if media.format == "book"
+      new_book_path
+    elsif media.format == "album"
+      new_album_path
+    else
+      new_movie_path
+    end
   end
 end
 

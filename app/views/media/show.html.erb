@@ -4,4 +4,4 @@
 <%= button_to "Delete #{@media.name}", pick_delete_path(@media), method: :delete %>
 <%= button_to "Edit", pick_edit_path(@media), method: :get %>
 <%= button_to "Home", root_path, method: :get %>
-<%= button_to "View all Movies", send(pick_index_path(@media)), method: :get %>
+<%= button_to "View all Movies", pick_index_path(@media), method: :get %>
