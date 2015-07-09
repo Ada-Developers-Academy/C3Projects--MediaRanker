@@ -1,4 +1,8 @@
 class BooksController < ApplicationController
+  def self.model
+    Book
+  end
+
   def index
     @books = Book.all.order('ranking DESC')
   end
