@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [:update, :show, :destroy]
+  before_action :set_album, only: [:update, :show, :destroy, :edit]
 
   def index
     @albums = Album.all
@@ -18,12 +18,19 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     if params[:upvote] == "true"
       Album.upvote(@album)
       redirect_to album_path(@album)
     else
-      render :index
+      if @album.update(create_params)
+        redirect_to album_path(@album)
+      else
+        render :edit
+      end
     end
   end
 

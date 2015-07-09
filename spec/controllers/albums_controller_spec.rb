@@ -26,30 +26,69 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "GET #edit" do
+    before :each do
+      @album = Album.create(title: 'a')
+    end
+
+    it "renders the edit view" do
+      get :edit, id: @album
+      expect(response).to render_template("edit")
+    end
+  end
+
   describe "PUT #update" do
-    context "valid album params" do
+    describe "upvote" do
       before :each do
-        @album = Album.create(title: 'a', votes: 1)
+        @album = Album.create(title: 'a')
       end
 
       it "updates votes" do
-        put :update, id: @album.id, votes: @album.votes, upvote: "true"
-        expect(Album.find(1).votes).to eq 2
+        put :update, id: @album, upvote: "true"
+        expect(Album.find(1).votes).to eq 1
       end
 
       it "redirects to album show view" do
-        put :update, id: @album, votes: @album, upvote: "true"
+        put :update, id: @album, upvote: "true"
         expect(subject).to redirect_to(album_path(@album))
       end
     end
-    context "invalid album params" do
-      before :each do
-        @album = Album.create(title: 'a', votes: 1)
+
+    describe "editing an album" do
+      context "valid album params" do
+        before :each do
+          @album = Album.create(title: 'a')
+        end
+
+        it "updates an album" do
+          put :update, id: @album, album: { title: 'b'}
+          @album.reload
+          expect(@album.title).to eq 'b'
+        end
+
+        it "redirects to album show view" do
+          put :update, id: @album, album: { title: 'b'}
+          @album.reload
+          expect(response).to redirect_to(album_path(@album))
+        end
       end
 
-      it "does not update votes" do
-        put :update, id: @album, votes: @album
-        expect(Album.find(1).votes).to eq 1
+      context "invalid album params" do
+        before :each do
+          @album = Album.create(title: 'a')
+        end
+
+        it "does not update the album" do
+          put :update, id: @album, album: { title: '' }
+          @album.reload
+          expect(@album.title).to eq 'a'
+        end
+
+        it "renders the edit page so the record can be fixed" do
+          put :update, id: @album, album: { title: '' }
+          @album.reload
+          expect(response).to render_template("edit")
+        end
       end
     end
   end
@@ -62,7 +101,7 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "POST #create" do
-    context "valid album params"do
+    context "valid album params" do
       let(:album) do
         {
           album: {
@@ -71,7 +110,7 @@ RSpec.describe AlbumsController, type: :controller do
         }
       end
 
-      it "creates a album" do
+      it "creates an album" do
         post :create, album
         expect(Album.count).to eq 1
       end
