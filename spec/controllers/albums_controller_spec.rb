@@ -21,19 +21,21 @@ RSpec.describe AlbumsController, type: :controller do
 
 
   describe "makes new albums" do
-    let(:album) {Album.new(name: "name1", rank: 20)}
+    let(:valid_album) do {
+      album: { name: "name1"}
+    }
+    end
 
     it "creates a new Album" do
-      post :create, album
+      post :create, valid_album
       expect(Album.count).to eq(1)
     end
 
     it "redirects to the album show page" do
-      post :create, album
-      expect(subject).to redirect_to(album_path(assigns(:album)))
+      post :create, valid_album
+      expect(response).to redirect_to(album_path(assigns(:media)))
     end
   end
-
 
   describe "albums can be edited" do
     let(:album) {Album.create(name: "name1", rank: 20)}
