@@ -62,7 +62,7 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "POST #create" do
-    context "valid movie params"do
+    context "valid movie params" do
       let(:movie) do
         {
           movie: {
@@ -98,6 +98,22 @@ RSpec.describe MoviesController, type: :controller do
         post :create, movie
         expect(response).to render_template("new")
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before :each do
+      @movie = Movie.create(title: 'a')
+    end
+
+    it "deletes a movie" do
+      post :destroy, id: @movie
+      expect(Movie.count).to eq 0
+    end
+
+    it "redirects to the movie index page" do
+      post :destroy, id: @movie
+      expect(subject).to redirect_to(movies_path)
     end
   end
 end
