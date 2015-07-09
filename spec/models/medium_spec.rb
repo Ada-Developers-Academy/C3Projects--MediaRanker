@@ -42,7 +42,7 @@ RSpec.describe Medium, type: :model do
     end
 
     describe ".best for a specific format" do
-      before :each do
+      before :all do
           @record1 = Medium.create({ :title=>"Kitties Album", :creator=>"Cat", :votes=>9, :description=>"", :format=>"album" })
           @record2 = Medium.create({ :title=>"Llamas Movie", :creator=>"The Llama", :votes=>6, :format=>"movie" })
           @record3 = Medium.create({ :title=>"Puppies Album", :creator=>"Dog", :votes=>10, :description=>"", :format=>"album" })
@@ -50,27 +50,24 @@ RSpec.describe Medium, type: :model do
           @record5 = Medium.create({ :title=>"Puppies Book", :creator=>"Dog", :votes=>10, :description=>"", :format=>"book" })
           @record6 = Medium.create({ :title=>"Llamas Album", :creator=>"The Llama", :votes=>6, :description=>"", :format=>"album" })
           @record7 = Medium.create({ :title=>"Kitties Movie", :creator=>"Cat", :votes=>9, :format=>"movie" })
-          @record8 = Medium.create({ :title=>"Fishies Movie", :creator=>"Fish", :format=>"movie" })
-          @record9 = Medium.create({ :title=>"Fishies Book", :creator=>"Fish", :description=>"", :format=>"book" })
-          @record10 = Medium.create({ :title=>"Puppies Movie", :creator=>"Dog", :votes=>10, :format=>"movie" })
-          @record11 = Medium.create({ :title=>"Orangutans Album", :creator=>"Orangutan", :votes=>7, :description=>"", :format=>"album" })
-          @record12 = Medium.create({ :title=>"Fishies Album", :creator=>"Fish", :description=>"", :format=>"album" })
-          @record13 = Medium.create({ :title=>"Kitties Book", :creator=>"Cat", :votes=>9, :description=>"", :format=>"book" })
-          @record14 = Medium.create({ :title=>"Llamas Book", :creator=>"The Llama", :votes=>6, :description=>"", :format=>"book" })
-          @record15 = Medium.create({ :title=>"Elephants Book", :creator=>"Elephant", :description=>"", :format=>"book" })
-          @record16 = Medium.create({ :title=>"Orangutans Movie", :creator=>"Orangutan", :votes=>7, :format=>"movie" })
-          @record17 = Medium.create({ :title=>"Orangutans Book", :creator=>"Orangutan", :votes=>7, :description=>"", :format=>"book" })
-          @record18 = Medium.create({ :title=>"Elephants Movie", :creator=>"Elephant", :description=>"", :format=>"movie" })
+          @record8 = Medium.create({ :title=>"Puppies Movie", :creator=>"Dog", :votes=>10, :format=>"movie" })
+          @record9 = Medium.create({ :title=>"Kitties Book", :creator=>"Cat", :votes=>9, :description=>"", :format=>"book" })
+          @record10 = Medium.create({ :title=>"Llamas Book", :creator=>"The Llama", :votes=>6, :description=>"", :format=>"book" })
+          @record11 = Medium.create({ :title=>"Elephants Book", :creator=>"Elephant", :description=>"", :format=>"book" })
+          @record12 = Medium.create({ :title=>"Elephants Movie", :creator=>"Elephant", :description=>"", :format=>"movie" })
+      end
+
+      after :all do
+        Medium.destroy_all
       end
 
       describe ".best_movies" do
         it "returns top 2 movies when passed 2" do
-          expect(Medium.best_movies(2)).to include(@record10, @record7)
+          expect(Medium.best_movies(2)).to include(@record8, @record7)
         end
 
         it "exludes other movies" do
           expect(Medium.best_movies(2).count).to eq(2)
-          # expect(Medium.best_movies(2)).to_not include()
         end
       end
 
@@ -81,18 +78,16 @@ RSpec.describe Medium, type: :model do
 
         it "exludes other albums" do
           expect(Medium.best_albums(2).count).to eq(2)
-          # expect(Medium.best_albums(2)).to_not include()
         end
       end
 
       describe ".best_books" do
         it "returns top 2 albums when passed 2" do
-          expect(Medium.best_books(2)).to include(@record5, @record13)
+          expect(Medium.best_books(2)).to include(@record5, @record9)
         end
 
         it "exludes other books" do
           expect(Medium.best_books(2).count).to eq(2)
-          # expect(Medium.best_books(2)).to_not include()
         end
       end
     end
