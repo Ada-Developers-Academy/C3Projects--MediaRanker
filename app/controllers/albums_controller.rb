@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   def index
     @albums = Album.all.rank_order
+    @media_type = "album"
   end
 
   def show
@@ -31,9 +32,19 @@ class AlbumsController < ApplicationController
     redirect_to root_path
   end
 
+  def new
+    @album = Album.new
+  end
+
+  def create
+    album = Album.create(album_params)
+
+    redirect_to album_path(id: album.id)
+  end
+
   private
 
   def album_params
-    params[:movie].permit(:title, :artist, :description, :rank)
+    params[:album].permit(:title, :artist, :description, :rank)
   end
 end

@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all.rank_order
+    @media_type = "book"
   end
 
   def show
@@ -29,6 +30,16 @@ class BooksController < ApplicationController
     book.destroy
 
     redirect_to root_path
+  end
+
+  def new
+    @book = Book.new
+  end
+
+  def create
+    book = Book.create(book_params)
+
+    redirect_to book_path(id: book.id)
   end
 
   private

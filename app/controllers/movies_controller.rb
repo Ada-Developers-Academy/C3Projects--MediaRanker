@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all.rank_order
+    @media_type = "movie"
   end
 
   def show
@@ -29,6 +30,16 @@ class MoviesController < ApplicationController
     movie.destroy
 
     redirect_to root_path
+  end
+
+  def new
+    @movie = Movie.new
+  end
+
+  def create
+    movie = Movie.create(movie_params)
+
+    redirect_to movie_path(id: movie.id)
   end
 
   private
