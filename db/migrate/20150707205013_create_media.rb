@@ -5,7 +5,7 @@ class CreateMedia < ActiveRecord::Migration
       t.string  :creator
       t.text    :description
       t.integer :upvotes, null: false
-      t.string  :category, null: false
+      t.integer  :category_id, null: false
 
       t.timestamps null: false
     end
