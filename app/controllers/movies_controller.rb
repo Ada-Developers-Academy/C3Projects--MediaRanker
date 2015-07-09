@@ -38,7 +38,6 @@ class MoviesController < ApplicationController
                 director: new_director,
                 description: new_description
                 )
-    @movies = Movie.all
 
     if @movie.save
        redirect_to movie_path(@movie.id)

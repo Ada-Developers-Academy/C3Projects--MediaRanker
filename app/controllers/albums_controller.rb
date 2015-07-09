@@ -37,7 +37,6 @@ class AlbumsController < ApplicationController
     @album.update(name: new_name,
                  artist: new_artist,
                  description: new_description)
-    @albums = Album.all
 
     if @album.save
        redirect_to album_path(@album.id)

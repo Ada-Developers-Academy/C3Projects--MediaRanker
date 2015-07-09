@@ -36,7 +36,6 @@ class BooksController < ApplicationController
     @book.update(name: new_name,
                  author: new_author,
                  description: new_description)
-    @books = Book.all
 
     if @book.save
        redirect_to book_path(@book.id)
