@@ -53,4 +53,51 @@ RSpec.describe AlbumsController, type: :controller do
       end
     end
   end
+
+  describe "GET #new" do
+    it "renders the new view" do
+      get :new
+      expect(response).to render_template("new")
+    end
+  end
+
+  describe "POST #create" do
+    context "valid album params"do
+      let(:album) do
+        {
+          album: {
+            title: 'a'
+          }
+        }
+      end
+
+      it "creates a album" do
+        post :create, album
+        expect(Album.count).to eq 1
+      end
+
+      it "redirects to the album show page" do
+        post :create, album
+        expect(subject).to redirect_to(album_path(assigns(:album)))
+      end
+    end
+
+    context "invalid album params" do
+      let(:album) do
+        {
+          album: { title: '' }
+        }
+      end
+
+      it "does not persist invalid records" do
+        post :create, album
+        expect(Album.count).to eq 0
+      end
+
+      it "renders the new page so the record can be fixed" do
+        post :create, album
+        expect(response).to render_template("new")
+      end
+    end
+  end
 end
