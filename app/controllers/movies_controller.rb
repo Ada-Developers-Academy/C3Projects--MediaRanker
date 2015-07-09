@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
     @movie.ranking = 0
 
     if @movie.save
-      render :show
+      redirect_to movie_path(@movie.id)
     else
       render :new
     end
@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
 
     @movie.update(name: new_name,
                 director: new_director,
-                description: new_description,
+                description: new_description
                 )
     @movies = Movie.all
 
