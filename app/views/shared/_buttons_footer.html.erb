@@ -1,8 +1,8 @@
 <p><%= button_to  "Upvote", upvote_name_path, method: "patch", class: "btn btn-primary" %></p>
 
 <div class="btn-toolbar">
-  <p><%= button_to "Edit #{edit_name.capitalize}", edit_name_path, method: "get", class: "btn btn-default" %></p>
-  <p><%= button_to "DELETE", name_path, method: "delete", class: "btn btn-danger",  data: { confirm: "Are you sure?" } %></p>
-  <p><%= button_to "View All #{view_name}", all_names_path, method: "get", class: "btn btn-default" %></p>
-  <p><%= button_to "View All Media", root_path, method: "get", class: "btn btn-default" %></p>
+  <%= button_to "Edit #{edit_name.capitalize}", edit_name_path, method: "get", class: "btn btn-default" %>
+  <%= button_to "DELETE", name_path, method: "delete", class: "btn btn-danger",  data: { confirm: "Are you sure?" } %>
+  <%= button_to "View All #{view_name}", all_names_path, method: "get", class: "btn btn-default" %>
+  <%= button_to "View All Media", root_path, method: "get", class: "btn btn-default" %>
 </div>
