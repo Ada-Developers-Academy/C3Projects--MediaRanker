@@ -42,6 +42,26 @@ module ApplicationHelper
       new_movie_path
     end
   end
+
+  def creator(media)
+    if media.format == "book"
+      "Author"
+    elsif media.format == "album"
+      "Artist"
+    else
+      "Director"
+    end 
+  end
+
+  def pick_format
+    if request.path.include?("books")
+      Medium.find_books
+    elsif request.path.include?("movies")
+      Medium.find_movies
+    else
+      Medium.find_albums
+    end
+  end
 end
 
 

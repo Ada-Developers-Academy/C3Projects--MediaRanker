@@ -28,4 +28,14 @@ class Medium < ActiveRecord::Base
       Rails.application.routes.url_helpers.movie_index_path
     end
   end
+
+  def self.pick_path(media)
+    if media.format == "book"
+      Rails.application.routes.url_helpers.book_path
+    elsif media.format == "album"
+      Rails.application.routes.url_helpers.album_path
+    else
+      Rails.application.routes.url_helpers.movie_path
+    end
+  end
 end

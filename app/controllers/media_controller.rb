@@ -10,14 +10,14 @@ class MediaController < ApplicationController
     end
 
   def new
-    @movie = Movie.new
+    @media = Medium.new
     @method = :post
     
   end
 
   def create
-    @movie = Movie.create(movie_params)
-    redirect_to movies_path
+    @media = Medium.create(media_params)
+    redirect_to Medium.pick_index_path(@media)
   end
 
 
@@ -31,9 +31,9 @@ class MediaController < ApplicationController
   end
 
   def update
-    @movie = Movie.find(params[:id])
-    @movie.update(movie_params)
-    render :show
+    @media = Medium.find(params[:id])
+    @media.update(media_params)
+    redirect_to Medium.pick_path(@media)
   end
 
   def upvote
@@ -49,7 +49,7 @@ class MediaController < ApplicationController
     movie.destroy
   end
 
-  def movie_params
-    params.require(:movie).permit(:name, :description, :director, :votes)
+  def media_params
+    params.require(:medium).permit(:name, :description, :creator, :format, :votes)
   end
 end
