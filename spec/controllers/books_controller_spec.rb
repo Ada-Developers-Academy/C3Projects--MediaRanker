@@ -124,8 +124,9 @@ RSpec.describe BooksController, type: :controller do
 
     context "clicking the delete button" do
       it "removes a record" do
-        delete :destroy, id: @book.id
-        expect(Book.count).to eq 0
+        expect {
+          delete :destroy, {:id => @book.id}
+          }.to change(Book, :count).by(-1)
       end
 
       it "redirects to the Book show page" do

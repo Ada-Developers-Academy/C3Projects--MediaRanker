@@ -124,8 +124,9 @@ RSpec.describe MoviesController, type: :controller do
 
     context "clicking the delete button" do
       it "removes a record" do
-        delete :destroy, id: @movie.id
-        expect(Movie.count).to eq 0
+        expect {
+          delete :destroy, {:id => @movie.id}
+          }.to change(Movie, :count).by(-1)
       end
 
       it "redirects to the Movie show page" do

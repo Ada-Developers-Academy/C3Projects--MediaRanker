@@ -124,8 +124,9 @@ RSpec.describe AlbumsController, type: :controller do
 
     context "clicking the delete button" do
       it "removes a record" do
-        delete :destroy, id: @album.id
-        expect(Album.count).to eq 0
+        expect {
+          delete :destroy, {:id => @album.id}
+          }.to change(Album, :count).by(-1)
       end
 
       it "redirects to the Album show page" do
