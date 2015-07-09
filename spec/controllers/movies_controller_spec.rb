@@ -26,8 +26,19 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+  describe "GET #edit" do
+    before :each do
+      @movie = Movie.create(title: 'a')
+    end
+
+    it "renders the edit view" do
+      get :edit, id: @movie
+      expect(response).to render_template("edit")
+    end
+  end
+
   describe "PUT #update" do
-    context "valid movie params" do
+    describe "upvote" do
       before :each do
         @movie = Movie.create(title: 'a', votes: 1)
       end
@@ -42,14 +53,42 @@ RSpec.describe MoviesController, type: :controller do
         expect(subject).to redirect_to(movie_path(@movie))
       end
     end
-    context "invalid movie params" do
-      before :each do
-        @movie = Movie.create(title: 'a', votes: 1)
+
+    describe "editing a movie" do
+      context "valid movie params" do
+        before :each do
+          @movie = Movie.create(title: 'a')
+        end
+
+        it "updates a movie" do
+          put :update, id: @movie, movie: { title: 'b'}
+          @movie.reload
+          expect(@movie.title).to eq 'b'
+        end
+
+        it "redirects to movie show view" do
+          put :update, id: @movie, movie: { title: 'b'}
+          @movie.reload
+          expect(response).to redirect_to(movie_path(@movie))
+        end
       end
 
-      it "does not update votes" do
-        put :update, id: @movie, votes: @movie
-        expect(Movie.find(1).votes).to eq 1
+      context "invalid movie params" do
+        before :each do
+          @movie = Movie.create(title: 'a')
+        end
+
+        it "does not update the movie" do
+          put :update, id: @movie, movie: { title: '' }
+          @movie.reload
+          expect(@movie.title).to eq 'a'
+        end
+
+        it "renders the edit page so the record can be fixed" do
+          put :update, id: @movie, movie: { title: '' }
+          @movie.reload
+          expect(response).to render_template("edit")
+        end
       end
     end
   end
@@ -117,6 +156,3 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 end
-
-# patch :update, id: @ladskj.id, ;alkdj: { what you're changing}
-# then relaod
