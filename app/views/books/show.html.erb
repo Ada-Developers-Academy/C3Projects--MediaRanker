@@ -1,12 +1,3 @@
-<h1><%= @book.name %>
-  <small>Written by: <%= @book.author %></small>
-</h1>
+<%= render partial: "shared/show_content", locals: {name: @book.name, by: @book.author, ranking: @book.ranking, description: @book.description } %>
 
-<h4>Ranked: <%= @book.ranking %></h4>
-<p><%= @book.description %></p>
-
-<%= button_to "Upvote", upvote_book_path(@book.id), method: "patch" %>
-<%= button_to "Edit #{@book.name}", edit_book_path(@book.id), method: "get"%>
-<%= button_to "DELETE", book_path(@book.id), method: "delete", data: { confirm: "Are you sure?" } %>
-<%= button_to "View All Books", books_path, method: "get" %>
-<%= button_to "View All Media", root_path, method: "get" %>
+<%= render partial: "shared/buttons_footer", locals: {upvote_name_path: upvote_book_path(@book.id), edit_name: @book.name, edit_name_path: edit_book_path(@book.id), name_path: book_path(@book.id), view_name: "Books", all_names_path: books_path} %>
