@@ -19,7 +19,7 @@ class AlbumsController < ApplicationController
     @album = Album.create(create_params[:album])
 
     if @album.save
-      redirect_to "/albums/#{@album.id}"
+      redirect_to album_path(@album.id)
     else
       render :new
     end
