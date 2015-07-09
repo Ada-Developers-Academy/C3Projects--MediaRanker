@@ -1,26 +1,19 @@
-<ul>
-  <% @medium.errors.each do |column, message| %>
-    <li>
-      <strong><%= column.capitalize %></strong> <%= message %>
-    </li>
-  <% end %>
-</ul>
-
 <%= form_for @medium do |f| %>
-  <fieldset>
-    <legend><%= legend_text + medium.capitalize %></legend>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name, :required => true %>
+  <div class="form-group">
+    <fieldset>
+      <legend><h2><%= legend_text + medium.capitalize %></h2></legend>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name, :required => true, class: "form-control" %>
 
-    <%= f.label :contributor, contributor %>
-    <%= f.text_field :contributor %>
+      <%= f.label :contributor, contributor %>
+      <%= f.text_field :contributor, class: "form-control" %>
 
-    <%= f.label :description, "Description" %>
-    <%= f.text_field :description %>
+      <%= f.label :description, "Description" %>
+      <%= f.text_area :description, class: "form-control" %>
 
-    <%= f.hidden_field :media_type, :value => medium %>
-  </fieldset>
+      <%= f.hidden_field :media_type, :value => medium %>
+    </fieldset>
 
-  <%= f.submit "Save" %>
-
+    <%= f.submit "Save", class: "btn btn-default"%>
+  </div>
 <% end %>

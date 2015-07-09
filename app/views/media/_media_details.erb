@@ -1,9 +1,9 @@
-<h1><%= @medium.name %></h1>
-<small><%= byline + @medium.contributor %></small>
+<h1><%= @medium.name %>
+<small><%= byline + @medium.contributor %></small></h1>
 <h4>Ranked: <%= @medium.ranking %></h4>
 <p><%= @medium.description %></p>
-<%= button_to 'Upvote', upvote_medium_path %>
+<%= button_to 'Upvote', upvote_medium_path, class: "btn btn-primary"%>
 
 
-<%= button_to 'Edit ' + @medium.name, edit_medium_path, method: "get" %>
-<%= button_to "Delete", medium_path(@medium.id, :from => @medium.media_type), method: "delete", data: { confirm: "Are you sure?" } %>
+<%= button_to 'Edit ' + @medium.name, edit_medium_path, method: "get", class: "btn btn-default" %>
+<%= button_to "Delete", medium_path(@medium.id, :from => @medium.media_type), method: "delete", data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
