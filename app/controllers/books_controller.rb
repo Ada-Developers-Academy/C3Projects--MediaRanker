@@ -9,35 +9,35 @@ class BooksController < ApplicationController
   end
 
     def new
-    @book = Book.new
+    @media = Book.new
     end
 
   def create
-    @book = Book.new(create_params[:book])
-    @book.save
-    redirect_to book_path(@book)
+    @media = Book.new(create_params[:book])
+    @media.save
+    redirect_to book_path(@media)
   end
 
   def edit
-    @book = Book.find(params[:id])
+    @media = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
-    @book.update(create_params[:book])
-    redirect_to book_path(@book)
+    @media = Book.find(params[:id])
+    @media.update(create_params[:book])
+    redirect_to book_path(@media)
   end
 
   def destroy
-    @book = Book.find(params[:id])
-    @book.destroy
+    @media = Book.find(params[:id])
+    @media.destroy
     redirect_to books_path
   end
 
   def upvote
-    @book = Book.find(params[:id])
-    @book.add_a_vote
-    @book.save
+    @media = Book.find(params[:id])
+    @media.add_a_vote
+    @media.save
     render :show
   end
 

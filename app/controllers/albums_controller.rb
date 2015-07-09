@@ -9,35 +9,35 @@ class AlbumsController < ApplicationController
   end
 
     def new
-    @album = Album.new
+    @media = Album.new
     end
 
   def create
-    @album = Album.new(create_params[:album])
-    @album.save
-    redirect_to album_path(@album)
+    @media = Album.new(create_params[:album])
+    @media.save
+    redirect_to album_path(@media)
   end
 
   def edit
-    @album = Album.find(params[:id])
+    @media = Album.find(params[:id])
   end
 
   def update
-    @album = Album.find(params[:id])
-    @album.update(create_params[:album])
-    redirect_to album_path(@album)
+    @media = Album.find(params[:id])
+    @media.update(create_params[:album])
+    redirect_to album_path(@media)
   end
 
   def destroy
-    @album = Album.find(params[:id])
-    @album.destroy
+    @media = Album.find(params[:id])
+    @media.destroy
     redirect_to albums_path
   end
 
   def upvote
-    @album = Album.find(params[:id])
-    @album.add_a_vote
-    @album.save
+    @media = Album.find(params[:id])
+    @media.add_a_vote
+    @media.save
     render :show
   end
 

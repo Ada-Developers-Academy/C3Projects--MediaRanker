@@ -9,35 +9,35 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
+    @media = Movie.new
   end
 
   def create
-    @movie = Movie.new(create_params[:movie])
-    @movie.save
-    redirect_to movie_path(@movie.id)
+    @media = Movie.new(create_params[:movie])
+    @media.save
+    redirect_to movie_path(@media.id)
   end
 
   def edit
-    @movie = Movie.find(params[:id])
+    @media = Movie.find(params[:id])
   end
 
   def update
-    @movie = Movie.find(params[:id])
-    @movie.update(create_params[:movie])
-    redirect_to movie_path(@movie)
+    @media = Movie.find(params[:id])
+    @media.update(create_params[:movie])
+    redirect_to movie_path(@media)
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
-    @movie.destroy
+    @media = Movie.find(params[:id])
+    @media.destroy
     redirect_to movies_path
   end
 
   def upvote
-    @movie = Movie.find(params[:id])
-    @movie.add_a_vote
-    @movie.save
+    @media = Movie.find(params[:id])
+    @media.add_a_vote
+    @media.save
     render :show
   end
 
