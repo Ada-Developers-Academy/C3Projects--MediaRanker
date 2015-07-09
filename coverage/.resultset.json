@@ -1211,6 +1211,37 @@
         null,
         null
       ],
+      "/Users/viktoryiashabunia/ada/learning-bash/project-forks/C3Projects--MediaRanker/spec/controllers/users_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/viktoryiashabunia/ada/learning-bash/project-forks/C3Projects--MediaRanker/app/controllers/users_controller.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null
+      ],
       "/Users/viktoryiashabunia/ada/learning-bash/project-forks/C3Projects--MediaRanker/spec/models/album_spec.rb": [
         1,
         null,
@@ -1252,7 +1283,7 @@
         1,
         null,
         null,
-        3,
+        5,
         null
       ],
       "/Users/viktoryiashabunia/ada/learning-bash/project-forks/C3Projects--MediaRanker/spec/models/book_spec.rb": [
@@ -1296,7 +1327,7 @@
         1,
         null,
         null,
-        3,
+        5,
         null
       ],
       "/Users/viktoryiashabunia/ada/learning-bash/project-forks/C3Projects--MediaRanker/spec/models/movie_spec.rb": [
@@ -1341,10 +1372,10 @@
         1,
         null,
         null,
-        3,
+        5,
         null
       ]
     },
-    "timestamp": 1436403314
+    "timestamp": 1436403476
   }
 }
