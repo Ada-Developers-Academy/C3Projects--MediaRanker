@@ -22,6 +22,96 @@ RSpec.describe Medium, type: :model do
   end
 
   describe "model methods" do
+    describe "indexes for specific formats" do
+      before :all do
+        @record1 = Medium.create({ :title=>"Kitties Album", :creator=>"Cat", :votes=>9, :description=>"", :format=>"album" })
+        @record2 = Medium.create({ :title=>"Llamas Movie", :creator=>"The Llama", :votes=>6, :format=>"movie" })
+        @record3 = Medium.create({ :title=>"Puppies Album", :creator=>"Dog", :votes=>10, :description=>"", :format=>"album" })
+        @record4 = Medium.create({ :title=>"Elephants Album", :creator=>"Elephant", :description=>"", :format=>"album" })
+        @record5 = Medium.create({ :title=>"Puppies Book", :creator=>"Dog", :votes=>10, :description=>"", :format=>"book" })
+        @record6 = Medium.create({ :title=>"Llamas Album", :creator=>"The Llama", :votes=>6, :description=>"", :format=>"album" })
+        @record7 = Medium.create({ :title=>"Kitties Movie", :creator=>"Cat", :votes=>9, :format=>"movie" })
+        @record8 = Medium.create({ :title=>"Puppies Movie", :creator=>"Dog", :votes=>10, :format=>"movie" })
+        @record9 = Medium.create({ :title=>"Kitties Book", :creator=>"Cat", :votes=>9, :description=>"", :format=>"book" })
+        @record10 = Medium.create({ :title=>"Llamas Book", :creator=>"The Llama", :votes=>6, :description=>"", :format=>"book" })
+        @record11 = Medium.create({ :title=>"Elephants Book", :creator=>"Elephant", :description=>"", :format=>"book" })
+        @record12 = Medium.create({ :title=>"Elephants Movie", :creator=>"Elephant", :description=>"", :format=>"movie" })
+      end
+
+      after :all do
+        Medium.destroy_all
+      end
+
+      describe ".movies" do
+        it "returns all the movies" do
+          expect(Medium.movies).to include(@record2, @record7, @record8, @record12)
+        end
+
+        it "exludes other formats" do
+          expect(Medium.movies.count).to eq (4)
+        end
+      end
+
+      describe ".books" do
+        it "returns all the books" do
+          expect(Medium.books).to include(@record5, @record9, @record10, @record11)
+        end
+
+        it "exludes other formats" do
+          expect(Medium.books.count).to eq (4)
+        end
+      end
+
+      describe ".albums" do
+        it "returns all the albums" do
+          expect(Medium.albums).to include(@record1, @record3, @record4, @record6)
+        end
+
+        it "exludes other formats" do
+          expect(Medium.albums.count).to eq (4)
+        end
+      end
+    end
+
+    describe "true/false format identifiers" do
+        let(:movie) { Medium.create({ :title=>"Kitties Movie", :creator=>"Cat", :votes=>9, :format=>"movie" }) }
+        let(:book) { Medium.create({ :title=>"Puppies Book", :creator=>"Dog", :votes=>10, :description=>"", :format=>"book" }) }
+        let(:album) { Medium.create({ :title=>"Llamas Album", :creator=>"The Llama", :votes=>6, :description=>"", :format=>"album" }) }
+
+      describe "#movie?" do
+        it "returns true if object is a movie" do
+          expect(movie.movie?).to be true
+        end
+
+        it "returns false if object is not a movie" do
+          expect(book.movie?).to be false
+          expect(album.movie?).to be false
+        end
+      end
+
+      describe "#book?" do
+        it "returns true if object is a book" do
+          expect(book.book?).to be true
+        end
+
+        it "returns false if object is not a book" do
+          expect(movie.book?).to be false
+          expect(album.book?).to be false
+        end
+      end
+
+      describe "#album?" do
+        it "returns true if object is a album" do
+          expect(album.album?).to be true
+        end
+
+        it "returns false if object is not a album" do
+          expect(movie.album?).to be false
+          expect(book.album?).to be false
+        end
+      end
+    end
+
     describe ".best" do
       before :each do
         @medium1 = Medium.create({ title: "Llamas Album", creator: "The Llama", votes: 6, format: "album" })
