@@ -16,6 +16,12 @@ RSpec.describe Album, type: :model do
       expect(album2).to_not be_valid
       expect(album2.errors.keys).to include(:name)
     end
+
+    it "defaults votes to 0" do
+      album = Album.create(name: "name")
+
+      expect(album.vote).to eq 0
+    end
   end
 
   describe ":best scope" do

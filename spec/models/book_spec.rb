@@ -16,6 +16,12 @@ RSpec.describe Book, type: :model do
       expect(book2).to_not be_valid
       expect(book2.errors.keys).to include(:name)
     end
+
+    it "defaults votes to 0" do
+      book = Book.create(name: "name")
+
+      expect(book.vote).to eq 0
+    end
   end
 
   describe ":best scope" do

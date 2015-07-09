@@ -16,6 +16,12 @@ RSpec.describe Movie, type: :model do
       expect(movie2).to_not be_valid
       expect(movie2.errors.keys).to include(:name)
     end
+
+    it "defaults votes to 0" do
+      movie = Movie.create(name: "name")
+
+      expect(movie.vote).to eq 0
+    end
   end
 
   describe ":best scope" do
