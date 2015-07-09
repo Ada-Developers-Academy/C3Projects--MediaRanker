@@ -55,30 +55,30 @@ RSpec.describe AlbumsController, type: :controller do
         expect(response).to redirect_to(album_path(Album.last))
       end
     end
-  end
 
-  context "invalid params" do
-    let(:album_params) do
-      {
-        album: {
-          # no :name, which is required,
-          description: "nope"
+    context "invalid params" do
+      let(:album_params) do
+        {
+          album: {
+            # no :name, which is required,
+            description: "nope"
+          }
         }
-      }
-    end
+      end
 
-    it "doesn't create invalid records" do
-      post :create, album_params
+      it "doesn't create invalid records" do
+        post :create, album_params
 
-      expect(Album.count).to eq(0)
-    end
+        expect(Album.count).to eq(0)
+      end
 
-    it "renders #new" do
-      post :create, album_params
+      it "renders #new" do
+        post :create, album_params
 
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
-      expect(response).to render_template("new")
+        expect(response).to be_success
+        expect(response).to have_http_status(200)
+        expect(response).to render_template("new")
+      end
     end
   end
 
@@ -96,11 +96,14 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PUT #update" do
-    let(:album) { Album.create(name: "Test4", description: "nope") }
+    let(:album) do
+      Album.create(name: "Test4", description: "nope")
+    end
 
     it "updates a record" do
       put :update, id: album, album: { description: "yep" }
       album.reload
+
       expect(album.description).to eq("yep")
     end
 
@@ -117,11 +120,42 @@ RSpec.describe AlbumsController, type: :controller do
       expect(response).to have_http_status(200)
       expect(response).to render_template("edit")
     end
-
   end
 
-  # describe destroy
+  describe "DELETE #destroy" do
+    let(:album) do
+      Album.create(name: "Test5")
+    end
 
-  # describe upvote
+    it "destroys a record" do
+      delete :destroy, id: album
 
+      expect(Album.count).to eq(0)
+    end
+
+    it "redirects to #index" do
+      delete :destroy, id: album
+
+      expect(response).to redirect_to(albums_path)
+    end
+  end
+
+  describe "POST #upvote" do
+    let(:album) do
+      Album.create(name: "Test6")
+    end
+
+    it "increments :rank by 1" do
+      post :upvote, id: album
+      album.reload
+
+      expect(album.rank).to eq(1)
+    end
+
+    it "redirects to #show" do
+      post :upvote, id: album
+
+      expect(response).to redirect_to(album_path(album))
+    end
+  end
 end
