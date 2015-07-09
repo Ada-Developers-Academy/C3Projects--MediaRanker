@@ -17,7 +17,7 @@ class BooksController < ApplicationController
     @book.ranking = 0
 
     if @book.save
-      render :show
+      redirect_to book_path(@book.id)
     else
       render :new
     end

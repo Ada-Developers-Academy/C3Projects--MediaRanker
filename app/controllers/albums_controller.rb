@@ -17,7 +17,7 @@ class AlbumsController < ApplicationController
     @album.ranking = 0
 
     if @album.save
-      render :show
+      redirect_to album_path(@album.id)
     else
       render :new
     end
