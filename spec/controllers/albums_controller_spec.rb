@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
-  context "when newing up an Album" do
+  context "When newing up an Album" do
     before(:each) do
       get :new
     end
@@ -11,7 +11,7 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
-  describe "GET index" do
+  describe "GET #index" do
     it "assigns to @albums" do
       album = Album.create(name: "Rumors", rank: 89)
       get :index

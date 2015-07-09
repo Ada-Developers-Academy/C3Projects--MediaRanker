@@ -11,7 +11,7 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
-  describe "GET index" do
+  describe "GET #index" do
     it "assigns to @movies" do
       movie = Movie.create(name: "V for Vendetta", rank: 89)
       get :index

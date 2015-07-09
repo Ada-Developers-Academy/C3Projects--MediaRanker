@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-  describe "GET new" do
+  describe "When newing up a Book" do
     before(:each) do
       get :new
     end
@@ -11,7 +11,7 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
-  describe "GET index" do
+  describe "GET #index" do
     it "assigns to @books" do
       book = Book.create(name: "Girl with the Dragon Tattoo", rank: 89)
       get :index
