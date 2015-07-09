@@ -142,7 +142,26 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
-  # describe "DELETE #destroy" do
-  #   # how to test around confirm button?
-  # end
+  describe "DELETE #destroy" do
+    before(:each) do
+      @medium1 = Album.create(title: 'a title', creator: 'a person')
+      @medium2 = Album.create(title: 'b title', creator: 'b person')
+      @medium3 = Album.create(title: 'c title', creator: 'c person')
+
+      delete :destroy, id: @medium3
+    end
+
+    it "deletes an object" do
+      expect(Album.count).to eq 2
+    end
+
+    it "deletes a particular object" do
+      expect(Album.all).to_not include @medium3
+    end
+
+    it "does not delete other objects" do
+      expect(Album.all).to include @medium1
+      expect(Album.all).to include @medium2
+    end
+  end
 end
