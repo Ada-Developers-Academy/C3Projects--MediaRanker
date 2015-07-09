@@ -3,11 +3,11 @@
 
   <% object.each do |detail| %>
     <h2>
-      <%= link_to "#{detail.name} ", "#{object.name.downcase}s/#{detail.id}" %>
+      <%= link_to "#{detail.name} ", polymorphic_path(detail) %>
       <small><%= "Ranked as: #{detail.rank}" %></small>
     </h2>
   <% end %>
 
-<%= link_to "View All #{object.name}s", "/#{object.name.downcase}s", class: "btn btn-default", role: "button" %>
+<%= link_to "View All #{object.name}s", polymorphic_path("#{object.name.downcase}s"), class: "btn btn-default", role: "button" %>
 </div>
 
