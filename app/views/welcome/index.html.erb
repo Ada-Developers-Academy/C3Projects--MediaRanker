@@ -1,13 +1,31 @@
-<table>
-  <tr>
-    <td>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrapin'</title>
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+    <div class="jumbotron">
+    <div class="row">
+      <h1>Welcome to the Media Ranker</h1>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-sm-4">
       <%= render "/movies/index.html.erb" %>
-    </td>
-    <td>
+      </div>
+      <div class="col-sm-4">
       <%= render "/albums/index.html.erb" %>
-    </td>
-    <td>
+      </div>
+      <div class="col-sm-4">
       <%= render "/books/index.html.erb" %>
-    </td>
-  <tr>
-</table>
+      </div>
+    </div>
+  </div>
+
+
+      </body>
+    </html>
