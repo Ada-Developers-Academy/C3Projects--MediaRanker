@@ -1,5 +1,10 @@
 <h1><%= medium.title %></h1>
-<h2><%= created_by + creator %></h2>
+<h2>
+  <%= created_by %>
+  <% unless creator.nil? == true %>
+    <%= creator %>
+  <% end %>
+</h2>
 <h3>Ranked: <%= medium.rank %></h3>
 <p>
   <%= medium.description %>
