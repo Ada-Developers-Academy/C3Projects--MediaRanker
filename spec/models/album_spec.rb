@@ -19,6 +19,36 @@ RSpec.describe Album, type: :model do
         end
       end
     end
+
+    context "creator and description are optional" do
+      it "allows creation of an album without a creator" do
+        album = Album.new(title: 'a title', description: 'a description', rank: 5)
+
+        expect(album).to be_valid
+        expect(album.errors.keys).to_not include(:creator)
+      end
+
+      it "allows creation of an album without a description" do
+        album = Album.new(title: 'a title', creator: 'a creator', rank: 5)
+
+        expect(album).to be_valid
+        expect(album.errors.keys).to_not include(:description)
+      end
+    end
+  end
+
+  describe "db defaults" do
+    it "rank can be assigned explicitly" do
+      album = Album.new(title: 'a title', rank: 5)
+
+      expect(album.rank).to eq 5
+    end
+
+    it "rank defaults to 0 if no value entered" do
+      album = Album.new(title: 'a title')
+
+      expect(album.rank).to eq 0
+    end
   end
 
   describe "ranked scope" do
