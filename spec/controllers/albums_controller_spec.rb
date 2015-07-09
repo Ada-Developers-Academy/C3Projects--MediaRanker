@@ -12,7 +12,7 @@ RSpec.describe AlbumsController, type: :controller do
 
   describe "GET #show" do
     let(:album) do
-      Album.create(name: "Test1")
+      Album.create(name: "Test Name")
     end
 
     it "responds successfully with HTTP 200 status code" do
@@ -37,7 +37,7 @@ RSpec.describe AlbumsController, type: :controller do
       let(:album_params) do
         {
           album: {
-            name: "Test2",
+            name: "Test Name",
             description: "nope"
           }
         }
@@ -84,7 +84,7 @@ RSpec.describe AlbumsController, type: :controller do
 
   describe "GET #edit" do
     let(:album) do
-      Album.create(name: "Test3")
+      Album.create(name: "Test Name")
     end
 
     it "responds successfully with HTTP 200 status code" do
@@ -97,18 +97,18 @@ RSpec.describe AlbumsController, type: :controller do
 
   describe "PUT #update" do
     let(:album) do
-      Album.create(name: "Test4", description: "nope")
+      Album.create(name: "Test Name")
     end
 
     it "updates a record" do
-      put :update, id: album, album: { description: "yep" }
+      put :update, id: album, album: { name: "Changed Name" }
       album.reload
 
-      expect(album.description).to eq("yep")
+      expect(album.name).to eq("Changed Name")
     end
 
     it "on successful update, redirects to #show" do
-      post :update, id: album, album: { description: "yep" }
+      post :update, id: album, album: { description: "Changed Name" }
 
       expect(response).to redirect_to(album_path(album))
     end
@@ -124,7 +124,7 @@ RSpec.describe AlbumsController, type: :controller do
 
   describe "DELETE #destroy" do
     let(:album) do
-      Album.create(name: "Test5")
+      Album.create(name: "Test Name")
     end
 
     it "destroys a record" do
@@ -142,7 +142,11 @@ RSpec.describe AlbumsController, type: :controller do
 
   describe "POST #upvote" do
     let(:album) do
-      Album.create(name: "Test6")
+      Album.create(name: "Test Name")
+    end
+
+    it "defaults :rank to 0 on record creation" do
+      expect(album.rank).to eq(0)
     end
 
     it "increments :rank by 1" do
@@ -150,6 +154,15 @@ RSpec.describe AlbumsController, type: :controller do
       album.reload
 
       expect(album.rank).to eq(1)
+    end
+
+    it "increments :rank multiple times" do
+      10.times do
+        post :upvote, id: album
+      end
+      album.reload
+
+      expect(album.rank).to eq(10)
     end
 
     it "redirects to #show" do
