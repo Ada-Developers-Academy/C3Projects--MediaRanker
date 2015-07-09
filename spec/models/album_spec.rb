@@ -75,4 +75,13 @@ RSpec.describe Album, type: :model do
       expect(Album.top_ranked).to_not include @medium1
     end
   end
+
+  describe "add_vote method" do
+    it "increases rank of an album" do
+      album = Album.create(title: 'a', rank: 5)
+      album.add_vote
+
+      expect(album.rank).to eq 6
+    end
+  end
 end
