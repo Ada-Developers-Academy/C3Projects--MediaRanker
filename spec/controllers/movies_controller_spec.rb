@@ -24,4 +24,14 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+  describe "PATCH #update" do
+    it "updates the movie params" do
+      movie = Movie.create(name: "Inside Oot", rank: 120)
+
+      movie.update(name: "Inside Out")
+
+      expect(movie.name).to eq("Inside Out")
+    end
+  end
+
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-  describe "When newing up a Book" do
+  context "When newing up a Book" do
     before(:each) do
       get :new
     end
@@ -23,4 +23,15 @@ RSpec.describe BooksController, type: :controller do
       expect(response).to render_template("index")
     end
   end
+
+  describe "PATCH #update" do
+    it "updates the book params" do
+      book = Book.create(name: "Howdy", rank: 8)
+
+      book.update(name: "Howdy Y'all")
+
+      expect(book.name).to eq("Howdy Y'all")
+    end
+  end
+
 end

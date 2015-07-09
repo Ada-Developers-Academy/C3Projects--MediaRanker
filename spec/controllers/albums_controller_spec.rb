@@ -24,4 +24,14 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "PATCH #update" do
+    it "updates the album params" do
+      album = Album.create(name: "Trafic Kingdom", rank: 100)
+
+      album.update(name: "Tragic Kingdom")
+
+      expect(album.name).to eq("Tragic Kingdom")
+    end
+  end
+
 end
