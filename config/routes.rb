@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
   root 'media#root'
 
-  CATEGORIES_CONSTRAINTS = { category: /(albums)|(books)|(movies)/ }
+  categories = Category.all.map { |category| category.url_plural }
+
+  regexp_string = ''
+  last_index = categories.length - 1
+
+  categories.each_with_index do |cat, index|
+    regexp_string += "(#{ cat })"
+    regexp_string += '|' unless index == last_index
+  end
+
+  CATEGORIES_CONSTRAINTS = { category: /#{ regexp_string }/ }
 
   get '/:category', to: 'media#index', constraints: CATEGORIES_CONSTRAINTS
   post '/:category', to: 'media#create', constraints: CATEGORIES_CONSTRAINTS
