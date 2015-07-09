@@ -1,22 +1,18 @@
-<% media.each do |medium| %>
-  <% if medium.class == Movie %>
-    <%= link_to "#{medium.title}", movie_path(id: medium.id) %>
-  <% elsif medium.class == Book %>
-    <%= link_to "#{medium.title}", book_path(id: medium.id) %>
-  <% elsif medium.class == Album %>
-    <%= link_to "#{medium.title}", album_path(id: medium.id) %>
-  <% end %>
-  <ul>
-    <li>
-      <% if medium.class == Movie %>
-        <%= medium.director %>
-      <% elsif medium.class == Book %>
-        <%= medium.author %>
-      <% elsif medium.class == Album %>
-        <%= medium.artist %>
+<div class="row">
+  <% @media.each do |all_of_one_media| %>
+    <div class="col-md-4">
+      <% all_of_one_media.each do |medium| %>
+      <div class="">
+        <% if medium.class == Movie %>
+          <%= link_to "#{medium.title}", movie_path(id: medium.id) %>
+        <% elsif medium.class == Book %>
+          <%= link_to "#{medium.title}", book_path(id: medium.id) %>
+        <% elsif medium.class == Album %>
+          <%= link_to "#{medium.title}", album_path(id: medium.id) %>
+        <% end %>
+        Ranked: <%= medium.rank %>
+      </div>
       <% end %>
-    </li>
-    <li><%= medium.description %></li>
-    <li><%= medium.rank %></li>
-  </ul>
-<% end %>
+    </div>
+  <% end %>
+</div>

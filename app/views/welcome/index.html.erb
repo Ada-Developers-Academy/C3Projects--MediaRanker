@@ -1,29 +1,23 @@
 <% @media_types = ["Movies", "Books", "Albums"] %>
 
-<table>
-  <tr>
-    <% @media_types.each do |medium| %>
-      <th>
-        <h3><%= medium %></h3>
-      </th>
-    <% end %>
-  </tr>
-  <tr>
-    <% @media.each do |media| %>
-      <td>
-        <%= render partial: "shared/home_display", locals: { media: media } %>
-      </td>
-    <% end %>
-  </tr>
-  <tr>
-    <td>
-      <%= link_to "View more movies", movies_path %>
-    </td>
-    <td>
-      <%= link_to "View more books", books_path %>
-    </td>
-    <td>
-      <%= link_to "View more albums", albums_path %>
-    </td>
-  </tr>
-</table>
+<div class="row">
+  <% @media_types.each do |medium| %>
+    <div class="col-md-4">
+      <h1>Top <%= medium %></h1>
+    </div>
+  <% end %>
+</div>
+
+<%= render partial: "shared/home_display", locals: { media: @media } %>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= link_to "View more movies", movies_path %>
+  </div>
+  <div class="col-md-4">
+    <%= link_to "View more albums", albums_path %>
+  </div>
+  <div class="col-md-4">
+    <%= link_to "View more albums", albums_path %>
+  </div>
+</div>
