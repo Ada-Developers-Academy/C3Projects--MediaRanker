@@ -61,6 +61,9 @@ group :development, :test do
 
   # to evaluate code coverage
   gem 'simplecov', require: false
+
+  # factory girl
+  gem 'factory_girl_rails'
 end
 
 group :production do
