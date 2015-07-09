@@ -1,15 +1,15 @@
 
-<%= form_for object do |f| %>
-
+<%= form_for object, html: {class: "form"} do |f| %>
+  <div class="form-group">
   <%= f.label :name %>
-  <%= f.text_field :name, required: :true %>
+  <%= f.text_field :name, required: :true, class: "form-control" %>
 
   <%= f.label object_creator %>
-  <%= f.text_field object_creator, required: :true %>
+  <%= f.text_field object_creator, required: :true, class: "form-control" %>
 
   <%= f.label :description %>
-  <%= f.text_area :description %>
-
+  <%= f.text_area :description, class: "form-control" %>
+  </div>
   <%= f.submit "Save", class: "btn btn-default" %>
 
 <% end %>

@@ -1,27 +1,26 @@
 <%= render "shared/header" %>
 
-<tr>
-    <th>Ranking</th>
-    <th>Name</th>
-    <th>Upvote</th>
-  </tr>
 
 <table class="table table-hover">
-
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
 
     <% objects.each do |object|%>
     <tr>
-      <td><%= object.rank %></td>
-      <td><%= link_to object.name, "/#{object_path}/#{object.id}" %></td>
-      <td><%= link_to "Upvote", "/#{object_path}/#{object.id}/upvote", class: "btn btn-default" %></td>
+      <td>Ranked: <%= object.rank %></td>
+      <td><%= link_to object.name, polymorphic_path(object) %></td>
+      <td><%= link_to "Upvote", polymorphic_path([:upvote, object]), method: :post, class: "btn btn-default" %></td>
     </tr>
     <% end %>
 
 
 </table>
 
-<%= button_to "View All Media", root_path, method: :get %>
-<%= button_to "Add an Album", "/#{object_path}/new", method: :get %>
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
+<%= link_to "Add an Album", "/#{object_path}/new", class: "btn btn-default" %>
 
 
 

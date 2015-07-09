@@ -1,12 +1,15 @@
 <%= render 'shared/header' %>
 
-<h1><%= object.name %></h1>
-<h2>Recorded by: <%= creator %></h2>
-<h3>Ranked: <%= object.rank %></h3>
-<h4><%= object.description %></h4>
+<h1><%= object.name %> <small>Recorded by: <%= creator %></small></h1>
+<h4>Ranked: <%= object.rank %></h4>
+<p><%= object.description %></p>
 
-<%= link_to "Upvote", "/#{object_path}/#{object.id}/upvote", class: "btn btn-default" %>
-<%= link_to "Edit #{object.name}", "/#{object_path}/#{object.id}/edit", method: :get, class: "btn btn-default" %>
-<%= link_to "Delete", "/#{object_path}/#{object.id}", method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this?"} %>
+<p>
+<%= link_to "Upvote", polymorphic_path([:upvote, object]), method: :post, class: "btn btn-primary" %>
+</p>
+<%= link_to "Edit #{object.name}", edit_polymorphic_path(object), method: :get, class: "btn btn-default" %>
+<%= link_to "Delete", polymorphic_path(object), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this?"} %>
+<%= link_to "View all #{object.class}s", polymorphic_path(object.class), class: "btn btn-default" %>
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
 
 
