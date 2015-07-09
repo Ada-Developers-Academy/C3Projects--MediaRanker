@@ -2,6 +2,7 @@ class AlbumsController < ApplicationController
 
   def index
     @media = Album.all.order(rank: :desc)
+    @medium = Album.new
   end
 
   def show

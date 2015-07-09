@@ -10,13 +10,13 @@
     <% @media.each do |media| %>
     <tr>
       <td> Ranked: <%= media.rank %> </td>
-      <td> <%= link_to "#{media.name}", send(media_path, media) %></td>
-      <td> <%= button_to "Upvote", send(upvote_path, media), method: "patch", class: "btn btn-default" %> </td>
+      <td> <%= link_to "#{media.name}", polymorphic_path(media) %></td>
+      <td> <%= button_to "Upvote", polymorphic_path([media, :upvote]), method: "patch", class: "btn btn-default" %> </td>
     </tr>
     <% end %>
   </table>
 
   <%= link_to "View All Media", root_path, class: "btn btn-default" %>
-  <%= link_to "Add #{media_name}", send(new_path), class: "btn btn-default" %>
+  <%= link_to "Add #{media_name}", new_polymorphic_path(@medium.class), class: "btn btn-default" %>
   </div>
 </div>

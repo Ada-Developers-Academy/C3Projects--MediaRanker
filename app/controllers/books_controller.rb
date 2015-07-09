@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   def index
     @media = Book.all.order(rank: :desc)
+    @medium = Book.new
   end
 
   def show

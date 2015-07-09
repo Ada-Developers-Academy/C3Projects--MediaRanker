@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
 
   def index
     @media = Movie.all.order(rank: :desc)
+    @medium = Movie.new
   end
 
   def show
