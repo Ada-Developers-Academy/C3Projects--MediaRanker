@@ -22,7 +22,7 @@ categories = Category.create ([
     created_verb: "Recorded"
   },
   {
-    name: "TV", #4
+    name: "Tv", #4
     full_name: "TV Show",
     creator_noun: "Creator",
     created_verb: "Created"

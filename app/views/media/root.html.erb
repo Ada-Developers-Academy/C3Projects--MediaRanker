@@ -1,13 +1,12 @@
 <ol class="breadcrumb">
-  <li class="active">Home</li>
+  <%= render partial: "all_media", locals: { active: true } %>
 </ol>
 
 <% @media.each do |group| %>
   <div class="col-sm-4">
     <section class="category">
       <% category = group.first.category %>
-      <% category_name = category.full_name || category.name %>
-      <% category_name += "s" %>
+      <% category_name = category.display_name + "s" %>
       <h1>Top <%= category_name %></h1>
       <% group.each do |item| %>
         <h4><%= link_to "#{ item.title }", "/#{ category.plural }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h4>

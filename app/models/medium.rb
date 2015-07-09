@@ -16,6 +16,14 @@ class Medium < ActiveRecord::Base
     return creator ? "#{ creator }'s #{ title }" : "#{ title }"
   end
 
+  def url_base
+    "/#{ category.plural }"
+  end
+
+  def url
+    "#{ url_base }/#{ id }"
+  end
+
   # I've done it this way to account for categories that have no records.
   # I'd love some feedback about better ways to do this or how to improve this.
   def self.categorize

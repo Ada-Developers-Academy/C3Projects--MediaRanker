@@ -8,4 +8,8 @@ class Category < ActiveRecord::Base
   def plural
     name.downcase.pluralize
   end
+
+  def display_name
+    full_name || name
+  end
 end

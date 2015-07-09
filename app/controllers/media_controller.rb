@@ -1,14 +1,13 @@
 class MediaController < ApplicationController
-  before_action :set_default_medium
-  skip_before_action :set_default_medium, only: :root
+  before_action :set_defaults
+  skip_before_action :set_defaults, only: :root
 
   def root
     @media = Medium.categorize
   end
 
   def index
-    group = @medium.category.plural
-    @media = Medium.group
+    @media = @category.media.by_upvotes
   end
 
   def show
@@ -64,12 +63,12 @@ class MediaController < ApplicationController
     return id ? "/#{ @medium.category.plural }/#{ id }" : "/#{ @medium.category.plural }"
   end
 
-  def set_default_medium
+  def set_defaults
     path = request.path.split("/")
     category = path[1] # 0 is "" because path is like: /movies/134
-    category_id = Category.where(name: category.classify).id
 
-    @medium = Medium.new(category_id: category_id)
+    @category = Category.where(name: category.classify)[0]
+    @medium = Medium.new(category_id: @category.id)
   end
 
   def create_params

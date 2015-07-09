@@ -1,8 +1,14 @@
 <ol class="breadcrumb">
-  <li><a href="/">Home</a></li>
-  <li class="active">All <%= @category.capitalize %></li>
+  <%= render partial: "all_media", locals: { active: false } %>
+  <%= render partial: "category", locals: { active: true } %>
 </ol>
 
+<div class="col-sm-5 col-sm-offset-3">
+  <h2>All <%= @category.display_name %>s</h2>
+</div>
+<div class="col-sm-1">
+  <%= link_to "Add New #{ @category.display_name }", "#{ @medium.url_base }/new", title: "Add a new #{ @category.display_name }!", class: "btn btn-default" %>
+</div>
 <div class="col-sm-6 col-sm-offset-3">
   <table class="table table-hover">
     <tr>
@@ -11,15 +17,13 @@
       <th>Upvote</th>
     </tr>
     <% @media.each do |record| %>
-      <% id = record.id %>
       <tr>
         <td><%= record.upvotes || 0 %></td>
-        <td><%= link_to "#{ record.title }", "/#{ @category }/#{ id }" %></td>
-        <td><%= link_to "Upvote", "/#{ @category }/#{ id }/upvote", method: :patch, class: "btn btn-info" %></td>
+        <td><%= link_to "#{ record.title }", "#{ record.url_base }" %></td>
+        <td><%= link_to "Upvote", "#{ record.url }/upvote", method: :patch, class: "btn btn-info" %></td>
       </tr>
     <% end %>
   </table>
-
-  <%= link_to "View All Media", "/", title: "Media Ranker: Ranking the Best of Everything", class: "btn btn-default" %>
-  <%= link_to "Add a #{ @singular_category }", "/#{ @category }/new", title: "Add a new #{ @singular_category }!", class: "btn btn-default" %>
+</div>
+<div class="col-sm-2">
 </div>
