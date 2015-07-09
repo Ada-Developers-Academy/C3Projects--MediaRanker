@@ -1,8 +1,21 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:update, :show]
+  before_action :set_movie, only: [:update, :show,]
 
   def index
     @movies = Movie.all
+  end
+
+  def new
+    @movie = Movie.new
+  end
+
+  def create
+    @movie = Movie.new(create_params)
+    if @movie.save
+      redirect_to movie_path(@movie)
+    else
+      render :new
+    end
   end
 
   def update

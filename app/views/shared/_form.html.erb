@@ -1,0 +1,13 @@
+<h2><%= "#{form_name}" %></h2>
+<%= form_for media do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label created_by, "#{creator}" %>
+  <%= f.text_field created_by %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+<% end %>
