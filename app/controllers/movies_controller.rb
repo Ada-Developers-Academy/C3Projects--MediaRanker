@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:update, :show, :destroy]
+  before_action :set_movie, only: [:update, :show, :destroy, :edit]
 
   def index
     @movies = Movie.all
@@ -18,12 +18,19 @@ class MoviesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     if params[:upvote] == "true"
       Movie.upvote(@movie)
       redirect_to movie_path(@movie)
     else
-      render :index
+      if @movie.update(create_params)
+        redirect_to movie_path(@movie)
+      else
+        render :edit
+      end
     end
   end
 
@@ -32,7 +39,6 @@ class MoviesController < ApplicationController
 
   def destroy
     @movie.destroy
-
     redirect_to movies_path
   end
 
