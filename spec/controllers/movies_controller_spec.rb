@@ -40,16 +40,16 @@ RSpec.describe MoviesController, type: :controller do
   describe "PUT #update" do
     describe "upvote" do
       before :each do
-        @movie = Movie.create(title: 'a', votes: 1)
+        @movie = Movie.create(title: 'a')
       end
 
       it "updates votes" do
-        put :update, id: @movie.id, votes: @movie.votes, upvote: "true"
-        expect(Movie.find(1).votes).to eq 2
+        put :update, id: @movie, upvote: "true"
+        expect(Movie.find(1).votes).to eq 1
       end
 
       it "redirects to movie show view" do
-        put :update, id: @movie, votes: @movie, upvote: "true"
+        put :update, id: @movie, upvote: "true"
         expect(subject).to redirect_to(movie_path(@movie))
       end
     end

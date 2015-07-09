@@ -26,22 +26,26 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "renders the new view" do
-      get :new
-      expect(response).to render_template("new")
+  describe "GET #edit" do
+    before :each do
+      @book = Book.create(title: 'a')
+    end
+
+    it "renders the edit view" do
+      get :edit, id: @book
+      expect(response).to render_template("edit")
     end
   end
 
   describe "PUT #update" do
-    context "valid book params" do
+    describe "upvote" do
       before :each do
-        @book = Book.create(title: 'a', votes: 1)
+        @book = Book.create(title: 'a')
       end
 
       it "updates votes" do
-        put :update, id: @book.id, votes: @book.votes, upvote: "true"
-        expect(Book.find(1).votes).to eq 2
+        put :update, id: @book, upvote: "true"
+        expect(Book.find(1).votes).to eq 1
       end
 
       it "redirects to book show view" do
@@ -49,20 +53,55 @@ RSpec.describe BooksController, type: :controller do
         expect(subject).to redirect_to(book_path(@book))
       end
     end
-    context "invalid book params" do
-      before :each do
-        @book = Book.create(title: 'a', votes: 1)
+
+    describe "editing a book" do
+      context "valid book params" do
+        before :each do
+          @book = Book.create(title: 'a')
+        end
+
+        it "updates a book" do
+          put :update, id: @book, book: { title: 'b'}
+          @book.reload
+          expect(@book.title).to eq 'b'
+        end
+
+        it "redirects to book show view" do
+          put :update, id: @book, book: { title: 'b'}
+          @book.reload
+          expect(response).to redirect_to(book_path(@book))
+        end
       end
 
-      it "does not update votes" do
-        put :update, id: @book, votes: @book
-        expect(Book.find(1).votes).to eq 1
+      context "invalid book params" do
+        before :each do
+          @book = Book.create(title: 'a')
+        end
+
+        it "does not update the book" do
+          put :update, id: @book, book: { title: '' }
+          @book.reload
+          expect(@book.title).to eq 'a'
+        end
+
+        it "renders the edit page so the record can be fixed" do
+          put :update, id: @book, book: { title: '' }
+          @book.reload
+          expect(response).to render_template("edit")
+        end
       end
     end
   end
 
+  describe "GET #new" do
+    it "renders the new view" do
+      get :new
+      expect(response).to render_template("new")
+    end
+  end
+
   describe "POST #create" do
-    context "valid book params"do
+    context "valid book params" do
       let(:book) do
         {
           book: {
