@@ -1,16 +1,10 @@
 <div class="row">
 <%= render partial: "shared/list", locals: { media_type: @movies,
-                                             media_name: "Movies",
-                                             media_path: "movie_path",
-                                             all_media_path: "movies_path" } %>
+                                             media_name: "Movies" } %>
 
 <%= render partial: "shared/list", locals: { media_type: @books,
-                                            media_name: "Books",
-                                            media_path: "book_path",
-                                            all_media_path: "books_path" } %>
+                                            media_name: "Books" } %>
 
 <%= render partial: "shared/list", locals: { media_type: @albums,
-                                             media_name: "Albums",
-                                             media_path: "album_path",
-                                             all_media_path: "albums_path" } %>
+                                             media_name: "Albums" } %>
 </div>
