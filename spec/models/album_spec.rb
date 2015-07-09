@@ -36,4 +36,15 @@ describe "model validations" do
     end
   end
 
+  describe "add_vote" do
+    before :each do
+      @album1 = Album.create(name: "Cool Album", artist: "some person", description: "cool", rank: 5)
+    end
+    it "adds 1 to an album rank" do
+      @album1.add_vote
+
+      expect(@album1.rank).to eq 6
+    end
+  end
+
 end

@@ -36,4 +36,16 @@ RSpec.describe Movie, type: :model do
     end
   end
 
+  describe "add_vote" do
+    before :each do
+      @movie1 = Movie.create(name: "Cool Movie", director: "some person", description: "cool", rank: 5)
+    end
+    it "adds 1 to an album rank" do
+      @movie1.add_vote
+
+      expect(@movie1.rank).to eq 6
+    end
+  end
+
+
 end

@@ -13,10 +13,7 @@ RSpec.describe AlbumsController, type: :controller do
   describe "POST #upvote" do
 
     it "add 1 to the album rank" do
-      album = Album.create(name: "Cool Album", artist: "some person", description: "cool", rank: 5)
-      album.upvote
 
-      expect(album.rank).to eq 6
     end
   end
 end
