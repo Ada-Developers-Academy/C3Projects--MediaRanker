@@ -53,7 +53,7 @@ class MediaController < ApplicationController
     url_base = medium.url_base
     medium.destroy
 
-    redirect_to "/#{ url_base }"
+    redirect_to "#{ url_base }"
   end
 
   private

@@ -9,7 +9,7 @@ class Medium < ActiveRecord::Base
   scope :only_ten, -> { limit(10) }
 
   def created_by # eg, Created by Quentin Tarantino
-    return "#{ category.created_verb } by #{ creator }" if creator != ""
+    return "#{ category.created_verb } by #{ creator }" if (creator != "" && creator)
   end
 
   def creator_phrase # eg, Quentin Tarantino's Inglorious Basterds
