@@ -1,4 +1,4 @@
-RSpec.shared_examples "a medium model" do
+RSpec.shared_examples "a media model" do
   let(:collection) { described_class.new }
 
   describe "model validations" do
