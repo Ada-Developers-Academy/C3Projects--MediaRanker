@@ -1,13 +1,1 @@
-<%= form_for @movie, url: movie_path(@movie.id) do |f| %>
-   <legend>Edit Movie</legend>
-   <%= f.label :name %>
-   <%= f.text_field :name %>
-
-   <%= f.label :director %>
-   <%= f.text_field :director %>
-
-   <%= f.label :description %>
-   <%= f.text_field :description %>
-
- <%= f.submit 'Save' %>
-<% end %>
+<%= render partial: "shared/edit", locals: {subject: @movie, path: movie_path(@movie.id), by: :director } %>
