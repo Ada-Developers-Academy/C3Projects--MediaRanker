@@ -1,3 +1,2 @@
-<%= render partial: 'shared/index', locals: { objects: @albums } %>
+<%= render partial: 'shared/index', locals: { objects: @albums, media: "an Album", object_path: "albums" } %>
 
-<%= link_to "Add an Album", new_album_path, class: "btn btn-default" %>

@@ -49,7 +49,7 @@ class MoviesController < ApplicationController
   private
 
   def create_params
-    params.permit(movie: [:name, :director, :description, :rank])
+    params.permit(movie: [:name, :creator, :description, :rank])
   end
 
 end

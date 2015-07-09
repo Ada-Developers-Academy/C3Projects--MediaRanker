@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20150706223827) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
-    t.string   "artist"
+    t.string   "creator"
     t.string   "description"
     t.integer  "rank"
     t.datetime "created_at",  null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150706223827) do
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
-    t.string   "author"
+    t.string   "creator"
     t.string   "description"
     t.integer  "rank"
     t.datetime "created_at",  null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150706223827) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "name"
-    t.string   "director"
+    t.string   "creator"
     t.string   "description"
     t.integer  "rank"
     t.datetime "created_at",  null: false

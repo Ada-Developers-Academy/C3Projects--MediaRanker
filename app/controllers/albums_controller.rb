@@ -49,7 +49,7 @@ class AlbumsController < ApplicationController
   private
 
   def create_params
-    params.permit(album: [:name, :artist, :description, :rank])
+    params.permit(album: [:name, :creator, :description, :rank])
   end
 
 end

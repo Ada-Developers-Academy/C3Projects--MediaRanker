@@ -1,3 +1,2 @@
-<%= render partial: 'shared/index', locals: { objects: @books } %>
+<%= render partial: 'shared/index', locals: { objects: @books, media: "a Book", object_path: "books" } %>
 
-<%= link_to "Add a Book", new_book_path, class: "btn btn-default" %>
