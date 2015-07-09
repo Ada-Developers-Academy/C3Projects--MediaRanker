@@ -42,10 +42,4 @@
 </table>
 
 <%= link_to "View all Media", root_path %>
-<% if type == "movie" %>
-  <%= link_to "Add a Movie", new_movie_path %>
-<% elsif type == "book" %>
-  <%= link_to "Add a Book", new_book_path %>
-<% elsif type = "album" %>
-  <%= link_to "Add an Album", new_album_path %>
-<% end %>
+<%= link_to "Add a #{type}", new_path %>

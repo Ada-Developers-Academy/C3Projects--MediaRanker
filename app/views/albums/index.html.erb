@@ -1,2 +1,4 @@
 <h1>Albums</h1>
-<%= render "shared/show_all_index", media: @albums, type: @media_type %>
+<%= render partial: "shared/index", locals: { media: @albums,
+                                              type: @media_type,
+                                              new_path: new_album_path } %>

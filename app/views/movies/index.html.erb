@@ -1,2 +1,4 @@
 <h1>Movies</h1>
-<%= render "shared/show_all_index", media: @movies, type: @media_type %>
+<%= render partial: "shared/index", locals: { media: @movies,
+                                              type: @media_type,
+                                              new_path: new_movie_path } %>

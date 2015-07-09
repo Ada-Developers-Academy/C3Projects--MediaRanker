@@ -10,24 +10,24 @@
   </tr>
   <tr>
     <td>
-      <%= render "shared/show_media", media: @movies %>
+      <%= render "shared/home_display", media: @movies %>
     </td>
     <td>
-      <%= render "shared/show_media", media: @books %>
+      <%= render "shared/home_display", media: @books %>
     </td>
     <td>
-      <%= render "shared/show_media", media: @albums %>
+      <%= render "shared/home_display", media: @albums %>
     </td>
   </tr>
   <tr>
     <td>
-      <%= link_to "View more Movies", movies_path %>
+      <%= link_to "View more movies", movies_path %>
     </td>
     <td>
-      <%= link_to "View more Books", books_path %>
+      <%= link_to "View more books", books_path %>
     </td>
     <td>
-      <%= link_to "View more Albums", albums_path %>
+      <%= link_to "View more albums", albums_path %>
     </td>
   </tr>
 </table>
