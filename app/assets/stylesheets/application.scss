@@ -13,3 +13,9 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+header {
+  background-image: url('/assets/images/media.jpg');
+  height: 295px;
+  background-size: 100%;
+}
