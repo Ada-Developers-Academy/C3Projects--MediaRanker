@@ -1,12 +1,3 @@
-<h1><%= @album.name %>
-  <small>Recorded by: <%= @album.artist %></small>
-</h1>
+<%= render partial: "shared/show_content", locals: {name: @album.name, by: @album.artist, ranking: @album.ranking, description: @album.description } %>
 
-<h4>Ranked: <%= @album.ranking %></h4>
-<p><%= @album.description %></p>
-
-<%= button_to "Upvote", upvote_album_path(@album.id), method: "patch" %>
-<%= button_to "Edit #{@album.name}", edit_album_path(@album.id), method: "get" %>
-<%= button_to "DELETE", album_path(@album.id), method: "delete", data: { confirm: "Are you sure?" } %>
-<%= button_to "View All Albums", albums_path, method: "get" %>
-<%= button_to "View All Media", root_path, method: "get" %>
+<%= render partial: "shared/buttons_footer", locals: {upvote_name_path: upvote_album_path(@album.id), edit_name: @album.name, edit_name_path: edit_album_path(@album.id), name_path: album_path(@album.id), view_name: "Albums", all_names_path: albums_path} %>

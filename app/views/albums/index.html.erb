@@ -1,18 +1,11 @@
 <table>
-  <tr>
-    <th>Ranking<th>
-    <th>Name</th>
-    <th>Upvote</th>
-  </tr>
+  <%= render partial: "shared/table_header" %>
 
-  <% @albums.each do |album| %>
-  <tr>
-    <th>Ranked: <%= album.ranking %></th>
-    <th><%= link_to "#{album.name}", album_path(album.id) %></th>
-    <th><%= button_to "Upvote", upvote_album_path(album.id), method: "patch" %></th>
-  </tr>
-  <% end %>
+    <% @albums.each do |album| %>
+
+    <%= render partial: "shared/index_content", locals: {name: album.name, ranking: album.ranking, name_path: album_path(album.id), upvote_name_path: upvote_album_path(album.id), new_name_path: new_album_path } %>
+
+    <% end %>
 </table>
 
-<%= button_to "View All Media", root_path, method: "get" %>
-<%= button_to "Add a Album", new_album_path, method: "get" %>
+<%= render partial: "shared/buttons_view_all_and_add_new", locals: {name: "Album", new_name_path: new_album_path } %>
