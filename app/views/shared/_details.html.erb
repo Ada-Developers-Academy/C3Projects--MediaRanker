@@ -1,5 +1,5 @@
 <div class="col-sm-5 outer-wrapper">
-  <div class="inner-wrapper col-sm-12 panel panel-default">
+  <div class="inner-wrapper panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title"><%= "#{medium.class.name} ##{medium.id}" %></h4>
     </div>
@@ -36,6 +36,6 @@
     </div>
   </div>
 
-  <%= link_to "View All Media", media_path %>
+  <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><%= link_to "View All Media", media_path %>
   <p class="float-right"><%= link_to "View All #{medium.class.name}s", "./" %></p>
 </div>

@@ -1,24 +1,38 @@
-<ul class="list-group col-sm-5 list">
+<div class="col-sm-5 outer-wrapper">
 
-  <% media.each do |medium| %>
-    <li class="list-group-item">
-      <div>
-        <span class="badge"><%= medium.ranking %></span>
-      </div>
+  <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><%= link_to "View All Media", media_path %>
 
-      <div>
-        <%= medium.title %>
-      </div>
 
-      <div>
-        <% if medium.has_attribute?(:director) %>
-            Directed by: <%= medium.director %>
-        <% elsif medium.has_attribute?(:author) %>
-            Written by: <%= medium.author %>
-        <% elsif medium.has_attribute?(:artist) %>
-            Artist: <%= medium.artist %>
-        <% end %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+  <ul class="list-group list">
+
+    <% media.each do |medium| %>
+      <li class="list-group-item">
+        <div>
+          <span class="badge"><%= medium.ranking %></span>
+        </div>
+
+        <div>
+          <% if medium.class.name == "Movie" %>
+            <%= link_to medium.title, movie_path(medium) %>
+          <% elsif medium.class.name == "Book" %>
+            <%= link_to medium.title, book_path(medium) %>
+          <% elsif medium.class.name == "Album" %>
+            <%= link_to medium.title, album_path(medium) %>
+          <% end %>
+        </div>
+
+        <div>
+          <% if medium.has_attribute?(:director) %>
+              Directed by: <%= medium.director %>
+          <% elsif medium.has_attribute?(:author) %>
+              Written by: <%= medium.author %>
+          <% elsif medium.has_attribute?(:artist) %>
+              Artist: <%= medium.artist %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <p class="text-right"><%= link_to "+ New #{media.model_name.name}", "./new", class: "btn btn-primary" %></p>
+</div>
