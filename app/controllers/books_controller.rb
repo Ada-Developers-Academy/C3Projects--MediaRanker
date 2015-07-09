@@ -7,6 +7,14 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def upvote
+    @book = Book.find(params[:id])
+    @book.ranking += 1
+    @book.save
+
+    render :show, medium: @book
+  end
+
   def create
     book = Book.new(create_params[:book])
     book.save # opportunity for validity checks

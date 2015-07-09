@@ -7,13 +7,20 @@ class AlbumsController < ApplicationController
     @album = Album.new
   end
 
+  def upvote
+    @album = Album.find(params[:id])
+    @album.ranking += 1
+    @album.save
+
+    render :show, medium: @album
+  end
+
   def create
     album = Album.new(create_params[:album])
     album.save # opportunity for validity checks
 
     redirect_to album_path(album)
   end
-
 
   def show
     @album = Album.find(params[:id])

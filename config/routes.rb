@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   patch 'movies/:id' => 'movies#upvote'
+  patch 'books/:id' => 'books#upvote'
+  patch 'albums/:id' => 'albums#upvote'
 
 
   resources :movies, :books, :albums
