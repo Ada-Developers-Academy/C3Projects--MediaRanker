@@ -111,7 +111,7 @@ RSpec.describe AlbumsController, type: :controller do
         post :update, id: @album, album: { title: "updated title", creator: 'some person' }
       end
 
-      it "updates an item with valid params" do
+      it "updates an album with valid params" do
         @album.reload
         expect(@album.title).to eq("updated title")
       end
@@ -165,15 +165,15 @@ RSpec.describe AlbumsController, type: :controller do
 
   describe "DELETE #destroy" do
     before(:each) do
-      @medium1 = Album.create(title: 'a title', creator: 'a person')
-      @medium2 = Album.create(title: 'b title', creator: 'b person')
-      @medium3 = Album.create(title: 'c title', creator: 'c person')
+      @album1 = Album.create(title: 'a title', creator: 'a person')
+      @album2 = Album.create(title: 'b title', creator: 'b person')
+      @album3 = Album.create(title: 'c title', creator: 'c person')
 
-      delete :destroy, id: @medium3
+      delete :destroy, id: @album3
     end
 
     it "deletes a particular object" do
-      expect(Album.all).to_not include @medium3
+      expect(Album.all).to_not include @album3
     end
 
     it "redirects to the albums_path" do
