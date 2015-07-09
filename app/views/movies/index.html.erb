@@ -1,0 +1,16 @@
+<h1>Movies</h1>
+<table>
+  <tr>
+    <th>Ranking</th>
+    <th>Title</th>
+    <th>Vote</th>
+  </tr>
+  <% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.ranking %></td>
+    <td><%= link_to "#{movie.title}", movie_path(movie.id), method: :get %></td>
+    <td><%= button_to "Vote", class: "btn btn-default" %></td>
+  </tr>
+  <% end %>
+</table>
+<%= button_to "Add a Movie", new_movie_path, method: :get, class: "btn btn-default" %>

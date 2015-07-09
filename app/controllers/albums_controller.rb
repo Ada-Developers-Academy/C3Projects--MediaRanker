@@ -16,7 +16,7 @@ class AlbumsController < ApplicationController
     if @media.save
       redirect_to albums_path
     else
-      # @media.validate_or_msg   # prints old AND new error msgs
+      # @media.validate_or_msg
       render :new
     end
   end
