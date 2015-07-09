@@ -1,4 +1,6 @@
-<%= render "shared/show_medium", medium: @book %>
+<%= render partial: "shared/show_medium", locals: { medium: @book,
+                                                    creator: @book.author,
+                                                    created_by: "Written by: " }%>
 
 <%= button_to "Upvote", book_path, method: :put %>
 <%= link_to "Edit #{@book.title}", edit_book_path %>

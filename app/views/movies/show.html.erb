@@ -1,4 +1,6 @@
-<%= render "shared/show_medium", medium: @movie %>
+<%= render partial: "shared/show_medium", locals: { medium: @movie,
+                                                    creator: @movie.director,
+                                                    created_by: "Directed by: " }%>
 
 <%= button_to "Upvote", movie_path, method: :put %>
 <%= link_to "Edit #{@movie.title}", edit_movie_path %>

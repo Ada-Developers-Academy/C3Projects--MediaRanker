@@ -1,4 +1,6 @@
-<%= render "shared/show_medium", medium: @album %>
+<%= render partial: "shared/show_medium", locals: { medium: @album,
+                                                    creator: @album.artist,
+                                                    created_by: "Recorded by: " }%>
 
 <%= button_to "Upvote", album_path, method: :put %>
 <%= link_to "Edit #{@album.title}", edit_album_path %>
