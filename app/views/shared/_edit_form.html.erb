@@ -1,13 +1,14 @@
-<%= form_for subject, url: path do |f| %>
-   <legend>Edit<%= "#{subject.class}" %></legend>
-   <%= f.label :name %>
-   <%= f.text_field :name %>
+<%= form_for subject, html: {class: "form"}, url: path do |f| %>
+  <h2>Edit<%= "#{subject.class}" %></h2>
+    <div class = "form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
 
-   <%= f.label by %>
-   <%= f.text_field by %>
+      <%= f.label by %>
+      <%= f.text_field by, class: "form-control" %>
 
-   <%= f.label :description %>
-   <%= f.text_field :description %>
-
- <%= f.submit 'Save' %>
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  <%= f.submit 'Save', class: "btn btn-default" %>
 <% end %>
