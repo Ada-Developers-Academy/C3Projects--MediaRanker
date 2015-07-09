@@ -145,24 +145,26 @@ books = Medium.create([
   {
     category: "Book",
     upvotes: random_number,
-    title: "The Cobra Effect"
+    title: "The Cobra Event",
+    creator: "Richard Preston"
   },
   {
     category: "Book",
     upvotes: random_number,
-    title: "Eon"
+    title: "The Postman",
+    creator: "David Brin"
   },
   {
     category: "Book",
     upvotes: random_number,
     title: "The Color of Distance",
-    creator: "Kim Stanley Robinson"
+    creator: "Amy Thomson"
   },
   {
     category: "Book",
     upvotes: random_number,
-    title: "Red Mars",
-    creator: "Kim Stanley Robinson"
+    title: "Through Alien Eyes",
+    creator: "Amy Thomson"
   },
   {
     category: "Book",
@@ -173,7 +175,26 @@ books = Medium.create([
   {
     category: "Book",
     upvotes: random_number,
-    title: "A Civil Action"
+    title: "A Civil Action",
+    creator: "Jonathan Harr"
+  },
+  {
+    category: "Book",
+    upvotes: random_number,
+    title: "The Peace War",
+    creator: "Vernor Vinge"
+  },
+  {
+    category: "Book",
+    upvotes: 9_000 + random_number, # I love this book the most.
+    title: "Darwin's Radio",
+    creator: "Greg Bear"
+  },
+  {
+    category: "Book",
+    upvotes: 9_000 + random_number, # I also love this book the most.
+    title: "Earth",
+    creator: "David Brin"
   }
 ])
 
@@ -183,5 +204,35 @@ albums = Medium.create([
     upvotes: random_number,
     title: "Kompressor Does Not Dance",
     creator: "Kompressor"
+  },
+  {
+    category: "Album",
+    upvotes: random_number,
+    title: "Unzertrennlich",
+    creator: "Revolverheld"
+  },
+  {
+    category: "Album",
+    upvotes: random_number,
+    title: "Ich laufe",
+    creator: "Tim Bendzko"
+  },
+  {
+    category: "Album",
+    upvotes: random_number,
+    title: "비가",
+    creator: "김범수"
+  },
+  {
+    category: "Album",
+    upvotes: random_number,
+    title: "白夜 ~~True Light~~",
+    creator: "宮本 駿一"
+  },
+  {
+    category: "Album",
+    upvotes: random_number,
+    title: "넌 내게 반했어",
+    creator: "노브레인"
   }
 ])

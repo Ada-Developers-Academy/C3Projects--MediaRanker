@@ -7,14 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <img src="..." alt="logo placeholder" title="broken image being used as logo placeholder" height="40" width="100" />
-    <%= link_to "Media Ranker", "/", title: "Media Ranker: Ranking the Best of Everything" %>
-    Ranking the Best of Everything
-  </header>
+  <div class="container-fluid">
+    <div class="row">
+      <header class="jumbotron col-sm-12">
+        <h2>
+          <%= link_to "Media Ranker", "/", title: "Media Ranker: Ranking the Best of Everything" %>
+          <small>Ranking the Best of Everything</small>
+        </h2>
+      </header>
+    </div>
 
-  <main>
-    <%= yield %>
-  </main>
+    <main>
+      <%= yield %>
+    </main>
+  </div>
 </body>
 </html>

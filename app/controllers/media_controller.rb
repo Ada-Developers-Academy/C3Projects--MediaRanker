@@ -2,17 +2,17 @@ class MediaController < ApplicationController
   before_action :set_category
 
   def root
-    @categorized_records = Medium.categorize
+    @media = Medium.categorize
   end
 
   def index
     set_category
 
-    @all_records = Medium.grab_category(@singular_category)
+    @media = Medium.grab_category(@singular_category)
   end
 
   def show
-    @current_record = Medium.find(params[:id])
+    @medium = Medium.find(params[:id])
   end
 
   def new

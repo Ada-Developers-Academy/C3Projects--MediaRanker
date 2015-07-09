@@ -1,11 +1,35 @@
-<h1>
-  <%= @current_record.title %>
-  <small><%= @current_record.created %> by: <%= @current_record.creator %></small>
-</h1>
-<h4>Upvotes: <%= @current_record.upvotes %></h4>
-<p><%= @current_record.description %></p>
-<%= link_to "Upvote", "#{ @current_record.id }/upvote", method: :patch, class: "blockify" %>
-<%= link_to "Edit #{ @current_record.title }", "#{ @current_record.id }/edit" %>
-<%= link_to "Delete", "#{ @current_record.id }", method: :delete, data: { confirm: "Are you sure you want to delete this record? This is permanent."} %>
-<%= link_to "View All #{ @current_record.category + "s" }", "/#{ @current_record.plural_category }" %>
-<%= link_to "View All Media", "/" %>
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/<%= @category %>">All <%= @category.capitalize %></a></li>
+  <li class="active"><%= "#{ @medium.creator }'s #{ @medium.title }" %></li>
+</ol>
+
+<div class="row">
+  <div class="col-sm-7 col-sm-offset-2">
+    <h2>
+      <%= @medium.title %>
+      <small><%= @medium.created %> by: <%= @medium.creator %></small>
+    </h2>
+  </div>
+  <div class="col-sm-1">
+    <%= link_to "Upvote", "#{ @medium.id }/upvote", method: :patch, class: "btn btn-info" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h4>
+      Upvotes: <%= @medium.upvotes %>
+    </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <blockquote>
+      <p><%= @medium.description %></p>
+    </blockquote>
+    <%= link_to "Delete", "#{ @medium.id }", method: :delete, data: { confirm: "Are you sure you want to delete this record? This is permanent."}, class: "btn btn-danger" %>
+    <%= link_to "Edit #{ @medium.title }", "#{ @medium.id }/edit", class: "btn btn-default" %>
+    <%= link_to "View All #{ @medium.category + "s" }", "/#{ @medium.plural_category }", class: "btn btn-default" %>
+    <%= link_to "View All Media", "/", class: "btn btn-default" %>
+  </div>
+</div>

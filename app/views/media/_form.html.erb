@@ -1,15 +1,24 @@
-<%= form_for @medium, url: "./" do |f| %>
-  <div
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="col-sm-8 col-sm-offset-2">
+  <%= form_for @medium, url: "./", html: { role: "form", class: "form-horizontal" } do |f| %>
+    <% if message %>
+      <legend><%= message %></legend>
+    <% end %>
 
-  <%= f.label @medium.creator_noun %>
-  <%= f.text_field :creator %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label @medium.creator_noun %>
+      <%= f.text_field :creator, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+    <%= f.hidden_field :category, value: @medium.category %>
 
-  <%= f.hidden_field :category, value: @medium.category %>
-
-  <%= f.submit "Save" %>
-<% end %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -1,3 +1,10 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/<%= @category %>">All <%= @category.capitalize %></a></li>
+  <li><a href="/<%= @category %>/<%= @medium.id %>"><%= "#{ @medium.creator }'s #{ @medium.title }" %></a></li>
+  <li class="active">Edit</li>
+</ol>
+
 <section class="new-edit-form">
-  <%= render partial: "form" %>
+  <%= render partial: "form", locals: { message: "Edit #{ @medium.creator }'s #{ @medium.title }" } %>
 </section>

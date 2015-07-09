@@ -16,3 +16,16 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.jumbotron {
+  background: #006;
+  margin-bottom: 0;
+}
+
+.jumbotron small {
+  color: #aab;
+}
+
+.jumbotron a:hover, .jumbotron a:active {
+  color: #99f;
+}

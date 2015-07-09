@@ -1,11 +1,17 @@
-<% @categorized_records.each do |category_group| %>
-  <section class="category">
-    <% category_name = category_group.first.category + "s" %>
-    <% route_helper = category_group.first.plural_category %>
-    <h1>Top <%= category_name %></h1>
-    <% category_group.each do |item| %>
-      <h2><%= link_to "#{ item.title }", "/#{ route_helper }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h2>
-    <% end %>
-    <%= link_to "View More #{ category_name }", "/#{ route_helper }" %>
-  </section>
+<ol class="breadcrumb">
+  <li class="active">Home</li>
+</ol>
+
+<% @media.each do |group| %>
+  <div class="col-sm-4">
+    <section class="category">
+      <% category_name = group.first.category + "s" %>
+      <% route_helper = group.first.plural_category %>
+      <h1>Top <%= category_name %></h1>
+      <% group.each do |item| %>
+        <h4><%= link_to "#{ item.title }", "/#{ route_helper }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h4>
+      <% end %>
+      <%= link_to "View More #{ category_name }", "/#{ route_helper }" %>
+    </section>
+  </div>
 <% end %>

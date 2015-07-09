@@ -1,18 +1,25 @@
-<table>
-  <tr>
-    <th>Ranking</th>
-    <th>Name</th>
-    <th>Upvote</th>
-  </tr>
-  <% @all_records.each do |record| %>
-    <% id = record.id %>
-    <tr>
-      <td><%= record.upvotes || 0 %></td>
-      <td><%= link_to "#{ record.title }", "/#{ @category }/#{ id }" %></td>
-      <td><%= link_to "Upvote", "/#{ @category }/#{ id }/upvote", method: :patch %></td>
-    </tr>
-  <% end %>
-</table>
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active">All <%= @category.capitalize %></li>
+</ol>
 
-<%= link_to "View All Media", "/", title: "Media Ranker: Ranking the Best of Everything" %>
-<%= link_to "Add a #{ @singular_category }", "/#{ @category }/new", title: "Add a new #{ @singular_category }!" %>
+<div class="col-sm-6 col-sm-offset-3">
+  <table class="table table-hover">
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+    <% @media.each do |record| %>
+      <% id = record.id %>
+      <tr>
+        <td><%= record.upvotes || 0 %></td>
+        <td><%= link_to "#{ record.title }", "/#{ @category }/#{ id }" %></td>
+        <td><%= link_to "Upvote", "/#{ @category }/#{ id }/upvote", method: :patch, class: "btn btn-info" %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= link_to "View All Media", "/", title: "Media Ranker: Ranking the Best of Everything", class: "btn btn-default" %>
+  <%= link_to "Add a #{ @singular_category }", "/#{ @category }/new", title: "Add a new #{ @singular_category }!", class: "btn btn-default" %>
+</div>
