@@ -5,11 +5,12 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <%= f.label :creator, creator(media) %>
+  <%= f.label :creator, creator %>
   <%= f.text_field :creator %>
 
   <%= f.hidden_field :format, value: pick_format %>
 
-  <%= f.submit "Update" %>
+  <%= f.submit submit_type(method) %>
+
 
 <% end %>

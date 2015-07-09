@@ -7,8 +7,12 @@ class Medium < ActiveRecord::Base
     end
   end
 
+  def self.sort(collection)
+    collection.to_a.sort_by { |media| media.votes }.reverse
+  end
+
   def self.find_books
-    where(format: "book")
+    self.where(format: "book")
   end
 
   def self.find_movies
@@ -19,10 +23,10 @@ class Medium < ActiveRecord::Base
     where(format: "album")
   end
 
-  def self.pick_index_path(media)
-    if media.format == "book"
+  def self.pick_index_path(format)
+    if format == "book"
       Rails.application.routes.url_helpers.book_index_path
-    elsif media.format == "album"
+    elsif format == "album"
       Rails.application.routes.url_helpers.album_index_path
     else
       Rails.application.routes.url_helpers.movie_index_path
@@ -31,11 +35,12 @@ class Medium < ActiveRecord::Base
 
   def self.pick_path(media)
     if media.format == "book"
-      Rails.application.routes.url_helpers.book_path
+      Rails.application.routes.url_helpers.book_path(media.id)
     elsif media.format == "album"
-      Rails.application.routes.url_helpers.album_path
+      Rails.application.routes.url_helpers.album_path(media.id)
     else
-      Rails.application.routes.url_helpers.movie_path
+      Rails.application.routes.url_helpers.movie_path(media.id)
     end
   end
+
 end

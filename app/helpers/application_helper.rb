@@ -3,7 +3,7 @@ module ApplicationHelper
     "/#{media.format}s/#{media.id}/upvote"
   end
 
-  def pick_delete_path(media)
+  def pick_path(media)
     if media.format == "book"
       book_path(media.id)
     elsif media.format == "album"
@@ -43,23 +43,31 @@ module ApplicationHelper
     end
   end
 
-  def creator(media)
-    if media.format == "book"
+  def creator
+    if request.path.include?("books")
       "Author"
-    elsif media.format == "album"
-      "Artist"
-    else
+    elsif request.path.include?("movies")
       "Director"
-    end 
+    else
+      "Artist"
+    end
   end
 
   def pick_format
     if request.path.include?("books")
-      Medium.find_books
+      "book"
     elsif request.path.include?("movies")
-      Medium.find_movies
+      "movie"
     else
-      Medium.find_albums
+      "album"
+    end
+  end
+
+  def submit_type(method)
+    if method == :patch
+      "Update"
+    else
+      "Create"
     end
   end
 end

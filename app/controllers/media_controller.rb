@@ -1,13 +1,27 @@
 class MediaController < ApplicationController
-    def index
-      if request.path.include?("books")
-        @media = Medium.find_books
-      elsif request.path.include?("movies")
-        @media = Medium.find_movies
-      else
-        @media = Medium.find_albums
-      end
+  before_action :find_media
+
+  def find_media
+    @movies = Medium.sort(Medium.find_movies)
+    @books = Medium.sort(Medium.find_books)
+    @albums = Medium.sort(Medium.find_albums)
+  end
+
+  def home
+    @movies
+    @books
+    @albums
+  end
+
+  def index
+    if request.path.include?("books")
+      @media = @books
+    elsif request.path.include?("movies")
+      @media = @movies
+    else
+      @media = @albums
     end
+  end
 
   def new
     @media = Medium.new
@@ -17,7 +31,7 @@ class MediaController < ApplicationController
 
   def create
     @media = Medium.create(media_params)
-    redirect_to Medium.pick_index_path(@media)
+    redirect_to Medium.pick_index_path(@media.format)
   end
 
 
@@ -41,12 +55,14 @@ class MediaController < ApplicationController
     @media.votes += 1
     @media.save
     @method = :patch
-    redirect_to Medium.pick_index_path(@media)
+    redirect_to Medium.pick_index_path(@media.format)
   end
 
   def destroy
-    movie = Movie.find(params[:id])
-    movie.destroy
+    media = Medium.find(params[:id])
+    format = media.format
+    media.destroy
+    redirect_to Medium.pick_index_path(format)
   end
 
   def media_params

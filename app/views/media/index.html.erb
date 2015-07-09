@@ -1,4 +1,6 @@
 <h1><%= @media.first.format.capitalize.pluralize %></h1>
+<%= link_to "Create a new #{@media.first.format}", pick_new_path(@media.first), method: :get %>
+<%= link_to "Home", root_path %>
 
 <table>
   <tr>
