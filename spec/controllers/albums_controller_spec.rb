@@ -12,7 +12,7 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "GET index" do
-    it "assigns @albums" do
+    it "assigns to @albums" do
       album = Album.create(name: "Rumors", rank: 89)
       get :index
       expect(assigns(:albums)).to eq([album])

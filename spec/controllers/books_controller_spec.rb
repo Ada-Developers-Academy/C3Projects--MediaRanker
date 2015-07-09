@@ -12,7 +12,7 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "GET index" do
-    it "assigns @books" do
+    it "assigns to @books" do
       book = Book.create(name: "Girl with the Dragon Tattoo", rank: 89)
       get :index
       expect(assigns(:books)).to eq([book])
