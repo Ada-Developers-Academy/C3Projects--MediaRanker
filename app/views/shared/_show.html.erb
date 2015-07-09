@@ -1,13 +1,17 @@
-<h2><%= medium.title %><small><%= " #{creator} by: "%><%= created_by %></small></h2>
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= medium.title %><small><%= " #{creator} by: "%><%= created_by %></small></h1>
 
-<h4>Ranked: <%= medium.votes %></h4>
+    <h4>Ranked: <%= medium.votes %></h4>
 
-<p><%= medium.description %></p>
+    <p><%= medium.description %></p>
 
-<%= button_to "Upvote", medium, method: :put, params: { upvote: true }%>
+    <%= button_to "Upvote", medium, method: :put, class: "btn btn-primary", params: { upvote: true }%>
 
-<%= link_to "Edit #{medium.title}", edit_medium_path %>
-<%= button_to "DELETE", { action: "destroy", id: medium.id }, method: :delete,
-                          class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
-<%= link_to "View All #{media}", media_path %>
-<%= link_to "View All Media", root_path %>
+    <%= link_to "Edit #{medium.title}", edit_medium_path, class: "btn btn-default" %>
+    <%= button_to "DELETE", { action: "destroy", id: medium.id }, method: :delete,
+                              class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+    <%= link_to "View All #{media}", media_path, class: "btn btn-default" %>
+    <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+  </div>
+</div>

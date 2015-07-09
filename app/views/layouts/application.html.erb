@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>C3ProjectsMediaranker</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <header>
-    <h1><%= link_to "Media Ranker", :root %><small> Ranking the Best of Everything</small></h1>
-  </header>
+  <head>
+    <title>C3ProjectsMediaranker</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header>
+        <h1><%= link_to "Media Ranker", :root %><small> Ranking the Best of Everything</small></h1>
+      </header>
 
-  <%= yield %>
-
-</body>
+      <%= yield %>
+    </div>
+  </body>
 </html>
