@@ -31,7 +31,13 @@ class MediaController < ApplicationController
 
   def create
     @media = Medium.create(media_params)
-    redirect_to Medium.pick_index_path(@media.format)
+    @errors = nil
+    if @media.valid?
+      redirect_to Medium.pick_index_path(@media.format)
+    else
+      @errors = @media.errors.messages
+      render :new
+    end
   end
 
 
@@ -55,7 +61,7 @@ class MediaController < ApplicationController
     @media.votes += 1
     @media.save
     @method = :patch
-    redirect_to Medium.pick_index_path(@media.format)
+    redirect_to Medium.pick_path(@media)
   end
 
   def destroy
