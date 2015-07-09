@@ -27,12 +27,12 @@
         <% end %>
       </h3>
 
-      <h3> Upvotes: <%= medium.ranking %> </h3>
+      <h4> Upvotes: <%= medium.ranking %> </h4>
       <p>
         <%= medium.description %>
       </p>
 
-      <!-- upvote button -->
+      <%= button_to "Upvote", { action: "upvote" }, form_class: "btn btn-primary", method: :patch %>
     </div>
   </div>
 

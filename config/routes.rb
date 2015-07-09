@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
+  patch 'movies/:id' => 'movies#upvote'
+
+
   resources :movies, :books, :albums
   resources :media, only: [:index, :show]
 

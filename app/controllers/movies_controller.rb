@@ -7,6 +7,14 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
+  def upvote
+    @movie = Movie.find(params[:id])
+    @movie.ranking += 1
+    @movie.save
+
+    render :show, medium: @movie
+  end
+
   def create
     movie = Movie.new(create_params[:movie])
     movie.save # opportunity for validity checks
