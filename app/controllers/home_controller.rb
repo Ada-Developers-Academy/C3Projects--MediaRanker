@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @books = Book.all_ranked
-    @movies = Movie.all_ranked
-    @albums = Album.all_ranked
+    @books = Book.top_ranked
+    @movies = Movie.top_ranked
+    @albums = Album.top_ranked
   end
 end
