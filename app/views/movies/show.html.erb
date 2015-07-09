@@ -1,0 +1,10 @@
+<h1><%= @movie.title %> <small>Author:<%= @movie.author %></small></h1>
+<h4>Ranked:<%= @movie.ranking %></h4>
+<h5><%= @movie.description %></h5>
+<div class="col-md-12">
+<%= button_to "Vote", edit_movie_path(@movie.id), method: :patch, class: "btn btn-primary" %>
+<%= link_to "Edit #{@movie.title}", edit_movie_path(@movie.id), method: :get, class: "btn btn-default" %>
+<%= link_to "Delete", movie_path(@movie.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+<%= link_to "View all Movies", movies_path, method: :get, class: "btn btn-default" %>
+<%= link_to "View all Media", root_path, method: :get, class: "btn btn-default" %>
+</div>

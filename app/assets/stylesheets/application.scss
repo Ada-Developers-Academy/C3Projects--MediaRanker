@@ -1,3 +1,19 @@
+.page-header {
+  background: url("owl");
+  background-repeat: no-repeat;
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+}
+
+.header_text {
+  margin-left: 100px;
+}
+
+body {
+  width: 960px;
+  margin:auto;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

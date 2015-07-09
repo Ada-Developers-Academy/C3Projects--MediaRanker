@@ -28,7 +28,7 @@ class BooksController < ApplicationController
     @media = Book.find(params[:id])
     @url = book_path
     @method = :patch
-    @by = :artist
+    @by = :author
   end
 
   def update
