@@ -6,12 +6,14 @@
 
     <p><%= medium.description %></p>
 
-    <%= button_to "Upvote", medium, method: :put, class: "btn btn-primary", params: { upvote: true }%>
+    <%= link_to "Upvote", medium, method: :put, class: "btn btn-primary", params: { upvote: true }%>
 
-    <%= link_to "Edit #{medium.title}", edit_medium_path, class: "btn btn-default" %>
-    <%= button_to "DELETE", { action: "destroy", id: medium.id }, method: :delete,
-                              class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
-    <%= link_to "View All #{media}", media_path, class: "btn btn-default" %>
-    <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+    <div class="btn-toolbar">
+      <%= link_to "Edit #{medium.title}", edit_medium_path, class: "btn btn-default" %>
+      <%= link_to "DELETE", { action: "destroy", id: medium.id }, method: :delete,
+                                class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+      <%= link_to "View All #{media}", media_path, class: "btn btn-default" %>
+      <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+    </div>
   </div>
 </div>
