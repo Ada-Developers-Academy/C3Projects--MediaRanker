@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
   def index
-    @Albums = Album.all
+    @albums = Album.all
   end
 
   def create
@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
   def update #PATCH this updated album to the db
     @album = Album.find(params[:id]) 
     @album.name = permit_params[:album][:name]
-    @album.director = permit_params[:album][:director]
+    @album.artist = permit_params[:album][:artist]
     @album.description = permit_params[:album][:description]
     @album.save
     
@@ -37,9 +37,7 @@ class AlbumsController < ApplicationController
 
   def yes_vote # PATCH increase this number by one in the db
    @album = Album.find(params[:id])
-   # @album.vote += 1
-   # @album.save
-    @album.increment!(:vote)
+   @album.increment!(:vote)
   redirect_to(album_path(Album.find(@album.id)))
   end
 

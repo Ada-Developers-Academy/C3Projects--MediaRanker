@@ -7,8 +7,18 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :albums
-  resources :books
+  resources :albums do
+     member do
+      patch 'yes_vote', action:'yes_vote', as: 'yes_vote'
+    end
+  end
+
+  resources :books do
+   member do
+      patch 'yes_vote', action:'yes_vote', as: 'yes_vote'
+    end
+  end
+  
   resources :movies do
     member do
       patch 'yes_vote', action:'yes_vote', as: 'yes_vote'

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="jumbotron">
 
-    <h1>Media Ranker</h1>
+    <h1> <%=link_to "Media Ranker", root_path %> </h1>
     <p>Ranking the best of everything.</p>
   </div>
   <div class="row">
@@ -9,16 +9,19 @@
       <h3>Top Movies</h3> 
           <p> Descending List of most popular movies.</p>
           <p> Ranked: tba </p>
+          <%= link_to "See All Movies", movies_path, method: :get %>
     </div>
     <div class="col-sm-4">
       <h3>Top Books</h3>
           <p> Descending List of most popular books.</p>
           <p> Ranked: tba </p>
+          <%= link_to "See All Books", books_path, method: :get %>
     </div>
     <div class="col-sm-4">
       <h3>Top Albums</h3>
           <p> Descending List of most popular albums.</p>
           <p> Ranked: tba </p>
+          <%= link_to "See All Albums", albums_path, method: :get %>
     </div>
   </div>
 </div>
