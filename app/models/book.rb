@@ -5,8 +5,7 @@ class Book < ActiveRecord::Base
 
   # Scopes ---------------------------------------------------------------------
   scope :ranked,      -> { order(rank: :desc) }
-  scope :all_ranked,  -> { all.ranked }
-  scope :top_ranked,  -> { all_ranked.limit(10) }
+  scope :top_ranked,  -> { ranked.limit(10) }
 
   def add_vote
     update(rank: self.rank + 1)

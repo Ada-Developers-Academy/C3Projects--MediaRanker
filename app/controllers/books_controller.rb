@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :set_medium, only: [:edit, :update]
 
   def index
-    @books = Book.all_ranked
+    @books = Book.ranked
   end
 
   def new

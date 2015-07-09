@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
 
 
   def index
-    @albums = Album.all_ranked
+    @albums = Album.ranked
   end
 
   def new

@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :set_medium, only: [:edit, :update]
 
   def index
-    @movies = Movie.all_ranked
+    @movies = Movie.ranked
   end
 
   def new
