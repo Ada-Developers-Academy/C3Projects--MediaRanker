@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:update, :show, :destroy]
+  before_action :set_book, only: [:update, :show, :destroy, :edit]
 
   def index
     @books = Book.all
@@ -18,12 +18,19 @@ class BooksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     if params[:upvote] == "true"
       Book.upvote(@book)
       redirect_to book_path(@book)
     else
-      render :index
+      if @book.update(create_params)
+        redirect_to book_path(@book)
+      else
+        render :edit
+      end
     end
   end
 
