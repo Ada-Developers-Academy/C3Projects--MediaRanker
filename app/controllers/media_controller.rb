@@ -79,7 +79,14 @@ class MediaController < ApplicationController
   end
 
   def set_category
-    @category = params[:category]
+    if request.path.include? "movies"
+      @category = "movies"
+    elsif request.path.include? "books"
+      @category = "books"
+    elsif request.path.include? "albums"
+      @category = "albums"
+    end
+
     @singular_category = singular_category(@category)
   end
 
