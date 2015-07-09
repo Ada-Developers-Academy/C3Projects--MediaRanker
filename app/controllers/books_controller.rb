@@ -12,6 +12,10 @@ class BooksController < ApplicationController
   end
 
   def create
+    book = Book.new(create_params[:book])
+    book.save # opportunity for validity checks
+
+    redirect_to book_path(book)
   end
 
   def edit
