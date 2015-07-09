@@ -56,6 +56,8 @@ group :development, :test do
   # for testing
   gem 'rspec-rails', '~> 3.0'
   gem 'simplecov', require: false
+
+  gem 'pry'
 end
 
 group :production do

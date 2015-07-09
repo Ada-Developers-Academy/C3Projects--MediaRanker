@@ -1,30 +1,42 @@
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
-  describe "top scope" do
-    let!(:movie1) { Movie.create(title: "a title", rank: 56) }
-    let!(:movie2) { Movie.create(title: "b title", rank: 6) }
-    let!(:movie3) { Movie.create(title: "c title", rank: 10) }
-    let!(:movie4) { Movie.create(title: "d title", rank: 500) }
-    let!(:movie5) { Movie.create(title: "e title", rank: 3) }
-    let!(:movie6) { Movie.create(title: "f title", rank: 23) }
+  describe "scopes" do
+    let(:movie1) { Movie.create(title: "a title", rank: 56) }
+    let(:movie2) { Movie.create(title: "b title", rank: 6) }
+    let(:movie3) { Movie.create(title: "c title", rank: 10) }
+    let(:movie4) { Movie.create(title: "d title", rank: 500) }
+    let(:movie5) { Movie.create(title: "e title", rank: 3) }
+    let(:movie6) { Movie.create(title: "f title", rank: 23) }
 
-    # Not working (yet!)
-    # correct_order = [ 500, 56, 23, 10, 6 ]
-    #
-    # order = []
-    # Movie.top.each do |movie|
-    #   order << movie.rank
-    # end
+    correct_order_top = [ 500, 56, 23, 10, 6 ]
+    order_top = []
+    Movie.all.top.each do |movie|
+      order_top << movie.rank
+    end
 
-    it "orders the top 5 records" do
-      expect(Movie.top.count).to eq 5
-      # expect(order).to eq correct_order
+    correct_order_all = [ 500, 56, 23, 10, 6, 3 ]
+    order_all = []
+    Movie.all.rank_order.each do |movie|
+      order_all << movie.rank
+    end
+
+    describe "top scope" do
+      it "orders the top 5 records" do
+        expect(Movie.top.count).to eq 5
+        expect(order_top).to eq correct_order_top
+      end
+    end
+
+    describe "rank_order scope" do
+      it "orders all the records" do
+        expect(Movie.rank_order.count).to eq 6
+        expect(order_all).to eq correct_order_all
+      end
     end
   end
 
   # Testing Scope:
-  # positive test - Movie.top orders by rank, lists top 5 or all if < 5
 
   # negative test - Movie.top does not list 6th highest ranked
 
