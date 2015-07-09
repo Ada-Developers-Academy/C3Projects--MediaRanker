@@ -1,0 +1,11 @@
+<%= render partial: "header" %>
+
+<% if params[:action] == "all_albums" %>
+<%= render partial: "table", locals: { media: @albums, type: "album", button_path: new_medium_path(:album) } %>
+<% elsif params[:action] == "all_movies" %>
+<%= render partial: "table", locals: { media: @movies, type: "movie", button_path: new_medium_path(:movie) } %>
+<% elsif params[:action] == "all_books" %>
+<%= render partial: "table", locals: { media: @books, type: "book", button_path: new_medium_path(:book) } %>
+
+<h1>not albums</h1>
+<% end %>

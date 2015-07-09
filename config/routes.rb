@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'albums/index'  # to controller action
+  get 'albums/index', to: 'media#all_albums'
 
-  get 'books/index'
+  get 'books/index', to: 'media#all_books'
 
-  get 'movies/index'
+  get 'movies/index', to: 'media#all_movies'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

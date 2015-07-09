@@ -5,6 +5,21 @@ class MediaController < ApplicationController
     @albums = Medium.albums.top_rank(10)
   end
 
+  def all_movies
+    @movies = Medium.movies.all_rank
+    render :all_media
+  end
+
+  def all_books
+    @books = Medium.books.all_rank
+    render :all_media
+  end
+
+  def all_albums
+    @albums = Medium.albums.all_rank
+    render :all_media
+  end
+
   def show
     @medium = Medium.find(params[:id])
     @type = @medium.media_type
