@@ -1,19 +1,5 @@
-<table>
-  <tbody>
-    <tr>
-      <th>Ranking</th>
-      <th>Name</th>
-      <th>Upvote</th>
-    </tr>
-    <% @albums.each do |album| %>
-      <tr>
-        <td> Ranked: <%= album.ranking %> </td>
-        <td> <%= link_to album.name, album_path(album) %> </td>
-        <td> <%= button_to "Upvote", album_path(album), method: "patch" %> </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= button_to "View All Media", root_path, method: "get" %>
-<%= button_to "Add an Album", new_album_path, method: "get" %>
+<%= render :partial => 'shared/index',
+           :locals => { :collection => @albums,
+                        :media_name => Album,
+                        :media_path => method(:album_path),
+                        :new_media_path => method(:new_album_path) } %>
