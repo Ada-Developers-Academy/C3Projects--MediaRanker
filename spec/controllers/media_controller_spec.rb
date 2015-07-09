@@ -22,6 +22,25 @@ RSpec.describe MediaController, type: :controller do
 
   end
 
+  describe "GET #show" do
+
+    before(:each) do
+      @medium = Medium.create!(id: 5, name: "new medium", media_type: "book")
+    end
+
+    it "loads the correct type of media into @medium" do
+      get :show, id: @medium
+
+      expect {assigns(:medium).to eq(@medium)}
+    end
+
+    it "renders the show template" do
+      get :show, id: @medium
+      expect(response).to render_template :show
+    end
+
+  end
+
   describe "POST #create" do
     #positive test - when the media params are valid
     context "Valid media params" do
