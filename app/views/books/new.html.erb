@@ -1,5 +1,3 @@
-<%= render :partial => "shared/header"  %>
-
 <%= form_for @book, url: books_path("#{params[@book.id]}") do |f| %>
     <legend>New Book</legend>
     <%= f.label :name %>

@@ -1,5 +1,3 @@
-<%= render :partial => "shared/header"  %>
-
 <%= form_for @album, url: albums_path("#{params[@album.id]}") do |f| %>
     <legend>New Album</legend>
     <%= f.label :name %>

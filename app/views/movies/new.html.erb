@@ -1,5 +1,3 @@
-<%= render :partial => "shared/header"  %>
-
 <%= form_for @movie, url: movies_path("#{params[@movie.id]}") do |f| %>
     <legend>New Movie</legend>
     <%= f.label :name %>
