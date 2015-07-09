@@ -1,13 +1,19 @@
 class Medium < ActiveRecord::Base
   before_save :default_votes
 
+  validates :name, presence: true, uniqueness: true
+  validates :description, presence: true
+  validates :creator, presence: true
+
+  #when a new media is created it sets votes to 0
   def default_votes
     if self.votes.nil?
       self.votes = 0
     end
   end
 
-  def self.sort(collection)
+  #sorts the media with the most votes first. 
+  def self.sort_votes(collection)
     collection.to_a.sort_by { |media| media.votes }.reverse
   end
 
@@ -23,6 +29,9 @@ class Medium < ActiveRecord::Base
     where(format: "album")
   end
 
+  #picks an index path to redirect_to for the create and destory action.
+  #I had to pass in format for the parameter, because I needed to save the 
+  #format type before deleting the instance of media.
   def self.pick_index_path(format)
     if format == "book"
       Rails.application.routes.url_helpers.book_index_path
@@ -33,6 +42,7 @@ class Medium < ActiveRecord::Base
     end
   end
 
+  # picks a path to redirect to the show page
   def self.pick_path(media)
     if media.format == "book"
       Rails.application.routes.url_helpers.book_path(media.id)

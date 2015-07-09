@@ -1,8 +1,11 @@
 module ApplicationHelper
+
+  #decides on a path for upvote action
   def pick_upvote_path(media)
     "/#{media.format}s/#{media.id}/upvote"
   end
 
+  #decides on a path for show, update, and destroy action
   def pick_path(media)
     if media.format == "book"
       book_path(media.id)
@@ -13,6 +16,7 @@ module ApplicationHelper
     end
   end
 
+  #decides on a path for the edit action
   def pick_edit_path(media)
     if media.format == "book"
       edit_book_path
@@ -23,6 +27,7 @@ module ApplicationHelper
     end
   end
 
+  #decides on a path for the index action
   def pick_index_path(media)
     if media.format == "book"
       book_index_path
@@ -33,6 +38,7 @@ module ApplicationHelper
     end
   end
 
+  #decides on a path for the new action
   def pick_new_path(media)
     if media.format == "book"
       new_book_path
@@ -43,6 +49,7 @@ module ApplicationHelper
     end
   end
 
+  #choses a creator name for each media in the form
   def creator
     if request.path.include?("books")
       "Author"
@@ -53,6 +60,7 @@ module ApplicationHelper
     end
   end
 
+  #choses a format for the format column in the table when creating a media. 
   def pick_format
     if request.path.include?("books")
       "book"
@@ -63,6 +71,7 @@ module ApplicationHelper
     end
   end
 
+  #choses a submit name for the form.
   def submit_type(method)
     if method == :patch
       "Update"
