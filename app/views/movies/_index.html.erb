@@ -1,13 +1,12 @@
 <h1><%= link_to "All Movies List", "/movies"%></h1>
-<h3> Click On Movie Title For More Info </h3>
-<table border="1">
+<table class="table table-hover table-condensed">
   <tr>
     <th>
       Movie Title
     </th>
 
     <th>
-    Cast Vote For Movie
+    Cast Vote
     </th>
 
     <th>
@@ -25,7 +24,7 @@
         <span style="float:left; margin:5px">
           <%= button_to "   👍+1   ", "movies/upvote/#{movie.id}", method: :patch %>
         </span>
-        <span style="float:right; margin:5px">
+        <span style="float:left; margin:5px">
           <%= button_to "   👎-1   ", "moovies/downvote/#{movie.id}", method: :patch %>
         </span>
       </td>

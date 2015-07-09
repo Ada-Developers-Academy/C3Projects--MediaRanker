@@ -1,13 +1,12 @@
 <h1><%= link_to "All Albums List", "/albums"%></h1>
-<h3> Click On Album Title For More Info </h3>
-<table border="1">
+<table class="table table-hover table-condensed">
   <tr>
     <th>
       Album Title
     </th>
 
     <th>
-    Cast Vote For Album
+    Cast Vote
     </th>
 
     <th>
@@ -25,7 +24,7 @@
         <span style="float:left; margin:5px">
           <%= button_to "   👍+1   ", "albums/upvote/#{album.id}", method: :patch %>
         </span>
-        <span style="float:right; margin:5px">
+        <span style="float:left; margin:5px">
           <%= button_to "   👎-1   ", "albums/downvote/#{album.id}", method: :patch %>
         </span>
       </td>

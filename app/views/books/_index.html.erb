@@ -1,13 +1,12 @@
 <h1><%= link_to "All Books List", "/books"%></h1>
-<h3> Click On Book Title For More Info </h3>
-<table border="1">
+<table class="table table-hover table-condensed">
   <tr>
     <th>
       Book Title
     </th>
 
     <th>
-    Cast Vote For Book
+    Cast Vote
     </th>
 
     <th>
@@ -25,7 +24,7 @@
         <span style="float:left; margin:5px">
           <%= button_to "   👍+1   ", "books/upvote/#{book.id}", method: :patch %>
         </span>
-        <span style="float:right; margin:5px">
+        <span style="float:left; margin:5px">
           <%= button_to "   👎-1   ", "books/downvote/#{book.id}", method: :patch %>
         </span>
       </td>
