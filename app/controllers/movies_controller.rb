@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:update, :show]
+  before_action :set_movie, only: [:update, :show, :destroy]
 
   def index
     @movies = Movie.all
@@ -28,6 +28,12 @@ class MoviesController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @movie.destroy
+
+    redirect_to movies_path
   end
 
   private

@@ -7,6 +7,7 @@
 <%= button_to "Upvote", medium, method: :put, params: { upvote: true }%>
 
 <%= link_to "Edit #{medium.title}", edit_medium_path %>
-<%= button_to "DELETE", "delete/#{medium.id}", method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+<%= button_to "DELETE", { action: "destroy", id: medium.id }, method: :delete,
+                          class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
 <%= link_to "View All #{media}", media_path %>
 <%= link_to "View All Media", root_path %>
