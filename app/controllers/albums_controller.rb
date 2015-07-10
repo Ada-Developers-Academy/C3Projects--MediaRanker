@@ -30,13 +30,7 @@ class AlbumsController < ApplicationController
   def update
     @album = Album.find(params[:id])
 
-    new_name = params[:album][:name]
-    new_artist = params[:album][:artist]
-    new_description = params[:album][:description]
-
-    @album.update(name: new_name,
-                 artist: new_artist,
-                 description: new_description)
+    @album.update(create_params[:album])
 
     if @album.save
        redirect_to album_path(@album.id)

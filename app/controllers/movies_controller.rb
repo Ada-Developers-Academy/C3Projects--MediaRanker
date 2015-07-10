@@ -30,14 +30,7 @@ class MoviesController < ApplicationController
   def update
     @movie = Movie.find(params[:id])
 
-    new_name = params[:movie][:name]
-    new_director = params[:movie][:director]
-    new_description = params[:movie][:description]
-
-    @movie.update(name: new_name,
-                director: new_director,
-                description: new_description
-                )
+    @movie.update(create_params[:movie])
 
     if @movie.save
        redirect_to movie_path(@movie.id)

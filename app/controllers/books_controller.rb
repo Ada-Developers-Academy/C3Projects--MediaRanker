@@ -29,13 +29,8 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    new_name = params[:book][:name]
-    new_author = params[:book][:author]
-    new_description = params[:book][:description]
 
-    @book.update(name: new_name,
-                 author: new_author,
-                 description: new_description)
+    @book.update(create_params[:book])
 
     if @book.save
        redirect_to book_path(@book.id)
