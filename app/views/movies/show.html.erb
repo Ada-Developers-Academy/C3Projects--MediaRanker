@@ -1,6 +1,4 @@
 <%= render :partial => 'shared/show',
-           :locals => { :object           => @movie,
-                        :creator          => "Directed by: #{@movie.director}",
-                        :edit_medium_path => method(:edit_movie_path),
-                        :medium_path      => method(:movie_path),
-                        :media_path       => method(:movies_path) } %>
+           :locals => { :object     => @movie,
+                        :media_name => Movie
+                        :creator    => "Directed by: #{@movie.director}" } %>

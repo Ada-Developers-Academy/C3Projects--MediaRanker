@@ -1,6 +1,4 @@
 <%= render :partial => 'shared/show',
-           :locals => { :object           => @album,
-                        :creator          => "Written by: #{@album.artist}",
-                        :edit_medium_path => method(:edit_album_path),
-                        :medium_path      => method(:album_path),
-                        :media_path       => method(:albums_path) } %>
+           :locals => { :object     => @album,
+                        :media_name => Album,
+                        :creator    => "Written by: #{@album.artist}" } %>
