@@ -29,10 +29,27 @@ RSpec.describe AlbumsController, type: :controller do
       expect(response).to render_template("show")
     end
 
+    it "renders the #new view" do
+      get :new, id: @album
+      expect(response).to render_template("new")
+    end
+
     it "renders the #edit view" do
       get :edit, id: @album
       expect(response).to render_template("edit")
     end
+
+    it "increases the rank when you upvote" do
+      patch :upvote, id: @album
+      @album.reload
+      expect(@album.rank).to eq(1)
+    end
+
+    it "deletes a given album" do
+      delete :destroy, id: @album
+      expect(Album.count).to eq(0)
+    end
+
   end
 
   describe "makes new albums" do
@@ -52,19 +69,6 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
-  # describe "it won't create an invalid album" do
-  #   let(:invalid_album) do {
-  #     album: { creator: "creator1"}
-  #   }
-  #   end
-  #
-  #   it "does not persist an invalid album" do
-  #     post :create, invalid_album
-  #     expect(Album.count).to eq(0)
-  #   end
-  # end
-
-
   describe "albums can be edited" do
     let(:album) {Album.create(name: "name1", rank: 20)}
 
@@ -72,6 +76,11 @@ RSpec.describe AlbumsController, type: :controller do
       post :update, id: album, album: {name: "Edited name", rank: 20}
       album.reload
       expect(album.name).to eq("Edited name")
+    end
+
+    it "redirects to the album show page" do
+      post :update, id: album, album: {name: "Edited name", rank: 20}
+      expect(response).to redirect_to(album_path(assigns(:media)))
     end
   end
 end
