@@ -20,9 +20,8 @@ RSpec.describe WelcomeController, type: :controller do
       movie6 = Movie.create(name: 'f movie', description: 'f description', rank: 200)
       movie7 = Movie.create(name: 'g movie', description: 'g description', rank: 15)
 
-      @movies = Movie.best(5)
       get :index
-      expect(@movies.length).to eq(5)
+      expect(assigns(:movies).length).to eq(5)
     end
   end
 

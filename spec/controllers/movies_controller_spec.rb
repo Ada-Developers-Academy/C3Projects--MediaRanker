@@ -163,7 +163,7 @@ RSpec.describe MoviesController, type: :controller do
       expect(Movie.count).to eq 0
     end
   end
-
+  
 end # Rspec end
 
 
