@@ -17,13 +17,12 @@ RSpec.describe MediaController, type: :controller do
     end
 
     @medium = Medium.create({category_id: 4, upvotes: 0, title: some_titles.sample})
+    @category = Category.where(name: "Webcomic")[0]
     @media = Medium.categorize
   end
 
   describe "GET #index" do
     it "get :index, category: 'webcomics'" do
-      @category = Category.where(name: "Webcomic")[0]
-
       get :index, category: "webcomics"
 
       expect(response).to be_success
@@ -31,8 +30,6 @@ RSpec.describe MediaController, type: :controller do
     end
 
     it "get :index, keys: { category: 'webcomics' }" do
-      @category = Category.where(name: "Webcomic")[0]
-
       # get index_path(@medium.category.plural)
       get :index, keys: { category: "webcomics" }
 

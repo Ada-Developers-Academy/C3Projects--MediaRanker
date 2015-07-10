@@ -1,19 +1,11 @@
 Rails.application.routes.draw do
   root 'media#root'
 
-  categories = Category.all.map { |category| category.plural }
+  # Jeremy says this is a bad idea, because databases are not reliable.
+  # categories = Category.all.map { |category| category.plural }
+  # switching back to the old array version fixes the missing keys & table errors, so rails must agree.
+  categories = ["albums", "books", "games", "movies", "tvs", "webcomics"]
 
-  # categories.each do |cat|
-  #   resources cat.to_sym, controller: :media do
-  #     member do
-  #       patch 'upvote'
-  #     end
-  #   end
-  #   # patch "/#{ cat }/:id/upvote" to
-  # end
-
-
-  # now it's not working ;_; -_-'
   regexp_string = ''
   last_index = categories.length - 1
 
