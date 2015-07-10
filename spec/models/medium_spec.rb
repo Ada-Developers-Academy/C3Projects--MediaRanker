@@ -23,7 +23,7 @@ RSpec.describe Medium, type: :model do
     ]
 
     required_fields.each do |field|
-      it "requires a #{ field }" do
+      it "requires a :#{ field }" do
         medium = Medium.new
         expect(medium).to_not be_valid
         expect(medium.errors.keys).to include(field)
@@ -36,7 +36,7 @@ RSpec.describe Medium, type: :model do
       if integer_fields.include? field
         it "requires an integer value to be valid" do
           invalid_integers.each do |not_int|
-            # it "doesn't validate #{ not_int.inspect } for #{ field }" do
+            # it "doesn't validate #{ not_int.inspect } for :#{ field }" do
               medium = Medium.new(field => not_int)
               medium.save
               expect(medium.errors.keys).to include(field)
@@ -44,7 +44,7 @@ RSpec.describe Medium, type: :model do
           end
 
           valid_integers.each do |int|
-            # it "does validate #{ int.inspect } for #{ field }" do
+            # it "does validate #{ int.inspect } for :#{ field }" do
               medium = Medium.new(field => int)
               medium.save
               expect(medium.errors.keys).to_not include(field)
@@ -55,7 +55,7 @@ RSpec.describe Medium, type: :model do
     end
 
     not_required_fields.each do |field|
-      it "does not require a #{ field }" do
+      it "does not require a :#{ field }" do
         medium = Medium.new(title: "Forty Eight Hours Of Sharks", upvotes: 0, category_id: 1)
         expect(medium).to be_valid
         expect(medium.errors.keys).to_not include(field)
@@ -88,13 +88,13 @@ RSpec.describe Medium, type: :model do
       expect(@medium.category.class).to be(Category)
     end
 
-    it "can access its category's attributes" do
+    it "can access its category's :attributes" do
       expect(@medium.category.full_name).to eq("Mr. Potato Head")
       expect(@medium.category.creator_noun).to eq("Nightshade Variety")
       expect(@medium.category.created_verb).to eq("Grown")
     end
 
-    it "can access its category's methods" do
+    it "can access its category's #methods" do
       expect(@medium.category.plural).to eq("potatos")
       expect(@medium.category.display_name).to eq("Mr. Potato Head")
     end
@@ -110,25 +110,25 @@ RSpec.describe Medium, type: :model do
       @medium3 = Medium.create(title: "Forty Eight Hours Of Sharks", upvotes: 0, category_id: 2)
     end
 
-    it "has a url helper that consists of its category name & id number" do
+    it "has a #url that consists of its category :name & :id number" do
       expect(@medium.url).to eq("/potatos/#{ @medium.id }")
       expect(@medium2.url).to eq("/seeds/#{ @medium2.id }")
       expect(@medium3.url).to eq("/eggs/#{ @medium3.id }")
     end
 
-    it "has a base url that consists of just the category name" do
+    it "has a #url_base that consists of just the category name" do
       expect(@medium.url_base).to eq("/potatos")
       expect(@medium2.url_base).to eq("/seeds")
       expect(@medium3.url_base).to eq("/eggs")
     end
 
-    it "has a created_by statement that's based on its creator and category" do
+    it "has a #created_by statement that's based on its :creator and category" do
       expect(@medium.created_by).to eq("Grown by Spud McNightshade")
       expect(@medium2.created_by).to eq("Planted by Die Pflanze")
       expect(@medium3.created_by).to eq(nil)
     end
 
-    it "has a creator_phrase that's based on its creator and category" do
+    it "has a #creator_phrase that's based on its :creator and category" do
       expect(@medium.creator_phrase).to eq("Spud McNightshade's Forty Eight Hours Of Sharks")
       expect(@medium2.creator_phrase).to eq("Die Pflanze's Forty Eight Hours Of Sharks")
       expect(@medium3.creator_phrase).to eq("Forty Eight Hours Of Sharks")
@@ -208,7 +208,7 @@ RSpec.describe Medium, type: :model do
       expect(Medium.only_ten.length).to be(10)
     end
 
-    it "can be sorted by upvotes in scope :by_upvotes" do
+    it "can be sorted by :upvotes in scope :by_upvotes" do
       expect(Medium.first).to eq(@original_first)
       expect(Medium.by_upvotes.first).to eq(@best_upvotes)
 
@@ -305,7 +305,6 @@ RSpec.describe Medium, type: :model do
       5.times do
          Medium.create({ category_id: 1, upvotes: 0, title: "The Color of Distance" })
       end
-
     end
   end
 end

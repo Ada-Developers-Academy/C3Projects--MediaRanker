@@ -1,6 +1,11 @@
 Jeri
 
-IMPORTANT NOTE: you have to comment out the routes in order for db:reset / db:migrate to work correctly
+Can I have some extra feedback on my specs?
+* Where have I done too much or not enough?
+* What are some better ways to test these conditions?
+* Is there anything I completely missed?
+
+<!-- IMPORTANT NOTE: you have to comment out the routes in order for db:reset / db:migrate to work correctly -->
 
 #### useful links
 
