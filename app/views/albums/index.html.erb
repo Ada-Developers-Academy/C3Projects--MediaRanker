@@ -1,22 +1,5 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Votes</th>
-      <th>Name</th>
-      <th>Upvote</th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @albums.each do |album| %>
-    <tr>
-      <td>Votes: <%= album.vote %></td>
-      <td><%= link_to album.name, album_path(album.id) %></td>
-      <td><%= button_to "Upvote", upvote_album_path(album.id), class: "btn btn-default" %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<%= link_to "View All Media", root_path, class: "btn btn-default", method: :get %>
-<%= link_to "Add an Album", new_album_path, class: "btn btn-default", method: :get %>
+<%= render partial: "shared/index", locals: { medias: @albums,
+                                              media: "Album",
+                                              upvote: "upvote_album_path",
+                                              new_media: Album.new }
+%>

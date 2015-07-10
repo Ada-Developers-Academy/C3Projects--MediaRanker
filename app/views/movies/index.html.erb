@@ -1,22 +1,5 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Votes</th>
-      <th>Name</th>
-      <th>Upvote</th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @movies.each do |movie| %>
-    <tr>
-      <td>Votes: <%= movie.vote %></td>
-      <td><%= link_to movie.name, movie_path(movie.id) %></td>
-      <td><%= button_to "Upvote", upvote_movie_path(movie.id), class: "btn btn-default" %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<%= link_to "View All Media", root_path, class: "btn btn-default", method: :get %>
-<%= link_to "Add a Movie", new_movie_path, class: "btn btn-default", method: :get %>
+<%= render partial: "shared/index", locals: { medias: @movies,
+                                              media: "Movie",
+                                              upvote: "upvote_movie_path",
+                                              new_media: Movie.new }
+%>
