@@ -2,8 +2,33 @@ require 'spec_helper'
 
 RSpec.shared_examples "medium" do
 
+  let(:medium_model_name){ described_class.model.name.downcase }
+
+  describe "GET #index" do
+    before :each do
+      @medium1 = described_class.model.new(id: 1, title: "a title", ranking: 5)
+      @medium1.save
+      @medium2 = described_class.model.new(id: 2, title: "b title", ranking: 10)
+      @medium2.save
+    end
+
+    it "locates all the objects" do
+      get :index
+      num_of_media = described_class.model.all.count
+
+      expect(assigns["#{medium_model_name}s".to_sym].count).to eq num_of_media
+    end
+
+    it "provides the objects in descending order" do
+      get :index
+
+      expect(assigns["#{medium_model_name}s".to_sym].first.ranking).to eq @medium2.ranking
+      expect(assigns["#{medium_model_name}s".to_sym].last.ranking).to eq @medium1.ranking
+    end
+  end
+
   describe "GET #show" do
-    it "locates the correct described_class.model" do
+    it "locates the correct object" do
       medium1 = described_class.model.new(id: 1, title: "a title")
       medium1.save
       medium2 = described_class.model.new(id: 2, title: "b title")
@@ -44,10 +69,10 @@ RSpec.shared_examples "medium" do
       @medium2.save
       described_class.model.new(id: 3, title: "c title").save
 
-      @params = { described_class.model.name.downcase.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: "2" }
+      @params = { medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: "2" }
     end
 
-    it "locates the correct described_class.model" do
+    it "locates the correct object" do
       params = { id: 1 }
       expect(described_class.model.find(params[:id]).title).to eq("a title")
     end
@@ -73,7 +98,7 @@ RSpec.shared_examples "medium" do
 
     it "redirects to the medium's :show view" do
       put :update, @params
-      expect(subject).to redirect_to("/#{described_class.model.name.downcase}s/#{@params[:id]}")
+      expect(subject).to redirect_to("/#{medium_model_name}s/#{@params[:id]}")
     end
   end
 end

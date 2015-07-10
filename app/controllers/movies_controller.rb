@@ -1,6 +1,12 @@
 class MoviesController < ApplicationController
+  before_action :find_movie, only: [:upvote, :show, :edit, :update, :destroy]
+
   def self.model
     Movie
+  end
+
+  def find_movie
+    @movie = Movie.find(params[:id])
   end
 
   def index
@@ -12,7 +18,6 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    @movie = Movie.find(params[:id])
     @movie.ranking += 1
     @movie.save
 
@@ -26,27 +31,20 @@ class MoviesController < ApplicationController
     redirect_to movie_path(movie)
   end
 
-  def show
-    @movie = Movie.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @movie = Movie.find(params[:id])
-  end
+  def edit; end
 
   def update
-    movie = Movie.find(params[:id])
     updated_movie = create_params[:movie]
     # opportunity for .valid? and error handling
-    movie.update(updated_movie)
+    @movie.update(updated_movie)
 
-    redirect_to movie_path(movie)
+    redirect_to movie_path(@movie)
   end
 
   def destroy
-    movie = Movie.find(params[:id])
-    movie.destroy
-
+    @movie.destroy
     redirect_to media_path
   end
 
