@@ -49,7 +49,7 @@ class BooksController < ApplicationController
 
   def destroy
     @media.destroy
-    redirect_to polymorphic_path(Book)
+    redirect_to books_path
   end
 
 

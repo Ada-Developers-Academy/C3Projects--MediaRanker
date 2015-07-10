@@ -39,7 +39,6 @@ class MoviesController < ApplicationController
   end
 
   def update
-
     @creator = :director
     if @media.update(movie_params)
       redirect_to movie_path(@media)
@@ -50,7 +49,7 @@ class MoviesController < ApplicationController
 
   def destroy
     @media.destroy
-    redirect_to polymorphic_path(Movie)
+    redirect_to movies_path
   end
 
 

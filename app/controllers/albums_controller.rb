@@ -49,7 +49,7 @@ class AlbumsController < ApplicationController
 
   def destroy
     @media.destroy
-    redirect_to polymorphic_path(Album)
+    redirect_to albums_path
   end
 
 
