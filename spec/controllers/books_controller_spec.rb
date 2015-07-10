@@ -11,61 +11,36 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "GET #new" do
-    let (:book_params) do 
-      { 
-        book: { name: "name" }
-      }
-    end
-
     it "creates a new instance of Book" do
-      get :new, book_params
+      get :new, book: { name: "name" }
       expect(assigns(:book)).to be_kind_of(Book)
     end
   end
 
   describe "POST #create" do
     context "valid book params" do
-      let(:book_params) do
-        {
-          book: {
-            name: "title",
-            author: "author",
-            desc: "desc",
-            vote: 2
-          }
-        }
-      end
 
       it "creates a Book record" do
-        post :create, book_params
+        post :create, book: { name: "name" }
         expect(Book.count).to eq 1
       end
 
       it "redirects to the Book show page" do
-        post :create, book_params
+        post :create, book: { name: "name" }
         expect(subject).to redirect_to(book_path(assigns(:book)))
       end
     end
 
     context "invalid book params" do
-      let (:book_params) do
-        {
-          book: { 
-            author: "author",
-            desc: "desc",
-            vote: 2
-          }
-        }
-      end
 
       it "does not persist invalid records" do
-        post :create, book_params
+        post :create, book: { desc: "desc" }
         expect(Book.count).to eq 0
       end
 
       it "renders the :new view (to allow users to fix invalid data)" do
-        post :create, book_params
-        expect(response).to render_template("new")
+        post :create, book: { desc: "desc"  }
+        expect(response).to render_template(:new)
       end
     end
   end

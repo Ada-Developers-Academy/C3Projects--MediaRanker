@@ -6,6 +6,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def self.model
+    Book
+  end
+
   # Show book(s)
   def index
     @books = Book.order(:name)
