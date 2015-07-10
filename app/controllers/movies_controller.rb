@@ -26,7 +26,6 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to movies_path
     else
-      raise "I've stopped here"
       render :new
     end
 
