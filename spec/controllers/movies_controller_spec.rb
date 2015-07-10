@@ -11,6 +11,52 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    let(:movie_params) do
+      {
+        movie: {
+          name: 'new movie',
+          director: 'johnny appleseed',
+          description: 'this is the description'
+        }
+      }
+    end
+
+    before :each do
+      @movie = Movie.create(movie_params[:movie])
+    end
+
+    it "renders the show template" do
+      get :show, id: @movie.id
+
+      expect(response).to have_http_status(200)
+      expect(response).to render_template("show")
+    end
+  end
+
+  describe "GET #edit" do
+    let(:movie_params) do
+      {
+        movie: {
+          name: 'new movie',
+          director: 'johnny appleseed',
+          description: 'this is the description'
+        }
+      }
+    end
+
+    before :each do
+      @movie = Movie.create(movie_params[:movie])
+    end
+
+    it "renders the edit template" do
+      get :edit, id: @movie.id
+
+      expect(response).to have_http_status(200)
+      expect(response).to render_template("edit")
+    end
+  end
+
   describe "POST #create" do
     # positive test - movie params are valid
     context "Valid movie params" do
@@ -58,31 +104,66 @@ RSpec.describe MoviesController, type: :controller do
     end
   end # POST create test end
 
-  describe "PATCH #update" do
-    let(:movie_params) do
-      {
-        movie: { # invalid because it's missing the :description key
-          name: 'new movie',
-          director: 'johnny appleseed',
-          description: 'my description'
-        }
-      }
-    end
+  # describe "PATCH #update" do
+  #   let(:movie_params) do
+  #     {
+  #       movie: {
+  #         name: 'new movie',
+  #         director: 'johnny appleseed',
+  #         description: 'my description'
+  #       }
+  #     }
+  #   end
 
-    # positive test - it updates the movie's attributes
-    it "updates a movie's attributes" do
-      movie = Movie.new(movie_params[:movie])
+  #   let(:new_movie_params) do
+  #     {
+  #       movie: {
+  #         name: 'new movie',
+  #         director: 'david johnson',
+  #         description: 'my description'
+  #       }
+  #     }
+  #   end
 
-      movie[:director] = 'orlando bloom'
+  #   before :each do
+  #     @movie = Movie.create(movie_params[:movie])
+  #   end
 
-      expect(movie[:director]).to eq('orlando bloom')
-    end
+  #   # positive test - it updates the movie's attributes
+  #   it "updates a movie's attributes" do
+  #     patch :update, id: @movie.id, movie: 
+  #     @movie.reload
+  #     expect(@movie.director).to eq('david johnson')
+  #   end
 
-    it "redirects to the movie index page" do
-      patch :update, movie_params
-      expect(subject).to redirect_to(movie_path(assigns(movie_params[:movie]).id))
-    end
-  end # PATCH update test end
+  #   # it "redirects to the movie index page" do
+  #   #   patch :update, movie_path, id: @movie
+  #   #   puts @movie
+  #   #   expect(response).to redirect_to(movie_path(@movie))
+  #   # end
+  # end 
+
+  # describe "DELETE #destroy" do
+  #   let(:movie_params) do
+  #     {
+  #       movie: {
+  #         name: 'new movie',
+  #         director: 'johnny appleseed',
+  #         description: 'my description'
+  #       }
+  #     }
+  #   end
+
+  #   before :each do
+  #     @movie = Movie.create(movie_params[:movie])
+  #   end
+
+  #   it "deletes a movie record" do
+  #     delete :destroy, id: @movie.id
+  #     expect(@movie).to_not be_valid
+  #   end
+
+  # end
 
 end # Rspec end
 

@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
     else
       render :new
     end
-    
+
   end
 
   def update
@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
 
-    redirect_to '/movies'    
+    redirect_to movies_path    
   end
 
   def upvote
