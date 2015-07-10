@@ -61,14 +61,23 @@ RSpec.shared_examples "medium" do
   end
 
   describe "POST #create" do
-    # let(:params){ medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" } }
-    # creates a new instance
+    before :each do
+      @params = { medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" } }
+    end
 
-    # # redirects
-    # it "redirects to the medium's :show view" do
-    #   put :create, params
-    #   expect(subject).to redirect_to("/#{medium_model_name}s/#{assigns[medium_model_name.to_sym]}")
-    # end
+    # creates a new instance
+    it "creates a new instance" do
+      original_count = described_class.model.all.count
+      put :create, @params
+      new_count = described_class.model.all.count
+
+      expect(new_count).to eq original_count + 1
+    end
+
+    it "redirects to the medium's :show view" do
+      put :create, @params
+      expect(subject).to redirect_to("/#{medium_model_name}s/1")
+    end
   end
 
   describe "GET #show" do
@@ -131,13 +140,11 @@ RSpec.shared_examples "medium" do
       @params = { medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: 1 }
     end
 
-    # removes object
     it "deletes the object" do
       delete :destroy, id: 2
       expect(described_class.model.all).to_not include @medium2
     end
 
-    # redirects
     it "redirects to the medium's :show view" do
       delete :destroy, @params
       expect(subject).to redirect_to(media_path)
