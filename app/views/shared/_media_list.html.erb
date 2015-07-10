@@ -11,7 +11,7 @@
         <tr>
           <td>Ranked: <%= item.rank %></td>
           <td><%= link_to "#{item.title}", polymorphic_path(item), method: "get" %></td>
-          <td><%= button_to "Upvote", send(item_upvote_path, item), method: "patch", class: "btn btn-primary" %></td>
+          <td><%= button_to "Upvote", polymorphic_path([item, :upvote]), method: "patch", class: "btn btn-primary" %></td>
         </tr>
       <% end %>
 
@@ -24,7 +24,7 @@
       <%= button_to "View All Media", root_path, method: "get", class: "btn btn-default"  %>
     </div>
     <div style="float:left; margin: 4px;">
-      <%= button_to "Add #{name}", new_path, method: "get", class: "btn btn-default"  %>
+      <%= button_to "Add #{name}", new_polymorphic_path(medium), method: "get", class: "btn btn-default"  %>
     </div>
   </div>
 </div>
