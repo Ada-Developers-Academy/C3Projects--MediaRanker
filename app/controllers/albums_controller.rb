@@ -1,6 +1,12 @@
 class AlbumsController < ApplicationController
+  before_action :find_album, only: [:upvote, :show, :edit, :update, :destroy]
+
   def self.model
     Album
+  end
+
+  def find_album
+    @album = Album.find(params[:id])
   end
 
   def index
@@ -12,7 +18,6 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    @album = Album.find(params[:id])
     @album.ranking += 1
     @album.save
 
@@ -26,21 +31,16 @@ class AlbumsController < ApplicationController
     redirect_to album_path(album)
   end
 
-  def show
-    @album = Album.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @album = Album.find(params[:id])
-  end
+  def edit; end
 
   def update
-    album = Album.find(params[:id])
     updated_album = create_params[:album]
     # opportunity for .valid? and error handling
-    album.update(updated_album)
+    @album.update(updated_album)
 
-    redirect_to album_path(album)
+    redirect_to album_path(@album)
   end
 
   private

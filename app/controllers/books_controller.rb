@@ -1,6 +1,12 @@
 class BooksController < ApplicationController
+  before_action :find_book, only: [:upvote, :show, :edit, :update, :destroy]
+
   def self.model
     Book
+  end
+
+  def find_book
+    @book = Book.find(params[:id])
   end
 
   def index
@@ -12,7 +18,6 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    @book = Book.find(params[:id])
     @book.ranking += 1
     @book.save
 
@@ -26,21 +31,16 @@ class BooksController < ApplicationController
     redirect_to book_path(book)
   end
 
-  def show
-    @book = Book.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @book = Book.find(params[:id])
-  end
+  def edit; end
 
   def update
-    book = Book.find(params[:id])
     updated_book = create_params[:book]
     # opportunity for .valid? and error handling
-    book.update(updated_book)
+    @book.update(updated_book)
 
-    redirect_to book_path(book)
+    redirect_to book_path(@book)
   end
 
   private
