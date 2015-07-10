@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
   def create
     @media = Movie.new(create_params[:movie])
     @media.save
-    redirect_to movie_path(@media.id)
+    redirect_to movie_path(@media)
   end
 
   def edit
