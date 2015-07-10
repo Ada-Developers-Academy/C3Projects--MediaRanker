@@ -1,4 +1,7 @@
 class AlbumsController < ApplicationController
+
+  before_action :find_and_set_media, only: [:upvote, :show, :edit, :update, :destroy]
+
   def index
     @media = Album.all.order(rank: :desc)
     @new_media = Album.new
@@ -6,13 +9,11 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    @album = Album.find(params[:id])
-    @album.increment!(:rank)
-    redirect_to album_path(@album)
+    @media.increment!(:rank)
+    redirect_to album_path(@media)
   end
 
   def show
-    @media = Album.find(params[:id])
     @created = "Recorded"
     @creator = @media.artist
     @format = "Albums"
@@ -34,12 +35,10 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @media = Album.find(params[:id])
     @creator = :artist
   end
 
   def update
-    @media = Album.find(params[:id])
     @creator = :artist
     if @media.update(album_params)
       redirect_to album_path(@media)
@@ -49,7 +48,6 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @media = Album.find(params[:id])
     @media.destroy
     redirect_to polymorphic_path(Album)
   end
@@ -57,6 +55,10 @@ class AlbumsController < ApplicationController
 
 
   private
+
+  def find_and_set_media
+    @media = Album.find(params[:id])
+  end
 
   def album_params
     params.require(:album).permit(:name, :artist, :description)

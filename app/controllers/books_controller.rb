@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+
+  before_action :find_and_set_media, only: [:upvote, :show, :edit, :update, :destroy]
+
   def index
     @media = Book.all.order(rank: :desc)
     @new_media = Book.new
@@ -6,13 +9,11 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    @book = Book.find(params[:id])
-    @book.increment!(:rank)
-    redirect_to book_path(@book)
+    @media.increment!(:rank)
+    redirect_to book_path(@media)
   end
 
   def show
-    @media = Book.find(params[:id])
     @created = "Written"
     @creator = @media.author
     @format = "Books"
@@ -34,12 +35,10 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @media = Book.find(params[:id])
     @creator = :author
   end
 
   def update
-    @media = Book.find(params[:id])
     @creator = :author
     if @media.update(book_params)
       redirect_to book_path(@media)
@@ -49,7 +48,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @media = Book.find(params[:id])
     @media.destroy
     redirect_to polymorphic_path(Book)
   end
@@ -57,6 +55,10 @@ class BooksController < ApplicationController
 
 
   private
+
+  def find_and_set_media
+    @media = Book.find(params[:id])
+  end
 
   def book_params
     params.require(:book).permit(:name, :author, :description)

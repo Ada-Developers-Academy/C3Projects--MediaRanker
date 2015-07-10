@@ -1,4 +1,7 @@
 class MoviesController < ApplicationController
+
+  before_action :find_and_set_media, only: [:upvote, :show, :edit, :update, :destroy]
+
   def index
     @media = Movie.all.order(rank: :desc)
     @new_media = Movie.new
@@ -6,13 +9,13 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    @movie = Movie.find(params[:id])
-    @movie.increment!(:rank)
-    redirect_to movie_path(@movie)
+    # @media = Movie.find(params[:id])
+    @media.increment!(:rank)
+    redirect_to movie_path(@media)
   end
 
   def show
-    @media = Movie.find(params[:id])
+    # @media = Movie.find(params[:id])
     @created = "Directed"
     @creator = @media.director
     @format = "Movies"
@@ -34,12 +37,12 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @media = Movie.find(params[:id])
+    # @media = Movie.find(params[:id])
     @creator = :director
   end
 
   def update
-    @media = Movie.find(params[:id])
+    # @media = Movie.find(params[:id])
     @creator = :director
     if @media.update(movie_params)
       redirect_to movie_path(@media)
@@ -49,7 +52,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @media = Movie.find(params[:id])
+    # @media = Movie.find(params[:id])
     @media.destroy
     redirect_to polymorphic_path(Movie)
   end
@@ -57,6 +60,10 @@ class MoviesController < ApplicationController
 
 
   private
+
+  def find_and_set_media
+    @media = Movie.find(params[:id])
+  end
 
   def movie_params
     params.require(:movie).permit(:name, :director, :description)
