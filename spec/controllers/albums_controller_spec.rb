@@ -1,6 +1,11 @@
 require 'rails_helper'
+# require 'support/shared_examples_for_media_controllers'
 
 RSpec.describe AlbumsController, type: :controller do
+  # describe AlbumsController do
+  #   it_behaves_like "a medium"
+  # end
+
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index
