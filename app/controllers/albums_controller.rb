@@ -1,6 +1,9 @@
 class AlbumsController < ApplicationController
   # make a before_action for find_album
-
+  
+  def self.model
+    Album
+  end
 
   def index
     @controller = "albums"
