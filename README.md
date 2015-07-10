@@ -2,7 +2,7 @@ Jeri
 
 #### useful links
 
-[my trello board][trello]
+[my trello board][trello] (which I stopped using around the time that I started testing >_>)
 
 [trello]: https://trello.com/b/2c7GssnG/jeri-mediaranker
 
