@@ -19,15 +19,19 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
-  describe "shows an album" do
-    let(:valid_album) do {
-      album: { name: "name1"}
-    }
+  describe "you can interact with a specific album" do
+    before :each do
+      @album = Album.create(name: "name_thing")
     end
 
     it "renders the #show view" do
-      get :show, valid_album
-      expect(response).to render(album_path(assigns(:media)))
+      get :show, id: @album
+      expect(response).to render_template("show")
+    end
+
+    it "renders the #edit view" do
+      get :edit, id: @album
+      expect(response).to render_template("edit")
     end
   end
 
