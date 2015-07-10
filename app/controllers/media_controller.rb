@@ -34,7 +34,7 @@ class MediaController < ApplicationController
     if @medium.save
       redirect_to medium_path(@medium)
     else
-      render :new
+      redirect_to new_medium_path(@medium.media_type)
     end
   end
 
