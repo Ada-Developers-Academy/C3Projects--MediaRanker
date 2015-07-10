@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(create_params[:movie])
+    @movie = Movie.new(movie_params[:movie])
     @movie.rank = 0
 
     if @movie.save
@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-    @movie.update(edit_params[:movie])
+    @movie.update(movie_params[:movie])
     if @movie.save
       redirect_to movie_path(@movie.id)
     else
@@ -52,12 +52,10 @@ class MoviesController < ApplicationController
 
   private
 
-  def edit_params
+  def movie_params
     params.permit(movie: [:name, :director, :description])
   end
 
-  def create_params
-    params.permit(movie: [:name, :director, :description])
-  end
+
 
 end
