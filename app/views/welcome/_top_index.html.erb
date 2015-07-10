@@ -1,0 +1,8 @@
+<ul>
+  <% objects.each do |object| %>
+    <li>
+      <%= link_to object.title, object_path(object) %>
+      Ranked: <%= object.votes %>
+    </li>
+  <% end %>
+</ul>
