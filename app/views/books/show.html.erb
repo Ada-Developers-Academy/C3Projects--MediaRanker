@@ -1,9 +1,11 @@
-<%= render partial: "shared/show", locals: { medium: @book,
-                                                    creator: @book.author,
-                                                    created_by: "Written by: " }%>
+<div class="col-lg-12">
+  <%= render partial: "shared/show", locals: { medium: @book,
+                                                      creator: @book.author,
+                                                      created_by: "Written by: " }%>
 
-<%= button_to "Upvote", book_path, method: :put %>
-<%= link_to "Edit #{@book.title}", edit_book_path %>
-<%= button_to "Delete", book_path, method: :delete, data: { confirm: "Are you sure?"} %>
-<%= link_to "View all Books", books_path %>
-<%= link_to "View all Media", root_path %>
+  <%= button_to "Upvote", book_path, method: :put, class: "btn btn-primary", style: "margin-bottom: 10px" %>
+  <%= link_to "Edit #{@book.title}", edit_book_path, class: "btn btn-default" %>
+  <%= link_to "Delete", book_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>
+  <%= link_to "View all Books", books_path, class: "btn btn-default" %>
+  <%= link_to "View all Media", root_path, class: "btn btn-default" %>
+</div>
