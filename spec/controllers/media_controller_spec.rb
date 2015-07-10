@@ -206,12 +206,16 @@ RSpec.describe MediaController, type: :controller do
       @new_description = "Jarg Jeeooorrrrb"
     end
 
+    category = params[:category]
+
+    @category = Category.where(name: category.classify)[0]
+    @medium = params[:id] ? Medium.find(params[:id]) : Medium.new(category_id: @category.id)
+
     it "updates a medium" do
       patch :update, { category: @medium.category.plural, id: @medium.id, medium: { title: @new_title } }
 
       expect(@medium.title).to eq(@new_title)
-      # expect(Medium.last.title).to eq(@medium.title)
-      # expect(Medium.last.upvotes).to be(0)
+      # expect(@medium.upvotes).to be(1)
     end
 
     it "redirects to a medium's show page after updating it" do

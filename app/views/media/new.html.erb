@@ -5,5 +5,5 @@
 </ol>
 
 <section class="new-edit-form">
-  <%= render partial: "form", locals: { message: "Create a New #{ @category.display_name }" } %>
+  <%= render partial: "form", locals: { message: "Create a New #{ @category.display_name }", method: :post } %>
 </section>

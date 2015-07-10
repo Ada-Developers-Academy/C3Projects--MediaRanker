@@ -6,5 +6,5 @@
 </ol>
 
 <section class="new-edit-form">
-  <%= render partial: "form", locals: { message: "Edit #{ @medium.creator_phrase }" } %>
+  <%= render partial: "form", locals: { message: "Edit #{ @medium.creator_phrase }", method: :patch } %>
 </section>

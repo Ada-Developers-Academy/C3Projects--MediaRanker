@@ -1,5 +1,5 @@
 <div class="col-sm-8 col-sm-offset-2">
-  <%= form_for @medium, url: "./", html: { role: "form", class: "form-horizontal" } do |f| %>
+  <%= form_for @medium, url: "./", html: { role: "form", class: "form-horizontal", method: method } do |f| %>
     <% if message %>
       <legend><%= message %></legend>
     <% end %>
