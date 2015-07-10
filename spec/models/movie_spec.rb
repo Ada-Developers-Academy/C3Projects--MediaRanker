@@ -59,12 +59,21 @@ RSpec.describe Movie, type: :model do
 
   end
 
-  # describe "scope validations: best_first_all" do
-  #
-  #   it "ranks by highest number first" do
-  #
-  #   end
-  #
-  # end
+  describe "scope validations: best_first_all" do
+
+    before :each do
+      ranks = [2, 1, 3, 3, 4, 5, 0, 100, 50, 101, 24, 35, 0, 0, 40, -1, 51, -20]
+      ranks.each do |rank|
+        Movie.create(name: "Test #{rank}", rank: rank)
+      end
+      @excluded_movie = Movie.create(name: "Test", rank: 0)
+      @included_movie = Movie.create(name: "Test", rank: 4)
+    end
+
+    it "ranks by highest number first" do
+      expect(Movie.best_first_all.first).to eq(Movie.find_by(rank: 101))
+    end
+
+  end
 
 end
