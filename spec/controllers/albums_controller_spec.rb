@@ -49,7 +49,6 @@ RSpec.describe AlbumsController, type: :controller do
       delete :destroy, id: @album
       expect(Album.count).to eq(0)
     end
-
   end
 
   describe "makes new albums" do

@@ -49,7 +49,6 @@ RSpec.describe BooksController, type: :controller do
       delete :destroy, id: @book
       expect(Book.count).to eq(0)
     end
-
   end
 
   describe "makes new books" do
