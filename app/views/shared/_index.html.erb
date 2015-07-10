@@ -10,7 +10,7 @@
     <% @model.by_rank.each do |singular| %>
     <td> Ranked: <%= singular.rank %>
     <td> <%= link_to "#{singular.name}", "/#{@controller}/#{singular.id}" %></td>
-    <td> <%= button_to "Upvote", "/#{@controller}/#{singular.id}", class:"btn btn-default" %> </td>
+    <td> <%= button_to "Upvote", "/#{@controller}/#{singular.id}", class:"btn btn-primary" %> </td>
     <!-- class="btn btn-default" -->
   </tr>
     <% end %>
