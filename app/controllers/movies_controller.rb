@@ -30,12 +30,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-
-    name_input = params[:movie][:name]
-    director_input = params[:movie][:director]
-    description_input = params[:movie][:description]
-
-    @movie.update(name: name_input, director: director_input , description: description_input)
+    @movie.update(edit_params[:movie])
     if @movie.save
       redirect_to movie_path(@movie.id)
     else
@@ -52,7 +47,7 @@ class MoviesController < ApplicationController
 
   def destroy
     Movie.destroy(params[:id])
-    redirect_to movies_path 
+    redirect_to movies_path
   end
 
   private
