@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  # make a before_action for find_album
+
 
   def index
     @controller = "albums"
@@ -62,6 +64,7 @@ private
     @album = Album.find(create_params[:id])
   end
 
+# change params for proper
   def create_params
     params.permit(:id, album: [:id, :name, :creator, :description, :rank])
   end
