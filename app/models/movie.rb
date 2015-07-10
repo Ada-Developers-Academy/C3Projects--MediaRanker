@@ -1,10 +1,16 @@
 class Movie < ActiveRecord::Base
-  # # before_save :vote_default
+  # Associations------------------------------------------
 
-  # def vote_default
-  #   self.vote = 0
-    
-  # end
+  # Validations-------------------------------------------
+  validates :name, presence: true
+  validates :director, presence: true
+  validates :description, presence: true
+  validates :vote, presence: true
+            
+
+  #  Scopes-----------------------------------------------
 
 
 end
+
+

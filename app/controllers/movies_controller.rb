@@ -6,9 +6,11 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(permit_params[:movie])
-    @movie.save
-
-    redirect_to"/movies"
+    if @movie.save
+      redirect_to"movies"
+    else
+      render :new
+    end
   end
 
   def new
