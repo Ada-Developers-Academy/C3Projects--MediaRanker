@@ -7,7 +7,7 @@ RSpec.describe BooksController, type: :controller do
   let(:media) { "book".to_sym }
   let(:media_params) { { book: { name: "name" } } }
   let(:new_params) { { book: { name: "title" } } }
-  let(:invalid_media_params) { { book: { desc: "desc" } } }
+  let(:invalid_params) { { book: { desc: "desc" } } }
   let(:media_path) { "book_path" }
   let(:medias_path) { "books_path" }  
 end

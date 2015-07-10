@@ -7,7 +7,7 @@ RSpec.describe MoviesController, type: :controller do
   let(:media) { "movie".to_sym }
   let(:media_params) { { movie: { name: "name" } } }
   let(:new_params) { { movie: { name: "title" } } }
-  let(:invalid_media_params) { { movie: { desc: "desc" } } }
+  let(:invalid_params) { { movie: { desc: "desc" } } }
   let(:media_path) { "movie_path" }
   let(:medias_path) { "movies_path" }  
 end

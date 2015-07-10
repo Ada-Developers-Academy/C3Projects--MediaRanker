@@ -7,7 +7,7 @@ RSpec.describe AlbumsController, type: :controller do
   let(:media) { "album".to_sym }
   let(:media_params) { { album: { name: "name" } } }
   let(:new_params) { { album: { name: "title" } } }
-  let(:invalid_media_params) { { album: { desc: "desc" } } }
+  let(:invalid_params) { { album: { desc: "desc" } } }
   let(:media_path) { "album_path" }
   let(:medias_path) { "albums_path" }  
 end

@@ -8,14 +8,23 @@ RSpec.shared_examples "MediaController" do
     end
 
     describe "GET #new" do
-      it "creates a new instance of Media" do
-        get :new, media_params
-        expect(assigns(media)).to be_kind_of(model)
+      context "valid params" do
+        it "creates a new instance of Media" do
+          get :new, media_params
+          expect(assigns(media)).to be_kind_of(model)
+        end
+      end
+
+      context "invalid params" do
+        it "doesn't instantiate Media with invalid params" do
+          get :new, invalid_params
+          expect(model.count).to eq 0
+        end
       end
     end
 
     describe "POST #create" do
-      context "valid media params" do
+      context "valid params" do
         it "creates a Media record" do
           post :create, media_params
           expect(model.count).to eq 1
@@ -27,14 +36,14 @@ RSpec.shared_examples "MediaController" do
         end
       end
 
-      context "invalid media params" do
+      context "invalid params" do
         it "does not persist invalid records" do
-          post :create, invalid_media_params
+          post :create, invalid_params
           expect(model.count).to eq 0
         end
 
         it "renders the :new view (to allow users to fix invalid data)" do
-          post :create, invalid_media_params
+          post :create, invalid_params
           expect(response).to render_template(:new)
         end
       end
@@ -64,7 +73,7 @@ RSpec.shared_examples "MediaController" do
 
       context "invalid params" do
         it "does not persist invalid record updates" do
-          patch :update, { id: @created.id }.merge(invalid_media_params)
+          patch :update, { id: @created.id }.merge(invalid_params)
           expect(subject).to redirect_to(send(media_path))
         end
       end
@@ -72,19 +81,19 @@ RSpec.shared_examples "MediaController" do
 
     describe "POST #upvote" do
       before :each do 
-        @new_media = model.create(name: "name", vote: 0)
+        @vote_media = model.create(name: "name", vote: 0)
       end
 
       context "clicking upvote button" do
         it "increases the upvote count by 1" do
-          post :upvote, id: @new_media.id
-          @new_media.reload
-          expect(@new_media.vote).to eq 1
+          post :upvote, id: @vote_media.id
+          @vote_media.reload
+          expect(@vote_media.vote).to eq 1
         end
 
         it "redirects to the show page" do
-          patch :upvote, id: @new_media.id
-          @new_media.reload
+          patch :upvote, id: @vote_media.id
+          @vote_media.reload
           expect(subject).to redirect_to(send(media_path))
         end
       end

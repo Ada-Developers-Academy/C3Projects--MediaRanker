@@ -3,7 +3,7 @@ RSpec.shared_examples "medium" do
     it "requires a name to be present" do
       media = described_class.new
 
-      expect(media).to_not be_valid
+      expect(media).to be_invalid
       expect(media.errors.keys).to include(:name)
     end
 
@@ -11,7 +11,7 @@ RSpec.shared_examples "medium" do
       media1 = described_class.create(name: "a media")
       media2 = described_class.create(name: "a media")
 
-      expect(media2).to_not be_valid
+      expect(media2).to be_invalid
       expect(media2.errors.keys).to include(:name)
     end
 
