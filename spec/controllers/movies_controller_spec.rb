@@ -63,4 +63,15 @@ RSpec.describe MoviesController, type: :controller do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    before :each do
+      @movie = Movie.create(title: "Harry Potter", rank: 0)
+    end
+
+    it "removes the record from the db" do
+      delete :destroy, id: @movie.id
+      expect(Movie.count).to eq 0
+    end
+  end
 end
