@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-07-09T16:10:07-07:00">2015-07-09T16:10:07-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-07-10T13:28:03-07:00">2015-07-10T13:28:03-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.24
+         1.35
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>34</b> files in total.
-    <b>541</b> relevant lines. 
-    <span class="green"><b>541</b> lines covered</span> and
+    <b>35</b> files in total.
+    <b>499</b> relevant lines. 
+    <span class="green"><b>499</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -53,9 +53,9 @@
       <tr>
         <td class="strong"><a href="#8328e4e0569c0f7b4c68d195ee46c4b89af84ec4" class="src_link" title="app/controllers/albums_controller.rb">app/controllers/albums_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>70</td>
-        <td>37</td>
-        <td>37</td>
+        <td>69</td>
+        <td>36</td>
+        <td>36</td>
         <td>0</td>
         <td>1.8</td>
       </tr>
@@ -73,9 +73,9 @@
       <tr>
         <td class="strong"><a href="#12a40e2d91fd0e4961981e6647981080dea367bb" class="src_link" title="app/controllers/books_controller.rb">app/controllers/books_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>69</td>
-        <td>37</td>
-        <td>37</td>
+        <td>68</td>
+        <td>36</td>
+        <td>36</td>
         <td>0</td>
         <td>1.8</td>
       </tr>
@@ -83,9 +83,9 @@
       <tr>
         <td class="strong"><a href="#5db5c4f4a832274d4939e2a13c8d341e06081d82" class="src_link" title="app/controllers/movies_controller.rb">app/controllers/movies_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>71</td>
-        <td>37</td>
-        <td>37</td>
+        <td>70</td>
+        <td>36</td>
+        <td>36</td>
         <td>0</td>
         <td>1.8</td>
       </tr>
@@ -353,9 +353,9 @@
       <tr>
         <td class="strong"><a href="#42632722b1d08774f34cd66cee62435826c7705d" class="src_link" title="spec/models/album_spec.rb">spec/models/album_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>33</td>
-        <td>24</td>
-        <td>24</td>
+        <td>5</td>
+        <td>3</td>
+        <td>3</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -363,9 +363,9 @@
       <tr>
         <td class="strong"><a href="#de725cae99c042173d6941e19ad4a4216ece322d" class="src_link" title="spec/models/book_spec.rb">spec/models/book_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>33</td>
-        <td>24</td>
-        <td>24</td>
+        <td>5</td>
+        <td>3</td>
+        <td>3</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -373,9 +373,9 @@
       <tr>
         <td class="strong"><a href="#322c139cbed90b58608dfa8510eb482685b2eef8" class="src_link" title="spec/models/movie_spec.rb">spec/models/movie_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>34</td>
-        <td>24</td>
-        <td>24</td>
+        <td>5</td>
+        <td>3</td>
+        <td>3</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -388,6 +388,16 @@
         <td>10</td>
         <td>0</td>
         <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#3973f565161521c4680b7ad5239a0c6c4648ec0d" class="src_link" title="spec/support/shared_examples_for_models.rb">spec/support/shared_examples_for_models.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>33</td>
+        <td>24</td>
+        <td>24</td>
+        <td>0</td>
+        <td>3.0</td>
       </tr>
       
     </tbody>
@@ -411,8 +421,8 @@
     <h3>app/controllers/albums_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>37</b> relevant lines. 
-      <span class="green"><b>37</b> lines covered</span> and
+      <b>36</b> relevant lines. 
+      <span class="green"><b>36</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -441,7 +451,7 @@
         <li class="covered" data-hits="2" data-linenumber="4">
           <span class="hits">2</span>
           
-          <code class="ruby">    @albums = Album.all</code>
+          <code class="ruby">    @albums = Album.order(&#39;ranking DESC&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
@@ -654,187 +664,181 @@
           <code class="ruby">                 description: new_description)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="40">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    @albums = Album.all</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="42">
+        <li class="covered" data-hits="2" data-linenumber="41">
           <span class="hits">2</span>
           
           <code class="ruby">    if @album.save</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="43">
+        <li class="covered" data-hits="1" data-linenumber="42">
           <span class="hits">1</span>
           
           <code class="ruby">       redirect_to album_path(@album.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="45">
+        <li class="covered" data-hits="1" data-linenumber="44">
           <span class="hits">1</span>
           
           <code class="ruby">      render :edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="46">
+        <li class="never" data-hits="" data-linenumber="45">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
           <code class="ruby">    show</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
           <code class="ruby">    @album.destroy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="53">
+        <li class="covered" data-hits="1" data-linenumber="52">
           <span class="hits">1</span>
           
           <code class="ruby">    redirect_to albums_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="56">
+        <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
           <code class="ruby">  def upvote</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="57">
+        <li class="covered" data-hits="1" data-linenumber="56">
           <span class="hits">1</span>
           
           <code class="ruby">    show</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="57">
           <span class="hits">1</span>
           
           <code class="ruby">    @album.ranking += 1</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="59">
+        <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
           <code class="ruby">    @album.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="61">
+        <li class="covered" data-hits="1" data-linenumber="60">
           <span class="hits">1</span>
           
           <code class="ruby">    redirect_to album_path(@album.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="62">
+        <li class="never" data-hits="" data-linenumber="61">
           
           
           <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="63">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
-          
-          
           <code class="ruby">  # ______________________________________________________________________</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
+        <li class="covered" data-hits="1" data-linenumber="64">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="67">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">  def create_params</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="68">
+        <li class="covered" data-hits="5" data-linenumber="67">
           <span class="hits">5</span>
           
           <code class="ruby">    params.permit(album: [:name, :artist, :description, :ranking])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby">end</code>
@@ -897,8 +901,8 @@
     <h3>app/controllers/books_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>37</b> relevant lines. 
-      <span class="green"><b>37</b> lines covered</span> and
+      <b>36</b> relevant lines. 
+      <span class="green"><b>36</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -927,7 +931,7 @@
         <li class="covered" data-hits="2" data-linenumber="4">
           <span class="hits">2</span>
           
-          <code class="ruby">    @books = Book.all</code>
+          <code class="ruby">    @books = Book.order(&#39;ranking DESC&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
@@ -1134,187 +1138,181 @@
           <code class="ruby">                 description: new_description)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="39">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    @books = Book.all</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="41">
+        <li class="covered" data-hits="2" data-linenumber="40">
           <span class="hits">2</span>
           
           <code class="ruby">    if @book.save</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
           <code class="ruby">       redirect_to book_path(@book.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="42">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
+        <li class="covered" data-hits="1" data-linenumber="43">
           <span class="hits">1</span>
           
           <code class="ruby">      render :edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="46">
+        <li class="never" data-hits="" data-linenumber="45">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="48">
+        <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
           <code class="ruby">    show</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
           <code class="ruby">    @book.destroy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="52">
+        <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
           <code class="ruby">    redirect_to books_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="52">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="54">
           <span class="hits">1</span>
           
           <code class="ruby">  def upvote</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="56">
+        <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
           <code class="ruby">    show</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="57">
+        <li class="covered" data-hits="1" data-linenumber="56">
           <span class="hits">1</span>
           
           <code class="ruby">    @book.ranking += 1</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="57">
           <span class="hits">1</span>
           
           <code class="ruby">    @book.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="58">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="60">
+        <li class="covered" data-hits="1" data-linenumber="59">
           <span class="hits">1</span>
           
           <code class="ruby">    redirect_to book_path(@book.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="62">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
           <code class="ruby">#_________________________________________________________________________________</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="64">
+        <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="65">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="66">
+        <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
           <code class="ruby">  def create_params</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="67">
+        <li class="covered" data-hits="5" data-linenumber="66">
           <span class="hits">5</span>
           
           <code class="ruby">    params.permit(book: [:name, :author, :description, :ranking])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="68">
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">end</code>
@@ -1329,8 +1327,8 @@
     <h3>app/controllers/movies_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>37</b> relevant lines. 
-      <span class="green"><b>37</b> lines covered</span> and
+      <b>36</b> relevant lines. 
+      <span class="green"><b>36</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1359,7 +1357,7 @@
         <li class="covered" data-hits="2" data-linenumber="4">
           <span class="hits">2</span>
           
-          <code class="ruby">    @movies = Movie.all</code>
+          <code class="ruby">    @movies = Movie.order(&#39;ranking DESC&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
@@ -1578,187 +1576,181 @@
           <code class="ruby">                )</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="41">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    @movies = Movie.all</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="43">
+        <li class="covered" data-hits="2" data-linenumber="42">
           <span class="hits">2</span>
           
           <code class="ruby">    if @movie.save</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
+        <li class="covered" data-hits="1" data-linenumber="43">
           <span class="hits">1</span>
           
           <code class="ruby">       redirect_to movie_path(@movie.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="46">
+        <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
           <code class="ruby">      render :edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
           <code class="ruby">    show</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="52">
+        <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
           <code class="ruby">    @movie.destroy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="52">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="54">
+        <li class="covered" data-hits="1" data-linenumber="53">
           <span class="hits">1</span>
           
           <code class="ruby">    redirect_to movies_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="55">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="57">
+        <li class="covered" data-hits="1" data-linenumber="56">
           <span class="hits">1</span>
           
           <code class="ruby">  def upvote</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="57">
           <span class="hits">1</span>
           
           <code class="ruby">    show</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="59">
+        <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
           <code class="ruby">    @movie.ranking += 1</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="60">
+        <li class="covered" data-hits="1" data-linenumber="59">
           <span class="hits">1</span>
           
           <code class="ruby">    @movie.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="62">
+        <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
           <code class="ruby">    redirect_to movie_path(@movie.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="62">
           
           
           <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="65">
-          
-          
           <code class="ruby"># ______________________________________________________________________</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="66">
+        <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="never" data-hits="" data-linenumber="66">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="68">
+        <li class="covered" data-hits="1" data-linenumber="67">
           <span class="hits">1</span>
           
           <code class="ruby">  def create_params</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="69">
+        <li class="covered" data-hits="5" data-linenumber="68">
           <span class="hits">5</span>
           
           <code class="ruby">    params.permit(movie: [:name, :director, :description, :ranking])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="70">
           
           
           <code class="ruby">end</code>
@@ -4641,7 +4633,7 @@
         <li class="covered" data-hits="1" data-linenumber="163">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;updates a album record&quot; do</code>
+          <code class="ruby">    it &quot;renders an edit page if the name field is empty&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="164">
@@ -6003,7 +5995,7 @@
         <li class="covered" data-hits="1" data-linenumber="163">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;updates a book record&quot; do</code>
+          <code class="ruby">    it &quot;renders an edit page if the name field is empty&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="164">
@@ -7365,7 +7357,7 @@
         <li class="covered" data-hits="1" data-linenumber="163">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;updates a movie record&quot; do</code>
+          <code class="ruby">    it &quot;renders an edit page if the name field is empty&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="164">
@@ -7875,8 +7867,8 @@
     <h3>spec/models/album_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>24</b> lines covered</span> and
+      <b>3</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -7905,178 +7897,10 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;model validations&quot; do</code>
+          <code class="ruby">  it_behaves_like &quot;a collection&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;requires a name all the time&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie = Movie.new</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(movie).to_not be_valid</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(movie.errors.keys).to include(:name)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;best scope&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;displays just 10 albums with ranking in desc order&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album1  = Album.create(name: &quot;name1&quot;,  artist: &quot;artist1&quot;, description: &quot;description1&quot;, ranking: 1)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album2  = Album.create(name: &quot;name2&quot;,  artist: &quot;artist2&quot;, description: &quot;description2&quot;, ranking: 2)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album3  = Album.create(name: &quot;name3&quot;,  artist: &quot;artist3&quot;, description: &quot;description3&quot;, ranking: 3)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album4  = Album.create(name: &quot;name4&quot;,  artist: &quot;artist4&quot;, description: &quot;description4&quot;, ranking: 4)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album5  = Album.create(name: &quot;name5&quot;,  artist: &quot;artist5&quot;, description: &quot;description5&quot;, ranking: 5)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album6  = Album.create(name: &quot;name6&quot;,  artist: &quot;artist6&quot;, description: &quot;description6&quot;, ranking: 6)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album7  = Album.create(name: &quot;name7&quot;,  artist: &quot;artist7&quot;, description: &quot;description7&quot;, ranking: 7)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="22">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album8  = Album.create(name: &quot;name8&quot;,  artist: &quot;artist8&quot;, description: &quot;description8&quot;, ranking: 8)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album9  = Album.create(name: &quot;name9&quot;,  artist: &quot;artist9&quot;, description: &quot;description9&quot;, ranking: 9)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="24">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album10 = Album.create(name: &quot;name10&quot;, artist: &quot;artist10&quot;, description: &quot;description10&quot;, ranking: 10)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album11 = Album.create(name: &quot;name11&quot;, artist: &quot;artist11&quot;, description: &quot;description11&quot;, ranking: 11)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      album12 = Album.create(name: &quot;name12&quot;, artist: &quot;artist12&quot;, description: &quot;description12&quot;, ranking: 12)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="27">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      desc_order = [album12, album11, album10, album9, album8, album7, album6, album5, album4, album3]</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(Album.best).to eq desc_order</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="30">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(Album.best.count).to eq 10</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="31">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby">end</code>
@@ -8091,8 +7915,8 @@
     <h3>spec/models/book_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>24</b> lines covered</span> and
+      <b>3</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -8121,178 +7945,10 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;model validations&quot; do</code>
+          <code class="ruby">  it_behaves_like &quot;a collection&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;requires a name all the time&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie = Movie.new</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(movie).to_not be_valid</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(movie.errors.keys).to include(:name)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;best scope&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;displays just 10 books with ranking in desc order&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book1  = Book.create(name: &quot;name1&quot;, author: &quot;author1&quot;, description: &quot;description1&quot;, ranking: 1)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book2  = Book.create(name: &quot;name2&quot;, author: &quot;author2&quot;, description: &quot;description2&quot;, ranking: 2)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book3  = Book.create(name: &quot;name3&quot;, author: &quot;author3&quot;, description: &quot;description3&quot;, ranking: 3)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book4  = Book.create(name: &quot;name4&quot;, author: &quot;author4&quot;, description: &quot;description4&quot;, ranking: 4)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book5  = Book.create(name: &quot;name5&quot;, author: &quot;author5&quot;, description: &quot;description5&quot;, ranking: 5)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book6  = Book.create(name: &quot;name6&quot;, author: &quot;author6&quot;, description: &quot;description6&quot;, ranking: 6)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book7  = Book.create(name: &quot;name7&quot;, author: &quot;author7&quot;, description: &quot;description7&quot;, ranking: 7)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="22">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book8  = Book.create(name: &quot;name8&quot;, author: &quot;author8&quot;, description: &quot;description8&quot;, ranking: 8)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book9  = Book.create(name: &quot;name9&quot;, author: &quot;author9&quot;, description: &quot;description9&quot;, ranking: 9)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="24">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book10 = Book.create(name: &quot;name10&quot;, author: &quot;author10&quot;, description: &quot;description10&quot;, ranking: 10)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book11 = Book.create(name: &quot;name11&quot;, author: &quot;author11&quot;, description: &quot;description11&quot;, ranking: 11)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      book12 = Book.create(name: &quot;name12&quot;, author: &quot;author12&quot;, description: &quot;description12&quot;, ranking: 12)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="27">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      desc_order = [book12, book11, book10, book9, book8, book7, book6, book5, book4, book3]</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(Book.best).to eq desc_order</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="30">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(Book.best.count).to eq 10</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="31">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby">end</code>
@@ -8307,8 +7963,8 @@
     <h3>spec/models/movie_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>24</b> lines covered</span> and
+      <b>3</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -8337,184 +7993,10 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;model validations&quot; do</code>
+          <code class="ruby">  it_behaves_like &quot;a collection&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;requires a name all the time&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie = Movie.new</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(movie).to_not be_valid</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(movie.errors.keys).to include(:name)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;best scope&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;displays just 10 movies with ranking in desc order&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie1  = Movie.create(name: &quot;name1&quot;, director: &quot;director1&quot;, description: &quot;description1&quot;, ranking: 1)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie2  = Movie.create(name: &quot;name2&quot;, director: &quot;director2&quot;, description: &quot;description2&quot;, ranking: 2)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie3  = Movie.create(name: &quot;name3&quot;, director: &quot;director3&quot;, description: &quot;description3&quot;, ranking: 3)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie4  = Movie.create(name: &quot;name4&quot;, director: &quot;director4&quot;, description: &quot;description4&quot;, ranking: 4)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie5  = Movie.create(name: &quot;name5&quot;, director: &quot;director5&quot;, description: &quot;description5&quot;, ranking: 5)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie6  = Movie.create(name: &quot;name6&quot;, director: &quot;director6&quot;, description: &quot;description6&quot;, ranking: 6)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie7  = Movie.create(name: &quot;name7&quot;, director: &quot;director7&quot;, description: &quot;description7&quot;, ranking: 7)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="22">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie8  = Movie.create(name: &quot;name8&quot;, director: &quot;director8&quot;, description: &quot;description8&quot;, ranking: 8)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie9  = Movie.create(name: &quot;name9&quot;, director: &quot;director9&quot;, description: &quot;description9&quot;, ranking: 9)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="24">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie10 = Movie.create(name: &quot;name10&quot;, director: &quot;director10&quot;, description: &quot;description10&quot;, ranking: 10)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie11 = Movie.create(name: &quot;name11&quot;, director: &quot;director11&quot;, description: &quot;description11&quot;, ranking: 11)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      movie12 = Movie.create(name: &quot;name12&quot;, director: &quot;director12&quot;, description: &quot;description12&quot;, ranking: 12)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="27">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      desc_order = [movie12, movie11, movie10, movie9, movie8, movie7, movie6, movie5, movie4, movie3]</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(Movie.best).to eq desc_order</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="30">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(Movie.best.count).to eq 10</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="31">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby">end</code>
@@ -8845,6 +8327,222 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="3973f565161521c4680b7ad5239a0c6c4648ec0d">
+  <div class="header">
+    <h3>spec/support/shared_examples_for_models.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>24</b> relevant lines. 
+      <span class="green"><b>24</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;rails_helper&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">RSpec.shared_examples &quot;a collection&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="4">
+          <span class="hits">6</span>
+          
+          <code class="ruby">  let(:collection) { described_class.new }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="6">
+          <span class="hits">3</span>
+          
+          <code class="ruby">  describe &quot;model validations&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="7">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    it &quot;requires a name all the time&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="8">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      expect(collection).to_not be_valid</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="9">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      expect(collection.errors.keys).to include(:name)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="13">
+          <span class="hits">3</span>
+          
+          <code class="ruby">  describe &quot;best scope&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="14">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    it &quot;displays just 10 movies with ranking in desc order&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="15">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection1  = described_class.create(name: &quot;name1&quot;, description: &quot;description1&quot;, ranking: 1)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="16">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection2  = described_class.create(name: &quot;name2&quot;, description: &quot;description2&quot;, ranking: 2)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="17">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection3  = described_class.create(name: &quot;name3&quot;, description: &quot;description3&quot;, ranking: 3)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="18">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection4  = described_class.create(name: &quot;name4&quot;, description: &quot;description4&quot;, ranking: 4)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="19">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection5  = described_class.create(name: &quot;name5&quot;, description: &quot;description5&quot;, ranking: 5)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="20">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection6  = described_class.create(name: &quot;name6&quot;, description: &quot;description6&quot;, ranking: 6)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="21">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection7  = described_class.create(name: &quot;name7&quot;, description: &quot;description7&quot;, ranking: 7)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="22">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection8  = described_class.create(name: &quot;name8&quot;, description: &quot;description8&quot;, ranking: 8)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="23">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection9  = described_class.create(name: &quot;name9&quot;, description: &quot;description9&quot;, ranking: 9)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="24">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection10 = described_class.create(name: &quot;name10&quot;, description: &quot;description10&quot;, ranking: 10)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="25">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection11 = described_class.create(name: &quot;name11&quot;, description: &quot;description11&quot;, ranking: 11)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="26">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      collection12 = described_class.create(name: &quot;name12&quot;, description: &quot;description12&quot;, ranking: 12)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="28">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      desc_order = [collection12, collection11, collection10, collection9, collection8, collection7, collection6, collection5, collection4, collection3]</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="29">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      expect(described_class.best).to eq desc_order</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="30">
+          <span class="hits">3</span>
+          
+          <code class="ruby">      expect(described_class.best.count).to eq 10</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">end</code>
