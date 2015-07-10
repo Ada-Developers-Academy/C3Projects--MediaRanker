@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
 
+# before_action :find_movie, only: [:update, :show, :destroy, :edit]
+
   def index
     @movies = Movie.all
   end
@@ -53,6 +55,9 @@ class MoviesController < ApplicationController
 
 ##################### PRIVATE METHODS #####################
   private
+
+  # def find_movie
+  # end
 
   def create_params
     params.permit(movie: [:id, :name, :director, :description, :rank])
