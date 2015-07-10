@@ -3,7 +3,7 @@ require_relative '../helpers/media_helper.rb'
 class MediaController < ApplicationController
   include MediaHelper
 
-  before_action :set_object, only: [:show, :edit, :update]
+  before_action :set_object, only: [:show, :edit, :update, :destroy]
 
   def index
     @objects = Medium.all_objects(request.path)
@@ -18,7 +18,13 @@ class MediaController < ApplicationController
     @object = Medium.new(format: "movie")
   end
 
-  # TODO: def create
+  def create
+    if object = Medium.create(medium_params)
+      redirect_to object_path(object)
+    else
+      #TODO: something
+    end
+  end
 
   # # implicitly defined
   # def edit
@@ -36,6 +42,15 @@ class MediaController < ApplicationController
     end
   end
 
+  def destroy
+    path_holder = objects_path(@object)
+    if @object.destroy
+      redirect_to path_holder
+    else
+      #TODO: something
+    end
+  end
+
   private
     def set_object
       @object = Medium.find(params[:id])
@@ -45,37 +60,3 @@ class MediaController < ApplicationController
       params.require(:medium).permit(:title, :creator, :description, :format)
     end
 end
-
-## TODO: can use as an example
-# class MoviesController < ApplicationController
-#   before_action :set_movie, only: [:show, :edit, :update, :destroy]
-
-#   def new
-#     @movie = Movie.new
-#   end
-
-#   def create
-#     if movie = Movie.create(movie_params)
-#       redirect_to movie_path(movie)
-#     else
-#       #TODO: something
-#     end
-#   end
-
-#   def destroy
-#     if @movie.destroy
-#       redirect_to movies_path
-#     else
-#       #TODO: something
-#     end
-#   end
-
-#   private
-#   def set_movie
-#     @movie = Movie.find(params[:id])
-#   end
-
-#   def movie_params
-#     params.require(:movie).permit(:title, :directed_by, :description)
-#   end
-# end
