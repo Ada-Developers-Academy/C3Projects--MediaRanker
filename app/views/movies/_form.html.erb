@@ -1,8 +1,0 @@
-<%= form_for @movie do |f| %>
-  <% [:title, :directed_by, :description].each do |attribute| %>
-    <%= f.label attribute %>
-    <%= f.text_field attribute %>
-  <% end %>
-
-  <%= f.submit "Save" %>
-<% end %>
