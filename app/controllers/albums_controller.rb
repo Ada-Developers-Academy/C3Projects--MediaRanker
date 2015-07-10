@@ -34,7 +34,7 @@ class AlbumsController < ApplicationController
     album = Album.find(params[:id])
     album.destroy
 
-    redirect_to root_path
+    redirect_to albums_path
   end
 
   def new
