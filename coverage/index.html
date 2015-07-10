@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-07-09T17:14:14-07:00">2015-07-09T17:14:14-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-07-10T11:56:43-07:00">2015-07-10T11:56:43-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">58.56%</span></span>
+    (<span class="covered_percent"><span class="red">39.37%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="green">
-         1.12
+       <span class="red">
+         0.81
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>15</b> files in total.
-    <b>292</b> relevant lines. 
-    <span class="green"><b>171</b> lines covered</span> and
-    <span class="red"><b>121</b> lines missed </span>
+    <b>254</b> relevant lines. 
+    <span class="green"><b>100</b> lines covered</span> and
+    <span class="red"><b>154</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -87,7 +87,7 @@
         <td>34</td>
         <td>32</td>
         <td>2</td>
-        <td>4.1</td>
+        <td>3.1</td>
       </tr>
       
       <tr>
@@ -117,7 +117,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>3.2</td>
+        <td>3.0</td>
       </tr>
       
       <tr>
@@ -143,11 +143,11 @@
       <tr>
         <td class="strong"><a href="#cb9be1545eb5bec8a552abfb23c26188cc465859" class="src_link" title="spec/controllers/movies_controller_spec.rb">spec/controllers/movies_controller_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>155</td>
-        <td>81</td>
-        <td>81</td>
+        <td>24</td>
+        <td>10</td>
+        <td>10</td>
         <td>0</td>
-        <td>1.2</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -182,12 +182,12 @@
       
       <tr>
         <td class="strong"><a href="#1b4b0225249f87ae0b36ef4aa04a223858bb7661" class="src_link" title="spec/support/medium_controller_spec.rb">spec/support/medium_controller_spec.rb</a></td>
-        <td class="red strong">5.26 %</td>
-        <td>150</td>
-        <td>38</td>
+        <td class="red strong">2.82 %</td>
+        <td>130</td>
+        <td>71</td>
         <td>2</td>
-        <td>36</td>
-        <td>0.1</td>
+        <td>69</td>
+        <td>0.0</td>
       </tr>
       
       <tr>
@@ -1070,8 +1070,8 @@
           <code class="ruby">  def self.model</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="3">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="21" data-linenumber="3">
+          <span class="hits">21</span>
           
           <code class="ruby">    Movie</code>
         </li>
@@ -1094,8 +1094,8 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="7">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
           
           <code class="ruby">    @movies = Movie.all.rank_order</code>
         </li>
@@ -1232,20 +1232,20 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="30">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="6" data-linenumber="30">
+          <span class="hits">6</span>
           
           <code class="ruby">    @movie = Movie.create(create_params[:movie])</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="31">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="6" data-linenumber="31">
+          <span class="hits">6</span>
           
           <code class="ruby">    @movie.rank = 0</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="32">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="6" data-linenumber="32">
+          <span class="hits">6</span>
           
           <code class="ruby">    @movie.save</code>
         </li>
@@ -1256,14 +1256,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="34">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="6" data-linenumber="34">
+          <span class="hits">6</span>
           
           <code class="ruby">    if @movie.save</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="35">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="4" data-linenumber="35">
+          <span class="hits">4</span>
           
           <code class="ruby">      redirect_to movie_path(@movie.id)</code>
         </li>
@@ -1274,8 +1274,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="37">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="2" data-linenumber="37">
+          <span class="hits">2</span>
           
           <code class="ruby">      render :new</code>
         </li>
@@ -1406,8 +1406,8 @@
           <code class="ruby">  def create_params</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="59">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="8" data-linenumber="59">
+          <span class="hits">8</span>
           
           <code class="ruby">    params.permit(movie: [:title, :director, :rank, :description])</code>
         </li>
@@ -1664,8 +1664,8 @@
           <code class="ruby">  scope :top, -&gt; { order(rank: :desc).limit(5) }</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="10">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="6" data-linenumber="10">
+          <span class="hits">6</span>
           
           <code class="ruby">  scope :rank_order, -&gt; { order(rank: :desc) }</code>
         </li>
@@ -1781,8 +1781,8 @@
     <h3>spec/controllers/movies_controller_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>81</b> relevant lines. 
-      <span class="green"><b>81</b> lines covered</span> and
+      <b>10</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1814,52 +1814,52 @@
           <code class="ruby">  it_behaves_like &quot;a medium controller&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;GET #index&quot; do</code>
+          <code class="ruby">  let(:params) do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="6">
           
-          <code class="ruby">    it &quot;responds successfully with an HTTP 200 status code&quot; do</code>
+          
+          <code class="ruby">    {</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="7">
           
-          <code class="ruby">      get :index</code>
+          
+          <code class="ruby">      movie: {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">        title: &quot;a title&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        director: &quot;a director&quot;,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="10">
           
-          <code class="ruby">      expect(response).to be_success</code>
+          
+          <code class="ruby">        description: &quot;a description&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="11">
           
-          <code class="ruby">      expect(response).to have_http_status(200)</code>
+          
+          <code class="ruby">      }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">    }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
@@ -1877,844 +1877,58 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;POST #create&quot; do</code>
+          <code class="ruby">  let(:minimal_params) do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">    context &quot;valid movie params&quot; do</code>
+          <code class="ruby">    { movie: { title: &quot;a title&quot; } }</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="17">
           
-          <code class="ruby">      let(:movie_params) do</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">        {</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">          movie: {</code>
+          <code class="ruby">  let(:invalid_params) do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="covered" data-hits="2" data-linenumber="20">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">            title: &quot;a title&quot;,</code>
+          <code class="ruby">    { movie: { description: &quot;a description&quot; } }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">            director: &quot;an artist&quot;,</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby">            rank: 20,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="covered" data-hits="3" data-linenumber="23">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">            description: &quot;a description&quot;</code>
+          <code class="ruby">  let(:medium_name) { :movie }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby">          }</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="25">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="27">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;creates a Movie record&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        post :create, movie_params</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="30">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(Movie.count).to eq 1</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="31">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="33">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;redirects to the movie show page&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="34">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        post :create, movie_params</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="35">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(subject).to redirect_to(movie_path(assigns(:movie)))</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="37">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      context &quot;record in which only the title is specified&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        let(:minimal_movie_params) do</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="40">
-          <span class="hits">3</span>
-          
-          <code class="ruby">          { movie: { title: &quot;a title&quot; } }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        it &quot;creates a Movie record&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          post :create, minimal_movie_params</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="45">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          expect(Movie.count).to eq 1</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="46">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        it &quot;sets value of rank to 0&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="49">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          post :create, minimal_movie_params</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="50">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          expect(Movie.first.rank).to eq 0</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="52">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="53">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        it &quot;redirects to the movie show page&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="54">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          post :create, minimal_movie_params</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="55">
-          <span class="hits">1</span>
-          
-          <code class="ruby">          expect(subject).to redirect_to(movie_path(assigns(:movie)))</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="56">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="57">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="59">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="60">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    context &quot;invalid movie params&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="61">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      let(:movie_params) do</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="62">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        { movie: { director: &quot;a director&quot; } }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="65">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;does not persist a Movie record&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="66">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        post :create, movie_params</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="67">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(Movie.count).to eq 0</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="70">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;renders the :new view (to allow users to fix invalid data)&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="71">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        post :create, movie_params</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(response).to render_template(&quot;new&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="73">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="74">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="76">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="77">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;PUT update/:id&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="78">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    let(:attr) do</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="79">
-          
-          
-          <code class="ruby">      { title: &quot;new title&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="80">
-          
-          
-          <code class="ruby">        director: &quot;new director&quot;,</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="81">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        description: &quot;new description&quot; }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="82">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="84">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    before :each do</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="85">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      @movie = Movie.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="86">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      put :update, :id =&gt; @movie.id, :movie =&gt; attr</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="87">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      @movie.reload</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="88">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="90">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;updates the movie record&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="91">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(response).to redirect_to(@movie)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="92">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(@movie.title).to eq &quot;new title&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="93">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(@movie.director).to eq &quot;new director&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="94">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(@movie.description).to eq &quot;new description&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="95">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="96">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="97">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;redirects to the movie show page&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="98">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject).to redirect_to(movie_path(assigns(:movie)))</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="100">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="101">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="102">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="103">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;GET #show&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="104">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    before :each do</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="105">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      @movie = Movie.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="106">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="107">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="108">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;shows the selected movie&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="109">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      get :show, id: @movie</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="110">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="111">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect { assigns(:movie).to eq(@movie) }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="112">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="113">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="114">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it  &quot;renders the #show template&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="115">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      get :show, id: @movie.id</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="116">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject).to render_template :show</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="117">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="118">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="119">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="120">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;DELETE #destroy&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="121">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    before :each do</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="122">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      @movie = Movie.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="123">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="124">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="125">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;deletes the record&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="126">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect{</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="127">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        delete :destroy, id: @movie</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="128">
-          
-          
-          <code class="ruby">        }.to change(Movie, :count).by(-1)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="129">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="130">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="131">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;redirects to movies_path&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="132">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      delete :destroy, id: @movie</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="133">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(response).to redirect_to movies_path</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="134">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="135">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="136">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="137">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;PATCH #upvote&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="138">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    before :each do</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="139">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      @movie = Movie.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="140">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      patch :upvote, id: @movie</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="141">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      @movie.reload</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="142">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="143">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="144">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;increases the rank by 1&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="145">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(@movie.rank).to eq 21</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="146">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="147">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="148">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;redirects to movies_path&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="149">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      patch :upvote, id: @movie</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="150">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(response).to redirect_to movie_path(@movie.id)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="151">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="152">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="153">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="154">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="155">
           
           
           <code class="ruby">end</code>
@@ -2871,11 +2085,11 @@
         <div class="source_table" id="1b4b0225249f87ae0b36ef4aa04a223858bb7661">
   <div class="header">
     <h3>spec/support/medium_controller_spec.rb</h3>
-    <h4><span class="red">5.26 %</span> covered</h4>
+    <h4><span class="red">2.82 %</span> covered</h4>
     <div>
-      <b>38</b> relevant lines. 
+      <b>71</b> relevant lines. 
       <span class="green"><b>2</b> lines covered</span> and
-      <span class="red"><b>36</b> lines missed.</span>
+      <span class="red"><b>69</b> lines missed.</span>
     </div>
   </div>
   
@@ -2900,883 +2114,763 @@
           <code class="ruby">RSpec.shared_examples &quot;a medium controller&quot; do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="4">
+        <li class="never" data-hits="" data-linenumber="4">
           
           
-          <code class="ruby">  describe &quot;GET #index&quot; do</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="5">
           
           
-          <code class="ruby">    it &quot;responds successfully with an HTTP 200 status code&quot; do</code>
+          <code class="ruby">  describe &quot;GET #index&quot; do</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="6">
           
           
+          <code class="ruby">    it &quot;responds successfully with an HTTP 200 status code&quot; do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="7">
+          
+          
           <code class="ruby">      get :index</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="8">
-          
-          
-          <code class="ruby">      expect(response).to be_success</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="9">
           
           
-          <code class="ruby">      expect(response).to have_http_status(200)</code>
+          <code class="ruby">      expect(response).to be_success</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="missed" data-hits="0" data-linenumber="10">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">      expect(response).to have_http_status(200)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">  describe &quot;POST #create&quot; do</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="14">
           
           
-          <code class="ruby">    context &quot;valid #{described_class.model} params&quot; do</code>
+          <code class="ruby">  describe &quot;POST #create&quot; do</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">      let(:params) do</code>
+          <code class="ruby">    let(:medium) { described_class.model.first }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">        {</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby">          medium: {</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">            title: &quot;a title&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">            rank: 20,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">            description: &quot;a description&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
-          
-          
-          <code class="ruby">          }</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="22">
-          
-          
-          <code class="ruby">        }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
+        <li class="missed" data-hits="0" data-linenumber="17">
+          
+          
+          <code class="ruby">    context &quot;valid #{described_class.model} params&quot; do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="18">
           
           
           <code class="ruby">      it &quot;creates a #{described_class.model} record&quot; do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
+        <li class="missed" data-hits="0" data-linenumber="19">
           
           
           <code class="ruby">        post :create, params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="27">
+        <li class="missed" data-hits="0" data-linenumber="20">
           
           
           <code class="ruby">        expect(described_class.model.count).to eq 1</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="30">
+        <li class="missed" data-hits="0" data-linenumber="23">
+          
+          
+          <code class="ruby">      it &quot;sets value of rank to 0&quot; do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="24">
+          
+          
+          <code class="ruby">        post :create, params</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">        expect(medium.rank).to eq 0</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="28">
           
           
           <code class="ruby">      it &quot;redirects to the show page&quot; do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
+        <li class="missed" data-hits="0" data-linenumber="29">
           
           
           <code class="ruby">        post :create, params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="missed" data-hits="0" data-linenumber="30">
           
           
-          <code class="ruby">        expect(subject).to redirect_to(polymorphic_path(described_class))</code>
+          <code class="ruby">        expect(subject).to redirect_to(polymorphic_path(medium))</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="35">
+        <li class="missed" data-hits="0" data-linenumber="33">
           
           
           <code class="ruby">      context &quot;record in which only the title is specified&quot; do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="36">
-          
-          
-          <code class="ruby">        let(:params) do</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="37">
-          
-          
-          <code class="ruby">          { medium: { title: &quot;a title&quot; } }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="38">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="39">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="40">
+        <li class="missed" data-hits="0" data-linenumber="34">
           
           
           <code class="ruby">        it &quot;creates a record&quot; do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="41">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby">          post :create, params</code>
+          <code class="ruby">          post :create, minimal_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="42">
+        <li class="missed" data-hits="0" data-linenumber="36">
           
           
           <code class="ruby">          expect(described_class.model.count).to eq 1</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">        it &quot;sets value of rank to 0&quot; do</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
-          
-          <code class="ruby">          post :create, params</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
-          
-          <code class="ruby">          expect(described_class.model.first.rank).to eq 0</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="50">
-          
-          
-          <code class="ruby">        it &quot;redirects to the medium show page&quot; do</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="51">
-          
-          
-          <code class="ruby">          post :create, params</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="52">
-          
-          
-          <code class="ruby">          expect(subject).to redirect_to(polymorphic_path(assigns(:medium)))</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="53">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
+        <li class="missed" data-hits="0" data-linenumber="41">
           
           
           <code class="ruby">    context &quot;invalid params&quot; do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
-          
-          
-          <code class="ruby">      let(:params) do</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="59">
-          
-          
-          <code class="ruby">        { medium: { description: &quot;a description&quot; } }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="60">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="62">
+        <li class="missed" data-hits="0" data-linenumber="42">
           
           
           <code class="ruby">      it &quot;does not persist a #{described_class.model} record&quot; do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="63">
+        <li class="missed" data-hits="0" data-linenumber="43">
           
           
-          <code class="ruby">        post :create, params</code>
+          <code class="ruby">        post :create, invalid_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="64">
+        <li class="missed" data-hits="0" data-linenumber="44">
           
           
           <code class="ruby">        expect(described_class.model.count).to eq 0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="65">
+        <li class="never" data-hits="" data-linenumber="45">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="67">
+        <li class="missed" data-hits="0" data-linenumber="47">
           
           
           <code class="ruby">      it &quot;renders the :new view (to allow users to fix invalid data)&quot; do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="68">
+        <li class="missed" data-hits="0" data-linenumber="48">
           
           
-          <code class="ruby">        post :create, params</code>
+          <code class="ruby">        post :create, invalid_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="69">
+        <li class="missed" data-hits="0" data-linenumber="49">
           
           
           <code class="ruby">        expect(response).to render_template(&quot;new&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="never" data-hits="" data-linenumber="52">
           
           
           <code class="ruby">  end</code>
         </li>
       
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="54">
+          
+          
+          <code class="ruby">  describe &quot;PUT update/:id&quot; do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="55">
+          
+          
+          <code class="ruby">    let(:attr) do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby">      { id: @medium.id,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">        title: &quot;new title&quot;,</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="58">
+          
+          
+          <code class="ruby">        description: &quot;new description&quot; }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="61">
+          
+          
+          <code class="ruby">    before :each do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="62">
+          
+          
+          <code class="ruby">      @medium = described_class.model.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="64">
+          
+          
+          <code class="ruby">      put :update, :id =&gt; @medium.id, medium_name =&gt; attr</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="65">
+          
+          
+          <code class="ruby">      @medium.reload</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="68">
+          
+          
+          <code class="ruby">    it &quot;updates the #{described_class.model} record&quot; do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="69">
+          
+          
+          <code class="ruby">      expect(response).to redirect_to(@medium)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="70">
+          
+          
+          <code class="ruby">      expect(@medium.title).to eq &quot;new title&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="71">
+          
+          
+          <code class="ruby">      expect(@medium.description).to eq &quot;new description&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
         <li class="never" data-hits="" data-linenumber="73">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="missed" data-hits="0" data-linenumber="74">
           
           
-          <code class="ruby">  # describe &quot;PUT update/:id&quot; do</code>
+          <code class="ruby">    it &quot;redirects to the #{described_class.model} show page&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="missed" data-hits="0" data-linenumber="75">
           
           
-          <code class="ruby">  #   let(:attr) do</code>
+          <code class="ruby">      expect(subject).to redirect_to(polymorphic_path(@medium))</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="76">
           
           
-          <code class="ruby">  #     { title: &quot;new title&quot;,</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="77">
           
           
-          <code class="ruby">  #       director: &quot;new director&quot;,</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="78">
           
           
-          <code class="ruby">  #       description: &quot;new description&quot; }</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="79">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="80">
+        <li class="missed" data-hits="0" data-linenumber="80">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">  describe &quot;GET #show&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="81">
+        <li class="missed" data-hits="0" data-linenumber="81">
           
           
-          <code class="ruby">  #   before :each do</code>
+          <code class="ruby">    before :each do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="82">
+        <li class="missed" data-hits="0" data-linenumber="82">
           
           
-          <code class="ruby">  #     @medium = described_class.model.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
+          <code class="ruby">      @medium = described_class.model.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="83">
           
           
-          <code class="ruby">  #     put :update, :id =&gt; @medium.id, :medium =&gt; attr</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="84">
           
           
-          <code class="ruby">  #     @medium.reload</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="85">
+        <li class="missed" data-hits="0" data-linenumber="85">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">    it &quot;shows the selected medium&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="86">
+        <li class="missed" data-hits="0" data-linenumber="86">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">      get :show, id: @medium</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="87">
           
           
-          <code class="ruby">  #   it &quot;updates the medium record&quot; do</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="88">
+        <li class="missed" data-hits="0" data-linenumber="88">
           
           
-          <code class="ruby">  #     expect(response).to redirect_to(@medium)</code>
+          <code class="ruby">      expect { assigns(:medium).to eq(@medium) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="89">
           
           
-          <code class="ruby">  #     expect(@medium.title).to eq &quot;new title&quot;</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="90">
           
           
-          <code class="ruby">  #     expect(@medium.director).to eq &quot;new director&quot;</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="91">
+        <li class="missed" data-hits="0" data-linenumber="91">
           
           
-          <code class="ruby">  #     expect(@medium.description).to eq &quot;new description&quot;</code>
+          <code class="ruby">    it  &quot;renders the #show template&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
+        <li class="missed" data-hits="0" data-linenumber="92">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">      get :show, id: @medium</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="93">
+        <li class="missed" data-hits="0" data-linenumber="93">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">      expect(subject).to render_template :show</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="94">
           
           
-          <code class="ruby">  #   it &quot;redirects to the medium show page&quot; do</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="95">
           
           
-          <code class="ruby">  #     expect(subject).to redirect_to(polymorphic_path(assigns(:medium)))</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="96">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="missed" data-hits="0" data-linenumber="97">
           
           
-          <code class="ruby">  # end</code>
+          <code class="ruby">  describe &quot;DELETE #destroy&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="98">
+        <li class="missed" data-hits="0" data-linenumber="98">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">    before :each do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="99">
+        <li class="missed" data-hits="0" data-linenumber="99">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">      @medium = described_class.model.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="100">
           
           
-          <code class="ruby">  # describe &quot;GET #show&quot; do</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="101">
           
           
-          <code class="ruby">  #   before :each do</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="102">
+        <li class="missed" data-hits="0" data-linenumber="102">
           
           
-          <code class="ruby">  #     @medium = described_class.model.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
+          <code class="ruby">    it &quot;deletes the record&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+        <li class="missed" data-hits="0" data-linenumber="103">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">      expect{</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
+        <li class="missed" data-hits="0" data-linenumber="104">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">        delete :destroy, id: @medium</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="105">
           
           
-          <code class="ruby">  #   it &quot;shows the selected medium&quot; do</code>
+          <code class="ruby">      }.to change(described_class.model, :count).by(-1)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="106">
           
           
-          <code class="ruby">  #     get :show, id: @medium</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="107">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="108">
+        <li class="missed" data-hits="0" data-linenumber="108">
           
           
-          <code class="ruby">  #     expect { assigns(:medium).to eq(@medium) }</code>
+          <code class="ruby">    it &quot;redirects to index view&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="109">
+        <li class="missed" data-hits="0" data-linenumber="109">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">      delete :destroy, id: @medium</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="110">
+        <li class="missed" data-hits="0" data-linenumber="110">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">      expect(response).to redirect_to polymorphic_path(described_class.model)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="111">
           
           
-          <code class="ruby">  #   it  &quot;renders the #show template&quot; do</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="112">
           
           
-          <code class="ruby">  #     get :show, id: @medium.id</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="113">
           
           
-          <code class="ruby">  #     expect(subject).to render_template :show</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="114">
+        <li class="missed" data-hits="0" data-linenumber="114">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">  describe &quot;PATCH #upvote&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="115">
+        <li class="missed" data-hits="0" data-linenumber="115">
           
           
-          <code class="ruby">  # end</code>
+          <code class="ruby">    before :each do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="116">
+        <li class="missed" data-hits="0" data-linenumber="116">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">      @medium = described_class.model.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
+        <li class="missed" data-hits="0" data-linenumber="117">
           
           
-          <code class="ruby">  # describe &quot;DELETE #destroy&quot; do</code>
+          <code class="ruby">      patch :upvote, id: @medium</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="118">
+        <li class="missed" data-hits="0" data-linenumber="118">
           
           
-          <code class="ruby">  #   before :each do</code>
+          <code class="ruby">      @medium.reload</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="119">
           
           
-          <code class="ruby">  #     @medium = described_class.model.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="120">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="121">
+        <li class="missed" data-hits="0" data-linenumber="121">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">    it &quot;increases the rank by 1&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="122">
+        <li class="missed" data-hits="0" data-linenumber="122">
           
           
-          <code class="ruby">  #   it &quot;deletes the record&quot; do</code>
+          <code class="ruby">      expect(@medium.rank).to eq 21</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="123">
           
           
-          <code class="ruby">  #     expect{</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="124">
           
           
-          <code class="ruby">  #       delete :destroy, id: @medium</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="125">
+        <li class="missed" data-hits="0" data-linenumber="125">
           
           
-          <code class="ruby">  #     }.to change(described_class.model, :count).by(-1)</code>
+          <code class="ruby">    it &quot;redirects to #{described_class.model}_path&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="126">
+        <li class="missed" data-hits="0" data-linenumber="126">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">      patch :upvote, id: @medium</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="127">
+        <li class="missed" data-hits="0" data-linenumber="127">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">      expect(response).to redirect_to polymorphic_path(@medium)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="128">
           
           
-          <code class="ruby">  #   it &quot;redirects to #{described_class.model}s_path&quot; do</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="129">
           
           
-          <code class="ruby">  #     delete :destroy, id: @medium</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="130">
-          
-          
-          <code class="ruby">  #     expect(response).to redirect_to polymorphic_path(&quot;#{@medium.downcase}s&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="131">
-          
-          
-          <code class="ruby">  #   end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="132">
-          
-          
-          <code class="ruby">  # end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="133">
-          
-          
-          <code class="ruby">  #</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="134">
-          
-          
-          <code class="ruby">  # describe &quot;PATCH #upvote&quot; do</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="135">
-          
-          
-          <code class="ruby">  #   before :each do</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="136">
-          
-          
-          <code class="ruby">  #     @medium = described_class.model.create(title: &quot;a title&quot;, director: &quot;an artist&quot;, rank: 20, description: &quot;a description&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="137">
-          
-          
-          <code class="ruby">  #     patch :upvote, id: @medium</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="138">
-          
-          
-          <code class="ruby">  #     @medium.reload</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="139">
-          
-          
-          <code class="ruby">  #   end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="140">
-          
-          
-          <code class="ruby">  #</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="141">
-          
-          
-          <code class="ruby">  #   it &quot;increases the rank by 1&quot; do</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="142">
-          
-          
-          <code class="ruby">  #     expect(@medium.rank).to eq 21</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="143">
-          
-          
-          <code class="ruby">  #   end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="144">
-          
-          
-          <code class="ruby">  #</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="145">
-          
-          
-          <code class="ruby">  #   it &quot;redirects to #{described_class.model}_path&quot; do</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="146">
-          
-          
-          <code class="ruby">  #     patch :upvote, id: @medium</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="147">
-          
-          
-          <code class="ruby">  #     expect(response).to redirect_to polymorphic_path(@medium.id)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="148">
-          
-          
-          <code class="ruby">  #   end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="149">
-          
-          
-          <code class="ruby">  # end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="150">
           
           
           <code class="ruby">end</code>
