@@ -22,7 +22,8 @@ RSpec.describe AlbumsController, type: :controller do
 
     let(:media_path) {album_path(Album.last.id)}
 
-    let(:media) {:albums}
+    let(:media) {:album}
+    let(:medias) {:albums}
 
     describe "GET #new" do
       before(:each) do
