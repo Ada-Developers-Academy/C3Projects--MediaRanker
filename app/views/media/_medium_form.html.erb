@@ -11,6 +11,8 @@
       <%= f.label :description, "Description" %>
       <%= f.text_area :description, class: "form-control" %>
 
+      <!-- This hidden value ensures that each new instance of Medium has a media_type
+      based on how the user accessed this new form (from the book, album, or movie list) -->
       <%= f.hidden_field :media_type, :value => medium %>
     </fieldset>
 
