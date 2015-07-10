@@ -10,6 +10,7 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    @action = "Edit"
   end
 
   def update
@@ -20,9 +21,13 @@ class BooksController < ApplicationController
       @book.save
     else
       @book.update(book_params)
+      if @book.save
+        render :show
+      else
+        @action = "Edit"
+        render :edit
+      end
     end
-
-    render :show
   end
 
   def destroy
@@ -34,13 +39,20 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @action = "New"
   end
 
   def create
     params[:book][:rank] = 0
     book = Book.create(book_params)
 
-    redirect_to book_path(id: book.id)
+    if book.save
+      redirect_to book_path(id: book.id)
+    else
+      @book = Book.new(book_params)
+      @action = "New"
+      render new_book_path(medium: @book)
+    end
   end
 
   private

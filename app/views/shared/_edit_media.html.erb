@@ -1,4 +1,6 @@
-<h2><%= medium.title %></h2>
+<h2>
+  <%= @action %> <%= medium.class %>
+</h2>
 <%= form_for medium do |f| %>
   <div class="form-group">
     <%= f.label :title %>

@@ -10,6 +10,7 @@ class AlbumsController < ApplicationController
 
   def edit
     @album = Album.find(params[:id])
+    @action = "Edit"
   end
 
   def update
@@ -20,9 +21,13 @@ class AlbumsController < ApplicationController
       @album.save
     else
       @album.update(album_params)
+      if @album.save
+        render :show
+      else
+        @action = "Edit"
+        render :edit
+      end
     end
-
-    render :show
   end
 
   def destroy
@@ -34,13 +39,20 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    @action = "New"
   end
 
   def create
     params[:album][:rank] = 0
     album = Album.create(album_params)
-    
-    redirect_to album_path(id: album.id)
+
+    if album.save
+      redirect_to album_path(id: album.id)
+    else
+      @album = Album.new(album_params)
+      @action = "New"
+      render new_album_path(medium: @album)
+    end
   end
 
   private
