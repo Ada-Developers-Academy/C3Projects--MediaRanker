@@ -11,60 +11,36 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "GET #new" do
-    let (:album_params) do 
-      { 
-        album: { name: "name" }
-      }
-    end
 
     it "creates a new instance of Album" do
-      get :new, album_params
+      get :new, album: { name: "name" }
       expect(assigns(:album)).to be_kind_of(Album)
     end
   end
 
   describe "POST #create" do
     context "valid album params" do
-      let(:album_params) do
-        {
-          album: {
-            name: "title",
-            author: "author",
-            desc: "desc",
-            vote: 2
-          }
-        }
-      end
 
       it "creates a Album record" do
-        post :create, album_params
+        post :create, album: { name: "name" }
         expect(Album.count).to eq 1
       end
 
       it "redirects to the Album show page" do
-        post :create, album_params
+        post :create, album: { name: "name" }
         expect(subject).to redirect_to(album_path(assigns(:album)))
       end
     end
 
     context "invalid album params" do
-      let (:album_params) do
-        {
-          album: { 
-            author: "author",
-            desc: "desc",
-            vote: 2
-          }
-        }
-      end
 
       it "does not persist invalid records" do
-        post :create, album_params
+        post :create, album: { desc: "desc" }
         expect(Album.count).to eq 0
       end
 
       it "renders the :new view (to allow users to fix invalid data)" do
-        post :create, album_params
+        post :create, album: { desc: "desc" }
         expect(response).to render_template("new")
       end
     end
