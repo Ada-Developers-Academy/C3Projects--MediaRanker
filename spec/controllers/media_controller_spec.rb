@@ -206,31 +206,26 @@ RSpec.describe MediaController, type: :controller do
       @new_description = "Jarg Jeeooorrrrb"
     end
 
-    # category = params[:category]
-
-    # @category = Category.where(name: category.classify)[0]
-    # @medium = params[:id] ? Medium.find(params[:id]) : Medium.new(category_id: @category.id)
-
     it "updates a medium" do
       patch :update, { category: @medium.category.plural, id: @medium.id, medium: { title: @new_title } }
-
-      @medium.reload
-
+      @medium.reload # ANITA YOU SO WIZARD
       expect(@medium.title).to eq(@new_title)
-      # expect(@medium.upvotes).to be(1)
     end
 
     it "redirects to a medium's show page after updating it" do
       patch :update, { category: @medium.category.plural, id: @medium.id, medium: { title: @medium.title, description: @new_description } }
 
+      @medium.reload # ANITA YOU SO WIZARD
+
       expect(@medium.description).to eq(@new_description)
-      # expect(Medium.last.description).to eq(@medium.description)
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(@medium.url)
     end
 
     it "redirects back to the edit page if invalid parameters" do
-      patch :update, { category: @medium.category.plural, id: @medium.id, medium: { description: @new_description } }
+      patch :update, { category: @medium.category.plural, id: @medium.id, medium: { title: "", description: @new_description } }
+
+      @medium.reload # ANITA YOU SO WIZARD
 
       expect(@medium.description).to_not eq(@new_description)
       expect(response).to have_http_status(302)
@@ -242,28 +237,23 @@ RSpec.describe MediaController, type: :controller do
     it "increases the upvotes of a given medium" do
       patch :upvote, { category: @medium.category.plural, id: @medium.id }
 
+      @medium.reload # ANITA YOU SO WIZARD
+
       expect(@medium.upvotes).to eq(1)
     end
 
     it "multiple transactions test" do
-      patch :upvote, { category: @medium.category.plural, id: @medium.id }
-      expect(@medium.upvotes).to eq(1)
-
-      # patch :upvote, { category: @medium.category.plural, id: @medium.id }
-      # expect(@medium.upvotes).to eq(2)
-      #
-      # patch :upvote, { category: @medium.category.plural, id: @medium.id }
-      # expect(@medium.upvotes).to eq(3)
-      #
-      # patch :upvote, { category: @medium.category.plural, id: @medium.id }
-      # expect(@medium.upvotes).to eq(4)
-      #
-      # patch :upvote, { category: @medium.category.plural, id: @medium.id }
-      # expect(@medium.upvotes).to eq(5)
+      5.times do |count|
+        patch :upvote, { category: @medium.category.plural, id: @medium.id }
+        @medium.reload # ANITA YOU SO WIZARD
+        expect(@medium.upvotes).to eq(count + 1)
+      end
     end
 
     it "redirects to #show after incrementing the upvotes" do
       patch :upvote, { category: @medium.category.plural, id: @medium.id }
+
+      @medium.reload # ANITA WIZARD
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(@medium.url)
