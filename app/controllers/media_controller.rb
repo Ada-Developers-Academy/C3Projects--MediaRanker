@@ -9,9 +9,8 @@ class MediaController < ApplicationController
     @objects = Medium.all_objects(request.path)
   end
 
-  # # implicitly defined
-  # def show
-  # end
+  def show
+  end
 
   def new
     # TODO: come back to this, obviously
@@ -26,9 +25,8 @@ class MediaController < ApplicationController
     end
   end
 
-  # # implicitly defined
-  # def edit
-  # end
+  def edit
+  end
 
   def update
     if params[:upvote] == "true"
