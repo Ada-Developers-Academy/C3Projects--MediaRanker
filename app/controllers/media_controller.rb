@@ -1,5 +1,8 @@
+require_relative '../helpers/media_helper.rb'
+
 class MediaController < ApplicationController
-  # TODO: flesh this out
+  include MediaHelper
+
 end
 
 ## TODO: can use as an example
