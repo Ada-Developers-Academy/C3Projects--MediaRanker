@@ -60,35 +60,35 @@ RSpec.shared_examples "a medium controller" do
       context "valid medium params" do
         before :each do
           @medium = described_class.model.create(title: 'a')
-          @params = { described_class.model.name.downcase.to_sym => { title: "b" }, id: "1" }
+          @new_params = { described_class.model.name.downcase.to_sym => { title: "b" }, id: "1" }
         end
 
         it "updates a medium" do
-          put :update, @params
+          put :update, @new_params
           expect(described_class.model.find(1).title).to eq 'b'
         end
 
         it "redirects to medium show view" do
-          put :update, @params
+          put :update, @new_params
           @medium.reload
           expect(response).to redirect_to("/#{described_class.model.name.downcase}s/#{@medium.id}")
         end
       end
 
-      context "invalid medium params" do
+      context "invalid medium new_params" do
         before :each do
           @medium = described_class.model.create(title: 'a')
-          @params = { described_class.model.name.downcase.to_sym => { title: "" }, id: "1" }
+          @new_params = { described_class.model.name.downcase.to_sym => { title: "" }, id: "1" }
         end
 
         it "does not update the medium" do
-          put :update, @params
+          put :update, @new_params
           @medium.reload
           expect(@medium.title).to eq 'a'
         end
 
         it "renders the edit page so the record can be fixed" do
-          put :update, @params
+          put :update, @new_params
           @medium.reload
           expect(response).to render_template("edit")
         end
@@ -105,39 +105,33 @@ RSpec.shared_examples "a medium controller" do
 
   describe "POST #create" do
     context "valid medium params" do
-      let(:book) do
-        {
-          book: {
-            title: 'a'
-          }
-        }
+      before :each do
+        @new_params = { described_class.model.name.downcase.to_sym => { title: "a" }, id: "1" }
       end
 
       it "creates a medium" do
-        post :create, book
+        post :create, @new_params
         expect(described_class.model.count).to eq 1
       end
 
       it "redirects to the medium show page" do
-        post :create, book
-        expect(subject).to redirect_to(book_path(assigns(:book)))
+        post :create, @new_params
+        expect(subject).to redirect_to("/#{described_class.model.name.downcase}s/#{@new_params[:id]}")
       end
     end
 
     context "invalid medium params" do
-      let(:medium) do
-        {
-          medium: { title: '' }
-        }
+      before :each do
+        @new_params = { described_class.model.name.downcase.to_sym => { title: "" }, id: "1" }
       end
 
       it "does not persist invalid records" do
-        post :create, medium
+        post :create, @new_params
         expect(described_class.model.count).to eq 0
       end
 
       it "renders the new page so the record can be fixed" do
-        post :create, medium
+        post :create, @new_params
         expect(response).to render_template("new")
       end
     end
@@ -149,12 +143,12 @@ RSpec.shared_examples "a medium controller" do
     end
 
     it "deletes a medium" do
-      post :destroy, id: @medium.id
+      post :destroy, id: @medium
       expect(described_class.model.count).to eq 0
     end
 
     it "redirects to the medium index page" do
-      post :destroy, id: @medium.id
+      post :destroy, id: @medium
       expect(subject).to redirect_to("/#{described_class.model.name.downcase}s")
     end
   end
