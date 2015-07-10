@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
 
-  describe "GET index" do
+  describe "GET #index" do
     it "renders the :index view for all Movies" do
        get :index
        expect(response).to render_template("index")
@@ -12,6 +12,26 @@ RSpec.describe MoviesController, type: :controller do
       movie1, movie2 = Movie.create(:name => "First Movie Name"), Movie.create(:name => "2nd Movie Name")
       get :index
       expect(assigns(:movies)).to match_array([movie1, movie2])
+    end
+  end
+
+  describe "GET #show" do
+    before(:each) do
+      @movie = Movie.create(name: "Movie Name")
+    end
+
+    after :each do
+      @movie.destroy
+    end
+
+    it "renders the :show view for a movie" do
+       get :show, id: @movie
+       expect(response).to render_template("show")
+    end
+
+    it "loads a movie into @movie" do
+      get :show, id: @movie
+      expect(assigns(:movie)).to eq(@movie)
     end
   end
 
@@ -100,9 +120,7 @@ RSpec.describe MoviesController, type: :controller do
     end
 
   end
-    # let(:edited_info) do
-    #   { :name => 'New Movie Name' }
-    # end
+
 
   describe "PATCH #update" do
 
@@ -141,7 +159,6 @@ RSpec.describe MoviesController, type: :controller do
         expect(subject).to render_template("edit")
       end
     end
-
 
     #describe "get welcome#index" do
     #   it "renders the root_path" do
