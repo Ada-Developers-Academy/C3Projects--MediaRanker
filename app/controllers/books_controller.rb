@@ -11,6 +11,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all.order('ranking DESC')
+    @book = Book.new
   end
 
   def new

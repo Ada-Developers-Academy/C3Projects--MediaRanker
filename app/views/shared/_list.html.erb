@@ -58,5 +58,5 @@
     <% end %>
   </table>
 
-  <p class="text-right"><%= link_to "+ New #{media.model_name.name}", "./new", class: "btn btn-primary" %></p>
+  <p class="text-right"><%= link_to "+ New #{media.model_name.name}", new_polymorphic_path(new_object), class: "btn btn-primary" %></p>
 </div>

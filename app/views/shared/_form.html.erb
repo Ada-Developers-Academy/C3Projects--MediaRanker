@@ -1,3 +1,11 @@
+<ul class="no-list-style">
+  <% medium.errors.each do |column, message| %>
+  <li class="alert alert-danger" role="alert">
+    <strong><span class="glyphicon glyphicon-exclamation-sign"></span> <%= column.capitalize %> </strong> <%= message %>
+  </li>
+  <% end %>
+</ul>
+
 <%= form_for medium, html: { class: "form" } do |f| %>
   <div class="form-group">
     <%= f.label :title %>
