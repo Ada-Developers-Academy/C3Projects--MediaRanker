@@ -22,7 +22,6 @@ class MediaController < ApplicationController
   end
 
   def update
-    # medium = Medium.find(params[:id])
     if @medium.update(edit_params)
       redirect_to "#{ @medium.url }"
     else
