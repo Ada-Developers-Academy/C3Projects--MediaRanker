@@ -15,6 +15,49 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    before(:each) do
+      @book = Book.create(name: "Book Name")
+    end
+
+    after :each do
+      @book.destroy
+    end
+
+    it "renders the :show view for a book" do
+       get :show, id: @book
+       expect(response).to render_template("show")
+    end
+
+    it "loads a book into @book" do
+      get :show, id: @book
+      expect(assigns(:book)).to eq(@book)
+    end
+  end
+
+  describe "POST #upvote" do
+    before :each do
+      @book = Book.create(name: "Zer0 Booq", rank: 0)
+    end
+
+    after :each do
+      @book.destroy
+    end
+
+    context "upvoting a book" do
+      it "increases the rank by 1" do
+        post :upvote, id: @book.id
+        @book.reload
+        expect(@book.rank).to eq 1
+      end
+
+      it "redirects to the Book show page" do
+        patch :upvote, id: @book.id
+        expect(subject).to redirect_to(book_path)
+      end
+    end
+  end
+
     describe "GET #new" do
       let (:chapter_params) do
         {

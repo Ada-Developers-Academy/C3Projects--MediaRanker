@@ -14,6 +14,49 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    before(:each) do
+      @album = Album.create(name: "Album Name")
+    end
+
+    after :each do
+      @album.destroy
+    end
+
+    it "renders the :show view for a album" do
+       get :show, id: @album
+       expect(response).to render_template("show")
+    end
+
+    it "loads a album into @album" do
+      get :show, id: @album
+      expect(assigns(:album)).to eq(@album)
+    end
+  end
+
+  describe "POST #upvote" do
+    before :each do
+      @album = Album.create(name: "Zer0 Album", rank: 0)
+    end
+
+    after :each do
+      @album.destroy
+    end
+
+    context "upvoting a album" do
+      it "increases the rank by 1" do
+        post :upvote, id: @album.id
+        @album.reload
+        expect(@album.rank).to eq 1
+      end
+
+      it "redirects to the Album show page" do
+        patch :upvote, id: @album.id
+        expect(subject).to redirect_to(album_path)
+      end
+    end
+  end
+
     describe "GET #new" do
       let (:cd_params) do
         {

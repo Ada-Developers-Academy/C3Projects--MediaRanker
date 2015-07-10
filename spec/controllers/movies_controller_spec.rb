@@ -35,6 +35,29 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+  describe "POST #upvote" do
+    before :each do
+      @movie = Movie.create(name: "Zer0 Movi3", rank: 0)
+    end
+
+    after :each do
+      @movie.destroy
+    end
+
+    context "upvoting a movie" do
+      it "increases the rank by 1" do
+        post :upvote, id: @movie.id
+        @movie.reload
+        expect(@movie.rank).to eq 1
+      end
+
+      it "redirects to the Movie show page" do
+        patch :upvote, id: @movie.id
+        expect(subject).to redirect_to(movie_path)
+      end
+    end
+  end
+
     describe "GET #new" do
       let (:film_params) do
         {
@@ -116,11 +139,8 @@ RSpec.describe MoviesController, type: :controller do
         delete :destroy, id: @movie.id
         expect(subject).to redirect_to(movies_path)
       end
-
     end
-
   end
-
 
   describe "PATCH #update" do
 
