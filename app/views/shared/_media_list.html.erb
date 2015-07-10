@@ -10,8 +10,10 @@
       <% media.each do |item| %>
         <tr>
           <td>Ranked: <%= item.rank %></td>
-          <td><%= link_to "#{item.title}", polymorphic_path(item), method: "get" %></td>
-          <td><%= button_to "Upvote", polymorphic_path([item, :upvote]), method: "patch", class: "btn btn-primary" %></td>
+          <td><%= link_to "#{item.title}", polymorphic_path(item),
+          method: "get" %></td>
+          <td><%= button_to "Upvote", polymorphic_path([item, :upvote]),
+          method: "patch", class: "btn btn-primary" %></td>
         </tr>
       <% end %>
 
@@ -20,11 +22,13 @@
 </div>
 <div class="row">
   <div class="col-sm-4 col-sm-offset-4">
-    <div style="float:left; margin: 4px;">
-      <%= button_to "View All Media", root_path, method: "get", class: "btn btn-default"  %>
+    <div>
+      <%= button_to "View All Media", root_path,
+      method: "get", class: "btn btn-default" %>
     </div>
-    <div style="float:left; margin: 4px;">
-      <%= button_to "Add #{name}", new_polymorphic_path(medium), method: "get", class: "btn btn-default"  %>
+    <div>
+      <%= button_to "Add #{name}", new_polymorphic_path(medium),
+      method: "get", class: "btn btn-default" %>
     </div>
   </div>
 </div>

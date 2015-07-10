@@ -1,17 +1,29 @@
 <footer>
   <div class="row">
     <div class="col-sm-10 col-sm-offset-2">
-      <div style="float:left; margin: 4px;">
-        <%= button_to "Edit #{media.title}", edit_polymorphic_path(media), method: "get", class: "btn btn-default" %>
+      <div>
+        <%= button_to "Edit #{media.title}", edit_polymorphic_path(media),
+        method: "get",
+        class: "btn btn-default" %>
       </div>
-      <div style="float:left; margin: 4px;">
-        <%= button_to "DELETE", delete_item_path, method: "delete", data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+
+      <div>
+        <%= button_to "DELETE", delete_item_path,
+        method: "delete",
+        data: { confirm: "Are you sure?" },
+        class: "btn btn-danger" %>
       </div>
-      <div style="float:left; margin: 4px;">
-        <%= button_to "View All #{name}", view_all_path, method: "get", class: "btn btn-default" %>
+
+      <div>
+        <%= button_to "View All #{name}", view_all_path,
+        method: "get",
+        class: "btn btn-default" %>
       </div>
-      <div style="float:left; margin: 4px;">
-        <%= button_to "View All Media", root_path, method: "get", class: "btn btn-default" %>
+
+      <div>
+        <%= button_to "View All Media", root_path,
+        method: "get",
+        class: "btn btn-default" %>
       </div>
     </div>
   </div>
