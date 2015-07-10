@@ -2,8 +2,8 @@
   <%= stylesheet_link_tag 'board_games' %>
 <% end %>
 
-<h1><%= @board_game.title %></h1>
-<h3>Created by: <%= @board_game.author %></h3>
+<h2><%= @board_game.title %></h2>
+<h4>Created by: <%= @board_game.author %></h4>
 <p>
   Ranked:  <%= @board_game.rating %> <%= button_to "Upvote", upvote_board_game_path(@board_game.id), class: "btn board-btn" %>
 </p>

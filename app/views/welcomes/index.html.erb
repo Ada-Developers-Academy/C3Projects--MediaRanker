@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="col-md-4">
-<h1>Highest Rated Video Games</h1>
+<h2>Highest Rated Video Games</h2>
 <% @video_games.each do |game| %>
 <h3><%= link_to "#{game.title}", video_game_path(game.id) %> <small>Rating: <%= game.rating %></small></h3>
 <% end %>
@@ -13,7 +13,7 @@
 </div>
 
 <div class="col-md-4">
-<h1>Highest Rated Board Games</h1>
+<h2>Highest Rated Board Games</h2>
 <% @board_games.each do |game| %>
 <h3><%= link_to "#{game.title}", board_game_path(game.id) %> <small>Rating: <%= game.rating %></small></h3>
 <% end %>
@@ -23,7 +23,7 @@
 </div>
 
 <div class="col-md-4">
-<h1>Highest Rated Story Games</h1>
+<h2>Highest Rated Story Games</h2>
 <% @story_games.each do |game| %>
 <h3><%= link_to "#{game.title}", story_game_path(game.id) %> <small>Rating: <%= game.rating %></small></h3>
 <% end %>

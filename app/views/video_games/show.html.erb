@@ -2,8 +2,8 @@
   <%= stylesheet_link_tag 'video_games' %>
 <% end %>
 
-<h1><%= @video_game.title %></h1>
-<h3>Created by: <%= @video_game.studio %></h3>
+<h2><%= @video_game.title %></h2>
+<h4>Created by: <%= @video_game.studio %></h4>
 <p>
   Ranked:  <%= @video_game.rating %> <%= button_to "Upvote", upvote_video_game_path(@video_game.id), class: "btn" %>
 </p>

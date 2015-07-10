@@ -2,8 +2,8 @@
   <%= stylesheet_link_tag 'story_games' %>
 <% end %>
 
-<h1><%= @story_game.title %></h1>
-<h3>Created by: <%= @story_game.author %></h3>
+<h2><%= @story_game.title %></h2>
+<h4>Created by: <%= @story_game.author %></h4>
 <p>
   Ranked:  <%= @story_game.rating %> <%= button_to "Upvote", upvote_story_game_path(@story_game.id), class: "btn" %>
 </p>
