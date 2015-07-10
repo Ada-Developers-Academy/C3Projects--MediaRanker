@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
 
   def index
-    @movies  = Movie.all
-    @books   = Book.all
-    @albums  = Album.all
+    @movies  = Movie.best(5)
+    @books   = Book.best(5)
+    @albums  = Album.best(5)
   end
 
 end
