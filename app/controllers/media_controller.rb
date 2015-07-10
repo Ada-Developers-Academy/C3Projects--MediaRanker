@@ -9,18 +9,13 @@ class MediaController < ApplicationController
     @media = @category.media.by_upvotes
   end
 
-  def show
-    @medium = Medium.find(params[:id])
-  end
+  def show; end
 
   def new; end
 
-  def edit
-    @medium = Medium.find(params[:id])
-  end
+  def edit; end
 
   def upvote
-    @medium = Medium.find(params[:id])
     @medium.increment!(:upvotes, 1)
 
     redirect_to "#{ @medium.url }"
@@ -48,9 +43,8 @@ class MediaController < ApplicationController
   end
 
   def destroy
-    medium = Medium.find(params[:id])
-    url_base = medium.url_base
-    medium.destroy
+    url_base = @medium.url_base
+    @medium.destroy
 
     redirect_to "#{ url_base }"
   end
@@ -61,7 +55,7 @@ class MediaController < ApplicationController
     category = params[:category]
 
     @category = Category.where(name: category.classify)[0]
-    @medium = Medium.new(category_id: @category.id)
+    @medium = params[:id] ? Medium.find(params[:id]) : Medium.new(category_id: @category.id)
   end
 
   def create_params
