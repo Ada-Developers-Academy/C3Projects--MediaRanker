@@ -58,8 +58,9 @@ RSpec.shared_examples "MediaController" do
         it "updates an existing record" do
           patch :update, { id: @created.id }.merge(new_params)
           # NOTES TO REMEMBER:
-          # put :update, id: @created.id, { book: { name: "title" }}
+          # put :update, id: @created.id, { book: { name: "title" } }
           # put :update, { id: @created.id, book: { name: "title" } }
+          # watch out for implicit parens!!!
           @created.reload
           expect(@created.name).to eq "title"
         end
