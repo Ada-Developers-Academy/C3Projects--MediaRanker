@@ -130,7 +130,12 @@ RSpec.shared_examples "medium" do
       @medium2.save
       @params = { medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: 1 }
     end
+
     # removes object
+    it "deletes the object" do
+      delete :destroy, id: 2
+      expect(described_class.model.all).to_not include @medium2
+    end
 
     # redirects
     it "redirects to the medium's :show view" do
