@@ -8,8 +8,8 @@
     <% collection.each do |media| %>
       <tr>
         <td> Ranked: <%= media.ranking %> </td>
-        <td> <%= link_to media.name, media_path.call(media) %> </td>
-        <td> <%= button_to "Upvote", media_path.call(media), method: "patch", class: "btn btn-primary" %> </td>
+        <td> <%= link_to media.name, polymorphic_path(media) %> </td>
+        <td> <%= button_to "Upvote", polymorphic_path(media), method: "patch", class: "btn btn-primary" %> </td>
       </tr>
     <% end %>
   </tbody>
@@ -17,4 +17,4 @@
 
 
 <%= link_to "View All Media", root_path, class: "btn btn-default" %>
-<%= link_to "Add a #{media_name}", new_media_path.call, class: "btn btn-default" %>
+<%= link_to "Add a #{media_name}", new_polymorphic_path(media_name), class: "btn btn-default" %>
