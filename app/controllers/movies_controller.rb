@@ -9,13 +9,11 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    # @media = Movie.find(params[:id])
     @media.increment!(:rank)
     redirect_to movie_path(@media)
   end
 
   def show
-    # @media = Movie.find(params[:id])
     @created = "Directed"
     @creator = @media.director
     @format = "Movies"
@@ -37,12 +35,11 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    # @media = Movie.find(params[:id])
     @creator = :director
   end
 
   def update
-    # @media = Movie.find(params[:id])
+
     @creator = :director
     if @media.update(movie_params)
       redirect_to movie_path(@media)
@@ -52,7 +49,6 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    # @media = Movie.find(params[:id])
     @media.destroy
     redirect_to polymorphic_path(Movie)
   end
