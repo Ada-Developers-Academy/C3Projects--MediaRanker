@@ -82,7 +82,7 @@ RSpec.shared_examples "a medium controller" do
       @medium = described_class.model.create(title: "a title", rank: 20, description: "a description")
     end
 
-    it "shows the selected medium" do
+    it "shows the selected #{described_class.model}" do
       get :show, id: @medium
 
       expect { assigns(:medium).to eq(@medium) }
