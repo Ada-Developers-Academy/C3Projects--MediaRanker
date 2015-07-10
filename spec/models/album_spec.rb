@@ -18,5 +18,22 @@ RSpec.describe Album, type: :model do
       album = Album.new(title: "a title", author: "someone")
       expect(album.ranking).to eq(1)
     end
+
+    context "error messages" do
+      before(:each) do
+          @album = Album.new(
+            title: "dude",
+            author: "cool",
+            description: "duuude"
+            )
+      end
+
+      it "gives an error message for updates to blank title and author" do
+        @album.update(title: '', author: '')
+        expect(@album.errors.keys).to include(:title, :author)
+      end
+
+    end
+
   end
 end

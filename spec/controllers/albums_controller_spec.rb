@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe AlbumsController, type: :controller do
+
+# GET specs ----------------------------------------------------------------
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index
@@ -8,7 +10,7 @@ RSpec.describe AlbumsController, type: :controller do
       expect(response).to have_http_status(200)
     end
   end
-
+# POST specs ---------------------------------------------------------------
   describe "POST #create" do
     context "Invalid album params" do
       let(:album_params) do
@@ -52,21 +54,31 @@ RSpec.describe AlbumsController, type: :controller do
         expect(response).to redirect_to(albums_path)
       end
     end
-
+ # PATCH specs --------------------------------------------------------------------
     describe "PATCH #update" do
       before(:each) do
         @album = Album.new(title: "first title", author: "first author")
+        @album.save
+      end
+
+      after(:each) do
+        @album.destroy
       end
 
       context "Invalid data for update of album" do
-        it "redirects to the edit form for invalid edits" do
-          @album.update(title: "", author: "")
-          expect(response).to render_template("edit")
+        it "renders the edit form for invalid input" do
+          patch :update, id: @album, :album => {title: ''}
+          expect(subject).to render_template("edit")
         end
       end
 
-      context "Valid data is accepted" do
-
+      context "Valid data for update of album" do
+        it "redirects to album details after updating" do
+          patch :update, id: @album.id, :album => {title: 'new title'}
+          @album.reload
+          expect(@album.title).to eq("new title")
+          expect(response).to redirect_to(album_path(@album.id))
+        end
       end
     end
   end

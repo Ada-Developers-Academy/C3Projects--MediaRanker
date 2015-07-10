@@ -34,13 +34,23 @@ class AlbumsController < ApplicationController
 
   def update
     @media = Album.find(params[:id])
+    @by = :artist
     @media.update(album_params)
-    @media.save
-    redirect_to albums_path
+    if @media.save
+      redirect_to album_path(params[:id])
+    else
+      render :edit
+    end
   end
 
   def destroy
     Album.find(params[:id]).destroy
+    redirect_to albums_path
+  end
+
+  def vote
+    @media = Album.find(params[:id])
+    @media.ranking += 1
     redirect_to albums_path
   end
 
