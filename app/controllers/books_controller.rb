@@ -2,14 +2,6 @@ class BooksController < ApplicationController
 
   before_action :get_book, only: [:show, :edit, :update, :upvote, :destroy]
 
-  def get_book
-    @book = Book.find(params[:id])
-  end
-
-  def self.model
-    Book
-  end
-
   # Show book(s)
   def index
     @books = Book.order(:name)
@@ -58,6 +50,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def get_book
+    @book = Book.find(params[:id])
+  end
 
   def book_params
     params.require(:book).permit(:name, :author, :desc)
