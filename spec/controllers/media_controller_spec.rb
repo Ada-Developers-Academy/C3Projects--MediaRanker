@@ -214,6 +214,8 @@ RSpec.describe MediaController, type: :controller do
     it "updates a medium" do
       patch :update, { category: @medium.category.plural, id: @medium.id, medium: { title: @new_title } }
 
+      @medium.reload
+
       expect(@medium.title).to eq(@new_title)
       # expect(@medium.upvotes).to be(1)
     end
