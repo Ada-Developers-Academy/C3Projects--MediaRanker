@@ -160,7 +160,7 @@ RSpec.describe AlbumsController, type: :controller do
 
 
     # When NAME field in the edit form IS EMPTY
-    it "updates a album record" do
+    it "renders an edit page if the name field is empty" do
       patch :update, id: @album.id, album: { name: nil }
       @album.reload
       expect(response).to render_template("edit")

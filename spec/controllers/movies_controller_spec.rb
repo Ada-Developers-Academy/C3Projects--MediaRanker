@@ -160,7 +160,7 @@ RSpec.describe MoviesController, type: :controller do
 
 
     # When NAME field in the edit form IS EMPTY
-    it "updates a movie record" do
+    it "renders an edit page if the name field is empty" do
       patch :update, id: @movie.id, movie: { name: nil }
       @movie.reload
       expect(response).to render_template("edit")

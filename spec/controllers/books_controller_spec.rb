@@ -160,7 +160,7 @@ RSpec.describe BooksController, type: :controller do
 
 
     # When NAME field in the edit form IS EMPTY
-    it "updates a book record" do
+    it "renders an edit page if the name field is empty" do
       patch :update, id: @book.id, book: { name: nil }
       @book.reload
       expect(response).to render_template("edit")
