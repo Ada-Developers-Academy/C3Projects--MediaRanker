@@ -2,8 +2,10 @@
 <small><%= byline + @medium.contributor %></small></h1>
 <h4>Ranked: <%= @medium.ranking %></h4>
 <p><%= @medium.description %></p>
-<%= button_to 'Upvote', upvote_medium_path, class: "btn btn-primary", method: "patch"%>
-
-
-<%= button_to 'Edit ' + @medium.name, edit_medium_path, method: "get", class: "btn btn-default" %>
-<%= button_to "Delete", medium_path(@medium.id, :from => @medium.media_type), method: "delete", data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<%= link_to 'Upvote', upvote_medium_path, class: "btn btn-primary", method: "patch"%>
+<nav class="navbar">
+  <%= link_to 'Edit ' + @medium.name, edit_medium_path, method: "get", class: "btn btn-default" %>
+  <%= link_to "Delete", medium_path(@medium.id, @type), method: "delete", data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  <%= link_to 'View All ' + @type.capitalize, polymorphic_path("#{@type}_index"), method: "get", class: "btn btn-default" %>
+  <%= link_to 'View All Media', root_path, method: "get", class: "btn btn-default" %>
+</nav>
