@@ -47,7 +47,7 @@ class MoviesController < ApplicationController
     votes += 1
     @movie.update(rank: votes)
 
-    super
+    redirect_to action: :show, id: params[:id]
   end
 
   private

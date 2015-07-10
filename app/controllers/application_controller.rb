@@ -16,7 +16,9 @@ class ApplicationController < ActionController::Base
   end
 
   def upvote
-    redirect_to :back
+    # redirect_to :back
+      # FOR SOME REASON THIS WAS WORKING ON BOOKS & ALBUMS BUT NOT MOVIES
+    redirect_to action: :show, id: params[:id]
   end
 
 end
