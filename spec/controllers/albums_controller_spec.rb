@@ -21,6 +21,22 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    let(:album) { Album.create(title: 'some title', creator: 'some creator') }
+
+    before :each do
+      get :show, id: album
+    end
+
+    it "finds a specific album" do
+      expect(assigns(:album)).to eq(album)
+    end
+
+    it "renders show template" do
+      expect(response).to render_template("show")
+    end
+  end
+
   describe "GET #new" do
     it "responds successfully with an HTTP 200 status code" do
       get :new
