@@ -3,6 +3,17 @@ Rails.application.routes.draw do
 
   categories = Category.all.map { |category| category.plural }
 
+  # categories.each do |cat|
+  #   resources cat.to_sym, controller: :media do
+  #     member do
+  #       patch 'upvote'
+  #     end
+  #   end
+  #   # patch "/#{ cat }/:id/upvote" to
+  # end
+
+
+  # now it's not working ;_; -_-'
   regexp_string = ''
   last_index = categories.length - 1
 
@@ -13,11 +24,11 @@ Rails.application.routes.draw do
 
   CATEGORIES_CONSTRAINTS = { category: /#{ regexp_string }/ }
 
-  get '/:category', to: 'media#index', constraints: CATEGORIES_CONSTRAINTS
+  get '/:category', to: 'media#index', as: 'index', constraints: CATEGORIES_CONSTRAINTS
   post '/:category', to: 'media#create', constraints: CATEGORIES_CONSTRAINTS
-  get '/:category/new', to: 'media#new', constraints: CATEGORIES_CONSTRAINTS
-  get '/:category/:id/edit', to: 'media#edit', constraints: CATEGORIES_CONSTRAINTS
-  get '/:category/:id', to: 'media#show', constraints: CATEGORIES_CONSTRAINTS
+  get '/:category/new', to: 'media#new', as: 'new', constraints: CATEGORIES_CONSTRAINTS
+  get '/:category/:id/edit', to: 'media#edit', as: 'edit', constraints: CATEGORIES_CONSTRAINTS
+  get '/:category/:id', to: 'media#show', as: 'show', constraints: CATEGORIES_CONSTRAINTS
   patch '/:category/:id', to: 'media#update', constraints: CATEGORIES_CONSTRAINTS
   put '/:category/:id', to: 'media#update', constraints: CATEGORIES_CONSTRAINTS
   delete '/:category/:id', to: 'media#destroy', constraints: CATEGORIES_CONSTRAINTS
