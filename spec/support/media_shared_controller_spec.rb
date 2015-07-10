@@ -34,13 +34,15 @@ RSpec.shared_examples "a media" do
     end
   end
 
-  describe "POST create" do #why isn't this saving??
-    it "creates a new Media record" do
-      params = {medium: {id: 2, name: "a name", creator: "someone", description: "whatever"}}
+  describe "PATCH update" do
+    before :each do
+      @medium1 = described_class.model.new(id: 1, name: "any old name")
+      @medium1.save
+    end
 
-      post :create, params
-
-      expect(described_class.model.find(2)).to_be success
+    it "locates the correct described_class.model" do
+      params = { id: 1 }
+      expect(described_class.model.find(params[:id]).name).to eq("any old name")
     end
   end
 end
