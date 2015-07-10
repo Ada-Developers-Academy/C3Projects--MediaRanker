@@ -1,4 +1,5 @@
-<h1><%= link_to "All Albums List", "/albums"%></h1>
+<div class="container-fluid">
+  <h1><%= link_to "All Albums List", "/albums"%></h1>
 <table class="table table-hover table-condensed">
   <tr>
     <th>
@@ -39,5 +40,5 @@
   <% end %>
 </table>
 <br>
-
 <%= button_to "Add new Album", "/albums/new", method: :get %>
+</div>
