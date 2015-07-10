@@ -2,12 +2,10 @@
 
 <%= f.label :title, "#{title_desc}" %>
 <%= f.text_field :title, class: "form_field", required: true, autofocus: true, placeholder: title_placeholder, value: title_value %>
-<%= f.label :description, "#{address_desc}" %>
+<%= f.label :description, "#{description_desc}" %>
 <%= f.text_field :description, class: "form_field", placeholder: description_placeholder, value: description_value %>
 <%= f.label :author, "#{author_desc}" %>
 <%= f.text_field :author, class: "form_field", placeholder: author_placeholder, value: author_value %>
-<%= f.label :meeples, "#{meeples_desc}" %>
-<%= f.text_field :meeples class: "form_field", placeholder: meeples_placeholder, value: meeples_value %>
 
 <%= f.submit submit_button, class: "submit_button" %>
 <% end %>

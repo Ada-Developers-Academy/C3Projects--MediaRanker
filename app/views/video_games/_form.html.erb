@@ -3,11 +3,9 @@
 <%= f.label :title, "#{title_desc}" %>
 <%= f.text_field :title, class: "form_field", required: true, autofocus: true, placeholder: title_placeholder, value: title_value %>
 <%= f.label :description, "#{description_desc}" %>
-<%= f.text_area :description, class: "form_field", placeholder: description_placeholder, value: description_value %>
+<%= f.text_field :description, class: "form_field", placeholder: description_placeholder, value: description_value %>
 <%= f.label :studio, "#{studio_desc}" %>
 <%= f.text_field :studio, class: "form_field", placeholder: studio_placeholder, value: studio_value %>
-<%= f.label :stars, "#{stars_desc}" %>
-<%= f.text_field :stars class: "form_field", placeholder: stars_placeholder, value: stars_value %>
 
 <%= f.submit submit_button, class: "submit_button" %>
 <% end %>

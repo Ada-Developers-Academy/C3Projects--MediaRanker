@@ -2,15 +2,15 @@
   <%= stylesheet_link_tag 'board_games' %>
 <% end %>
 
-<%= form_for @board_game do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title, placeholder: "#{@board_game.title}" %><br />
-
-  <%= f.label :author %>:
-  <%= f.text_field :author, placeholder: "#{@board_game.author}" %><br />
-
-  <%= f.label :description %>:
-  <%= f.text_area :description, size: "50x10", placeholder: "#{@board_game.description}" %><br />
-
-  <%= f.submit  "Edit Game"%>
-<% end %>
+<%= render partial: "form", locals: { item: @board_game,
+                                      title_desc: "Title",
+                                      title_placeholder: "",
+                                      title_value: @board_game.title,
+                                      author_desc: "Author",
+                                      author_placeholder: "",
+                                      author_value: @board_game.author,
+                                      description_desc: "Description",
+                                      description_placeholder: "",
+                                      description_value: @board_game.description,
+                                      submit_button: "Edit" }
+%>
