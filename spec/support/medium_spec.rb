@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 RSpec.shared_examples "a medium" do
-
-
-  describe "scopes in described_class" do
+  describe "scopes" do
     before :each do
       described_class.create(title: "a title", rank: 56)
       described_class.create(title: "b title", rank: 6)
@@ -14,7 +12,7 @@ RSpec.shared_examples "a medium" do
 
       @correct_order_top = [ 500, 56, 23, 10, 6 ]
       @order_top = []
-      decribed_class.all.top.each do |medium|
+      described_class.all.top.each do |medium|
         @order_top << medium.rank
       end
 
@@ -37,35 +35,35 @@ RSpec.shared_examples "a medium" do
       end
     end
 
-  #   describe "rank_order scope" do
-  #     it "orders all the records" do
-  #       expect(Movie.rank_order.count).to eq 6
-  #       expect(@order_all).to eq @correct_order_all
-  #     end
-  #   end
-  # end
-  #
-  # # Testing Validations:
-  # describe "model validations" do
-  #   it "requires a title" do
-  #     movie = Movie.new
-  #
-  #     expect(movie).to_not be_valid
-  #     expect(movie.errors.keys).to include(:title)
-  #   end
-  #
-  #   context "rank validation" do
-  #     it "requires a rank" do
-  #       movie = Movie.new(title: "a movie")
-  #
-  #       expect(movie).to_not be_valid
-  #       expect(movie.errors.keys).to include(:rank)
-  #     end
-  #
-  #     it "rank must be an integer" do
-  #       movie = Movie.create(title: "a movie", rank: 10)
-  #       expect(movie.rank.class).to eq Fixnum
-  #     end
-  #   end
+    describe "rank_order scope" do
+      it "orders all the records" do
+        expect(described_class.rank_order.count).to eq 6
+        expect(@order_all).to eq @correct_order_all
+      end
+    end
+  end
+
+  # Testing Validations:
+  describe "model validations" do
+    it "requires a title" do
+      medium = described_class.new
+
+      expect(medium).to_not be_valid
+      expect(medium.errors.keys).to include(:title)
+    end
+
+    context "rank validation" do
+      it "requires a rank" do
+        medium = described_class.new(title: "a medium")
+
+        expect(medium).to_not be_valid
+        expect(medium.errors.keys).to include(:rank)
+      end
+
+      it "rank must be an integer" do
+        medium = described_class.create(title: "a medium", rank: 10)
+        expect(medium.rank.class).to eq Fixnum
+      end
+    end
   end
 end

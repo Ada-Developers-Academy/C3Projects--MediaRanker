@@ -1,4 +1,7 @@
 class MoviesController < ApplicationController
+  def self.model
+    Movie
+  end
 
   def index
     @movies = Movie.all.rank_order
