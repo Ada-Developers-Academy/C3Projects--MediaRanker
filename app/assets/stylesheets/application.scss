@@ -13,3 +13,12 @@
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.page-header {
+  background: url(/assets/owl.jpg);
+  background-repeat: no-repeat;
+}
+
+.page-header h1 {
+  margin-left: 150px;
+}
