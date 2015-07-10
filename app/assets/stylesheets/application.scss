@@ -13,3 +13,7 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .page-header{padding-bottom: 25px;
+   margin: 40px;
+   background:url(/assets/owl.jpg);background-repeat:no-repeat; }.page-header h1{margin-left:135px}form .btn-primary{margin-bottom:10px};
