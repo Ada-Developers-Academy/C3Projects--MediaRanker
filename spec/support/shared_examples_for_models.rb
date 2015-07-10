@@ -11,7 +11,7 @@ RSpec.shared_examples "a collection" do
   end
 
   describe "best scope" do
-    it "displays just 10 movies with ranking in desc order" do
+    it "displays just 10 items with ranking in desc order" do
       collection1  = described_class.create(name: "name1", description: "description1", ranking: 1)
       collection2  = described_class.create(name: "name2", description: "description2", ranking: 2)
       collection3  = described_class.create(name: "name3", description: "description3", ranking: 3)

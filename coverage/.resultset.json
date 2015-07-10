@@ -345,6 +345,9 @@
         1,
         null
       ],
+      "/Users/viktoryiashabunia/ada/learning-bash/project-forks/C3Projects--MediaRanker/spec/support/shared_exapmles_for_controllers.rb": [
+
+      ],
       "/Users/viktoryiashabunia/ada/learning-bash/project-forks/C3Projects--MediaRanker/spec/controllers/albums_controller_spec.rb": [
         1,
         null,
@@ -1323,6 +1326,6 @@
         null
       ]
     },
-    "timestamp": 1436560083
+    "timestamp": 1436562073
   }
 }
