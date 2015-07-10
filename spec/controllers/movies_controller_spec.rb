@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe MoviesController, type: :controller do
 
   describe "GET index" do
-
     it "renders the :index view for all Movies" do
        get :index
        expect(response).to render_template("index")
@@ -16,10 +15,21 @@ RSpec.describe MoviesController, type: :controller do
     end
   end
 
+    describe "GET #new" do
+      let (:film_params) do
+        {
+          movie: { name: "New Film" }
+        }
+      end
+
+      it "creates a new Movie object" do
+        get :new, film_params
+        expect(assigns(:movie)).to be_kind_of(Object)
+      end
+  end
+
   describe "POST create" do
-
     context "Valid movie params" do
-
       let(:movie_params) do # any name to rep the params
         {
           movie: {
@@ -67,7 +77,6 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-
     before :each do
       @movie = Movie.create(:name => "New Warz")
     end
@@ -78,7 +87,6 @@ RSpec.describe MoviesController, type: :controller do
 
 
     context "successful deletion" do
-
       it "deletes a record" do
         delete :destroy, id: @movie.id
         expect(Movie.count).to eq 0
