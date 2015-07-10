@@ -59,7 +59,8 @@ RSpec.describe MediaController, type: :controller do
 
       it "creates an media record" do
         post :create, medium_params
-        expect(Medium.count).to eq 1
+        expect(Medium.count).to eq(1)
+        expect(response).to redirect_to(assigns(:medium))
       end
     end
   end
@@ -87,8 +88,7 @@ RSpec.describe MediaController, type: :controller do
 
       it "deletes a medium record" do
         @medium = Medium.create!(ranking: "4", name: "Book name", media_type: "book")
-        expect { delete :destroy, :id => @medium.id, :from => "book" }.to change(Medium, :count).by(-1)
-        # Since my redirect filepath relies on a "from" key in params, I included a specific key/value here
+        expect { delete :destroy, :id => @medium.id }.to change(Medium, :count).by(-1)
       end
     end
   end
