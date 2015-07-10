@@ -22,7 +22,7 @@ class MediaController < ApplicationController
 
   def show
     @medium = Medium.find(params[:id])
-    @type = @medium.media_type
+    @type = @medium.media_type.pluralize
   end
 
   def new
@@ -32,7 +32,7 @@ class MediaController < ApplicationController
   def create
     @medium = Medium.new(create_params[:medium])
     if @medium.save
-      redirect_to media_path
+      redirect_to medium_path(@medium)
     else
       render :new
     end
@@ -60,7 +60,7 @@ class MediaController < ApplicationController
   def destroy
     @medium = Medium.destroy(params[:id])
 
-    redirect_to "/#{params[:from].pluralize}/index"
+    redirect_to "/#{params[:format]}/index"
 
 
   end
