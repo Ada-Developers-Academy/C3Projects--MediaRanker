@@ -40,7 +40,7 @@ class BooksController < ApplicationController
 
     @book.save
 
-    redirect_to(:back)
+    redirect_to(:back) rescue redirect_to book_path
   end
 
   def destroy

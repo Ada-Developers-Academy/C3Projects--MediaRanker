@@ -34,4 +34,16 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "PATCH #upvote" do
+    it "increases the book rank by 1" do
+      book = Book.create(name: "Tragic Kingdom", rank: 99)
+
+      patch :upvote, id: book.id
+
+      book.reload
+
+      expect(book.rank).to eq(100)
+    end
+  end
+
 end

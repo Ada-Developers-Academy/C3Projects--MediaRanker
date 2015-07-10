@@ -34,4 +34,15 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "PATCH #upvote" do
+    it "increases the album rank by 1" do
+      album = Album.create(name: "Tragic Kingdom", rank: 99)
+
+      patch :upvote, id: album.id
+
+      album.reload
+
+      expect(album.rank).to eq(100)
+    end
+  end
 end
