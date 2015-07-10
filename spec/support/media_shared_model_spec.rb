@@ -14,15 +14,14 @@ RSpec.shared_examples "a medium" do
   describe "ranking scope" do
 
     before :each do
-      @medium1 = described_class.create(name: "Cool medium", creator: "some person", description: "cool", rank: 5)
+      @medium1 = described_class.create(id: 1, name: "Cool medium", creator: "some person", description: "cool", rank: 5)
       @medium2 = described_class.create(name: "Rad medium", creator: "some person", description: "rad", rank: 11)
       @medium3 = described_class.create(name: "Neat medium", creator: "some person", description: "neat", rank: 3)
     end
 
     it "returns n number of media based on argument" do
 
-      correct_order = [@medium2, @medium1]
-      expect(described_class.ranking(2)).to eq correct_order
+      expect(described_class.ranking(2).count).to eq 2
     end
 
     it "returns an ordered list of top ranked media" do
@@ -31,9 +30,10 @@ RSpec.shared_examples "a medium" do
       expect(described_class.ranking(3)).to eq correct_order
     end
 
+
     it "includes only the top ranked movie when total equals 1" do
       expect(described_class.ranking(1).count).to eq 1
-      expect(described_class.ranking(1)).to_not include (@movie1)
+      expect(described_class.ranking(1)).to_not include (@medium1)
     end
   end
 
