@@ -16,5 +16,5 @@
 !/log/.keep
 /tmp
 
-#Ignore SimpleCov files.
-/coverage/**
+# Ignore SimpleCov files.
+coverage
