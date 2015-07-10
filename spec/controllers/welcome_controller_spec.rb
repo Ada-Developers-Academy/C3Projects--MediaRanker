@@ -20,7 +20,7 @@ RSpec.describe WelcomeController, type: :controller do
       end
     end
 
-    context "books" do
+    context "movies" do
       before :each do
         @movie1 = Movie.create(title: 'a', votes: 1)
         @movie2 = Movie.create(title: 'b', votes: 2)
