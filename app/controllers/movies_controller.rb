@@ -41,12 +41,16 @@ class MoviesController < ApplicationController
                            director: new_director,
                         description: new_description
       )
+      if @movie.save
+        redirect_to movie_path(@movie)
+      else
+        render :edit
+      end
     else
       new_ranking = @movie.ranking + 1
       @movie.update(ranking: new_ranking)
+      redirect_to movie_path(@movie)
     end
-
-    redirect_to movie_path(@movie)
   end
 
   def destroy

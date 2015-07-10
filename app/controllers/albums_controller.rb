@@ -41,12 +41,18 @@ class AlbumsController < ApplicationController
                              artist: new_artist,
                         description: new_description
       )
+
+      if @album.save
+        redirect_to album_path(@album)
+      else
+        render :edit
+      end
+
     else
       new_ranking = @album.ranking + 1
       @album.update(ranking: new_ranking)
+      redirect_to album_path(@album)
     end
-
-    redirect_to album_path(@album)
   end
 
   def destroy

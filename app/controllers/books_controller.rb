@@ -41,12 +41,18 @@ class BooksController < ApplicationController
                          author: new_author,
                     description: new_description
       )
+
+      if @book.save
+        redirect_to book_path(@book)
+      else
+        render :edit
+      end
+
     else
       new_ranking = @book.ranking + 1
       @book.update(ranking: new_ranking)
+      redirect_to book_path(@book)
     end
-
-    redirect_to book_path(@book)
   end
 
   def destroy
