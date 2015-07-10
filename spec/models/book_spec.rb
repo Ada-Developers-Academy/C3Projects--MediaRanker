@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'support/shared_examples_for_media'
+require 'support/shared_examples_for_media_models'
 
 RSpec.describe Book, type: :model do
   describe Book do
