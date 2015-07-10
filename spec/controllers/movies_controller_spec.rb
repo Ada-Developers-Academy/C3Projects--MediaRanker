@@ -84,19 +84,33 @@ RSpec.describe MoviesController, type: :controller do
     let(:movie_params) { { movie: { title: "Lord of the Rings", director: "some dude prolly" } } }
     let(:invalid_movie_params) { { movie: { director: "another dude" } } }
 
-    it "creates a new record in the db" do
-      post :create, movie_params
-      expect(Movie.count).to eq 1
+    context "Has a title!" do
+      it "creates a new record in the db" do
+        post :create, movie_params
+        expect(Movie.count).to eq 1
+      end
+
+      it "redirects to the new record's show page" do
+        post :create, movie_params
+        expect(subject).to redirect_to(movie_path(id: 1))
+      end
+
+      it "creates defaults to create a record with a ranking of zero" do
+        post :create, movie_params
+        expect(Movie.all.first.rank). to eq 0
+      end
     end
 
-    it "creates defaults to create a record with a ranking of zero" do
-      post :create, movie_params
-      expect(Movie.all.first.rank). to eq 0
-    end
+    context "Does not have a title." do
+      it "does not create and save a record without a title" do
+        post :create, invalid_movie_params
+        expect(Movie.count).to eq 0
+      end
 
-    it "does not create and save a record without a title" do
-      post :create, invalid_movie_params
-      expect(Movie.count).to eq 0
+      it "renders the edit page" do
+        post :create, invalid_movie_params
+        expect(subject).to render_template(:new)
+      end
     end
   end
 end

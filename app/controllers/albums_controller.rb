@@ -52,7 +52,7 @@ class AlbumsController < ApplicationController
     else
       @album = Album.new(album_params)
       @action = "New"
-      render new_album_path(medium: @album)
+      render :new
     end
   end
 

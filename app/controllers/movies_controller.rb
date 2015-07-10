@@ -55,7 +55,7 @@ class MoviesController < ApplicationController
     else
       @movie = Movie.new(movie_params)
       @action = "New"
-      render new_movie_path(medium: @movie)
+      render :new
     end
   end
 

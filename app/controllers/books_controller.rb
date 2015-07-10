@@ -52,7 +52,7 @@ class BooksController < ApplicationController
     else
       @book = Book.new(book_params)
       @action = "New"
-      render new_book_path(medium: @book)
+      render :new
     end
   end
 
