@@ -4,6 +4,18 @@ RSpec.shared_examples "medium" do
 
   let(:medium_model_name){ described_class.model.name.downcase }
 
+  describe "find_medium" do
+    it "locates the correct object" do
+      medium1 = described_class.model.new(id: 1, title: "a title")
+      medium1.save
+      medium2 = described_class.model.new(id: 2, title: "b title")
+      medium2.save
+      params = { id: 2 }
+
+      expect(described_class.model.find(params[:id]).title).to eq("b title")
+    end
+  end
+
   describe "GET #index" do
     before :each do
       @medium1 = described_class.model.new(id: 1, title: "a title", ranking: 5)
@@ -27,37 +39,35 @@ RSpec.shared_examples "medium" do
     end
   end
 
-  describe "GET #show" do
-    it "locates the correct object" do
-      medium1 = described_class.model.new(id: 1, title: "a title")
-      medium1.save
-      medium2 = described_class.model.new(id: 2, title: "b title")
-      medium2.save
-      params = { id: 2 }
-
-      expect(described_class.model.find(params[:id]).title).to eq("b title")
+  describe "GET #upvote" do
+    before :each do
+      # why can't this be let?!?!
+      @medium = described_class.model.new(id: 1, title: "a title")
+      @medium.save
     end
 
+    # increase ranking by 1
+    it "increases the medium's ranking by 1" do
+      old_ranking = @medium.ranking
+      get :upvote, id: @medium.id
+
+      expect(assigns["#{medium_model_name}".to_sym].ranking).to eq old_ranking + 1
+    end
+
+    it "renders the :show view" do
+      get :upvote, id: @medium.id
+
+      expect(response).to render_template("show")
+    end
+  end
+
+  describe "GET #show" do
     it "renders the :show view" do
       medium = described_class.model.new(id: 1, title: "a title")
       medium.save
       get :show, id: 1
 
       expect(response).to render_template("show")
-    end
-  end
-
-  describe "GET #edit" do
-    # copy pasta'd from GET #show
-    # is this even good? NOPE. Re-do!
-    it "locates the correct medium" do
-      @medium1 = described_class.model.new(id: 1, title: "a title")
-      @medium1.save
-      medium2 = described_class.model.new(id: 2, title: "b title")
-      medium2.save
-      params = { id: 2 }
-
-      expect(described_class.model.find(params[:id]).title).to eq("b title")
     end
   end
 
