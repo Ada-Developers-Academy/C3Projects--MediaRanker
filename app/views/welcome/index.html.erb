@@ -1,39 +1,38 @@
 
+<class="col-med">
 <h1> Top Movies </h1>
-
-<ul>
+<h2>
   <% Movie.top(10).collect do |movie| %>
-   <li>
-     <%= link_to "#{movie.name}", "/movies/#{movie.id}" %> Ranked: <%= movie.rank %>
+     <%= link_to "#{movie.name}", "/movies/#{movie.id}" %> <small>Ranked: <%= movie.rank %></small>
      <% end %>
-   </li>
-   <li>
-     <%= link_to "View More Movies", "/movies" %>
-   </li>
+
+</h2>
+     <%= link_to "View More Movies", "/movies" %></li>
 </ul>
 
 <h1> Top Books </h1>
-
+<h2>
 <ul>
   <% Book.top(10).collect do |book| %>
   <li>
-    <%= link_to "#{book.name}", "/books/#{book.id}" %> Ranked: <%= book.rank %>
-    <% end %>
-  </li>
+    <%= link_to "#{book.name}", "/books/#{book.id}" %> <small>Ranked: <%= book.rank %> </small>
+    <% end %></li>
   <li>
-    <%= link_to "View More Books", "/books" %>
-  </li>
+    <%= link_to "View More Books", "/books" %></li>
 </ul>
+</h2>
 
 <h1> Top Albums </h1>
 
+<h2>
 <ul>
   <% Album.top(10).collect do |album| %>
   <li>
-    <%= link_to "#{album.name}", "/albums/#{album.id}" %> Ranked: <%= album.rank %>
-    <% end %>
-  </li>
+    <%= link_to "#{album.name}", "/albums/#{album.id}" %> <small>  Ranked: <%= album.rank %> </small>
+    <% end %></li>
   <li>
-    <%= link_to "View More Albums", "/albums" %>
-  </li>
+    <%= link_to "View More Albums", "/albums" %></li>
 </ul>
+
+</h2>
+</class>
