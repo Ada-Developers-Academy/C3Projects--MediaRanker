@@ -11,15 +11,18 @@ RSpec.describe WelcomeController, type: :controller do
       expect(response).to render_template("index")
     end
 
-    it "assigns @movies to all of the movies in the database" do
-      movie1 = Movie.create(name: 'a movie', description: 'a description')
-      movie2 = Movie.create(name: 'b movie', description: 'b description')
-      movie3 = Movie.create(name: 'c movie', description: 'c description')
+    it "assigns @movies to top 5 ranked movies in the database" do
+      movie1 = Movie.create(name: 'a movie', description: 'a description', rank: 5000)
+      movie2 = Movie.create(name: 'b movie', description: 'b description', rank: 40)
+      movie3 = Movie.create(name: 'c movie', description: 'c description', rank: 2)
+      movie4 = Movie.create(name: 'd movie', description: 'd description', rank: 230)
+      movie5 = Movie.create(name: 'e movie', description: 'e description', rank: 5500)
+      movie6 = Movie.create(name: 'f movie', description: 'f description', rank: 200)
+      movie7 = Movie.create(name: 'g movie', description: 'g description', rank: 15)
 
-      @movies = Movie.all
-
+      @movies = Movie.best(5)
       get :index
-      expect(@movies.length).to eq(3)
+      expect(@movies.length).to eq(5)
     end
   end
 
