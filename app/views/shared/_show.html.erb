@@ -4,14 +4,13 @@
 <p><strong> Ranked: <%= @single.rank %> </strong> </p>
 <p> <%= @single.description %> </p>
 
-<%= button_to "Upvote",  "/#{@controller}/#{@single.id}" %>
+<%= button_to "Upvote",  "/#{@controller}/#{@single.id}", class:"btn btn-default" %>
 
 
 <div>
-  <%= link_to "Edit #{@single.name}", "/#{@controller}/#{@single.id}/edit", method: :get %>
-  <%= link_to "Delete", "/#{@controller}/#{@single.id}", method: "delete",
+  <%= link_to "Edit #{@single.name}", "/#{@controller}/#{@single.id}/edit", class:"btn btn-default", method: :get %>
+  <%= link_to "Delete", "/#{@controller}/#{@single.id}", class:"btn btn-danger", method: "delete",
             data: {:confirm => "Are you sure?"} %>
-  <%= link_to "View All #{@controller.capitalize}", "/#{@controller}" %>
-  <%= link_to "View All Media", root_path %>
-  make above inline
+  <%= link_to "View All #{@controller.capitalize}", "/#{@controller}", class:"btn btn-default" %>
+  <%= link_to "View All Media", root_path, class:"btn btn-default" %>
 </div>
