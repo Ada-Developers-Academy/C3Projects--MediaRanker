@@ -1,3 +1,4 @@
-<%= render partial: 'shared/table', locals: { media: @books } %>
-
-<%= link_to "Add a Book", new_book_path, class: "btn btn-default" %>
+<%= render partial: 'shared/table', locals: { media: @books,
+                                              medium_name: "a Book",
+                                              medium: @book,
+                                              medium_class: :book } %>

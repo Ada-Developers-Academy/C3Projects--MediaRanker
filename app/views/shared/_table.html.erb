@@ -16,3 +16,5 @@
 </table>
 
 <%= link_to "View All Media", root_path, class: "btn btn-default" %>
+
+<%= link_to "Add #{medium_name}", new_polymorphic_path(medium_class), class: "btn btn-default" %>
