@@ -52,6 +52,6 @@ class MoviesController < ApplicationController
   end
 
   def create_params
-    params.require(:movie).permit(:title, :directed_by, :votes, :description)
+    params.require(:movie).permit(:title, :directed_by, :description)
   end
 end

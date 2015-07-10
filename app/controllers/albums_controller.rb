@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
   def self.model
     Album
   end
-  
+
   def index
     @albums = Album.all
   end
@@ -53,6 +53,6 @@ class AlbumsController < ApplicationController
   end
 
   def create_params
-    params.require(:album).permit(:title, :recorded_by, :votes, :description)
+    params.require(:album).permit(:title, :recorded_by, :description)
   end
 end
