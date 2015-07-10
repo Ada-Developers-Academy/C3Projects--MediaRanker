@@ -6,7 +6,7 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
   <%= yield :style_sheet %>
-  
+
   <%=  google_webfonts_link_tag "IM Fell DW Pica SC", "Press Start 2P", "Gentium Book Basic" %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -19,8 +19,5 @@
 
 <%= yield %>
 
-  <footer>
-    <p class="muted">by Brenna Leker © <%= Time.now.year %></p>
-  </footer>
 </body>
 </html>
