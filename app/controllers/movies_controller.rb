@@ -48,20 +48,4 @@ class MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :creator, :description, :rank)
   end
-
-  def self.model
-    Movie
-  end
-
-  def self.medium_path
-    "movie_path"
-  end
-
-  def self.mediums_path
-    "movies_path"
-  end
-
-  def self.medium_symbol
-    :movie
-  end
 end
