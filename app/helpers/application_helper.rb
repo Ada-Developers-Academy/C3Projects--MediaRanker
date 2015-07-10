@@ -2,7 +2,13 @@ module ApplicationHelper
 
   #decides on a path for upvote action
   def pick_upvote_path(media)
-    "/#{media.format}s/#{media.id}/upvote"
+    if media.format == "book"
+      book_upvote_path(media.id)
+    elsif media.format == "album"
+      album_upvote_path(media.id)
+    else
+      movie_upvote_path(media.id)
+    end
   end
 
   #decides on a path for show, update, and destroy action
@@ -66,7 +72,7 @@ module ApplicationHelper
       "book"
     elsif request.path.include?("movies")
       "movie"
-    else
+    elsif request.path.include?("albums")
       "album"
     end
   end
@@ -75,7 +81,7 @@ module ApplicationHelper
   def submit_type(method)
     if method == :patch
       "Update"
-    else
+    elsif method == :post
       "Create"
     end
   end

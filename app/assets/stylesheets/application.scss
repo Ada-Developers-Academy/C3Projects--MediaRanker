@@ -10,19 +10,32 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
- .row {
-  width: 75%;
-  text-align: center;
+.btn_blue {
+  background-color: #4775FF;
+  color: #FFFFFF;
+}
+
+.btn_gray {
+  background-color: #E6E6E6;
+}
+
+.btn_green {
+  background-color: #5CBF7C;
+  color: #FFFFFF;
+}
+
+.form-center {
   margin: auto;
 }
 
-.column {
-  width: 30%;
-  display: inline-block;
-  margin: 0 auto 0 auto;
+.image-size {
+  width: 150px;
 }
+
+

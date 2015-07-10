@@ -1,8 +1,8 @@
+<%= link_to "Create a new #{@media.first.format}", pick_new_path(@media.first), method: :get, class: "btn btn-default btn_gray" %>
+<%= link_to "Home", root_path, class: "btn btn-default btn_gray" %>
 <h1><%= @media.first.format.capitalize.pluralize %></h1>
-<%= link_to "Create a new #{@media.first.format}", pick_new_path(@media.first), method: :get %>
-<%= link_to "Home", root_path %>
 
-<table>
+<table class="table">
   <tr>
     <th>Votes</th>
     <th>Name</th>
@@ -11,8 +11,8 @@
   <% @media.each do |media| %>
     <tr>
       <td>Number of Votes: <%= media.votes %></td>
-      <td><%= media.name %></td>
-      <td><%= link_to "Upvote", pick_upvote_path(media), method: :patch %>
+      <td><%= link_to "#{media.name}", pick_path(media), method: :get %></td>
+      <td><%= link_to "Upvote", pick_upvote_path(media), method: :patch, class: "btn btn-default btn_gray" %>
     </tr>
   <% end %>
 

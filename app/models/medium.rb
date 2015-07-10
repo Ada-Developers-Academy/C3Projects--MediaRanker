@@ -53,4 +53,14 @@ class Medium < ActiveRecord::Base
     end
   end
 
+  def self.pick_edit_path(media)
+    if media.format == "book"
+      Rails.application.routes.url_helpers.edit_book_path(media.id)
+    elsif media.format == "album"
+      Rails.application.routes.url_helpers.edit_album_path(media.id)
+    else
+      Rails.application.routes.url_helpers.edit_movie_path(media.id)
+    end
+  end
+
 end

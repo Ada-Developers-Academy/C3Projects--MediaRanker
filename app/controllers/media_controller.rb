@@ -2,15 +2,15 @@ class MediaController < ApplicationController
   before_action :find_media
 
   def find_media
-    @movies = Medium.sort(Medium.find_movies)
-    @books = Medium.sort(Medium.find_books)
-    @albums = Medium.sort(Medium.find_albums)
+    @movies = Medium.sort_votes(Medium.find_movies)
+    @books = Medium.sort_votes(Medium.find_books)
+    @albums = Medium.sort_votes(Medium.find_albums)
   end
 
   def home
-    @movies
-    @books
-    @albums
+    @movies_limit = @movies.first(4)
+    @books_limit = @books.first(4)
+    @albums_limit = @albums.first(4)
   end
 
   def index
@@ -52,8 +52,13 @@ class MediaController < ApplicationController
 
   def update
     @media = Medium.find(params[:id])
-    @media.update(media_params)
-    redirect_to Medium.pick_path(@media)
+    if @media.update(media_params)
+      redirect_to Medium.pick_path(@media)
+    else
+      @errors = @media.errors.messages
+      @method = :patch
+      render :edit
+    end
   end
 
   def upvote

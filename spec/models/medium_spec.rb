@@ -22,11 +22,12 @@ RSpec.describe Medium, type: :model do
     end 
   end
 
-  describe "before_do" do
-    let(:album) { Medium.create(name: "Kiss Land", description: "Debut studio album", creator: "The Weekend", format: "album")}
+  describe "saving and creating an instance" do
     it "sets votes to 0 upon creation" do
+      album = Medium.create(name: "Kiss Land", description: "Debut studio album", creator: "The Weekend")
       expect(album.votes).to eq 0
     end
   end
+
 
 end
