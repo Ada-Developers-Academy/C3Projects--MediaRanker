@@ -18,8 +18,8 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "POST #create" do
-    context "valid movie params" do
 
+    context "valid movie params" do
       it "creates a Movie record" do
         post :create, movie: { name: "name" }
         expect(Movie.count).to eq 1
@@ -32,7 +32,6 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     context "invalid movie params" do
-
       it "does not persist invalid records" do
         post :create, movie: { desc: "desc" }
         expect(Movie.count).to eq 0

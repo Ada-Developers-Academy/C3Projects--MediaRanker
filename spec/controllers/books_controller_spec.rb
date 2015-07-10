@@ -18,8 +18,8 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "POST #create" do
+    
     context "valid book params" do
-
       it "creates a Book record" do
         post :create, book: { name: "name" }
         expect(Book.count).to eq 1
