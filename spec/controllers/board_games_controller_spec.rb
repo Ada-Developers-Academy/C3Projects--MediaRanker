@@ -36,6 +36,19 @@ RSpec.describe BoardGamesController, type: :controller do
     end
   end # end of describe block
 
+  describe "GET #new" do
+    it "responds successfully with an HTTP 200 status code" do
+      get :new
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+    it "renders the index template" do
+      get :new
+      expect(response).to render_template("new")
+    end
+  end
+
   describe "POST #create" do
     context "valid board game params" do
       let(:board_game_params) do {
@@ -79,6 +92,21 @@ RSpec.describe BoardGamesController, type: :controller do
       end
     end #end of let
   end #end of describe block
+
+  describe "GET #edit" do
+    it "responds successfully with an HTTP 200 status code" do
+      board_game = BoardGame.create(title: "Board Game")
+      get :edit, id: board_game.id
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+    it "renders the index template" do
+      board_game = BoardGame.create(title: "Board Game")
+      get :edit, id: board_game.id
+      expect(board_game.title).to eq 'Board Game'
+    end
+  end
 
   describe "PUT #edit" do
     let(:board_game) {BoardGame.create(title: "Game Title")}

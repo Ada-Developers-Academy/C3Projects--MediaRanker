@@ -36,6 +36,21 @@ RSpec.describe StoryGamesController, type: :controller do
     end
   end # end of describe block
 
+  describe "GET #new" do
+    it "responds successfully with an HTTP 200 status code" do
+      story_game = StoryGame.create(title: "Story Game")
+      get :new, id: story_game.id
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+    it "displays information related to the given record" do
+      story_game = StoryGame.create(title: "Story Game")
+      get :new, id: story_game.id
+      expect(story_game.title).to eq 'Story Game'
+    end
+  end # end of describe block
+
   describe "POST #create" do
     context "valid story game params" do
       let(:story_game_params) do {
@@ -79,6 +94,21 @@ RSpec.describe StoryGamesController, type: :controller do
       end
     end #end of let
   end #end of describe block
+
+  describe "GET #edit" do
+    it "responds successfully with an HTTP 200 status code" do
+      story_game = StoryGame.create(title: "Story Game")
+      get :edit, id: story_game.id
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+    it "displays information related to the given record" do
+      story_game = StoryGame.create(title: "Story Game")
+      get :edit, id: story_game.id
+      expect(story_game.title).to eq 'Story Game'
+    end
+  end # end of describe block
 
   describe "PUT #edit" do
     let(:story_game) {StoryGame.create(title: "Game Title")}
