@@ -19,6 +19,17 @@ RSpec.describe AlbumsController, type: :controller do
     end
   end
 
+  describe "shows an album" do
+    let(:valid_album) do {
+      album: { name: "name1"}
+    }
+    end
+
+    it "renders the #show view" do
+      get :show, valid_album
+      expect(response).to render(album_path(assigns(:media)))
+    end
+  end
 
   describe "makes new albums" do
     let(:valid_album) do {
@@ -36,6 +47,19 @@ RSpec.describe AlbumsController, type: :controller do
       expect(response).to redirect_to(album_path(assigns(:media)))
     end
   end
+
+  # describe "it won't create an invalid album" do
+  #   let(:invalid_album) do {
+  #     album: { creator: "creator1"}
+  #   }
+  #   end
+  #
+  #   it "does not persist an invalid album" do
+  #     post :create, invalid_album
+  #     expect(Album.count).to eq(0)
+  #   end
+  # end
+
 
   describe "albums can be edited" do
     let(:album) {Album.create(name: "name1", rank: 20)}
