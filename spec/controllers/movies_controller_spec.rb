@@ -16,7 +16,7 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     let(:description_params) { { id: @movie.id, movie: { description: "yes" } } }
-    let(:title_params) {{ id: @movie.id, movie: { title: "" } }}
+    let(:title_params) { { id: @movie.id, movie: { title: "" } } }
 
     context "When upvote is pressed" do
       # positive test - when upvote is pressed, it only updates the rank
@@ -77,6 +77,26 @@ RSpec.describe MoviesController, type: :controller do
     it "redirects to the movie index page after deleting" do
       delete :destroy, id: @movie.id
       expect(subject).to redirect_to(movies_path)
+    end
+  end
+
+  describe "POST #create" do
+    let(:movie_params) { { movie: { title: "Lord of the Rings", director: "some dude prolly" } } }
+    let(:invalid_movie_params) { { movie: { director: "another dude" } } }
+
+    it "creates a new record in the db" do
+      post :create, movie_params
+      expect(Movie.count).to eq 1
+    end
+
+    it "creates defaults to create a record with a ranking of zero" do
+      post :create, movie_params
+      expect(Movie.all.first.rank). to eq 0
+    end
+
+    it "does not create and save a record without a title" do
+      post :create, invalid_movie_params
+      expect(Movie.count).to eq 0
     end
   end
 end
