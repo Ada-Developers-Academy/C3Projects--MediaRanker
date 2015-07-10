@@ -50,7 +50,7 @@
         </td>
 
         <td>
-          <%= button_to options = { action: "upvote", id: medium.id }, html_options = { class: "btn btn-default", method: :patch } do %>
+          <%= button_to options = { action: "upvote", id: medium.id }, html_options = { class: "btn btn-default", method: :post } do %>
             <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
           <% end %>
         </td>

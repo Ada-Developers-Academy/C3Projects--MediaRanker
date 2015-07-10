@@ -26,10 +26,14 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    album = Album.new(create_params[:album])
-    album.save # opportunity for validity checks
+    @album = Album.new(create_params[:album])
 
-    redirect_to album_path(album)
+    if @album.save
+      redirect_to album_path(album)
+    else
+      @album
+      render :new
+    end
   end
 
   def show; end
@@ -38,10 +42,12 @@ class AlbumsController < ApplicationController
 
   def update
     updated_album = create_params[:album]
-    # opportunity for .valid? and error handling
-    @album.update(updated_album)
-
-    redirect_to album_path(@album)
+    if @album.update(updated_album)
+      redirect_to album_path(@album)
+    else
+      @album
+      render edit_album_path(@album)
+    end
   end
 
   def destroy

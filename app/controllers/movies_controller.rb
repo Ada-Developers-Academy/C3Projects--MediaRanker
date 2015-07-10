@@ -42,10 +42,9 @@ class MoviesController < ApplicationController
 
   def update
     updated_movie = create_params[:movie]
-    # opportunity for .valid? and error handling
     @movie.update(updated_movie)
 
-    redirect_to movie_path(@movie)
+    redirect_to movie_path
   end
 
   def destroy

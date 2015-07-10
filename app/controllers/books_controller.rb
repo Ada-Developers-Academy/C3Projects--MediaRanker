@@ -26,10 +26,14 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(create_params[:book])
-    book.save # opportunity for validity checks
+    @book = Book.new(create_params[:book])
 
-    redirect_to book_path(book)
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      @book
+      render :new
+    end
   end
 
   def show; end
@@ -38,10 +42,13 @@ class BooksController < ApplicationController
 
   def update
     updated_book = create_params[:book]
-    # opportunity for .valid? and error handling
-    @book.update(updated_book)
 
-    redirect_to book_path(@book)
+    if @book.update(updated_book)
+      redirect_to book_path(@book)
+    else
+      @book
+      render edit_book_path(@book)
+    end
   end
 
   def destroy
