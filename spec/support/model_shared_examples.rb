@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.shared_examples "a medium" do
+RSpec.shared_examples "a medium model" do
   let (:medium) { described_class.new }
 
   describe "model validations" do
