@@ -16,3 +16,19 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .form_field {
+   display: block;
+   margin-right: 25px;
+   padding-bottom: 3px;
+   margin-bottom: 15px;
+ }
+
+ .btn{
+   border: 0 none;
+   color: #fff;
+ }
+
+ .btn:hover{
+   color: #fff;
+ }

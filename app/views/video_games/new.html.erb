@@ -6,15 +6,15 @@
   <p class="alert alert-danger"><%= flash[:error] %></p>
 <% end %>
 
-<%= form_for @video_game do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title, placeholder: "Chrono Trigger" %><br />
-
-  <%= f.label :studio %>:
-  <%= f.text_field :studio, placeholder: "Square" %><br />
-
-  <%= f.label :description %>:
-  <%= f.text_area :description, size: "50x10", placeholder: "Chrono Trigger is a console role-playing game. The game's story follows a group of adventurers who travel through time to prevent a global catastrophe." %><br />
-
-  <%= f.submit  "Add Game"%>
-<% end %>
+<%= render partial: "form", locals: { item: @video_game,
+                                      title_desc: "Title",
+                                      title_placeholder: "Chrono Trigger",
+                                      title_value: @video_game.title,
+                                      studio_desc: "Studio",
+                                      studio_placeholder: "Square",
+                                      studio_value: @video_game.studio,
+                                      description_desc: "Description",
+                                      description_placeholder: "Chrono Trigger is a console role-playing game. The game's story follows a group of adventurers who travel through time to prevent a global catastrophe.",
+                                      description_value: @video_game.description,
+                                      submit_button: "Add" }
+%>

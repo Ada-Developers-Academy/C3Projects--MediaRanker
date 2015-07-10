@@ -6,15 +6,15 @@
   <p class="alert alert-danger"><%= flash[:error] %></p>
 <% end %>
 
-<%= form_for @story_game do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title, placeholder: "Fiasco" %><br />
-
-  <%= f.label :author %>:
-  <%= f.text_field :author, placeholder: "Jason Morningstar" %><br />
-
-  <%= f.label :description %>:
-  <%= f.text_area :description, size: "50x10", placeholder: "A game of powerful ambition and poor impulse control and inspired by cinematic tales of small time capers gone disastrously wrong, think Coen brothers." %><br />
-
-  <%= f.submit  "Add Game"%>
-<% end %>
+<%= render partial: "form", locals: { item: @story_game,
+                                      title_desc: "Title",
+                                      title_placeholder: "Fiasco",
+                                      title_value: @story_game.title,
+                                      author_desc: "Author",
+                                      author_placeholder: "Jason Morningstar",
+                                      author_value: @story_game.author,
+                                      description_desc: "Description",
+                                      description_placeholder: "A game of powerful ambition and poor impulse control and inspired by cinematic tales of small time capers gone disastrously wrong, think Coen brothers.",
+                                      description_value: @story_game.description,
+                                      submit_button: "New" }
+%>

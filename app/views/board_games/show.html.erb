@@ -5,14 +5,14 @@
 <h1><%= @board_game.title %></h1>
 <h3>Created by: <%= @board_game.author %></h3>
 <p>
-  Ranked:  <%= @board_game.rating %> <%= button_to "Upvote", upvote_board_game_path(@board_game.id), class: "btn btn-primary board-btn" %>
+  Ranked:  <%= @board_game.rating %> <%= button_to "Upvote", upvote_board_game_path(@board_game.id), class: "btn board-btn" %>
 </p>
 
 <p>
   <%= @board_game.description %>
 </p>
 
-<%= link_to "Edit", edit_board_game_path, class: "btn btn-primary board-btn" %>
-<%= link_to "Delete", board_game_path(@board_game.id), class: "btn btn-primary board-btn", :method => :delete %>
-<%= link_to "View all Board Games", board_games_path, class: "btn btn-primary board-btn" %>
-<%= link_to "View all Games", root_path, class: "btn btn-primary board-btn" %>
+<%= link_to "Edit", edit_board_game_path, class: "btn board-btn" %>
+<%= link_to "Delete", board_game_path(@board_game.id), class: "btn board-btn", :method => :delete %>
+<%= link_to "View all Board Games", board_games_path, class: "btn board-btn" %>
+<%= link_to "View all Games", root_path, class: "btn board-btn" %>
