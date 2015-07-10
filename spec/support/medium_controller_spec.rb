@@ -41,12 +41,11 @@ RSpec.shared_examples "medium" do
 
   describe "GET #upvote" do
     before :each do
-      # why can't this be let?!?!
+      # why can't this be `let`?!?!
       @medium = described_class.model.new(id: 1, title: "a title")
       @medium.save
     end
 
-    # increase ranking by 1
     it "increases the medium's ranking by 1" do
       old_ranking = @medium.ranking
       get :upvote, id: @medium.id
@@ -59,6 +58,17 @@ RSpec.shared_examples "medium" do
 
       expect(response).to render_template("show")
     end
+  end
+
+  describe "POST #create" do
+    # let(:params){ medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" } }
+    # creates a new instance
+
+    # # redirects
+    # it "redirects to the medium's :show view" do
+    #   put :create, params
+    #   expect(subject).to redirect_to("/#{medium_model_name}s/#{assigns[medium_model_name.to_sym]}")
+    # end
   end
 
   describe "GET #show" do
@@ -109,6 +119,23 @@ RSpec.shared_examples "medium" do
     it "redirects to the medium's :show view" do
       put :update, @params
       expect(subject).to redirect_to("/#{medium_model_name}s/#{@params[:id]}")
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before :each do
+      medium1 = described_class.model.new(id: 1, title: "a title")
+      medium1.save
+      @medium2 = described_class.model.new(id: 2, title: "b title")
+      @medium2.save
+      @params = { medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: 1 }
+    end
+    # removes object
+
+    # redirects
+    it "redirects to the medium's :show view" do
+      delete :destroy, @params
+      expect(subject).to redirect_to(media_path)
     end
   end
 end

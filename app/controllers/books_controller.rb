@@ -43,6 +43,11 @@ class BooksController < ApplicationController
     redirect_to book_path(@book)
   end
 
+  def destroy
+    @book.destroy
+    redirect_to media_path
+  end
+
   private
 
   def create_params

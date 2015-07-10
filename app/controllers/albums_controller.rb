@@ -43,6 +43,11 @@ class AlbumsController < ApplicationController
     redirect_to album_path(@album)
   end
 
+  def destroy
+    @album.destroy
+    redirect_to media_path
+  end
+
   private
 
   def create_params
