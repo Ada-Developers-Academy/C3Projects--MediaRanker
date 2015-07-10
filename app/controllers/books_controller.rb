@@ -48,4 +48,20 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :creator, :description, :rank)
   end
+
+  def self.model
+    Book
+  end
+
+  def self.medium_path
+    "book_path"
+  end
+
+  def self.mediums_path
+    "books_path"
+  end
+
+  def self.medium_symbol
+    :book
+  end
 end

@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-RSpec.shared_examples "a medium" do
-  # let(:medium) { described_class.new }
-
+RSpec.shared_examples "a MediumController" do
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index
@@ -15,6 +13,25 @@ RSpec.shared_examples "a medium" do
       get :index
 
       expect(response).to render_template("index")
+    end
+
+    # check for displaying all elements
+  end
+
+  describe "GET #show" do
+    let(:medium) { described_class.model.create(title: 'some title', creator: 'some creator') }
+
+    before :each do
+      get :show, id: medium
+    end
+
+    it "finds a specific medium" do
+      # binding.pry
+      expect(assigns(described_class.medium_symbol)).to eq(medium)
+    end
+
+    it "renders show template" do
+      expect(response).to render_template("show")
     end
   end
 
@@ -36,7 +53,7 @@ RSpec.shared_examples "a medium" do
     it "creates a new medium" do
       get :new
 
-      expect(assigns(:medium)).to be_a_new(described_class.model)
+      expect(assigns(described_class.medium_symbol)).to be_a_new(described_class.model)
     end
   end
 
@@ -44,7 +61,7 @@ RSpec.shared_examples "a medium" do
     # positive test - medium params are valid
     context "valid medium params" do
       let(:medium_params) do
-        { medium: { title: 'some medium', rank: 5 } }
+        { described_class.medium_symbol => { title: 'some medium', rank: 5 } }
       end
 
       before(:each) do
@@ -52,11 +69,11 @@ RSpec.shared_examples "a medium" do
       end
 
       it "creates an described_class record" do
-        expect(described_class.count).to eq 1
+        expect(described_class.model.count).to eq 1
       end
 
       it "redirect to the medium show page" do
-        expect(subject).to redirect_to(medium_path(assigns(:medium)))
+        expect(subject).to redirect_to(send(described_class.medium_path, assigns(described_class.medium_symbol)))
       end
     end
 
@@ -64,7 +81,7 @@ RSpec.shared_examples "a medium" do
     context "invalid medium params" do
       let(:medium_params) do
         {
-          medium: { # missing the title key
+          described_class.medium_symbol => { # missing the title key
             rank: 5
           }
         }
@@ -72,7 +89,7 @@ RSpec.shared_examples "a medium" do
 
       it "does not persist invalid records" do
         post :create, medium_params
-        expect(described_class.count).to eq 0
+        expect(described_class.model.count).to eq 0
       end
 
       it "renders the new template" do
@@ -83,7 +100,7 @@ RSpec.shared_examples "a medium" do
   end
 
   describe "GET #edit" do
-    let(:medium) { described_class.create(title: 'some title', creator: 'some creator') }
+    let(:medium) { described_class.model.create(title: 'some title', creator: 'some creator') }
     
     before(:each) do
       get :edit, id: medium
@@ -95,7 +112,7 @@ RSpec.shared_examples "a medium" do
     end
 
     it "finds a specific medium" do
-      expect(assigns(:medium)).to eq(medium)
+      expect(assigns(described_class.medium_symbol)).to eq(medium)
     end
 
     it "renders the :edit template" do
@@ -105,12 +122,12 @@ RSpec.shared_examples "a medium" do
 
   describe "PUT #update" do
     before(:each) do
-      @medium = described_class.create(title: 'some title', creator: 'some person')
+      @medium = described_class.model.create(title: 'some title', creator: 'some person')
     end
 
     context "valid medium params" do
       before(:each) do
-        post :update, id: @medium, medium: { title: "updated title", creator: 'some person' }
+        post :update, id: @medium, described_class.medium_symbol => { title: "updated title", creator: 'some person' }
       end
 
       it "updates an medium with valid params" do
@@ -119,13 +136,13 @@ RSpec.shared_examples "a medium" do
       end
 
       it "redirects to medium_path" do
-        expect(subject).to redirect_to(medium_path(assigns(:medium)))
+        expect(subject).to redirect_to(send(described_class.medium_path, assigns(described_class.medium_symbol)))
       end
     end
 
     context "invalid medium params" do
       before(:each) do
-        post :update, id: @medium, medium: { title: "", creator: 'some person' }
+        post :update, id: @medium, described_class.medium_symbol => { title: "", creator: 'some person' }
       end
 
       it "does not update an item with invalid params" do
@@ -142,7 +159,7 @@ RSpec.shared_examples "a medium" do
   describe "PUT #upvote" do
 
     before(:each) do
-      @medium = described_class.create(title: 'a title', rank: 5)
+      @medium = described_class.model.create(title: 'a title', rank: 5)
       put :upvote, id: @medium
     end
 
@@ -152,7 +169,7 @@ RSpec.shared_examples "a medium" do
     end
 
     it "only affects the particular record" do
-      medium2 = described_class.create(title: 'b title', rank: 5)
+      medium2 = described_class.model.create(title: 'b title', rank: 5)
 
       @medium.reload
       medium2.reload
@@ -161,25 +178,25 @@ RSpec.shared_examples "a medium" do
     end
 
     it "redirects to the medium_path" do
-      expect(subject).to redirect_to(medium_path(assigns(:medium)))
+      expect(subject).to redirect_to(send(described_class.medium_path, assigns(described_class.medium_symbol)))
     end
   end
 
   describe "DELETE #destroy" do
     before(:each) do
-      @medium1 = described_class.create(title: 'a title', creator: 'a person')
-      @medium2 =  described_class.create(title: 'b title', creator: 'b person')
-      @medium3 =  described_class.create(title: 'c title', creator: 'c person')
+      @medium1 = described_class.model.create(title: 'a title', creator: 'a person')
+      @medium2 =  described_class.model.create(title: 'b title', creator: 'b person')
+      @medium3 =  described_class.model.create(title: 'c title', creator: 'c person')
 
       delete :destroy, id: @medium3
     end
 
     it "deletes a particular object" do
-      expect(described_class.all).to_not include @medium3
+      expect(described_class.model.all).to_not include @medium3
     end
 
     it "redirects to the mediums_path" do
-      expect(response).to redirect_to(mediums_path)
+      expect(response).to redirect_to(send(described_class.mediums_path))
     end
   end
 end

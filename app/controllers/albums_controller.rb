@@ -48,4 +48,20 @@ class AlbumsController < ApplicationController
   def album_params
     params.require(:album).permit(:title, :creator, :description, :rank)
   end
+
+  def self.model
+    Album
+  end
+
+  def self.medium_path
+    "album_path"
+  end
+
+  def self.mediums_path
+    "albums_path"
+  end
+
+  def self.medium_symbol
+    :album
+  end
 end
