@@ -85,7 +85,7 @@ RSpec.shared_examples "a controller" do
 
   describe "PUT #update" do
     let(:media_update) do
-      (
+      described_class.model.create!(
         name: "namie-poo",
         creator: "ms. fancy pants",
         description: "best durn thing ever!"
@@ -93,11 +93,10 @@ RSpec.shared_examples "a controller" do
     end
 
     it "sucessfully updates name" do
-      @media = described_class.model.create!(name:"boring name")
-      put :update, :id => @media.id, :media_update
+      put :update, :id => @media.id, :media => {name: "Albums"}
       binding.pry
       @media.reload
-      expect(@media.name).to eq("namie-poo")
+      expect(@media.name).to eq("Albums")
     end
 
   end # describe #update
