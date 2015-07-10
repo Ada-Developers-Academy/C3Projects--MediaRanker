@@ -9,7 +9,7 @@
       <% category_name = category.display_name + "s" %>
       <h1>Top <%= category_name %></h1>
       <% group.each do |item| %>
-        <h4><%= link_to "#{ item.title }", "/#{ category.plural }/#{ item.id }" %> <small>Ranking: <%= item.upvotes || 0 %></small></h4>
+        <h4><%= link_to "#{ item.title }", "/#{ category.plural }/#{ item.id }" %> <small>Ranking: <%= item.upvotes %></small></h4>
       <% end %>
       <%= link_to "View More #{ category_name }", "/#{ category.plural }" %>
     </section>

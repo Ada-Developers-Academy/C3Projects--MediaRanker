@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   root 'media#root'
 
-  # Jeremy says this is a bad idea, because databases are not reliable.
-  # categories = Category.all.map { |category| category.plural }
-  # switching back to the old array version fixes the missing keys & table errors, so rails must agree.
   categories = ["albums", "books", "games", "movies", "tvs", "webcomics"]
 
   regexp_string = ''
