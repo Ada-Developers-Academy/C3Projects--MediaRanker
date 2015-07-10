@@ -59,7 +59,7 @@ RSpec.shared_examples "a medium controller" do
     end
 
     before :each do
-      @medium = described_class.model.create(title: "a title", director: "an artist", rank: 20, description: "a description")
+      @medium = described_class.model.create(title: "a title", rank: 20, description: "a description")
 
       put :update, :id => @medium.id, medium_name => attr
       @medium.reload
@@ -79,7 +79,7 @@ RSpec.shared_examples "a medium controller" do
 
   describe "GET #show" do
     before :each do
-      @medium = described_class.model.create(title: "a title", director: "an artist", rank: 20, description: "a description")
+      @medium = described_class.model.create(title: "a title", rank: 20, description: "a description")
     end
 
     it "shows the selected medium" do
@@ -96,7 +96,7 @@ RSpec.shared_examples "a medium controller" do
 
   describe "DELETE #destroy" do
     before :each do
-      @medium = described_class.model.create(title: "a title", director: "an artist", rank: 20, description: "a description")
+      @medium = described_class.model.create(title: "a title", rank: 20, description: "a description")
     end
 
     it "deletes the record" do
@@ -113,7 +113,7 @@ RSpec.shared_examples "a medium controller" do
 
   describe "PATCH #upvote" do
     before :each do
-      @medium = described_class.model.create(title: "a title", director: "an artist", rank: 20, description: "a description")
+      @medium = described_class.model.create(title: "a title", rank: 20, description: "a description")
       patch :upvote, id: @medium
       @medium.reload
     end
