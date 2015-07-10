@@ -11,60 +11,35 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "GET #new" do
-    let (:movie_params) do 
-      { 
-        movie: { name: "name" }
-      }
-    end
-
     it "creates a new instance of Movie" do
-      get :new, movie_params
+      get :new, movie: { name: "name" }
       expect(assigns(:movie)).to be_kind_of(Movie)
     end
   end
 
   describe "POST #create" do
     context "valid movie params" do
-      let(:movie_params) do
-        {
-          movie: {
-            name: "title",
-            author: "author",
-            desc: "desc",
-            vote: 2
-          }
-        }
-      end
 
       it "creates a Movie record" do
-        post :create, movie_params
+        post :create, movie: { name: "name" }
         expect(Movie.count).to eq 1
       end
 
       it "redirects to the Movie show page" do
-        post :create, movie_params
+        post :create, movie: { name: "name" }
         expect(subject).to redirect_to(movie_path(assigns(:movie)))
       end
     end
 
     context "invalid movie params" do
-      let (:movie_params) do
-        {
-          movie: { 
-            author: "author",
-            desc: "desc",
-            vote: 2
-          }
-        }
-      end
 
       it "does not persist invalid records" do
-        post :create, movie_params
+        post :create, movie: { desc: "desc" }
         expect(Movie.count).to eq 0
       end
 
       it "renders the :new view (to allow users to fix invalid data)" do
-        post :create, movie_params
+        post :create, movie: { desc: "desc" }
         expect(response).to render_template("new")
       end
     end
