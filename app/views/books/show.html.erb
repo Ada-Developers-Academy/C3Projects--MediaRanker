@@ -1,0 +1,4 @@
+<%= render :partial => 'shared/show',
+           :locals => { :object     => @book,
+                        :media_name => Book,
+                        :creator    => "Written by: #{@book.author}" } %>

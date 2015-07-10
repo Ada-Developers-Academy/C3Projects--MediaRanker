@@ -1,0 +1,4 @@
+<%= render :partial => 'shared/show',
+           :locals => { :object     => @movie,
+                        :media_name => Movie,
+                        :creator    => "Directed by: #{@movie.director}" } %>
