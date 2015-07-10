@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   resources :movies
   resources :books
   resources :albums
+
+  # try doing for upvote paths
+  # member do
+  #   patch 'upvote'
+  # end
 end
