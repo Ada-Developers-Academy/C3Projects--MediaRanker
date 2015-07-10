@@ -102,68 +102,67 @@ RSpec.describe MoviesController, type: :controller do
         expect(response).to render_template("new")
       end
     end
-  end # POST create test end
+  end
 
-  # describe "PATCH #update" do
-  #   let(:movie_params) do
-  #     {
-  #       movie: {
-  #         name: 'new movie',
-  #         director: 'johnny appleseed',
-  #         description: 'my description'
-  #       }
-  #     }
-  #   end
+  describe "PATCH #update" do
+    let(:movie_params) do
+      {
+        movie: {
+          name: 'new movie',
+          director: 'johnny appleseed',
+          description: 'my description'
+        }
+      }
+    end
 
-  #   let(:new_movie_params) do
-  #     {
-  #       movie: {
-  #         name: 'new movie',
-  #         director: 'david johnson',
-  #         description: 'my description'
-  #       }
-  #     }
-  #   end
+    let(:new_movie_params) do
+      {
+        movie: {
+          name: 'new movie',
+          director: 'dave johnson',
+          description: 'my description'
+        }
+      }
+    end
 
-  #   before :each do
-  #     @movie = Movie.create(movie_params[:movie])
-  #   end
+    before :each do
+      @movie = Movie.create(movie_params[:movie])
+    end
 
-  #   # positive test - it updates the movie's attributes
-  #   it "updates a movie's attributes" do
-  #     patch :update, id: @movie.id, movie: 
-  #     @movie.reload
-  #     expect(@movie.director).to eq('david johnson')
-  #   end
+    # positive test - it updates the movie's attributes
+    it "updates a movie's attributes" do
+      patch :update, id: @movie.id, movie: new_movie_params[:movie]
+      @movie.reload
+      expect(@movie.director).to eq('dave johnson')
+    end
 
-  #   # it "redirects to the movie index page" do
-  #   #   patch :update, movie_path, id: @movie
-  #   #   puts @movie
-  #   #   expect(response).to redirect_to(movie_path(@movie))
-  #   # end
-  # end 
+    it "redirects to the movie index page" do
+      patch :update, id: @movie.id, movie: new_movie_params[:movie]
+      @movie.reload
+      expect(response).to redirect_to(movie_path(@movie))
+    end
+  end 
 
-  # describe "DELETE #destroy" do
-  #   let(:movie_params) do
-  #     {
-  #       movie: {
-  #         name: 'new movie',
-  #         director: 'johnny appleseed',
-  #         description: 'my description'
-  #       }
-  #     }
-  #   end
+  describe "DELETE #destroy" do
+    let(:movie_params) do
+      {
+        movie: {
+          name: 'new movie',
+          director: 'johnny appleseed',
+          description: 'my description'
+        }
+      }
+    end
 
-  #   before :each do
-  #     @movie = Movie.create(movie_params[:movie])
-  #   end
+    before :each do
+      @movie = Movie.create(movie_params[:movie])
+    end
 
-  #   it "deletes a movie record" do
-  #     delete :destroy, id: @movie.id
-  #     expect(@movie).to_not be_valid
-  #   end
-
-  # end
+    it "deletes a movie record" do
+      delete :destroy, id: @movie.id
+      expect(Movie.count).to eq 0
+    end
+  end
 
 end # Rspec end
 
