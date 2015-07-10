@@ -42,13 +42,9 @@ class BooksController < ApplicationController
 
   def update
     updated_book = create_params[:book]
+    @book.update(updated_book)
 
-    if @book.update(updated_book)
-      redirect_to book_path(@book)
-    else
-      @book
-      render edit_book_path(@book)
-    end
+    redirect_to book_path(@book)
   end
 
   def destroy

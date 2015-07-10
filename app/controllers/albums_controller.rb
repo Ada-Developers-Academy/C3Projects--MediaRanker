@@ -42,12 +42,9 @@ class AlbumsController < ApplicationController
 
   def update
     updated_album = create_params[:album]
-    if @album.update(updated_album)
-      redirect_to album_path(@album)
-    else
-      @album
-      render edit_album_path(@album)
-    end
+    @album.update(updated_album)
+    
+    redirect_to album_path(@album)
   end
 
   def destroy
