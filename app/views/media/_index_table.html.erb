@@ -9,8 +9,8 @@
   <% objects.each do |object| %>
     <tr>
       <td>Ranked:<%= object.votes %></td>
-      <td><%= link_to object.title, object %></td>
-      <td><%= button_to "Upvote", object, method: :put, params: { upvote: true }%></td>
+      <td><%= link_to object.title, object_path(object) %></td>
+      <td><%= button_to "Upvote", object_path(object), method: :put, params: { upvote: true }%></td>
     </tr>
   <% end %>
 </table>

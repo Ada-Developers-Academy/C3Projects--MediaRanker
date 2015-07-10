@@ -3,19 +3,21 @@ require_relative '../helpers/media_helper.rb'
 class MediaController < ApplicationController
   include MediaHelper
 
+  before_action :set_object, only: [:show, :edit, :update]
+
+  def index
+    @objects = Medium.all_objects(request.path)
+  end
+
+  # # implicitly defined
+  # def show
+  # end
+
 end
 
 ## TODO: can use as an example
 # class MoviesController < ApplicationController
 #   before_action :set_movie, only: [:show, :edit, :update, :destroy]
-
-#   def index
-#     @movies = Movie.all
-#   end
-
-#   # # implicitly defined
-#   # def show
-#   # end
 
 #   def new
 #     @movie = Movie.new

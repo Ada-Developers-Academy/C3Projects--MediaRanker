@@ -1,0 +1,4 @@
+<%= render 'index_table', { objects: @objects } %>
+
+<%= link_to "Add #{@objects.first.format.capitalize}", new_object_path(@objects.first), class: "btn btn-default" %>
+<%= link_to "View All Media", :root, class: "btn btn-default" %>
