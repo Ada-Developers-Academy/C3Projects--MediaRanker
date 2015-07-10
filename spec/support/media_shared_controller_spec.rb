@@ -20,4 +20,27 @@ RSpec.shared_examples "a media" do
       expect(described_class.model.find(params[:id]).name).to eq ("some")
     end
   end
+
+  describe "POST upvote" do
+    it "adds 1 to the rank" do
+      medium1 = described_class.model.new(id: 1, name: "some", creator: "okay", description: "belh", rank: 4)
+      medium1.save
+      params = { id: 1 }
+
+      post :upvote, params
+      medium1.reload
+
+      expect(medium1.rank).to eq 5
+    end
+  end
+
+  describe "POST create" do #why isn't this saving??
+    it "creates a new Media record" do
+      params = {medium: {id: 2, name: "a name", creator: "someone", description: "whatever"}}
+
+      post :create, params
+
+      expect(described_class.model.find(2)).to_be success
+    end
+  end
 end

@@ -31,4 +31,14 @@ RSpec.describe MoviesController, type: :controller do
       expect(movie1.rank).to eq 5
     end
   end
+
+  describe "POST create" do
+    it "creates a new Movie record" do
+      params = {movie: {id: 2, name: "a name", creator: "someone", description: "whatever"}}
+
+      post :create, params
+
+      expect(Movie.count).to eq 1
+    end
+  end
 end
