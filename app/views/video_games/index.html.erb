@@ -26,12 +26,12 @@
         <%= link_to "#{game.title}", video_game_path(game.id) %>
       </td>
       <td>
-        <%= button_to "Upvote", upvote_video_game_path(game.id), class: "btn btn-primary video-btn" %>
+        <%= button_to "Upvote", upvote_video_game_path(game.id), class: "btn" %>
       </td>
     </tr>
     <% end  %>
   </tbody>
 </table>
 </div>
-<%= link_to "View All Games", welcomes_path, class: "btn btn-primary video-btn" %>
-<%= link_to "Add a Video Game", new_video_game_path, class: "btn btn-primary video-btn" %>
+<%= link_to "View All Games", welcomes_path, class: "btn" %>
+<%= link_to "Add a Video Game", new_video_game_path, class: "btn" %>

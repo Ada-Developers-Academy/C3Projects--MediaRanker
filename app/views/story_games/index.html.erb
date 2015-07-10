@@ -26,11 +26,11 @@
         <%= link_to "#{game.title}", story_game_path(game.id)  %>
       </td>
       <td>
-        <%= button_to "Upvote", upvote_story_game_path(game.id), class: "btn btn-primary story-btn" %>
+        <%= button_to "Upvote", upvote_story_game_path(game.id), class: "btn" %>
       </td>
     </tr>
     <% end  %>
   </tbody>
 </table>
-<%= link_to "View All Games", welcomes_path, class: "btn btn-primary story-btn" %>
-<%= link_to "Add a Story Game", new_story_game_path, class: "btn btn-primary story-btn" %>
+<%= link_to "View All Games", welcomes_path, class: "btn" %>
+<%= link_to "Add a Story Game", new_story_game_path, class: "btn" %>
