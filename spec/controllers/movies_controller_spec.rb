@@ -1,16 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
-  it_behaves_like 'a MediaController'
-  
-  describe "GET #index" do
-    it "responds successfully with an HTTP 200 status code" do
-      get :index
-
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
-    end
-  end
+  it_behaves_like 'a MediaController', Movie, :movie
 
   describe "PUT #update" do
     before :each do
