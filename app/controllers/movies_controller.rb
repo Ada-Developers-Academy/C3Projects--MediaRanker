@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
     @media = Movie.new
     @url = movies_path
     @method = :post
-    @by = :artist
+    @by = :director
   end
 
   def create
@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
     @media = Movie.find(params[:id])
     @url = movie_path
     @method = :patch
-    @by = :artist
+    @by = :director
   end
 
   def update

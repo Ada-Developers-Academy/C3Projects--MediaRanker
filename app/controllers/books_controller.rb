@@ -7,12 +7,12 @@ class BooksController < ApplicationController
     @media = Book.new
     @url = books_path
     @method = :post
-    @by = :artist
+    @by = :author
   end
 
   def create
     @media = Book.create(book_params)
-    @by = :artist
+    @by = :author
     if @media.save
       redirect_to books_path
     else
