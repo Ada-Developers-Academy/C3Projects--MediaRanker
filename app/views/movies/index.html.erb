@@ -1,18 +1,20 @@
-<table class="table table-hover">
-  <tr>
-    <th>Ranking</th>
-    <th>Name</th>
-    <th>Upvote</th>
-  </tr>
+<div class="col-lg-12">
+  <table class="table table-hover">
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
 
-  <% @movies.each do |movie| %>
-  <tr>
-    <td>Ranked: <%= movie.rank %></td>
-    <td><%= link_to "#{movie.name}", movie_path(movie.id) %></td>
-    <td><%= button_to "Upvote", upvote_movie_path(movie.id), method: :patch %></td>
-  </tr>
-  <% end %>
-</table>
+    <% @movies.each do |movie| %>
+    <tr>
+      <td>Ranked: <%= movie.rank %></td>
+      <td><%= link_to "#{movie.name}", movie_path(movie.id) %></td>
+      <td><%= button_to "Upvote", upvote_movie_path(movie.id), method: :patch, class: "btn btn-default" %></td>
+    </tr>
+    <% end %>
+  </table>
 
-<p> <%= button_to "View All Media", root_path, method: :get %> </p>
-<p> <%= button_to "Add a Movie", new_movie_path , method: :get %> </p>
+  <p> <%= button_to "View All Media", root_path, method: :get, class: "btn btn-default" %> </p>
+  <p> <%= button_to "Add a Movie", new_movie_path , method: :get, class: "btn btn-default" %> </p>
+</div>
