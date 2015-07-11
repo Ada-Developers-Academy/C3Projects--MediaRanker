@@ -1,4 +1,4 @@
-RSpec.shared_examples 'a MediaController' do |model_type, model_symbol, media_path|
+RSpec.shared_examples 'a MediaController' do |model_type, model_symbol, media_path, medium_path|
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index
@@ -75,6 +75,40 @@ RSpec.shared_examples 'a MediaController' do |model_type, model_symbol, media_pa
     it "redirects to the medium index page after deleting" do
       delete :destroy, id: @medium.id
       expect(subject).to redirect_to(send(media_path))
+    end
+  end
+
+  describe "POST #create" do
+    let(:medium_params) { { model_symbol => { id: 1, title: "Lord of the Rings", description: "some dude prolly" } } }
+    let(:invalid_medium_params) { { model_symbol => { description: "another dude" } } }
+
+    context "Has a title!" do
+      it "creates a new record in the db" do
+        post :create, medium_params
+        expect(model_type.count).to eq 1
+      end
+
+      it "redirects to the new record's show page" do
+        post :create, medium_params
+        expect(subject).to redirect_to(send(medium_path, id: 1))
+      end
+
+      it "creates defaults to create a record with a ranking of zero" do
+        post :create, medium_params
+        expect(model_type.all.first.rank). to eq 0
+      end
+    end
+
+    context "Does not have a title." do
+      it "does not create and save a record without a title" do
+        post :create, invalid_medium_params
+        expect(model_type.count).to eq 0
+      end
+
+      it "renders the edit page" do
+        post :create, invalid_medium_params
+        expect(subject).to render_template(:new)
+      end
     end
   end
 

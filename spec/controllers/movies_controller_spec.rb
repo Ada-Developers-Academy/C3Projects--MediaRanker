@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
-  it_behaves_like 'a MediaController', Movie, :movie, :movies_path
+  it_behaves_like 'a MediaController', Movie, :movie, :movies_path, :movie_path
 
   describe "POST #create" do
     let(:movie_params) { { movie: { title: "Lord of the Rings", director: "some dude prolly" } } }
