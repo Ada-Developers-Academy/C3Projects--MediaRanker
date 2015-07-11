@@ -14,3 +14,16 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.page-header {
+  background-image: url(image_path("owl.jpg"));
+  background-repeat: no-repeat;
+}
+
+h1 {
+  margin-left: 150px;
+  font-size: 36px;
+}
+
+.container {
+}
