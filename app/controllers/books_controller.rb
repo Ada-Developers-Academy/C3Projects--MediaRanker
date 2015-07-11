@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   def index
     @media = Book.all.order(rank: :desc)
+    # defining medium allows me to use polymorphic paths for new from the index page
     @medium = Book.new
   end
 

@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
 
   def index
     @media = Movie.all.order(rank: :desc)
+    # defining medium allows me to use polymorphic paths for new from the index page
     @medium = Movie.new
   end
 
