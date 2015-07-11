@@ -39,26 +39,26 @@ RSpec.shared_examples 'a MediaController' do |model_type, model_symbol|
 
         expect(model_type.find(@medium.id).rank).to eq 0
       end
-      
-      # context "The record has a name!" do
-      #   # it redirects to the show page
-      #   it "redirects to the movie show page" do
-      #     put :update, description_params
-      #     expect(subject).to render_template(:show)
-      #   end
-      # end
-      #
-      # context "The record doesn't have a name." do
-      #   it "doesn't save the form to the db" do
-      #     put :update, title_params
-      #     expect(@movie.title).to eq "Harry Potter"
-      #   end
-      #
-      #   it "renders the edit template again" do
-      #     put :update, title_params
-      #     expect(subject).to render_template(:edit)
-      #   end
-      # end
+
+      context "The record has a name!" do
+        # it redirects to the show page
+        it "redirects to the movie show page" do
+          put :update, description_params
+          expect(subject).to render_template(:show)
+        end
+      end
+
+      context "The record doesn't have a name." do
+        it "doesn't save the form to the db" do
+          put :update, title_params
+          expect(@medium.title).to eq "HPCOS"
+        end
+
+        it "renders the edit template again" do
+          put :update, title_params
+          expect(subject).to render_template(:edit)
+        end
+      end
     end
   end
 
