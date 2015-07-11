@@ -1,4 +1,12 @@
 RSpec.shared_examples "MediaController" do
+  let(:model_string) { model.to_s.downcase }
+  let(:media) { model_string.to_sym }
+  let(:media_params) { { media => { name: "name" } } }
+  let(:new_params) { { media => { name: "title" } } }
+  let(:invalid_params) { { media => { desc: "desc" } } }
+  let(:media_path) { model_string + "_path" }
+  let(:medias_path) { model_string + "s_path" } 
+
     describe "GET #index" do
       it "responds successfully with an HTTP 200 status code" do
         get :index
