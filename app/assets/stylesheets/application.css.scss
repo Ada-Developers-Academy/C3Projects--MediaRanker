@@ -17,10 +17,11 @@
 @import "bootstrap";
 
 
-html {
-  font-family: Helvetica;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
+.page-header {
+  background: url(/assets/owl.jpg);
+  background-repeat: no-repeat;
+}
 
+.page-header h1 {
+  margin-left: 150px;
 }
