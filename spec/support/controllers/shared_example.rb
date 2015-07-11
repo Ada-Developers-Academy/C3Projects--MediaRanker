@@ -1,4 +1,4 @@
-RSpec.shared_examples 'a MediaController' do |model_type, model_symbol|
+RSpec.shared_examples 'a MediaController' do |model_type, model_symbol, media_path|
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index
@@ -42,7 +42,7 @@ RSpec.shared_examples 'a MediaController' do |model_type, model_symbol|
 
       context "The record has a name!" do
         # it redirects to the show page
-        it "redirects to the movie show page" do
+        it "redirects to the medium show page" do
           put :update, description_params
           expect(subject).to render_template(:show)
         end
@@ -59,6 +59,22 @@ RSpec.shared_examples 'a MediaController' do |model_type, model_symbol|
           expect(subject).to render_template(:edit)
         end
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before :each do
+      @medium = model_type.create(title: "Harry Potter", rank: 0)
+    end
+
+    it "removes the record from the db" do
+      delete :destroy, id: @medium.id
+      expect(model_type.count).to eq 0
+    end
+
+    it "redirects to the medium index page after deleting" do
+      delete :destroy, id: @medium.id
+      expect(subject).to redirect_to(send(media_path))
     end
   end
 
