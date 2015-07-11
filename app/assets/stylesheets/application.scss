@@ -28,3 +28,22 @@
 .button_to {
   display: inline-block;
 }
+
+.upvote {
+  margin-bottom: 10px;
+}
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td  {
+  vertical-align: middle;
+}
+// a:link {
+//   color: #428bca;
+// }
+
+// a:visited {
+//   color: #428bca;
+// }
+
+// a:hover {
+//   color: #2a6496;
+// }

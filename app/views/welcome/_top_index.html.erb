@@ -1,8 +1,10 @@
 <ul class="list-unstyled">
   <% objects.each do |object| %>
     <li>
-      <%= link_to object.title, object_path(object) %>
-      Ranked: <%= object.votes %>
+      <h2>
+        <%= link_to object.title, object_path(object) %>
+        <small>Ranked: <%= object.votes %></small>
+      </h2>
     </li>
   <% end %>
 </ul>

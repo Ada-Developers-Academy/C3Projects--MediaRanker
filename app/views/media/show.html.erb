@@ -6,16 +6,14 @@
     <h1><%= @object.title %><small> By: <%= @object.creator %></small></h1>
     <h4>Ranked: <%= @object.votes %></h4>
     <p><%= @object.description %></p>
-  </div>
 
-  <div class="row">
-    <%= button_to "Upvote", object_path(@object), method: :put, params: { upvote: true }, class: "btn btn-primary upvote" %>
-  </div>
-</div>
+    <div class="upvote">
+      <%= button_to "Upvote", object_path(@object), method: :put, params: { upvote: true }, class: "btn btn-primary upvote" %>
+    </div>
 
-<div class="row">
-  <%= link_to "Edit #{@object.title}", edit_object_path(@object), class: "btn btn-default" %>
-  <%= button_to "DELETE", object_path(@object), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>
-  <%= link_to "View All #{@object.format.capitalize}", objects_path(@object), class: "btn btn-default" %>
-  <%= link_to "View All Media", :root, class: "btn btn-default" %>
+    <%= link_to "Edit #{@object.title}", edit_object_path(@object), class: "btn btn-default" %>
+    <%= button_to "DELETE", object_path(@object), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    <%= link_to "View All #{@object.format.capitalize}", objects_path(@object), class: "btn btn-default" %>
+    <%= link_to "View All Media", :root, class: "btn btn-default" %>
+  </div>
 </div>
