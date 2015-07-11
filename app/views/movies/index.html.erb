@@ -1,4 +1,4 @@
-<table>
+<table class="table table-hover">
   <tr>
     <th>Ranking</th>
     <th>Name</th>
@@ -7,11 +7,12 @@
 
   <% @movies.each do |movie| %>
   <tr>
-    <td><%= movie.rank %></td>
+    <td>Ranked: <%= movie.rank %></td>
     <td><%= link_to "#{movie.name}", movie_path(movie.id) %></td>
     <td><%= button_to "Upvote", upvote_movie_path(movie.id), method: :patch %></td>
   </tr>
   <% end %>
 </table>
+
 <p> <%= button_to "View All Media", root_path, method: :get %> </p>
 <p> <%= button_to "Add a Movie", new_movie_path , method: :get %> </p>

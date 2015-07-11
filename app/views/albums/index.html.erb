@@ -1,6 +1,4 @@
-
-
-<table>
+<table class="table table-hover">
   <tr>
     <th>Ranking</th>
     <th>Name</th>
@@ -9,7 +7,7 @@
 
   <% @albums.each do |album| %>
   <tr>
-    <td><%= album.rank %></td>
+    <td>Ranked: <%= album.rank %></td>
     <td><%= link_to "#{album.name}", album_path(album.id) %></td>
     <td><%= button_to "Upvote", upvote_album_path(album.id), method: :patch %></td>
   </tr>
