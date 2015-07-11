@@ -1,15 +1,15 @@
-
-<h1>
-  <%= @album.name %>
-  <small> Recorded by: <%= @album.artist %> </small>
-</h1>
-<h3> Ranked: <%= @album.rank %> </h3>
+<div class="row">
+<div class="col-lg-12">
+<h1><%= @album.name %><small> Recorded by: <%= @album.artist %> </small></h1>
+<h4> Ranked: <%= @album.rank %> </h4>
 <p> <%= @album.description %> </p>
 
-<p> <%= button_to "Upvote", upvote_album_path(@album.id), method: :patch %> </p>
+<p style="margin:0;padding:0;display:inline"> <%= button_to "Upvote", upvote_album_path(@album.id), method: :patch, :class => "btn btn-primary"%> </p>
 
 
-<%= button_to "Edit #{@album.name}", { action: "edit", id: @album.id }, :method => "get" %>
-<%= button_to "Delete", { action: "destroy", id: @album.id }, method: :delete, data: { confirm: "Are you sure?" } %>
-<%= button_to "View All Albums", albums_path , method: :get %>
-<%= button_to "View All Media", root_path, method: :get %>
+<%= link_to "Edit #{@album.name}", edit_album_path(@album.id), method: :get, :class => "btn btn-default" %>
+<%= link_to "DELETE", album_path, method: :delete, :class => "btn btn-danger", data: { confirm: "Are you sure?" } %>
+<%= link_to "View All Albums", albums_path, method: :get, :class => "btn btn-default" %>
+<%= link_to "View All Media", root_path, method: :get, :class => "btn btn-default" %>
+</div>
+</div>
