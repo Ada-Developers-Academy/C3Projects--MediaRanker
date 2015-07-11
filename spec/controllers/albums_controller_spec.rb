@@ -20,22 +20,7 @@ RSpec.describe AlbumsController, type: :controller do
     end #let
 
     let(:media_path) {album_path(Album.last.id)}
-
     let(:media) {:album}
     let(:medias) {:albums}
-
-    describe "GET #new" do
-      before(:each) do
-        get :new
-      end
-
-      it "creates a new item" do
-        expect(assigns(:album)).to be_a_new(Album)
-      end
-
-    end
-
-
-
 
   end # controller

@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+  before_action :find_book, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
     @controller = "books"
@@ -7,34 +7,30 @@ class BooksController < ApplicationController
   end
 
   def show
-    @single = find_book
     @controller = "books"
     @creator = "Written by"
   end
 
   def new
-    @book = Book.new
+    @single = Book.new
   end
 
   def create
-    @book = Book.create(book_params)
-    redirect_to "/books/#{@book.id}"
+    @single = Book.create(book_params)
+    redirect_to "/books/#{@single.id}"
   end
 
   def edit
-    @single = find_book
   end
 
   def update
-    @single = find_book
     @single.update(book_params)
     @single.save
 
-    redirect_to "/books/#{@book.id}"
+    redirect_to "/books/#{@single.id}"
   end
 
   def upvote
-    @single = find_book
     @single.rank += 1
     @single.save
 
@@ -42,7 +38,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @single = find_book
     @single.destroy
 
     redirect_to :books
@@ -55,7 +50,7 @@ private
   end
 
   def find_book
-    @book = Book.find(params[:id])
+    @single = Book.find(params[:id])
   end
 
   def book_params

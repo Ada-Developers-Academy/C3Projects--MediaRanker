@@ -11,7 +11,7 @@ RSpec.shared_examples "a controller" do
     end
 
     it "creates a new item" do
-      # expect(assigns(:medium)).to be_a_new(described_class.model)
+      expect(assigns(:single)).to be_a_new(described_class.model)
       expect(response).to render_template(:new)
     end
 
