@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, type: :controller do
+  it_behaves_like 'a MediaController'
+  
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index
