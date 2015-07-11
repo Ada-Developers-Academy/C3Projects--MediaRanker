@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
  
   def index
-    @movies = Movie.all
+    @movies = Movie.best(5)
   end
 
   def create
