@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @media = Book.create(album_params)
+    @media = Book.create(book_params)
     @by = :artist
     if @media.save
       redirect_to books_path
@@ -40,6 +40,13 @@ class BooksController < ApplicationController
 
   def destroy
     Book.find(params[:id]).destroy
+    redirect_to books_path
+  end
+
+  def vote
+    @media = Book.find(params[:id])
+    @media.ranking += 1
+    @media.save
     redirect_to books_path
   end
 

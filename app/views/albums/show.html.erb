@@ -2,7 +2,7 @@
 <h4>Ranked:<%= @album.ranking %></h4>
 <h5><%= @album.description %></h5>
 <div class="col-md-12">
-<%= button_to "Vote", edit_album_path(@album.id), method: :patch, class: "btn btn-primary" %>
+<%= button_to "Vote", "/albums/upvote/#{@album.id}", method: :get, class: "btn btn-primary" %>
 <%= link_to "Edit #{@album.title}", edit_album_path(@album.id), method: :get, class: "btn btn-default" %>
 <%= link_to "Delete", album_path(@album.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
 <%= link_to "View all Albums", albums_path, method: :get, class: "btn btn-default" %>

@@ -9,7 +9,7 @@
   <tr>
     <td><%= album.ranking %></td>
     <td><%= link_to "#{album.title}", album_path(album.id), method: :get %></td>
-    <td><%= button_to "Vote", class: "btn btn-default" %></td>
+    <td><%= button_to "Vote", "/albums/upvote/#{album.id}", method: :get, class: "btn btn-default" %></td>
   </tr>
   <% end %>
 </table>

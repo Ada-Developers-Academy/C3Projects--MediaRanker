@@ -6,10 +6,16 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'home#index'
 
+  get 'albums/upvote/:id' => 'albums#vote'
   resources :albums
+
+  get 'books/upvote/:id' => 'books#vote'
   resources :books
+
+  get 'movies/upvote/:id' => 'movies#vote'
   resources :movies
-  
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

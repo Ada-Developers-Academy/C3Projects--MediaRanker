@@ -5,16 +5,16 @@ class MoviesController < ApplicationController
 
   def new
     @media = Movie.new
-    @url = books_path
+    @url = movies_path
     @method = :post
     @by = :artist
   end
 
   def create
-    @media = Movie.create(album_params)
+    @media = Movie.create(movie_params)
     @by = :director
     if @media.save
-      redirect_to books_path
+      redirect_to movies_path
     else
       render :new
     end
@@ -26,26 +26,33 @@ class MoviesController < ApplicationController
 
   def edit
     @media = Movie.find(params[:id])
-    @url = book_path
+    @url = movie_path
     @method = :patch
     @by = :artist
   end
 
   def update
     @media = Movie.find(params[:id])
-    @media.update(book_params)
+    @media.update(movie_params)
     @media.save
-    redirect_to books_path
+    redirect_to movies_path
   end
 
   def destroy
     Movie.find(params[:id]).destroy
-    redirect_to books_path
+    redirect_to movies_path
+  end
+
+  def vote
+    @media = Movie.find(params[:id])
+    @media.ranking += 1
+    @media.save
+    redirect_to movies_path
   end
 
 private
 
-  def book_params
+  def movie_params
     params.require(:book).permit(:title, :author, :description, :ranking)
   end
 

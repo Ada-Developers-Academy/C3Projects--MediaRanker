@@ -51,6 +51,7 @@ class AlbumsController < ApplicationController
   def vote
     @media = Album.find(params[:id])
     @media.ranking += 1
+    @media.save
     redirect_to albums_path
   end
 
