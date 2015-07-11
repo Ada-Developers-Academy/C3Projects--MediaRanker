@@ -7,8 +7,6 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @controller = "movies"
-    @creator = "Directed by"
   end
 
   def new

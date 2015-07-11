@@ -7,8 +7,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    @controller = "books"
-    @creator = "Written by"
   end
 
   def new

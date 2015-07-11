@@ -6,8 +6,6 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @controller = "albums"
-    @creator = "Recorded by"
   end
 
   def new
