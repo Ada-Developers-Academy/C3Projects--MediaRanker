@@ -10,4 +10,16 @@ RSpec.describe Book, type: :model do
       expect(book.errors.keys).to include(:name,:description,:author)
     end
   end
+
+  describe "best scope" do
+    it "ranks all the books by vote in descending order" do
+      book1= Book.create(name:'a', author:'b', description: 'c', vote:30)
+      book2= Book.create(name:'a', author:'b', description: 'c', vote:3)
+      book3= Book.create(name:'a', author:'b', description: 'c', vote:20)
+
+      right_rank = [book1, book3, book2]
+
+      expect(Book.best(3)).to eq right_rank
+    end
+  end
 end

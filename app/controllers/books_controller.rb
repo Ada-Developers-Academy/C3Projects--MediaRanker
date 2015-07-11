@@ -8,7 +8,7 @@ class BooksController < ApplicationController
     @book = Book.new(permit_params[:book])
     @book.save
 
-    redirect_to"/books"
+    redirect_to(books_path)
   end
 
   def new

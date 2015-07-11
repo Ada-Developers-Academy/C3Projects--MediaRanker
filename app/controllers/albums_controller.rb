@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(permit_params[:album])
     @album.save
 
-    redirect_to"/albums"
+    redirect_to(albums_path)
   end
 
   def new
