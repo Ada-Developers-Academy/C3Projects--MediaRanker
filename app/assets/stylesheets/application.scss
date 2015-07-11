@@ -20,7 +20,11 @@
   background-repeat: no-repeat;
 }
 
-h1 {
+.page-header h1 {
   margin-left: 150px;
   font-size: 36px;
+}
+
+.button_to {
+  display: inline-block;
 }
