@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  # make a before_action for find_album
+  before_action :find_album, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
     @controller = "albums"
@@ -7,27 +7,25 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @single = find_album
     @controller = "albums"
     @creator = "Recorded by"
   end
 
   def new
-    @album = Album.new
+    @single = Album.new
   end
 
   def create
-    @album = Album.create(album_params)
+    @single = Album.create(album_params)
 
-    if @album.save
-      redirect_to album_path(@album.id)
+    if @single.save
+      redirect_to album_path(@single.id)
     else
       render :new
     end
   end
 
   def edit
-    @single = find_album
   end
 
   def update
@@ -35,18 +33,16 @@ class AlbumsController < ApplicationController
     @single.update(album_params)
     @single.save
 
-    redirect_to "/albums/#{@album.id}"
+    redirect_to "/albums/#{@single.id}"
   end
 
   def upvote
-    @single = find_album
     @single.increment!(:rank)
     @single.save
     redirect_to :album
   end
 
   def destroy
-    @single = find_album
     @single.destroy
 
     redirect_to :albums
@@ -60,10 +56,9 @@ private
   end
 
   def find_album
-    @album = Album.find(params[:id])
+    @single = Album.find(params[:id])
   end
 
-# change params for proper
   def album_params
     params.require(:album).permit(:id, :name, :creator, :description, :rank)
   end

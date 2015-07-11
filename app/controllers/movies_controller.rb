@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  before_action :find_movie, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
     @controller = "movies"
@@ -6,44 +7,42 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @single = find_movie
     @controller = "movies"
     @creator = "Directed by"
   end
 
   def new
-    @movie = Movie.new
+    @single = Movie.new
   end
 
   def create
-    @movie = Movie.create(movie_params)
-    redirect_to "/movies/#{@movie.id}"
+    @single = Movie.create(movie_params)
+
+    if @single.save
+      redirect_to movie_path(@single.id)
+    else
+      render :new
+    end
   end
 
   def edit
-    @single = find_movie
   end
 
   def update
-    @single = find_movie
     @single.update(movie_params)
     @single.save
 
-    redirect_to "/movies/#{@movie.id}"
+    redirect_to "/movies/#{@single.id}"
   end
 
   def upvote
-    @single = find_movie
-    @single.rank += 1
+    @single.increment!(:rank)
     @single.save
-
     redirect_to :movie
   end
 
   def destroy
-    @single = find_movie
     @single.destroy
-
     redirect_to :movies
   end
 
@@ -54,7 +53,7 @@ private
   end
 
   def find_movie
-    @movie = Movie.find(params[:id])
+    @single = Movie.find(params[:id])
   end
 
   def movie_params
