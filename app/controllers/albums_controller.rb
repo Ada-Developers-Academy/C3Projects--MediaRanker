@@ -33,7 +33,7 @@ class AlbumsController < ApplicationController
     @album.update(create_params[:album])
 
     if @album.save
-       redirect_to album_path(@album.id)
+      redirect_to album_path(@album.id)
     else
       render :edit
     end

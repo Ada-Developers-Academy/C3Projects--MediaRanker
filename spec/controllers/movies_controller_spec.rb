@@ -22,7 +22,6 @@ RSpec.describe MoviesController, type: :controller do
   describe "GET #show" do
     before :each do
       @movie = Movie.create(movie_params[:movie])
-      @movie.ranking = 0
     end
 
     let(:movie_params) do
@@ -66,7 +65,7 @@ RSpec.describe MoviesController, type: :controller do
           movie: {
             name: 'a name',
             director: 'a director',
-            description: 'a description'
+            description: 'a description',
           }
         }
       end
