@@ -43,7 +43,7 @@ class BooksController < ApplicationController
     @book.vote += 1
     @book.save
 
-    redirect_to book_path
+    redirect_to :back rescue redirect_to book_path
   end
 
   # Delete a book

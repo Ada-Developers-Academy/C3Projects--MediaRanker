@@ -43,7 +43,7 @@ class AlbumsController < ApplicationController
     @album.vote += 1
     @album.save
 
-    redirect_to album_path
+    redirect_to :back rescue redirect_to album_path
   end
 
   # Delete an album

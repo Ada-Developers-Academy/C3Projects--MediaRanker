@@ -43,7 +43,7 @@ class MoviesController < ApplicationController
     @movie.vote += 1
     @movie.save
 
-    redirect_to movie_path
+    redirect_to :back rescue redirect_to movie_path
   end
 
   # Delete a movie
