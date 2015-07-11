@@ -1,10 +1,6 @@
 class AlbumsController < ApplicationController
   # make a before_action for find_album
 
-  def self.model
-    Album
-  end
-
   def index
     @controller = "albums"
     @model = Album
@@ -21,7 +17,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.create(create_params[:album])
+    @album = Album.create(album_params)
 
     if @album.save
       redirect_to album_path(@album.id)
@@ -36,7 +32,7 @@ class AlbumsController < ApplicationController
 
   def update
     @single = find_album
-    @single.update(create_params[:album])
+    @single.update(album_params)
     @single.save
 
     redirect_to "/albums/#{@album.id}"
@@ -59,14 +55,17 @@ class AlbumsController < ApplicationController
 
 # PRIVATE METHODS ----------------------------------------------------------
 private
+  def self.model
+    Album
+  end
 
   def find_album
-    @album = Album.find(create_params[:id])
+    @album = Album.find(params[:id])
   end
 
 # change params for proper
-  def create_params
-    params.permit(:id, album: [:id, :name, :creator, :description, :rank])
+  def album_params
+    params.require(:album).permit(:id, :name, :creator, :description, :rank)
   end
 
 end

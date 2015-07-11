@@ -1,9 +1,5 @@
 class MoviesController < ApplicationController
 
-  def self.model
-    Movie
-  end
-
   def index
     @controller = "movies"
     @model = Movie
@@ -20,7 +16,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create(create_params[:movie])
+    @movie = Movie.create(movie_params)
     redirect_to "/movies/#{@movie.id}"
   end
 
@@ -30,7 +26,7 @@ class MoviesController < ApplicationController
 
   def update
     @single = find_movie
-    @single.update(create_params[:movie])
+    @single.update(movie_params)
     @single.save
 
     redirect_to "/movies/#{@movie.id}"
@@ -52,15 +48,17 @@ class MoviesController < ApplicationController
   end
 
   # PRIVATE METHODS ----------------------------------------------------------
-
-  private
-
-  def find_movie
-    @movie = Movie.find(create_params[:id])
+private
+  def self.model
+    Movie
   end
 
-  def create_params
-    params.permit(:id, movie: [:id, :name, :creator, :description, :rank])
+  def find_movie
+    @movie = Movie.find(params[:id])
+  end
+
+  def movie_params
+    params.require(:movie).permit(:id, :name, :creator, :description, :rank)
   end
 
 end

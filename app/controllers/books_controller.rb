@@ -1,8 +1,5 @@
 class BooksController < ApplicationController
 
-  def self.model
-    Book
-  end
 
   def index
     @controller = "books"
@@ -20,7 +17,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.create(create_params[:book])
+    @book = Book.create(book_params)
     redirect_to "/books/#{@book.id}"
   end
 
@@ -30,7 +27,7 @@ class BooksController < ApplicationController
 
   def update
     @single = find_book
-    @single.update(create_params[:book])
+    @single.update(book_params)
     @single.save
 
     redirect_to "/books/#{@book.id}"
@@ -52,15 +49,17 @@ class BooksController < ApplicationController
   end
 
   # PRIVATE METHODS ----------------------------------------------------------
-
 private
-
-  def find_book
-    @book = Book.find(create_params[:id])
+  def self.model
+    Book
   end
 
-  def create_params
-    params.permit(:id, book: [:id, :name, :creator, :description, :rank])
+  def find_book
+    @book = Book.find(params[:id])
+  end
+
+  def book_params
+    params.require(:book).permit(:id, :name, :creator, :description, :rank)
   end
 
 
