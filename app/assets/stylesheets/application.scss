@@ -13,3 +13,16 @@
 //"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .button_menu {
+  display: inline-block;
+
+    }
+.header_img {
+  background-image: url("pile.jpg"); 
+  height: 200px;
+  width: 100%;
+  background-size: cover; 
+
+}
+

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-med-12">
+    <div class="col-md-12">
     
     <h1> <%= @movie.name %> <small> Directed by: <%= @movie.director %> </small> </h1>
 
@@ -9,15 +9,15 @@
     <p> <%= @movie.description %> </p>
 
     <br>
-    <%= button_to "Upvote", "#{@movie.id}/yes_vote", method: :patch %>
-    <br>
-    <%= button_to "Edit #{@movie.name}", edit_movie_path(@movie.id), method: :get %>
-    <br>
-    <%= button_to "Delete", movie_path(@movie.id), method: :delete, data: {confirm: "are you sure you want to delete this movie?"}  %>
-    <br>
-    <%= button_to "View All Movies", movies_path, method: :get %>
-    <br>
-    <%= button_to "View All Media", root_path, method: :get %>
+    <%= button_to "Upvote", "#{@movie.id}/yes_vote", method: :patch, :class => "btn btn-primary" %>
+    
+    <div class="button_wrapper">
+    <%= link_to "Edit #{@movie.name}", edit_movie_path(@movie.id), :class => " btn btn-default button_menu" %>
+    <%= link_to "Delete", movie_path(@movie.id), method: :delete, data: {confirm: "are you sure you want to delete this movie?"}, :class =>  "btn btn-danger button_menu"%>
+    <%= link_to "View All Movies", movies_path, :class => "btn btn-default button_menu" %>
+    <%= link_to "View All Media", root_path, :class => "btn btn-default button_menu" %>
+    </div>
+    
     </div> 
   </div>
 </div>  

@@ -5,10 +5,6 @@ class Book < ActiveRecord::Base
   validates :name, presence: true
   validates :author, presence: true
   validates :description, presence: true
-  validates :vote, presence: true
-          
-
-
   #  Scopes-----------------------------------------------
-
+  scope :best, -> (total) {order('vote DESC').limit(total)}
 end

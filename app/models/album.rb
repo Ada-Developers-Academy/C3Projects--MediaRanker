@@ -6,10 +6,8 @@ class Album < ActiveRecord::Base
   validates :name, presence: true
   validates :artist, presence: true
   validates :description, presence: true
-  validates :vote, presence: true
- 
 
 #  Scopes-----------------------------------------------
-
+  scope :best, -> (total) {order('vote DESC').limit(total)}
 
 end

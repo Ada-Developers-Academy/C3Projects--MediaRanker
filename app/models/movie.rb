@@ -5,11 +5,9 @@ class Movie < ActiveRecord::Base
   validates :name, presence: true
   validates :director, presence: true
   validates :description, presence: true
-  validates :vote, presence: true
             
-
   #  Scopes-----------------------------------------------
-
+  scope :best, -> (total) {order('vote DESC').limit(total)}
 
 end
 
