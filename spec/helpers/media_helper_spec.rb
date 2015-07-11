@@ -12,4 +12,5 @@ require 'rails_helper'
 # end
 RSpec.describe MediaHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
+  # TODO: this is pretty self-explanatory, don't you think? fill me out!
 end
