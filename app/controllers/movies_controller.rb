@@ -1,5 +1,9 @@
 class MoviesController < ApplicationController
 
+  def self.model
+    Movie
+  end
+
   def index
     @controller = "movies"
     @model = Movie

@@ -32,12 +32,27 @@ RSpec.shared_examples "a controller" do
     end
   end #describe
 
-      #
+  describe "GET #show" do
+    before(:each) do
+        @media = described_class.model.create!(name: "Something Punny", description: "Puns, pun, puns for everyone" )
+    end
+
+    it "grabs the right media" do
+      get :show, id: @media.id
+      expect{assigns(:medium).to eq(@media)}
+    end
+
+    it "renders the show view" do
+      expect{(response).to render_template(:show)}
+    end
+  end
+
+
   describe "POST #create" do
     # + media params valid
     context "Valid params" do
 
-      it "creates an Album record" do
+      it "creates an Model record" do
         post :create, media_params
         expect(described_class.model.count).to eq 1
       end
@@ -53,7 +68,7 @@ RSpec.shared_examples "a controller" do
       end
     end # + context
 
-    # - album params invalid
+    # - media params invalid
     context "Invalid media parameters" do
 
       it "does not create media" do
@@ -64,7 +79,7 @@ RSpec.shared_examples "a controller" do
   end # POST #create
 
   describe "DELETE #destroy" do
-    # + case: album is destroyed
+    # + case: instance is destroyed
     context "when resource is found" do
       before(:each) do
         @media_del = described_class.model.create(name: "dizzy")
@@ -72,8 +87,8 @@ RSpec.shared_examples "a controller" do
 
       it "media counts changes by -1" do
         expect{delete :destroy, {id: @media_del.id}}.to change(described_class.model, :count).by(-1)
-        # Album count should decrease by 1 if album sucessfully deleted.
-        # If say album count = 0, may not be correct b/c of persistent test data
+        # media count should decrease by 1 if media object sucessfully deleted.
+        # If say media count = 0, may not be correct b/c of persistent test data
       end
 
       it "redirect_to :media" do
@@ -88,24 +103,20 @@ RSpec.shared_examples "a controller" do
       described_class.model.create!(
         name: "namie-poo",
         creator: "ms. fancy pants",
-        description: "best durn thing ever!"
-      )
+        description: "best durn thing ever!")
     end
 
     it "sucessfully updates name" do
-      put :update, :id => @media.id, :media => {name: "Albums"}
-      binding.pry
-      @media.reload
-      expect(@media.name).to eq("Albums")
+      put :update, :id => media_update.id, media => {name: "Mediazzz"}
+      media_update.reload
+      expect(media_update.name).to eq("Mediazzz")
     end
 
   end # describe #update
 
   describe "POST #upvote" do
     before(:each) do
-      @media_upvote = described_class.model.create!(
-        name: "namezzz",
-      )
+      @media_upvote = described_class.model.create!(name: "namezzz")
     end
 
     it "increases rank by 1" do
@@ -114,7 +125,5 @@ RSpec.shared_examples "a controller" do
       expect(@media_upvote.rank).to eq 1
     end
   end # post upvote
-
-
 
 end #controller

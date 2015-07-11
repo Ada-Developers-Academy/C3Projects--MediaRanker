@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   # make a before_action for find_album
-  
+
   def self.model
     Album
   end
@@ -44,12 +44,9 @@ class AlbumsController < ApplicationController
 
   def upvote
     @single = find_album
-    @single.rank += 1
+    @single.increment!(:rank)
     @single.save
-
-
     redirect_to :album
-    # need to redirect to 2 different pages
   end
 
   def destroy

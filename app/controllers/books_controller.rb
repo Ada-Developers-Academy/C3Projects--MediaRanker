@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
 
+  def self.model
+    Book
+  end
+
   def index
     @controller = "books"
     @model = Book
@@ -41,7 +45,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @single = find_books
+    @single = find_book
     @single.destroy
 
     redirect_to :books
