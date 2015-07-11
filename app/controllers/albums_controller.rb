@@ -2,7 +2,6 @@ class AlbumsController < ApplicationController
   before_action :find_album, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
-    @controller = "albums"
     @model = Album
   end
 
