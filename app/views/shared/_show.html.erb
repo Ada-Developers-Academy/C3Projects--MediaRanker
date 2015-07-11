@@ -1,0 +1,11 @@
+<h1>
+  <%= medium.title %>
+  <small>
+    <%= created_by %>
+    <% unless creator.nil? == true %>
+      <%= creator %>
+    <% end %>
+  </small>
+</h1>
+<h4>Ranked: <%= medium.rank %></h4>
+<p><%= medium.description %></p>
