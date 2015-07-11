@@ -19,7 +19,6 @@ RSpec.shared_examples "a MediumController" do
     it "renders index template" do
       expect(response).to render_template("index")
     end
-
   end
 
   describe "GET #show" do
