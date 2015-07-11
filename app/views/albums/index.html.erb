@@ -1,11 +1,13 @@
 <div class="col-lg-12">
   <table class="table table-hover">
+    <tbody>
     <tr>
       <th>Ranking</th>
       <th>Name</th>
       <th>Upvote</th>
     </tr>
-
+  </tbody>
+  <tbody>
     <% @albums.each do |album| %>
     <tr>
       <td>Ranked: <%= album.rank %></td>
@@ -13,6 +15,7 @@
       <td><%= button_to "Upvote", upvote_album_path(album.id), method: :patch, class: "btn btn-default"%></td>
     </tr>
     <% end %>
+  <tbody>
   </table>
 
   <p> <%= button_to "View All Media", root_path, method: :get, class: "btn btn-default" %> </p>
