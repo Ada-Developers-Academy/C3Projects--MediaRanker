@@ -17,7 +17,12 @@ class BooksController < ApplicationController
 
   def create
     @single = Book.create(book_params)
-    redirect_to "/books/#{@single.id}"
+
+    if @single.save
+      redirect_to book_path(@single.id)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,7 +32,7 @@ class BooksController < ApplicationController
     @single.update(book_params)
     @single.save
 
-    redirect_to "/books/#{@single.id}"
+    redirect_to book_path(@single.id)
   end
 
   def upvote
@@ -39,7 +44,6 @@ class BooksController < ApplicationController
 
   def destroy
     @single.destroy
-
     redirect_to :books
   end
 
@@ -56,6 +60,5 @@ private
   def book_params
     params.require(:book).permit(:id, :name, :creator, :description, :rank)
   end
-
 
 end

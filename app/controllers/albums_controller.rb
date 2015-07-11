@@ -33,7 +33,7 @@ class AlbumsController < ApplicationController
     @single.update(album_params)
     @single.save
 
-    redirect_to "/albums/#{@single.id}"
+    redirect_to album_path(@single.id)
   end
 
   def upvote
@@ -47,7 +47,6 @@ class AlbumsController < ApplicationController
 
     redirect_to :albums
   end
-
 
 # PRIVATE METHODS ----------------------------------------------------------
 private

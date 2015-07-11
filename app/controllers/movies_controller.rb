@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
     @single.update(movie_params)
     @single.save
 
-    redirect_to "/movies/#{@single.id}"
+    redirect_to movie_path(@single.id)
   end
 
   def upvote
@@ -48,7 +48,7 @@ class MoviesController < ApplicationController
 
   # PRIVATE METHODS ----------------------------------------------------------
 private
-  def self.model
+  def self.model # for rpsec controller testing
     Movie
   end
 
