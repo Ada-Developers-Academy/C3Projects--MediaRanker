@@ -32,7 +32,6 @@ module MediaHelper
     end
   end
 
-  # TODO: check if I use this anywhere
   def objects_path(obj)
     case obj.format
     when "movie"
