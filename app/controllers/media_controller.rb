@@ -6,7 +6,7 @@ class MediaController < ApplicationController
   before_action :set_object, only: [:show, :edit, :update, :destroy]
 
   def index
-    @objects = Medium.all_objects(request.path)
+    @objects = Medium.all_objects(params[:format])
   end
 
   def show

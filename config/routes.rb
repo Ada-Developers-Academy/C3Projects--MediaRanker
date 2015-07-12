@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   resources :media, only: [:create, :update]
 
-  resources :movies, controller: "media"
-  resources :books, controller: "media"
-  resources :albums, controller: "media"
+  resources :movies, controller: "media", defaults: { format: "movie" }
+  resources :books, controller: "media", defaults: { format: "book" }
+  resources :albums, controller: "media", defaults: { format: "album" }
 
 end

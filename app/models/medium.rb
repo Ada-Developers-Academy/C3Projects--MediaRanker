@@ -29,22 +29,16 @@ class Medium < ActiveRecord::Base
   end
 
   # TODO: haven't added tests for these
-  def self.all_objects(info_source)
-    if info_source.is_a?(String)
-      all_objects_from_url(info_source)
+  def self.all_objects(format)
+    case format
+    when "movie"
+      Medium.movies
+    when "book"
+      Medium.books
+    when "album"
+      Medium.albums
+    else
+      Medium.none
     end
   end
-
-  private
-    def self.all_objects_from_url(url)
-      if url.include?("movie")
-        Medium.movies
-      elsif url.include?("book")
-        Medium.books
-      elsif url.include?("album")
-        Medium.albums
-      else
-        # TODO: something
-      end
-    end
 end
