@@ -13,8 +13,7 @@ class MediaController < ApplicationController
   end
 
   def new
-    # TODO: come back to this, obviously
-    @object = Medium.new(format: "movie")
+    @object = Medium.new(format: params[:format])
   end
 
   def create
