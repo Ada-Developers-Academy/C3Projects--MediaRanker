@@ -1,5 +1,3 @@
-require_relative '../helpers/media_helper.rb'
-
 class MediaController < ApplicationController
   include MediaHelper
 
