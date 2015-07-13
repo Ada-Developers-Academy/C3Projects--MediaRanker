@@ -18,7 +18,7 @@ class MediaController < ApplicationController
     if object = Medium.create(medium_params)
       redirect_to object_path(object)
     else
-      #TODO: something
+      # TODO: something
     end
   end
 
@@ -32,7 +32,7 @@ class MediaController < ApplicationController
     elsif @object.update(medium_params)
       redirect_to object_path(@object)
     else
-      #TODO: add error message
+      # TODO: add error message
       render :edit
     end
   end
@@ -42,7 +42,7 @@ class MediaController < ApplicationController
     if @object.destroy
       redirect_to path_holder
     else
-      #TODO: something
+      # TODO: something
     end
   end
 
