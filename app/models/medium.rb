@@ -28,7 +28,6 @@ class Medium < ActiveRecord::Base
     format == "album"
   end
 
-  # TODO: haven't added tests for these
   def self.all_objects(format)
     case format
     when "movie"

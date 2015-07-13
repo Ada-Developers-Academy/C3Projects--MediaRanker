@@ -212,6 +212,35 @@ RSpec.describe Medium, type: :model do
     end
   end
 
+  describe ".all_objects" do
+    before :all do
+      @record1 = Medium.create({ :title=>"Kitties Album", :creator=>"Cat", :votes=>9, :description=>"", :format=>"album" })
+      @record2 = Medium.create({ :title=>"Llamas Movie", :creator=>"The Llama", :votes=>6, :format=>"movie" })
+      @record3 = Medium.create({ :title=>"Puppies Album", :creator=>"Dog", :votes=>10, :description=>"", :format=>"album" })
+      @record4 = Medium.create({ :title=>"Elephants Album", :creator=>"Elephant", :description=>"", :format=>"album" })
+      @record5 = Medium.create({ :title=>"Puppies Book", :creator=>"Dog", :votes=>10, :description=>"", :format=>"book" })
+      @record6 = Medium.create({ :title=>"Llamas Album", :creator=>"The Llama", :votes=>6, :description=>"", :format=>"album" })
+      @record7 = Medium.create({ :title=>"Kitties Movie", :creator=>"Cat", :votes=>9, :format=>"movie" })
+      @record8 = Medium.create({ :title=>"Puppies Movie", :creator=>"Dog", :votes=>10, :format=>"movie" })
+      @record9 = Medium.create({ :title=>"Kitties Book", :creator=>"Cat", :votes=>9, :description=>"", :format=>"book" })
+      @record10 = Medium.create({ :title=>"Llamas Book", :creator=>"The Llama", :votes=>6, :description=>"", :format=>"book" })
+      @record11 = Medium.create({ :title=>"Elephants Book", :creator=>"Elephant", :description=>"", :format=>"book" })
+      @record12 = Medium.create({ :title=>"Elephants Movie", :creator=>"Elephant", :description=>"", :format=>"movie" })
+    end
+
+    after :all do
+      Medium.destroy_all
+    end
+
+    ["movie", "book", "album"].each do |format_type|
+      it "returns all the #{ format_type } when passed '#{ format_type }'" do
+        expect(Medium.all_objects(format_type).count).to eq(4)
+        expect(Medium.all_objects(format_type).collect(&:format).uniq).to include(format_type)
+        expect(Medium.all_objects(format_type).collect(&:format).uniq.count).to eq(1)
+      end
+    end
+  end
+
   describe "model validations" do
     context "when title is missing" do
       it "does not persist the record" do
