@@ -230,6 +230,16 @@ RSpec.describe Medium, type: :model do
         expect(medium.errors.keys).to include(:format)
       end
     end
+
+    context "when format is not one of the recognized types" do
+      # TODO: this could be done better, if I had more time :(
+      it "is not valid" do
+        medium = Medium.new(format: "invalid format")
+
+        expect(medium).to_not be_valid
+        expect(medium.errors.keys).to include(:format)
+      end
+    end
   end
 end
 

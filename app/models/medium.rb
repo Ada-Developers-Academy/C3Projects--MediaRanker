@@ -9,7 +9,7 @@ class Medium < ActiveRecord::Base
   scope :best_albums, -> (total) { albums.order('votes DESC').limit(total) }
 
   validates :title, presence: true
-  validates :format, presence: true
+  validates :format, presence: true, inclusion: { in: ["movie", "book", "album"], message: "\"book\", \"movie\", and \"album\" are the only allowed formats." }
 
   def self.upvote(object)
      object.votes += 1
