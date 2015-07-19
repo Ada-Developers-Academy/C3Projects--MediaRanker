@@ -1,0 +1,12 @@
+// Place all the styles related to the media controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.page-header {
+  background-image: url(image_path("owl.jpg"));
+  background-repeat: no-repeat;
+}
+
+.page-header h1 {
+  margin-left: 150px;
+}

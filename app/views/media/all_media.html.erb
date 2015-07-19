@@ -1,0 +1,9 @@
+
+<!-- I like these conditional views -->
+<% if params[:action] == "all_albums" %>
+  <%= render partial: "media_list", locals: { media: @albums, type: "Album", link_path: new_medium_path(:album) } %>
+<% elsif params[:action] == "all_movies" %>
+  <%= render partial: "media_list", locals: { media: @movies, type: "Movie", link_path: new_medium_path(:movie) } %>
+<% elsif params[:action] == "all_books" %>
+  <%= render partial: "media_list", locals: { media: @books, type: "Book", link_path: new_medium_path(:book) } %>
+<% end %>

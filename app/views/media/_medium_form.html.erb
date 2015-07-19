@@ -1,0 +1,21 @@
+<%= form_for @medium do |f| %>
+  <div class="form-group">
+    <fieldset>
+      <legend><h2><%= legend_text + medium.capitalize %></h2></legend>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name, :required => true, class: "form-control" %>
+
+      <%= f.label :contributor, contributor %>
+      <%= f.text_field :contributor, class: "form-control" %>
+
+      <%= f.label :description, "Description" %>
+      <%= f.text_area :description, class: "form-control" %>
+
+      <!-- This hidden value ensures that each new instance of Medium has a media_type
+      based on how the user accessed this new form (from the book, album, or movie list) -->
+      <%= f.hidden_field :media_type, :value => medium %>
+    </fieldset>
+
+    <%= f.submit "Save", class: "btn btn-default"%>
+  </div>
+<% end %>

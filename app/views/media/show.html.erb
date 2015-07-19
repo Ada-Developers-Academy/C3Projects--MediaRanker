@@ -1,0 +1,8 @@
+
+<% if @type == "movies" %>
+  <%= render partial: "media_details", locals: { byline: "Directed by " } %>
+<% elsif @type == "books" %>
+  <%= render partial: "media_details", locals: { byline: "Written by " } %>
+<% elsif @type == "albums" %>
+  <%= render partial: "media_details", locals: { byline: "Recorded by " } %>
+<% end %>

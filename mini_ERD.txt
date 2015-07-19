@@ -1,0 +1,7 @@
+MEDIA
+id:
+ranking: integer
+name: string
+contributor: string
+description: string
+user: string
