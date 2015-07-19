@@ -76,9 +76,10 @@ class MediaController < ApplicationController
   end
 
   def destroy
+    @media_type = Medium.find(params[:id]).media_type.pluralize
     @medium = Medium.destroy(params[:id])
 
-    redirect_to "/#{params[:format]}/index"
+    redirect_to "/#{@media_type}/index"
   end
 
   private
