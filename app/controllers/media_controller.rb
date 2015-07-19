@@ -38,6 +38,8 @@ class MediaController < ApplicationController
 
   def new
     @medium = Medium.new
+
+    @type = params[:media_type]
   end
 
   def create

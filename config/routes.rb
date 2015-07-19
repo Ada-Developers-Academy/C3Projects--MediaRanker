@@ -6,13 +6,15 @@ Rails.application.routes.draw do
 
   get 'movies/index', to: 'media#all_movies'
 
+  get 'media/:media_type/new(.:format)', to: 'media#new', as: "new_medium"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'media#index'
 
-  resources :media do
+  resources :media, except: [:new] do
     member do
       patch 'upvote'
     end
