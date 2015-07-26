@@ -6,10 +6,8 @@ RSpec.shared_examples "medium" do
 
   describe "find_medium" do
     it "locates the correct object" do
-      medium1 = described_class.model.new(id: 1, title: "a title")
-      medium1.save
-      medium2 = described_class.model.new(id: 2, title: "b title")
-      medium2.save
+      medium1 = described_class.model.create(id: 1, title: "a title")
+      medium2 = described_class.model.create(id: 2, title: "b title")
       params = { id: 2 }
 
       expect(described_class.model.find(params[:id]).title).to eq("b title")
@@ -18,10 +16,8 @@ RSpec.shared_examples "medium" do
 
   describe "GET #index" do
     before :each do
-      @medium1 = described_class.model.new(id: 1, title: "a title", ranking: 5)
-      @medium1.save
-      @medium2 = described_class.model.new(id: 2, title: "b title", ranking: 10)
-      @medium2.save
+      @medium1 = described_class.model.create(id: 1, title: "a title", ranking: 5)
+      @medium2 = described_class.model.create(id: 2, title: "b title", ranking: 10)
     end
 
     it "locates all the objects" do
@@ -42,8 +38,7 @@ RSpec.shared_examples "medium" do
   describe "GET #upvote" do
     before :each do
       # why can't this be `let`?!?!
-      @medium = described_class.model.new(id: 1, title: "a title")
-      @medium.save
+      @medium = described_class.model.create(id: 1, title: "a title")
     end
 
     it "increases the medium's ranking by 1" do
@@ -92,11 +87,9 @@ RSpec.shared_examples "medium" do
 
   describe "PUT #update" do
     before :each do
-      medium1 = described_class.model.new(id: 1, title: "a title")
-      medium1.save
-      @medium2 = described_class.model.new(id: 2, title: "b title")
-      @medium2.save
-      described_class.model.new(id: 3, title: "c title").save
+      medium1 = described_class.model.create(id: 1, title: "a title")
+      @medium2 = described_class.model.create(id: 2, title: "b title")
+      described_class.model.create(id: 3, title: "c title")
 
       @params = { medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: "2" }
     end
@@ -133,10 +126,8 @@ RSpec.shared_examples "medium" do
 
   describe "DELETE #destroy" do
     before :each do
-      medium1 = described_class.model.new(id: 1, title: "a title")
-      medium1.save
-      @medium2 = described_class.model.new(id: 2, title: "b title")
-      @medium2.save
+      medium1 = described_class.model.create(id: 1, title: "a title")
+      @medium2 = described_class.model.create(id: 2, title: "b title")
       @params = { medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: 1 }
     end
 
