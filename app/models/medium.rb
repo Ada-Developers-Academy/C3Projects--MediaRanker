@@ -17,6 +17,10 @@ class Medium < ActiveRecord::Base
     collection.to_a.sort_by { |media| media.votes }.reverse
   end
 
+  def find_medium(id)
+    Medium.find(id)
+  end
+
   def self.find_books
     self.where(format: "book")
   end

@@ -44,16 +44,16 @@ class MediaController < ApplicationController
 
 
   def show
-    @media = Medium.find(params[:id])
+    @media = find_medium(params[:id])
   end
 
   def edit
-    @media = Medium.find(params[:id])
+    @media = find_medium(params[:id])
     @method = :patch
   end
 
   def update
-    @media = Medium.find(params[:id])
+    @media = find_medium(params[:id])
     if @media.update(media_params)
       redirect_to Medium.pick_path(@media)
     else
@@ -64,7 +64,7 @@ class MediaController < ApplicationController
   end
 
   def upvote
-    @media = Medium.find(params[:id])
+    @media = find_medium(params[:id])
     @media.votes += 1
     @media.save
     @method = :patch
@@ -72,7 +72,7 @@ class MediaController < ApplicationController
   end
 
   def destroy
-    media = Medium.find(params[:id])
+    media = find_medium(params[:id])
     format = media.format
     media.destroy
     redirect_to Medium.pick_index_path(format)
