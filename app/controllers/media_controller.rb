@@ -78,6 +78,8 @@ class MediaController < ApplicationController
     redirect_to Medium.pick_index_path(format)
   end
 
+private
+
   def media_params
     params.require(:medium).permit(:name, :description, :creator, :format, :votes)
   end
