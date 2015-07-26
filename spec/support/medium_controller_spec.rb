@@ -2,27 +2,28 @@ require 'spec_helper'
 
 RSpec.shared_examples "a medium controller" do
 
+  let(:model){ described_class.model }
   let(:medium_model_name){ described_class.model.name.downcase }
 
   describe "find_medium" do
     it "locates the correct object" do
-      medium1 = described_class.model.create(id: 1, title: "a title")
-      medium2 = described_class.model.create(id: 2, title: "b title")
+      medium1 = model.create(id: 1, title: "a title")
+      medium2 = model.create(id: 2, title: "b title")
       params = { id: 2 }
 
-      expect(described_class.model.find(params[:id]).title).to eq("b title")
+      expect(model.find(params[:id]).title).to eq("b title")
     end
   end
 
   describe "GET #index" do
     before :each do
-      @medium1 = described_class.model.create(id: 1, title: "a title", ranking: 5)
-      @medium2 = described_class.model.create(id: 2, title: "b title", ranking: 10)
+      @medium1 = model.create(id: 1, title: "a title", ranking: 5)
+      @medium2 = model.create(id: 2, title: "b title", ranking: 10)
     end
 
     it "locates all the objects" do
       get :index
-      num_of_media = described_class.model.all.count
+      num_of_media = model.all.count
 
       expect(assigns["#{medium_model_name}s".to_sym].count).to eq num_of_media
     end
@@ -38,7 +39,7 @@ RSpec.shared_examples "a medium controller" do
   describe "GET #upvote" do
     before :each do
       # why can't this be `let`?!?!
-      @medium = described_class.model.create(id: 1, title: "a title")
+      @medium = model.create(id: 1, title: "a title")
     end
 
     it "increases the medium's ranking by 1" do
@@ -62,9 +63,9 @@ RSpec.shared_examples "a medium controller" do
 
     # creates a new instance
     it "creates a new instance" do
-      original_count = described_class.model.all.count
+      original_count = model.all.count
       put :create, @params
-      new_count = described_class.model.all.count
+      new_count = model.all.count
 
       expect(new_count).to eq original_count + 1
     end
@@ -77,7 +78,7 @@ RSpec.shared_examples "a medium controller" do
 
   describe "GET #show" do
     it "renders the :show view" do
-      medium = described_class.model.new(id: 1, title: "a title")
+      medium = model.new(id: 1, title: "a title")
       medium.save
       get :show, id: 1
 
@@ -87,16 +88,16 @@ RSpec.shared_examples "a medium controller" do
 
   describe "PUT #update" do
     before :each do
-      medium1 = described_class.model.create(id: 1, title: "a title")
-      @medium2 = described_class.model.create(id: 2, title: "b title")
-      described_class.model.create(id: 3, title: "c title")
+      medium1 = model.create(id: 1, title: "a title")
+      @medium2 = model.create(id: 2, title: "b title")
+      model.create(id: 3, title: "c title")
 
       @params = { medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: "2" }
     end
 
     it "locates the correct object" do
       params = { id: 1 }
-      expect(described_class.model.find(params[:id]).title).to eq("a title")
+      expect(model.find(params[:id]).title).to eq("a title")
     end
 
     it "updates and saves the new information" do
@@ -112,10 +113,10 @@ RSpec.shared_examples "a medium controller" do
     end
 
     it "doesn't create a new object" do
-      original_count = described_class.model.all.count
+      original_count = model.all.count
       put :update, @params
 
-      expect(original_count).to eq described_class.model.all.count
+      expect(original_count).to eq model.all.count
     end
 
     it "redirects to the medium's :show view" do
@@ -126,14 +127,14 @@ RSpec.shared_examples "a medium controller" do
 
   describe "DELETE #destroy" do
     before :each do
-      medium1 = described_class.model.create(id: 1, title: "a title")
-      @medium2 = described_class.model.create(id: 2, title: "b title")
+      medium1 = model.create(id: 1, title: "a title")
+      @medium2 = model.create(id: 2, title: "b title")
       @params = { medium_model_name.to_sym => { title: "If You're Reading This It's Too Late", description: "" }, id: 1 }
     end
 
     it "deletes the object" do
       delete :destroy, id: 2
-      expect(described_class.model.all).to_not include @medium2
+      expect(model.all).to_not include @medium2
     end
 
     it "redirects to the medium's :show view" do
