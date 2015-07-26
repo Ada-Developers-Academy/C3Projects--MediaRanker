@@ -12,12 +12,12 @@ RSpec.shared_examples "a medium model" do
     end
 
     it "only selects 5 items" do
-      expect(described_class.top_5.count).to eq 5
-      expect(described_class.top_5).to_not include(@excluded_album)
+      expect(described_class.top_rank(5).count).to eq 5
+      expect(described_class.top_rank(5)).to_not include(@excluded_album)
     end
 
     it "orders the items from high to low ranking" do
-      top_5_titles = described_class.top_5.map { |described_class| described_class.title }
+      top_5_titles = described_class.top_rank(5).map { |described_class| described_class.title }
       correct_order = ["d", "e", "f", "c", "b"]
 
       expect(top_5_titles).to eq(correct_order)
