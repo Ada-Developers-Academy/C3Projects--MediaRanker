@@ -12,11 +12,11 @@
         Title
       </th>
       <th>
-        <% if media.model_name.name == "Movie" %>
+        <% if type == "Movie" %>
           Director
-        <% elsif media.model_name.name == "Book" %>
+        <% elsif type == "Book" %>
           Author
-        <% elsif media.model_name.name == "Album" %>
+        <% elsif type == "Album" %>
           Artist
         <% end %>
       </th>
@@ -30,11 +30,11 @@
         </td>
 
         <td>
-          <% if medium.class.name == "Movie" %>
+          <% if type == "Movie" %>
             <%= link_to medium.title, movie_path(medium) %>
-          <% elsif medium.class.name == "Book" %>
+          <% elsif type == "Book" %>
             <%= link_to medium.title, book_path(medium) %>
-          <% elsif medium.class.name == "Album" %>
+          <% elsif type == "Album" %>
             <%= link_to medium.title, album_path(medium) %>
           <% end %>
         </td>
