@@ -5,10 +5,6 @@ class BooksController < ApplicationController
     Book
   end
 
-  def find_book
-    @book = Book.find(params[:id])
-  end
-
   def index
     @books = Book.all.order('ranking DESC')
     @book = Book.new
@@ -53,6 +49,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def find_book
+    @book = Book.find(params[:id])
+  end
 
   def create_params
     params.permit(book: [:title, :author, :description])

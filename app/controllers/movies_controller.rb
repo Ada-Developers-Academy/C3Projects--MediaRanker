@@ -5,10 +5,6 @@ class MoviesController < ApplicationController
     Movie
   end
 
-  def find_movie
-    @movie = Movie.find(params[:id])
-  end
-
   def index
     @movies = Movie.all.order('ranking DESC')
     @movie = Movie.new # for link to :new
@@ -53,6 +49,10 @@ class MoviesController < ApplicationController
   end
 
   private
+  
+  def find_movie
+    @movie = Movie.find(params[:id])
+  end
 
   def create_params
     params.permit(movie: [:title, :director, :description])

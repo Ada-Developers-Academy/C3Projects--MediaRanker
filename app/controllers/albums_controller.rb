@@ -5,10 +5,6 @@ class AlbumsController < ApplicationController
     Album
   end
 
-  def find_album
-    @album = Album.find(params[:id])
-  end
-
   def index
     @albums = Album.all.order('ranking DESC')
     @album = Album.new
@@ -43,7 +39,7 @@ class AlbumsController < ApplicationController
   def update
     updated_album = create_params[:album]
     @album.update(updated_album)
-    
+
     redirect_to album_path(@album)
   end
 
@@ -53,6 +49,10 @@ class AlbumsController < ApplicationController
   end
 
   private
+  
+  def find_album
+    @album = Album.find(params[:id])
+  end
 
   def create_params
     params.permit(album: [:title, :artist, :description])
