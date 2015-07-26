@@ -1,0 +1,62 @@
+<div class="col-sm-7 outer-wrapper">
+
+  <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><%= link_to "View All Media", media_path %>
+
+
+  <table class="table list">
+    <tr>
+      <th class="text-center">
+        Ranking
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        <% if type == "Movie" %>
+          Director
+        <% elsif type == "Book" %>
+          Author
+        <% elsif type == "Album" %>
+          Artist
+        <% end %>
+      </th>
+      <th></th>
+    </tr>
+
+    <% media.each do |medium| %>
+      <tr>
+        <td class="text-center">
+          <%= medium.ranking %>
+        </td>
+
+        <td>
+          <% if type == "Movie" %>
+            <%= link_to medium.title, movie_path(medium) %>
+          <% elsif type == "Book" %>
+            <%= link_to medium.title, book_path(medium) %>
+          <% elsif type == "Album" %>
+            <%= link_to medium.title, album_path(medium) %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if medium.has_attribute?(:director) %>
+            <%= medium.director %>
+          <% elsif medium.has_attribute?(:author) %>
+            <%= medium.author %>
+          <% elsif medium.has_attribute?(:artist) %>
+            <%= medium.artist %>
+          <% end %>
+        </td>
+
+        <td>
+          <%= button_to options = { action: "upvote", id: medium.id }, html_options = { class: "btn btn-default", method: :post } do %>
+            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <p class="text-right"><%= link_to "+ New #{media.model_name.name}", new_polymorphic_path(new_object), class: "btn btn-primary" %></p>
+</div>

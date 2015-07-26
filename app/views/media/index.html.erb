@@ -1,0 +1,10 @@
+<div class="row">
+  <%= render partial: "/shared/list_preview", locals: { top_media: @top_movies,
+                                                        media: 'movies' } %>
+
+  <%= render partial: "/shared/list_preview", locals: { top_media: @top_books,
+                                                        media: 'books' } %>
+
+  <%= render partial: "/shared/list_preview", locals: { top_media: @top_albums,
+                                                        media: 'albums' } %>
+</div>

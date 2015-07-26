@@ -1,0 +1,42 @@
+<div class="col-sm-5 outer-wrapper">
+  <div class="inner-wrapper panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><%= "#{medium.class.name} ##{medium.id}" %></h4>
+    </div>
+
+    <div class="panel-body">
+      <div class="btn-mutators">
+        <%= link_to "Edit", "./#{params[:id]}/edit", html_options = { class: "btn btn-warning", role: "button" } %>
+        <%= link_to "Delete", "", html_options = { class: "btn btn-danger",
+                                                   role: "button",
+                                                   data: {
+                                                    confirm: "Are you sure you want to delete '#{medium.title}'?",
+                                                    method: :delete
+                                                    }
+                                                  } %>
+      </div>
+
+      <h2> <%= medium.title %> </h2>
+
+      <h3>
+        <% if medium.has_attribute?(:director) %>
+            Directed by: <%= medium.director %>
+        <% elsif medium.has_attribute?(:author) %>
+            Written by: <%= medium.author %>
+        <% elsif medium.has_attribute?(:artist) %>
+            Artist: <%= medium.artist %>
+        <% end %>
+      </h3>
+
+      <h4> Upvotes: <%= medium.ranking %> </h4>
+      <p>
+        <%= medium.description %>
+      </p>
+
+      <%= button_to "Upvote", options = { action: "upvote" }, html_options = {class: 'btn btn-primary', method: :post} %>
+    </div>
+  </div>
+
+  <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><%= link_to "View All Media", media_path %>
+  <p class="float-right"><%= link_to "View All #{medium.class.name}s", "./" %></p>
+</div>

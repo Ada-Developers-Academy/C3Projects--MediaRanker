@@ -1,0 +1,14 @@
+<div class="col-sm-4">
+	<h2>Top <%= media.capitalize %></h2>
+
+	<ul class="media-list list-group">
+		<% top_media.each do |medium| %>
+		<li class="list-group-item">
+			<h6 class="text-uppercase no-margins"><%= medium.ranking %> Upvotes</h6>
+			<h2 class="no-margins"><%= link_to medium.title, "/#{media}/#{medium.id}" %></h2>
+		</li>
+		<% end %>
+	</ul>
+
+	<p class="text-right"><%= link_to "View All #{media.capitalize}", "/#{media}" %></p>
+</div>
