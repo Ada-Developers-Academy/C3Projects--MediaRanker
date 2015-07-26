@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all.order('ranking DESC')
+    @movies = Movie.descending_rank
     @movie = Movie.new # for link to :new
   end
 
@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new(create_params[:movie])
 
     if @movie.save
-      redirect_to movie_path(movie)
+      redirect_to movie_path(@movie)
     else
       @movie
       render :new
@@ -49,7 +49,7 @@ class MoviesController < ApplicationController
   end
 
   private
-  
+
   def find_movie
     @movie = Movie.find(params[:id])
   end

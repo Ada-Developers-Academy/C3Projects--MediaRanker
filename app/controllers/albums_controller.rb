@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
   end
 
   def index
-    @albums = Album.all.order('ranking DESC')
+    @albums = Album.descending_rank
     @album = Album.new
   end
 
@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(create_params[:album])
 
     if @album.save
-      redirect_to album_path(album)
+      redirect_to album_path(@album)
     else
       @album
       render :new
@@ -49,7 +49,7 @@ class AlbumsController < ApplicationController
   end
 
   private
-  
+
   def find_album
     @album = Album.find(params[:id])
   end
