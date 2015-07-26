@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.shared_examples "medium" do
+RSpec.shared_examples "a medium controller" do
 
   let(:medium_model_name){ described_class.model.name.downcase }
 
