@@ -1,6 +1,8 @@
 class MediaController < ApplicationController
   before_action :find_media
 
+  MEDIA_LIMIT = 4
+
   def find_media
     @movies = Medium.sort_votes(Medium.find_movies)
     @books = Medium.sort_votes(Medium.find_books)
@@ -8,9 +10,9 @@ class MediaController < ApplicationController
   end
 
   def home
-    @movies_limit = @movies.first(4)
-    @books_limit = @books.first(4)
-    @albums_limit = @albums.first(4)
+    @movies_limit = @movies.first(MEDIA_LIMIT)
+    @books_limit = @books.first(MEDIA_LIMIT)
+    @albums_limit = @albums.first(MEDIA_LIMIT)
   end
 
   def index
