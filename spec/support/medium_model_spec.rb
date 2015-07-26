@@ -4,11 +4,13 @@ RSpec.shared_examples "a medium model" do
   describe ":top_5 scope" do
     before :each do
       @excluded_album = described_class.create(title: "a", ranking: 1)
-      described_class.create(title: "b", ranking: 2)
-      described_class.create(title: "c", ranking: 3)
-      described_class.create(title: "d", ranking: 6)
-      described_class.create(title: "e", ranking: 5)
-      described_class.create(title: "f", ranking: 4)
+      rankings = [2, 3, 6, 5, 4]
+      count = 0
+
+      ['b', 'c', 'd', 'e', 'f'].each do |title|
+        described_class.create(title: title, ranking: rankings[count])
+        count += 1
+      end
     end
 
     it "only selects 5 items" do
