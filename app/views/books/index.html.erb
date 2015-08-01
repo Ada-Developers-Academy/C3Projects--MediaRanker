@@ -3,8 +3,15 @@
 
     <% @books.each do |book| %>
 
-    <%= render partial: "shared/index_content", locals: {name: book.name, ranking: book.ranking, name_path: book_path(book.id), upvote_name_path: upvote_book_path(book.id), new_name_path: new_book_path } %>
+    <%= render partial: "shared/index_content",
+                      locals: {name: book.name,
+                              ranking: book.ranking,
+                              name_path: book_path(book.id),
+                              upvote_name_path: upvote_book_path(book.id),
+                              new_name_path: new_book_path } %>
 
   <% end %>
 </table>
-<%= render partial: "shared/buttons_view_all_and_add_new", locals: {name: "Book", new_name_path: new_book_path } %>
+<%= render partial: "shared/buttons_view_all_and_add_new",
+                  locals: {name: "Book",
+                          new_name_path: new_book_path } %>

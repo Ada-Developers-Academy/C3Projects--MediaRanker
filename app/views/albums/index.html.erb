@@ -3,9 +3,16 @@
 
   <% @albums.each do |album| %>
 
-    <%= render partial: "shared/index_content", locals: {name: album.name, ranking: album.ranking, name_path: album_path(album.id), upvote_name_path: upvote_album_path(album.id), new_name_path: new_album_path } %>
+    <%= render partial: "shared/index_content",
+                      locals: {name: album.name,
+                              ranking: album.ranking,
+                              name_path: album_path(album.id),
+                              upvote_name_path: upvote_album_path(album.id),
+                              new_name_path: new_album_path } %>
 
   <% end %>
 </table>
 
-<%= render partial: "shared/buttons_view_all_and_add_new", locals: {name: "Album", new_name_path: new_album_path } %>
+<%= render partial: "shared/buttons_view_all_and_add_new",
+                  locals: {name: "Album",
+                          new_name_path: new_album_path } %>

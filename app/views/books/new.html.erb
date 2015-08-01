@@ -1,1 +1,4 @@
-<%= render partial: "shared/new_form", locals: {subject: @book, path: books_path("#{params[@book.id]}"), by: :author } %>
+<%= render partial: "shared/new_form",
+                  locals: {subject: @book,
+                          path: books_path("#{params[@book.id]}"),
+                          by: :author } %>

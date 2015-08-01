@@ -1,1 +1,4 @@
-<%= render partial: "shared/new_form", locals: {subject: @album, path: albums_path("#{params[@album.id]}"), by: :artist } %>
+<%= render partial: "shared/new_form",
+                  locals: {subject: @album,
+                          path: albums_path("#{params[@album.id]}"),
+                          by: :artist } %>
