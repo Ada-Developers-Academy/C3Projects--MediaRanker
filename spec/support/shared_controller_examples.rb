@@ -63,7 +63,6 @@ RSpec.shared_examples "MediaController" do
           # put :update, { id: @created.id, book: { name: "title" } }
           # watch out for implicit parens!!!
           @created.reload
-          expect(@created.name).to eq "title"
           expect(@created.name).to eq new_params[media][:name]
         end
 
