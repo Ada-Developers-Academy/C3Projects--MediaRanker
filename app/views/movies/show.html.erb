@@ -1,0 +1,8 @@
+<%= render partial: "shared/show", locals: { media: @movie,
+                                             media_action: "Directed",
+                                             creator: @movie.director,
+                                             media_type: "Movies",
+                                             upvote_path: upvote_movie_path, 
+                                             edit_media_path: edit_movie_path, 
+                                             media_path: movie_path,
+                                             view_all: movies_path } %>

@@ -1,0 +1,14 @@
+<h1>
+  <%= media.name %> <small><%= media_action %> by: <%= creator %></small>
+</h1>
+<h4>
+  Votes: <%= media.vote %>
+</h4>
+<p><%= media.desc %></p>
+
+<%= button_to "Upvote", upvote_path, class: "btn btn-primary" %>
+
+<%= link_to "Edit #{media.name}", edit_media_path, class: "btn btn-default", method: :get %>
+<%= link_to "Delete", media_path, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "View All #{media_type}", view_all, class: "btn btn-default", method: :get %>
+<%= link_to "View All Media", root_path, class: "btn btn-default", method: :get %>

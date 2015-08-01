@@ -1,0 +1,10 @@
+<h2><%= title %></h2>
+<%= form_for media, html: {class: "form-group"}  do |f| %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name, class: "form-group form-control", autofocus: true %>
+  <%= f.label creator, creator_desc %>
+  <%= f.text_field creator, class: "form-group form-control" %>
+  <%= f.label :desc, "Description" %>
+  <%= f.text_area :desc, class: "form-group form-control" %>
+  <%= f.submit "Save", class: "btn btn-default"%>
+<% end %>

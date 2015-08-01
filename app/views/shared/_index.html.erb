@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Votes</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% medias.each do |media| %>
+    <tr>
+      <td>Votes: <%= media.vote %></td>
+      <td><%= link_to media.name, polymorphic_path(media) %></td>
+      <td><%= button_to "Upvote", send(upvote, media.id), class: "btn btn-default" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "View All Media", root_path, class: "btn btn-default", method: :get %>
+<%= link_to "Add a #{media}", new_polymorphic_path(new_media), class: "btn btn-default", method: :get %>
