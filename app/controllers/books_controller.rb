@@ -7,9 +7,6 @@ class BooksController < ApplicationController
     @books = Book.order(:name)
   end
 
-  def show
-  end
-
   # Add a book
   def new
     @book = Book.new
@@ -25,9 +22,6 @@ class BooksController < ApplicationController
   end
 
   # Edit a book
-  def edit
-  end
-
   def update
     @book.update(book_params)
 

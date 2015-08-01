@@ -7,9 +7,6 @@ class MoviesController < ApplicationController
     @movies = Movie.order(:name)
   end
 
-  def show
-  end
-
   # Add a movie
   def new
     @movie = Movie.new
@@ -25,9 +22,6 @@ class MoviesController < ApplicationController
   end
 
   # Edit a movie
-  def edit
-  end
-
   def update
     @movie.update(movie_params)
 

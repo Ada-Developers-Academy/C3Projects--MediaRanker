@@ -7,8 +7,6 @@ class AlbumsController < ApplicationController
     @albums = Album.order(:name)
   end
 
-  def show; end
-
   # Add an album
   def new
     @album = Album.new
@@ -24,7 +22,6 @@ class AlbumsController < ApplicationController
   end
 
   # Edit an album
-  def edit; end
 
   def update
     @album.update(album_params)
