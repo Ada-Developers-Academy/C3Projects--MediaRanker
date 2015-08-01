@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :get_book, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :get_book, except: [:index, :new, :create]
 
   # Show book(s)
   def index

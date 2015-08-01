@@ -1,14 +1,13 @@
 class AlbumsController < ApplicationController
 
-  before_action :get_album, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :get_album, except: [:index, :new, :create]
 
   # Show album(s)
   def index
     @albums = Album.order(:name)
   end
 
-  def show
-  end
+  def show; end
 
   # Add an album
   def new
@@ -25,8 +24,7 @@ class AlbumsController < ApplicationController
   end
 
   # Edit an album
-  def edit
-  end
+  def edit; end
 
   def update
     @album.update(album_params)
