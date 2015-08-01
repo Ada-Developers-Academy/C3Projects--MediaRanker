@@ -20,7 +20,6 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to movie_path(@movie.id)
     else
-      flash.now[:error] = 
       render :new
     end
   end

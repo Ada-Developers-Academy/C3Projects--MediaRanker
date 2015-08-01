@@ -1,7 +1,3 @@
-<%= render partial: 'shared/error_messages', locals: { any_errors: @album.errors.any?,
-                                                       count_errors: @album.errors.count,
-                                                       messages: @album.errors.full_messages } %>
-                                                       
 <%= render partial: "shared/form", locals: { title: "New Album",
                                              media: @album,
                                              creator: :artist,

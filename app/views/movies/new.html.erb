@@ -2,7 +2,6 @@
                                                        count_errors: @movie.errors.count,
                                                        messages: @movie.errors.full_messages } %>
 
-
 <%= render partial: "shared/form", locals: { title: "New Movie",
                                              media: @movie,
                                              creator: :director,
