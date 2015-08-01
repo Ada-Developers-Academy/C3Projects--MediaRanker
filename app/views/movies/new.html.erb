@@ -1,8 +1,3 @@
-<%= render partial: 'shared/error_messages', locals: { any_errors: @movie.errors.any?,
-                                                       count_errors: @movie.errors.count,
-                                                       messages: @movie.errors.full_messages } %>
+<h2>New Movie</h2>
 
-<%= render partial: "shared/form", locals: { title: "New Movie",
-                                             media: @movie,
-                                             creator: :director,
-                                             creator_desc: "Director" } %>
+<%= render "movie_form" %>
