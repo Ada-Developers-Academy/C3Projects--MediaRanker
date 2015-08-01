@@ -1,4 +1,5 @@
-<%= render partial: "shared/edit_form",
+<%= render partial: "shared/form",
                   locals: {subject: @movie,
                           path: movie_path(@movie.id),
-                          by: :director } %>
+                          by: :director,
+                          header: "Edit" } %>

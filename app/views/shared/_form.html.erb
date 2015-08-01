@@ -1,5 +1,5 @@
 <%= form_for subject, html: {class: "form"}, url: path do |f| %>
-  <h2>New <%= "#{subject.class}" %></h2>
+  <h2><%= "#{header}" %><%= "#{subject.class}" %></h2>
   <div class = "form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
