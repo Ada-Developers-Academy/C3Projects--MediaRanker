@@ -64,6 +64,7 @@ RSpec.shared_examples "MediaController" do
           # watch out for implicit parens!!!
           @created.reload
           expect(@created.name).to eq "title"
+          expect(@created.name).to eq new_params[media][:name]
         end
 
         it "redirects to the show page" do
