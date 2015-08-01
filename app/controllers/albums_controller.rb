@@ -1,11 +1,11 @@
 class AlbumsController < ApplicationController
+  before_action :find_album, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index
-    @albums = Album.order('ranking DESC')
+    @albums = Album.desc_order
   end
 
   def show
-    @album = Album.find(params[:id])
   end
 
   def new
@@ -24,12 +24,9 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @album = Album.find(params[:id])
   end
 
   def update
-    @album = Album.find(params[:id])
-
     @album.update(create_params[:album])
 
     if @album.save
@@ -40,14 +37,12 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    show
     @album.destroy
 
     redirect_to albums_path
   end
 
   def upvote
-    show
     @album.ranking += 1
     @album.save
 
@@ -59,5 +54,9 @@ class AlbumsController < ApplicationController
 
   def create_params
     params.permit(album: [:name, :artist, :description, :ranking])
+  end
+
+  def find_album
+    @album = Album.find(params[:id])
   end
 end
