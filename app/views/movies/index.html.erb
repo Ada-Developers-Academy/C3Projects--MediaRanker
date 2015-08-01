@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <%= render partial: "shared/table_header" %>
+
+  <% @movies.each do |movie| %>
+
+    <%= render partial: "shared/index_content",
+                      locals: {name: movie.name,
+                              ranking: movie.ranking,
+                              name_path: movie_path(movie.id),
+                              upvote_name_path: upvote_movie_path(movie.id),
+                              new_name_path: new_movie_path } %>
+
+  <% end %>
+</table>
+
+<%= render partial: "shared/buttons_view_all_and_add_new",
+                  locals: {name: "Movie",
+                          new_name_path: new_movie_path } %>

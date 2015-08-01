@@ -1,0 +1,5 @@
+<%= render partial: "shared/form",
+                  locals: {subject: @book,
+                          path: book_path(@book.id),
+                          by: :author,
+                          header: "Edit" } %>

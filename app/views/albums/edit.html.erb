@@ -1,0 +1,5 @@
+<%= render partial: "shared/form",
+                    locals: {subject: @album,
+                            path: album_path(@album.id),
+                            by: :artist,
+                            header: "Edit"} %>

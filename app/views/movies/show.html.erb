@@ -1,0 +1,13 @@
+<%= render partial: "shared/show_content",
+                  locals: {name: @movie.name,
+                          by: @movie.director,
+                          ranking: @movie.ranking,
+                          description: @movie.description } %>
+
+<%= render partial: "shared/buttons_footer",
+                  locals: {upvote_name_path: upvote_movie_path(@movie.id),
+                          edit_name: @movie.name,
+                          edit_name_path: edit_movie_path(@movie.id),
+                          name_path: movie_path(@movie.id),
+                          view_name: "Movies",
+                          all_names_path: movies_path } %>

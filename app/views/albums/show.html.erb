@@ -1,0 +1,12 @@
+<%= render partial: "shared/show_content",
+                  locals: {name: @album.name,
+                          by: @album.artist,
+                          ranking: @album.ranking,
+                          description: @album.description } %>
+
+<%= render partial: "shared/buttons_footer",
+                  locals: {upvote_name_path: upvote_album_path(@album.id),
+                          edit_name: @album.name,
+                          edit_name_path: edit_album_path(@album.id),
+                          name_path: album_path(@album.id),
+                          view_name: "Albums", all_names_path: albums_path} %>
