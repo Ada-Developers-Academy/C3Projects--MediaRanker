@@ -2,10 +2,6 @@ class AlbumsController < ApplicationController
 
   before_action :get_album, only: [:show, :edit, :update, :upvote, :destroy]
 
-  def get_album
-    @album = Album.find(params[:id])
-  end
-
   # Show album(s)
   def index
     @albums = Album.order(:name)
@@ -55,8 +51,12 @@ class AlbumsController < ApplicationController
 
   private
 
-  def album_params
-    params.require(:album).permit(:name, :artist, :desc)
-  end
+    def get_album
+      @album = Album.find(params[:id])
+    end
+
+    def album_params
+      params.require(:album).permit(:name, :artist, :desc)
+    end
 
 end

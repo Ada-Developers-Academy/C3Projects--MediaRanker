@@ -2,10 +2,6 @@ class MoviesController < ApplicationController
 
   before_action :get_movie, only: [:show, :edit, :update, :upvote, :destroy]
 
-  def get_movie
-    @movie = Movie.find(params[:id])
-  end
-
   # Show movie(s)
   def index
     @movies = Movie.order(:name)
@@ -55,8 +51,12 @@ class MoviesController < ApplicationController
 
   private
 
-  def movie_params
-    params.require(:movie).permit(:name, :director, :desc)
-  end
+    def get_movie
+      @movie = Movie.find(params[:id])
+    end
+
+    def movie_params
+      params.require(:movie).permit(:name, :director, :desc)
+    end
 
 end
