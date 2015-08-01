@@ -22,13 +22,6 @@ RSpec.shared_examples "MediaController" do
           expect(assigns(media)).to be_kind_of(model)
         end
       end
-
-      context "invalid params" do
-        it "doesn't instantiate Media with invalid params" do
-          get :new, invalid_params
-          expect(model.count).to eq 0
-        end
-      end
     end
 
     describe "POST #create" do
