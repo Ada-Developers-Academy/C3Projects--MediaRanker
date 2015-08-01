@@ -1,5 +1,8 @@
+<%= render partial: 'shared/error_messages', locals: { any_errors: @book.errors.any?,
+                                                       count_errors: @book.errors.count,
+                                                       messages: @book.errors.full_messages } %>
+
 <%= render partial: "shared/form", locals: { title: "Edit Book",
                                              media: @book,
                                              creator: :author,
-                                             creator_desc: "Author" }
-%>
+                                             creator_desc: "Author" } %>
