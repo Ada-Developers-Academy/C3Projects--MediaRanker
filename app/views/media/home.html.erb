@@ -1,0 +1,34 @@
+<div class = "container-fluid">
+  <div class="row">
+    <div class = "col-sm-4">
+    <h1>Movies</h1>
+      <% @movies_limit.each do |movie| %>
+      <h2><%= link_to "#{movie.name}", movie_path(movie.id), method: :get %></h2>
+      <p>Number of votes: <%= movie.votes %></p>
+    
+    <% end %>
+    <%= button_to "View more movies", movie_index_path, method: :get %>
+    </div>
+
+    <div class = "col-sm-4">
+      <h1>Books</h1>
+        <% @books_limit.each do |book| %>
+        <h2><%= link_to "#{book.name}", book_path(book.id), method: :get %></h2>
+        <p>Number of votes: <%= book.votes %></p>
+      <% end %>
+      <%= button_to "view more books", book_index_path, method: :get %>
+    </div>
+
+    <div class = "col-sm-4">
+      <h1>Albums</h1>
+      <% @albums_limit.each do |album| %>
+        <h2><%= link_to "#{album.name}", album_path(album.id), method: :get %></h2>
+        <p>Number of votes:<%= album.votes %></p>
+      <% end %>
+      <%= button_to "view more albums", album_index_path, method: :get %>
+    </div>
+
+</div>
+</div>
+
+
