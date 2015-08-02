@@ -50,7 +50,7 @@ class AlbumsController < ApplicationController
     redirect_to albums_path
   end
 
-  private
+private
 
   def create_params
     params.require(:album).permit(:name, :artist, :description, :ranking)
