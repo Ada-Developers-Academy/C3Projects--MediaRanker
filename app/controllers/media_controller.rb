@@ -1,37 +1,42 @@
 class MediaController < ApplicationController
+
+  before_action :set_medium, only: [:show, :upvote, :edit, :update, :destroy]
+
+  before_action :set_books, only: [:index, :all_books]
+  before_action :set_movies, only: [:index, :all_movies]
+  before_action :set_albums, only: [:index, :all_albums]
+
   def index
     #In case my bosses at MediaRanker want to change it to a top 20 list
     top_num = 10
 
-    @movies = Medium.movies.top_rank(top_num)
+    @movies.top_rank(top_num)
 
-    @books = Medium.books.top_rank(top_num)
+    @books.top_rank(top_num)
 
-    @albums = Medium.albums.top_rank(top_num)
+    @albums.top_rank(top_num)
   end
 
   def all_movies
-    @movies = Medium.movies.all_rank
+    @movies.all_rank
 
     render :all_media
   end
 
   # This seems redundant. However, all these methods do something different.
   def all_books
-    @books = Medium.books.all_rank
+    @books.all_rank
 
     render :all_media
   end
 
   def all_albums
-    @albums = Medium.albums.all_rank
+    @albums.all_rank
 
     render :all_media
   end
 
   def show
-    @medium = Medium.find(params[:id])
-
     # The @type helps define which _media_details locals to load into the view
     @type = @medium.media_type.pluralize
   end
@@ -46,7 +51,7 @@ class MediaController < ApplicationController
     @medium = Medium.new(create_params[:medium])
 
     if @medium.save
-      redirect_to medium_path(@medium)
+      redirect_to @medium
     else # guard clause
       redirect_to new_medium_path(@medium.media_type)
     end
@@ -54,35 +59,44 @@ class MediaController < ApplicationController
   end
 
   def upvote
-    @medium = Medium.find(params[:id])
-
     @medium.ranking += 1
 
     @medium.save
 
-    redirect_to medium_path
-  end
-
-  def edit
-    @medium = Medium.find(params[:id])
+    redirect_to @medium
   end
 
   def update
-    @medium = Medium.find(params[:id])
-
     @medium.update(create_params[:medium])
 
-    redirect_to medium_path
+    redirect_to @medium
   end
 
   def destroy
-    @media_type = Medium.find(params[:id]).media_type.pluralize
+    @media_type = @medium.media_type.pluralize
+
     @medium = Medium.destroy(params[:id])
 
-    redirect_to "/#{@media_type}/index"
+    redirect_to polymorphic_path(@media_type)
   end
 
   private
+
+  def set_medium
+    @medium = Medium.find(params[:id])
+  end
+
+  def set_movies
+    @movies = Medium.movies
+  end
+
+  def set_albums
+    @albums = Medium.albums
+  end
+
+  def set_books
+    @books = Medium.books
+  end
 
   def create_params
   params.permit(medium: [:ranking, :name, :contributor, :description, :user, :media_type])

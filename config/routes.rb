@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'albums/index', to: 'media#all_albums'
+  get 'albums', to: 'media#all_albums'
 
-  get 'books/index', to: 'media#all_books'
+  get 'books', to: 'media#all_books'
 
-  get 'movies/index', to: 'media#all_movies'
+  get 'movies', to: 'media#all_movies'
 
   get 'media/:media_type/new(.:format)', to: 'media#new', as: "new_medium"
 
