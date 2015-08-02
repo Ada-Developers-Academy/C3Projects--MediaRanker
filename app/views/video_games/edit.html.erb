@@ -1,0 +1,16 @@
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'video_games' %>
+<% end %>
+
+<%= render partial: "form", locals: { item: @video_game,
+                                      title_desc: "Title",
+                                      title_placeholder: "",
+                                      title_value: @video_game.title,
+                                      studio_desc: "Studio",
+                                      studio_placeholder: "",
+                                      studio_value: @video_game.studio,
+                                      description_desc: "Description",
+                                      description_placeholder: "",
+                                      description_value: @video_game.description,
+                                      submit_button: "Edit" }
+%>

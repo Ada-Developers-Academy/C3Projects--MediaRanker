@@ -1,0 +1,20 @@
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'video_games' %>
+<% end %>
+
+<% if flash[:error] %>
+  <p class="alert alert-danger"><%= flash[:error] %></p>
+<% end %>
+
+<%= render partial: "form", locals: { item: @video_game,
+                                      title_desc: "Title",
+                                      title_placeholder: "Chrono Trigger",
+                                      title_value: @video_game.title,
+                                      studio_desc: "Studio",
+                                      studio_placeholder: "Square",
+                                      studio_value: @video_game.studio,
+                                      description_desc: "Description",
+                                      description_placeholder: "Chrono Trigger is a console role-playing game. The game's story follows a group of adventurers who travel through time to prevent a global catastrophe.",
+                                      description_value: @video_game.description,
+                                      submit_button: "Add" }
+%>

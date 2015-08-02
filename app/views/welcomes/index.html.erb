@@ -1,0 +1,33 @@
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'welcomes' %>
+<% end %>
+
+<div class="col-md-4">
+<h2>Highest Rated Video Games</h2>
+<% @video_games.each do |game| %>
+<h3><%= link_to "#{game.title}", video_game_path(game.id) %> <small>Rating: <%= game.rating %></small></h3>
+<% end %>
+<p>
+  <%= link_to "View all video games", video_games_path %>
+</p>
+</div>
+
+<div class="col-md-4">
+<h2>Highest Rated Board Games</h2>
+<% @board_games.each do |game| %>
+<h3><%= link_to "#{game.title}", board_game_path(game.id) %> <small>Rating: <%= game.rating %></small></h3>
+<% end %>
+<p>
+  <%= link_to "View all board games", board_games_path %>
+</p>
+</div>
+
+<div class="col-md-4">
+<h2>Highest Rated Story Games</h2>
+<% @story_games.each do |game| %>
+<h3><%= link_to "#{game.title}", story_game_path(game.id) %> <small>Rating: <%= game.rating %></small></h3>
+<% end %>
+<p>
+  <%= link_to "View all story games", story_games_path %>
+</p>
+</div>

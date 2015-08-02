@@ -1,0 +1,23 @@
+// Place all the styles related to the board_games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html{
+  background: #fff url('board-games.jpg') no-repeat center fixed;
+  background-size: cover;
+}
+
+.btn{
+  background-color: #A10C0E;
+}
+
+.btn:hover{
+  background-color: #e8292b;
+}
+
+h2, th{
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+
+th{
+  font-size: 16px;
+}

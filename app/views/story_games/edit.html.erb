@@ -1,0 +1,16 @@
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'story_games' %>
+<% end %>
+
+<%= render partial: "form", locals: { item: @story_game,
+                                      title_desc: "Title",
+                                      title_placeholder: "",
+                                      title_value: @story_game.title,
+                                      author_desc: "Author",
+                                      author_placeholder: "",
+                                      author_value: @story_game.author,
+                                      description_desc: "Description",
+                                      description_placeholder: "",
+                                      description_value: @story_game.description,
+                                      submit_button: "Edit" }
+%>

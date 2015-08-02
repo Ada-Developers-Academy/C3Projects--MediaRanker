@@ -1,0 +1,20 @@
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'story_games' %>
+<% end %>
+
+<% if flash[:error] %>
+  <p class="alert alert-danger"><%= flash[:error] %></p>
+<% end %>
+
+<%= render partial: "form", locals: { item: @story_game,
+                                      title_desc: "Title",
+                                      title_placeholder: "Fiasco",
+                                      title_value: @story_game.title,
+                                      author_desc: "Author",
+                                      author_placeholder: "Jason Morningstar",
+                                      author_value: @story_game.author,
+                                      description_desc: "Description",
+                                      description_placeholder: "A game of powerful ambition and poor impulse control and inspired by cinematic tales of small time capers gone disastrously wrong, think Coen brothers.",
+                                      description_value: @story_game.description,
+                                      submit_button: "New" }
+%>

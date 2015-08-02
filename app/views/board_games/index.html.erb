@@ -1,0 +1,37 @@
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'board_games' %>
+<% end %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>
+        Rating
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @board_games.each do |game| %>
+    <tr>
+      <td>
+        <%= game.rating %>
+      </td>
+      <td>
+        <%= link_to "#{game.title}", board_game_path(game.id)  %>
+      </td>
+      <td>
+        <%= button_to "Upvote", upvote_board_game_path(game.id), class: "btn board-btn" %>
+      </td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>
+
+<%= link_to "View All Games", welcomes_path, class: "btn board-btn" %>
+<%= link_to "Add a Board Game", new_board_game_path, class: "btn board-btn" %>

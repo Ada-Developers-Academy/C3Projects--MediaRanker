@@ -1,0 +1,18 @@
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'video_games' %>
+<% end %>
+
+<h2><%= @video_game.title %></h2>
+<h4>Created by: <%= @video_game.studio %></h4>
+<p>
+  Ranked:  <%= @video_game.rating %> <%= button_to "Upvote", upvote_video_game_path(@video_game.id), class: "btn" %>
+</p>
+
+<p>
+  <%= @video_game.description %>
+</p>
+
+<%= link_to "Edit", edit_video_game_path, class: "btn"  %>
+<%= link_to "Delete", video_game_path(@video_game.id), class: "btn",  :method => :delete %>
+<%= link_to "View all Video Games", video_games_path, class: "btn" %>
+<%= link_to "View all Games", root_path, class: "btn" %>

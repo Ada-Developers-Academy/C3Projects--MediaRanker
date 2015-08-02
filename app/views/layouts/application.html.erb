@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Guru</title>
+  <%= favicon_link_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+
+  <%= yield :style_sheet %>
+
+  <%=  google_webfonts_link_tag "IM Fell DW Pica SC", "Press Start 2P", "Gentium Book Basic" %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="container">
+  <header>
+    <h1 class= "banner"><%= image_tag("guru.png", class: "logo") %><%= link_to "Game Guru", "/"%> <small>Game rankings by and for the community</small></h1>
+  </header>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+// Place all the styles related to the story_games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html{
+  background: #fff url('story-games.JPG') no-repeat center fixed;
+  background-size: cover;
+}
+
+.btn{
+  background-color: #000;
+}
+
+.btn:hover{
+  background-color: #4c4c4c;
+}
+
+h2, th{
+  font-family: 'Gentium Book Basic', serif;
+}
+
+th{
+  font-size: 16px;
+}

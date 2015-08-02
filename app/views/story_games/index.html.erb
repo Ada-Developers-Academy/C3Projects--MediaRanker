@@ -1,0 +1,36 @@
+<% content_for :style_sheet do %>
+  <%= stylesheet_link_tag 'story_games' %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Rating
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Upvote
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @story_games.each do |game| %>
+    <tr>
+      <td>
+        <%= game.rating %>
+      </td>
+      <td>
+        <%= link_to "#{game.title}", story_game_path(game.id)  %>
+      </td>
+      <td>
+        <%= button_to "Upvote", upvote_story_game_path(game.id), class: "btn" %>
+      </td>
+    </tr>
+    <% end  %>
+  </tbody>
+</table>
+<%= link_to "View All Games", welcomes_path, class: "btn" %>
+<%= link_to "Add a Story Game", new_story_game_path, class: "btn" %>

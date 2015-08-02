@@ -1,0 +1,27 @@
+// Place all the styles related to the video_games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html{
+  background: #fff url('video-games.png') no-repeat center fixed;
+  background-size: cover;
+}
+
+.btn{
+  background-color: #617EF6;
+}
+
+.btn:hover{
+  background-color: #708af6;
+}
+
+h2, th{
+  font-family: 'Press Start 2P', cursive;
+}
+
+h2{
+  font-size: 20px;
+}
+
+th{
+  font-size: 14px;
+}
