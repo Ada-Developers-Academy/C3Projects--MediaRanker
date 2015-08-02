@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
   def index
     @albums = Album.all
 
-    @albums = @albums.order('rank DESC')
+    @albums = @albums.order_asc
   end
 
   def new
