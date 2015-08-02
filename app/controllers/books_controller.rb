@@ -2,7 +2,6 @@ class BooksController < ApplicationController
   before_action :find_book, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
-    @controller = "books"
     @model = Book
   end
 

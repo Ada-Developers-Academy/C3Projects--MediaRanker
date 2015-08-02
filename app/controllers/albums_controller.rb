@@ -45,11 +45,11 @@ class AlbumsController < ApplicationController
     redirect_to :albums
   end
 
-# PRIVATE METHODS ----------------------------------------------------------
-private
   def self.model
     Album
   end
+# PRIVATE METHODS ----------------------------------------------------------
+private
 
   def find_album
     @single = Album.find(params[:id])
