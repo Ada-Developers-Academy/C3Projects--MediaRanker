@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :set_medium, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
     @media = Movie.ranked
@@ -21,35 +21,34 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @medium = @movie
     render 'shared/form'
   end
 
   def update
-    @movie.update(movie_params)
-    if @movie.save
-      redirect_to @movie
+    @medium.update(movie_params)
+    if @medium.save
+      redirect_to @medium
     else
       render :edit
     end
   end
 
   def upvote
-    @movie.add_vote
+    @medium.add_vote
     
-    redirect_to @movie
+    redirect_to @medium
   end
 
   def destroy
-    @movie.destroy
+    @medium.destroy
 
     redirect_to movies_path
   end
 
   private
 
-  def set_movie
-    @movie = Movie.find(params[:id])
+  def set_medium
+    @medium = Movie.find(params[:id])
   end
 
   def movie_params

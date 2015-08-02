@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :set_medium, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
     @media = Book.ranked
@@ -21,35 +21,34 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @medium = @book
     render 'shared/form'
   end
 
   def update
-    @book.update(book_params)
-    if @book.save
-      redirect_to @book
+    @medium.update(book_params)
+    if @medium.save
+      redirect_to @medium
     else
       render :edit
     end
   end
 
   def upvote
-    @book.add_vote
+    @medium.add_vote
 
-    redirect_to @book
+    redirect_to @medium
   end
 
   def destroy
-    @book.destroy
+    @medium.destroy
 
     redirect_to books_path
   end
 
   private
 
-  def set_book
-    @book = Book.find(params[:id])
+  def set_medium
+    @medium = Book.find(params[:id])
   end
 
   def book_params

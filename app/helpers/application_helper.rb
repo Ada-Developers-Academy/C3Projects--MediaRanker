@@ -10,6 +10,17 @@ module ApplicationHelper
     end
   end
 
+  def created
+    case controller_name
+      when "albums"
+        "Recorded"
+      when "books"
+        "Written"
+      when "movies"
+        "Directed"
+    end
+  end
+
   def article
     controller_name == "albums" ? "an" : "a"
   end

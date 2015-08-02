@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :set_medium, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
     @media = Album.ranked
@@ -21,35 +21,38 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @medium = @album
     render 'shared/form'
   end
 
   def update
-    @album.update(album_params)
-    if @album.save
-      redirect_to @album
+    @medium.update(album_params)
+    if @medium.save
+      redirect_to @medium
     else
       render :edit
     end
   end
 
+  def show
+    render 'shared/show'
+  end
+
   def upvote
-    @album.add_vote
+    @medium.add_vote
     
-    redirect_to @album
+    redirect_to @medium
   end
 
   def destroy
-    @album.destroy
+    @medium.destroy
 
     redirect_to albums_path
   end
 
   private
 
-  def set_album
-    @album = Album.find(params[:id])
+  def set_medium
+    @medium = Album.find(params[:id])
   end
 
   def album_params
