@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :find_movie, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :find_movie, except: [:index, :create, :new]
 
   def index
     @model = Movie

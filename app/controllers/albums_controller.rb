@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :find_album, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :find_album, except: [:index, :create, :new]
 
   def index
     @model = Album
@@ -26,7 +26,6 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @single = find_album
     @single.update(album_params)
     @single.save
 
