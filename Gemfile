@@ -59,5 +59,6 @@ group :development, :test do
   # testing
   gem 'rspec-rails', '~> 3.0'
   gem 'simplecov', require: false
+  gem "factory_girl_rails", "~> 4.0"
 end
 

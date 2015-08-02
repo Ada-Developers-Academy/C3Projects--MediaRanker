@@ -14,6 +14,10 @@ RSpec.shared_examples "medium" do
 
       expect(media.rank).to eq 0
     end
+
+    it "selects the best 5 media and puts them in descending order" do
+      
+    end
   end
 
 end
