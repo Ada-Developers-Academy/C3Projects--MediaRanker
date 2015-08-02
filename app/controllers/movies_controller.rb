@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
 
+  before_action :find_movie, except: [:index, :new, :create, :destroy]
+
   def index
     @movies = Movie.all
 
@@ -11,31 +13,26 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create(create_params[:movie])
+    @movie = Movie.create(movie_params[:movie])
 
     redirect_to movies_path
   end
 
   def show
-    @movie = Movie.find(params[:id])
 
   end
 
   def edit
-    @movie = Movie.find(params[:id])
+
   end
 
   def update
-    @movie = Movie.find(params[:id])
-
-    @movie.update(create_params[:movie])
+    @movie.update(movie_params[:movie])
 
     redirect_to movie_path(@movie.id)
   end
 
   def upvote
-    @movie = Movie.find(params[:id])
-
     @movie.rank += 1
 
     @movie.save
@@ -51,9 +48,12 @@ class MoviesController < ApplicationController
 
   private
 
-  def create_params
+  def movie_params
     params.permit(movie: [:name, :director, :description, :rank])
   end
 
+  def find_movie
+    @movie = Movie.find(params[:id])
+  end
 end
 
