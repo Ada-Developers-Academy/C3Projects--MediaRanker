@@ -51,7 +51,7 @@ class MediaController < ApplicationController
     @medium = Medium.new(create_params[:medium])
 
     if @medium.save
-      redirect_to medium_path(@medium)
+      redirect_to @medium
     else # guard clause
       redirect_to new_medium_path(@medium.media_type)
     end
@@ -63,13 +63,13 @@ class MediaController < ApplicationController
 
     @medium.save
 
-    redirect_to medium_path
+    redirect_to @medium
   end
 
   def update
     @medium.update(create_params[:medium])
 
-    redirect_to medium_path
+    redirect_to @medium
   end
 
   def destroy
