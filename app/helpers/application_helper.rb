@@ -9,4 +9,15 @@ module ApplicationHelper
         "Director"
     end
   end
+
+  def medium
+    case controller_name
+      when "albums"
+        @album
+      when "books"
+        @book
+      when "movies"
+        @movie
+    end
+  end
 end
