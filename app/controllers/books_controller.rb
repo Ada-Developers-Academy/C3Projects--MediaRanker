@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.create(create_params[:book])
+    @book = Book.create(create_params)
 
     if @book.save
       redirect_to book_path(@book)
@@ -33,14 +33,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     if params[:book]
-      new_name        = params[:book][:name]
-      new_author      = params[:book][:author]
-      new_description = params[:book][:description]
-
-      @book.update(        name: new_name,
-                         author: new_author,
-                    description: new_description
-      )
+      @book.update(create_params)
 
       if @book.save
         redirect_to book_path(@book)
@@ -49,8 +42,8 @@ class BooksController < ApplicationController
       end
 
     else
-      new_ranking = @book.ranking + 1
-      @book.update(ranking: new_ranking)
+      @book.ranking += 1
+      @book.save
       redirect_to book_path(@book)
     end
   end
@@ -65,6 +58,6 @@ class BooksController < ApplicationController
   private
 
   def create_params
-    params.permit(book: [:name, :author, :description, :ranking])
+    params.require(:book).permit(:name, :author, :description, :ranking)
   end
 end
