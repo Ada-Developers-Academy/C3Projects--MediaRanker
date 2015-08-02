@@ -1,0 +1,14 @@
+<div class="row">
+
+<%= render partial: "shared/show", locals: {
+  object_type: "Books",
+  object: @book,
+  by: "Written by: ",
+  object_person: @book.author,
+  single_route: book_path,
+  multi_route: books_path,
+  edit_single_route: edit_book_path,
+  upvote_route: upvote_book_path
+  } %>
+  
+</div>

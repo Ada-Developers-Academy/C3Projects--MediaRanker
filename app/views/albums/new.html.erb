@@ -1,0 +1,7 @@
+
+<%= render partial: "shared/forms", locals: {
+  title: "New Album",
+  object: @album,
+  details: [:name, :artist, :description],
+  http_verb: "post"
+  } %>
