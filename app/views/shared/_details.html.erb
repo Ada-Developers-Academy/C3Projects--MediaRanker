@@ -6,7 +6,7 @@
 
     <div class="panel-body">
       <div class="btn-mutators">
-        <%= link_to "Edit", "./#{params[:id]}/edit", html_options = { class: "btn btn-warning", role: "button" } %>
+        <%= link_to "Edit", polymorphic_url([:edit, medium]), html_options = { class: "btn btn-warning", role: "button" } %>
         <%= link_to "Delete", "", html_options = { class: "btn btn-danger",
                                                    role: "button",
                                                    data: {
