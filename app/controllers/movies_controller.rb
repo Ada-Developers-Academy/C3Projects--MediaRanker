@@ -1,7 +1,12 @@
 class MoviesController < ApplicationController
+  before_action :find_movie, only: [:show, :edit, :update, :destroy]
 
   def self.model
     Movie
+  end
+
+  def find_movie #Extracts out this search into one method
+    @movie = Movie.find(params[:id])
   end
 
   def index
@@ -11,7 +16,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+
   end
 
   def upvote
@@ -38,18 +43,16 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    show
+
   end
 
   def update
-    edit
     @movie.update(create_params[:movie])
 
     redirect_to movie_path(@movie)
   end
 
   def destroy
-    edit
     @movie.destroy
 
     redirect_to movies_path
