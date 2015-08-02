@@ -1,0 +1,15 @@
+<h1><%= medium.title %><small> <%= created_alias %> by: <%= medium.creator %></small></h1>
+
+<h4>Ranked: <%= medium.rank %></h4>
+
+<p><%= medium.description %></p>
+
+<%= button_to "Upvote", polymorphic_path([:upvote, medium]), { method: :put, class: "btn btn-primary" } %>
+
+<%= link_to "Edit #{medium.title}", edit_polymorphic_path(medium), class: "btn btn-default" %>
+
+<%= link_to "DELETE", medium, { method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } } %>
+
+<%= link_to "View All #{media_name}", polymorphic_path(medium.class), class: "btn btn-default" %>
+
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
