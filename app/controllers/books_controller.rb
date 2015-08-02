@@ -2,7 +2,8 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
-    @books = Book.ranked
+    @media = Book.ranked
+    render 'shared/index'
   end
 
   def new

@@ -10,14 +10,18 @@ module ApplicationHelper
     end
   end
 
-  def medium
+  def article
+    controller_name == "albums" ? "an" : "a"
+  end
+
+  def medium_symbol
     case controller_name
       when "albums"
-        @album
+        :album
       when "books"
-        @book
+        :book
       when "movies"
-        @movie
+        :movie
     end
   end
 end

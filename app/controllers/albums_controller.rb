@@ -2,7 +2,8 @@ class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :upvote, :destroy]
 
   def index
-    @albums = Album.ranked
+    @media = Album.ranked
+    render 'shared/index'
   end
 
   def new
