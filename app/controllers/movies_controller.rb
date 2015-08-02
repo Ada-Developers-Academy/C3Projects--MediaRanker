@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :set_book, only: [:edit, :show, :update, :destroy]
+
   def self.model
     Movie
   end
@@ -21,17 +23,11 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
-  def edit
-    @movie = Movie.find(params[:id])
-  end
+  def edit; end
 
-  def show
-    @movie = Movie.find(params[:id])
-  end
+  def show; end
 
   def update
-    @movie = Movie.find(params[:id])
-
     if params[:movie]
       @movie.update(create_params)
 
@@ -40,6 +36,7 @@ class MoviesController < ApplicationController
       else
         render :edit
       end
+      
     else
       @movie.ranking += 1
       @movie.save
@@ -48,7 +45,6 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
     @movie.destroy
 
     redirect_to movies_path
@@ -58,5 +54,9 @@ private
 
   def create_params
     params.require(:movie).permit(:name, :director, :description, :ranking)
+  end
+
+  def set_movie
+    @movie = Movie.find(params[:id])
   end
 end
