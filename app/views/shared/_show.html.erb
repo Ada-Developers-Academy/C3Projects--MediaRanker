@@ -6,5 +6,5 @@
 <%= button_to "Upvote", polymorphic_path([:upvote, @media]), class: "btn btn-primary" %>
 <%= link_to "Edit #{@media.name}", edit_polymorphic_path(@media), class: "btn btn-default" %>
 <%= link_to "DELETE", { action: "destroy", id: @media.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-<%= link_to "View All #{@media.class}s", polymorphic_path(@media.class), class: "btn btn-default" %>
+<%= link_to "View All #{@media.class.name.pluralize}", polymorphic_path(@media.class), class: "btn btn-default" %>
 <%= link_to "View All Media", root_path, class: "btn btn-default" %>
