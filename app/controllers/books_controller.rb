@@ -1,12 +1,17 @@
 class BooksController < ApplicationController
 
+  before_action :select_media, only: [:show, :edit, :update, :yes_vote, :destroy]
+
+  def select_media
+    @book = Book.find(params[:id])
+  end
+
   def index
     @books = Book.best(5)
   end
 
   def create
-    @book = Book.new(permit_params[:book])
-    @book.save
+    @book = Book.create(book_params)
 
     redirect_to(books_path)
   end
@@ -14,44 +19,36 @@ class BooksController < ApplicationController
   def new
     @book= Book.new
 
-    render :new
   end
 
   def show
-    @book = Book.find(params[:id])
   end
 
-  def edit #GET one book to modify.
-   @book = Book.find(params[:id])   
+  def edit #GET one book to modify.   
   end
 
-  def update #PATCH this updated book to the db
-    @book = Book.find(params[:id]) 
-    @book.name = permit_params[:book][:name]
-    @book.author = permit_params[:book][:author]
-    @book.description = permit_params[:book][:description]
-    @book.save
+  def update #PATCH this updated book to the db 
+    @book.update(book_params) 
     
-    redirect_to(book_path(Book.find(@book.id))) 
+    redirect_to(book_path(@book.id)) 
   end
 
   def yes_vote # PATCH increase this number by one in the db
-   @book = Book.find(params[:id])
    @book.increment!(:vote)
   
-   redirect_to(book_path(Book.find(@book.id)))
+   redirect_to(book_path(@book.id))
   end
 
   def destroy
-    @book = Book.find(params[:id]).destroy
+    @book.destroy
 
-    redirect_to(movies_path)
+    redirect_to(books_path)
   end
 
   private
 
-  def permit_params
-    params.permit(book:[:name, :author, :description, :vote])
+  def book_params
+    params.require(:book).permit(:name, :author, :description, :vote)
   end
 
 end
