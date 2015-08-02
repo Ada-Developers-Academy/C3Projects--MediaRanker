@@ -1,0 +1,14 @@
+<h1>
+  <%= media.name %>
+  <small><%= media_creation_verb %> by: <%= creator %></small>
+</h1>
+<h4>Ranked: <%= media.rank %></h4>
+<p><%= media.description %></p>
+
+<%= link_to "Upvote", upvote_path, method: :patch , class: "btn btn-primary upvote" %>
+<br>
+<%= link_to "Edit #{media.name}", editmedia_path, class: "btn btn-default" %>
+<%= link_to "Delete", deletemedia_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>
+
+<%= link_to "View All #{media_name}", mediapath, class: "btn btn-default" %>
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
