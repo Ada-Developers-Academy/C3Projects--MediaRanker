@@ -33,6 +33,7 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
+    # self.vote
     @single.increment!(:rank)
     @single.save
     redirect_to :album

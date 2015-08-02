@@ -4,7 +4,7 @@
 <p><strong> Ranked: <%= @single.rank %> </strong> </p>
 <p> <%= @single.description %> </p>
 
-<%= button_to "Upvote",  upvote_path(@single.id), class:"btn btn-primary" %>
+<%= button_to "Upvote", "/#{controller}/#{singular.id}", class:"btn btn-primary" %>
 
 
 <div>

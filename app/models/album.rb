@@ -4,4 +4,9 @@ class Album < ActiveRecord::Base
 
   # Validations ----------------------------------------------------------------
   validates :name, presence: true
+
+  def vote
+    self.rank.increment!
+    self.save
+  end
 end
