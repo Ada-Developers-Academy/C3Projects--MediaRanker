@@ -6,4 +6,10 @@ class Movie < ActiveRecord::Base
   # Validations
   validates :name, presence: true
   validates :description, presence: true
+
+  after_initialize :default_rank
+
+  def default_rank
+    self.rank ||= 0
+  end
 end
