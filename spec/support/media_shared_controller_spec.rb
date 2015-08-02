@@ -1,6 +1,47 @@
 require 'spec_helper'
 
 RSpec.shared_examples "a media" do
+   let(:medium_symbol) { model.to_s.downcase.to_sym }
+
+
+   describe "POST create" do
+      context "valid params" do
+        let (:params) do { medium_symbol => {id: 2, name: "a name", creator: "someone", description: "whatever" }}
+
+        end
+
+        it "creates a new medium record" do
+          post :create, params
+
+          expect(described_class.model.count).to eq 1
+        end
+
+        it "redirects to the medium show page" do
+          post :create, params
+          medium = described_class.model.first
+
+
+          expect(subject).to redirect_to(polymorphic_path(medium))
+        end
+      end
+
+      context "invalid params" do
+        let (:params) do { medium_symbol =>  {id: 2, creator: "a person", description: "something" }}
+        end
+
+        it "does not persist into the database" do
+          post :create, params
+
+          expect(described_class.model.count).to eq 0
+        end
+
+        it "renders the new action" do
+          post :create, params
+
+          expect(response).to render_template("new")
+        end
+      end
+    end
 
   describe "GET index" do
     it "has a 200 status code" do

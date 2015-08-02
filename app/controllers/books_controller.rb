@@ -47,14 +47,12 @@ class BooksController < ApplicationController
   end
 
   def update
-
     @book.update(create_params[:book])
 
     redirect_to book_path(@book)
   end
 
   def destroy
-
     @book.destroy
 
     redirect_to books_path
@@ -65,5 +63,4 @@ class BooksController < ApplicationController
   def create_params
     params.permit(book: [:name, :creator, :description, :rank])
   end
-
 end
