@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_action :set_album, only: [:edit, :show, :update, :destroy]
+
   def self.model
     Album
   end
@@ -21,17 +23,11 @@ class AlbumsController < ApplicationController
     @album = Album.new
   end
 
-  def edit
-    @album = Album.find(params[:id])
-  end
+  def edit; end
 
-  def show
-    @album = Album.find(params[:id])
-  end
+  def show; end
 
   def update
-    @album = Album.find(params[:id])
-
     if params[:album]
       new_name        = params[:album][:name]
       new_artist      = params[:album][:artist]
@@ -56,7 +52,6 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album = Album.find(params[:id])
     @album.destroy
 
     redirect_to albums_path
@@ -66,5 +61,9 @@ class AlbumsController < ApplicationController
 
   def create_params
     params.permit(album: [:name, :artist, :description, :ranking])
+  end
+
+  def set_album
+    @album = Album.find(params[:id])
   end
 end
