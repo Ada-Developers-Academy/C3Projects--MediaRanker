@@ -5,8 +5,7 @@ class BoardGamesController < ApplicationController
   end
 
   def show
-    @board_game_id = params[:id]
-    @board_game = BoardGame.find(@board_game_id)
+    locate_board_game
 
     render :show
   end
@@ -28,8 +27,7 @@ class BoardGamesController < ApplicationController
 
   # Upvote an existing Board Game
   def upvote
-    @board_game_id = params[:id]
-    @board_game = BoardGame.find(@board_game_id)
+    locate_board_game
     @board_game.rating += 1
     @board_game.save
 
@@ -37,26 +35,28 @@ class BoardGamesController < ApplicationController
   end
   # Update an existing Board Game
   def edit
-    @board_game_id = params[:id]
-    @board_game = BoardGame.find(@board_game_id)
+    locate_board_game
 
     render :edit
   end
 
   def update
-    @board_game_id = params[:id]
-    @board_game = BoardGame.find(@board_game_id)
+    locate_board_game
     @board_game.update(board_game_params[:board_game])
 
     redirect_to board_game_path
   end
 
   def destroy
-    @board_game_id = params[:id]
-    @board_game = BoardGame.find(@board_game_id)
+    locate_board_game
     @board_game.destroy
 
     redirect_to board_games_path
+  end
+
+  def locate_board_game
+    board_game_id = params[:id]
+    @board_game = BoardGame.find(board_game_id)
   end
 
   private
