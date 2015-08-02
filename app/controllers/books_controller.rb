@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all.order('ranking DESC')
+    @books = Book.ranking_order
   end
 
   def create

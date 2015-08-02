@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all.order('ranking DESC')
+    @movies = Movie.ranking_order
   end
 
   def create
