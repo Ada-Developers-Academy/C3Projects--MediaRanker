@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # custom route for upvoting
 
-  post "/movies/:id" => "movies#upvote"
+  post "/movies/:id" => "movies#upvote", as: "upvote"
   post "/albums/:id" => "albums#upvote"
   post "/books/:id" => "books#upvote"
 
