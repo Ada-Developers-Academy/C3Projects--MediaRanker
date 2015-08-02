@@ -9,10 +9,10 @@
     <%= button_to "Upvote", medium, method: :put, params: { upvote: "true" }, class: "btn btn-primary" %>
 
     <div class="btn-toolbar">
-      <%= link_to "Edit #{medium.title}", edit_medium_path, class: "btn btn-default" %>
+      <%= link_to "Edit #{medium.title}", edit_polymorphic_path(medium), class: "btn btn-default" %>
       <%= button_to "DELETE", { action: "destroy", id: medium.id }, method: :delete,
                                 class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
-      <%= link_to "View All #{media}", media_path, class: "btn btn-default" %>
+      <%= link_to "View All #{media}", polymorphic_path(medium.class), class: "btn btn-default" %>
       <%= link_to "View All Media", root_path, class: "btn btn-default" %>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<%= render partial: "shared/index", locals: { objects: @movies,
-                                              new_medium_path: new_movie_path,
-                                              medium: 'a Movie',
-                                              media: 'movies' } %>
+<%= render partial: "shared/index", locals: { medium: @movies,
+                                              medium_name: 'a Movie',
+                                              media: 'movies',
+                                              medium_class: :movie } %>
