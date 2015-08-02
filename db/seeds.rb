@@ -13,7 +13,7 @@ movies = [
           } ,
           { name: "The Fifth Element", creator: "Luc Besson",
           description: "In the colorful future, a cab driver unwittingly becomes the central figure in the search for a legendary cosmic weapon to keep Evil and Mr Zorg at bay."
-          } ,
+          }
 ]
 
 movies.each { |movie| Movie.create(movie) }
