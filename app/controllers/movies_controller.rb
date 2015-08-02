@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   before_action :find_and_set_media, only: [:upvote, :show, :edit, :update, :destroy]
 
   def index
+    # MOVE TO MODEL SCOPE
     @media = Movie.all.order(rank: :desc)
     @new_media = Movie.new
     @add_media = "a Movie"
@@ -15,7 +16,8 @@ class MoviesController < ApplicationController
 
   def show
     @created = "Directed"
-    @creator = @media.director
+    # MAKE BEFORE ACTION
+    @creator = :director
     @format = "Movies"
   end
 

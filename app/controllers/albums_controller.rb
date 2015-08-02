@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
   before_action :find_and_set_media, only: [:upvote, :show, :edit, :update, :destroy]
 
   def index
+    # MOVE TO MODEL SCOPE
     @media = Album.all.order(rank: :desc)
     @new_media = Album.new
     @add_media = "an Album"
@@ -15,7 +16,8 @@ class AlbumsController < ApplicationController
 
   def show
     @created = "Recorded"
-    @creator = @media.artist
+    # MAKE INTO BEFORE ACTION
+    @creator = :artist
     @format = "Albums"
   end
 

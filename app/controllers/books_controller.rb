@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   before_action :find_and_set_media, only: [:upvote, :show, :edit, :update, :destroy]
 
   def index
+    # MOVE TO MODEL SCOPE
     @media = Book.all.order(rank: :desc)
     @new_media = Book.new
     @add_media = "a Book"
@@ -15,7 +16,8 @@ class BooksController < ApplicationController
 
   def show
     @created = "Written"
-    @creator = @media.author
+    # MAKE BEFORE ACTION
+    @creator = :author
     @format = "Books"
   end
 
