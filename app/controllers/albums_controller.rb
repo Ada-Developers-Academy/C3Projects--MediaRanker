@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.create(create_params[:album])
+    @album = Album.create(album_params[:album])
 
     redirect_to albums_path
   end
@@ -27,7 +27,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @album.update(create_params[:album])
+    @album.update(album_params[:album])
 
     redirect_to album_path(@album.id)
   end
@@ -48,7 +48,7 @@ class AlbumsController < ApplicationController
 
   private
 
-  def create_params
+  def album_params
     params.permit(album: [:name, :artist, :description, :rank])
   end
 
