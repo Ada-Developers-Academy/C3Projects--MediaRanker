@@ -20,31 +20,6 @@ class BooksController < ApplicationController
     end
   end
 
-  def edit
-    render 'shared/form'
-  end
-
-  def update
-    @medium.update(book_params)
-    if @medium.save
-      redirect_to @medium
-    else
-      render :edit
-    end
-  end
-
-  def upvote
-    @medium.add_vote
-
-    redirect_to @medium
-  end
-
-  def destroy
-    @medium.destroy
-
-    redirect_to books_path
-  end
-
   private
 
   def set_medium

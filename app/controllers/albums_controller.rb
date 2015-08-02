@@ -20,35 +20,6 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def edit
-    render 'shared/form'
-  end
-
-  def update
-    @medium.update(album_params)
-    if @medium.save
-      redirect_to @medium
-    else
-      render :edit
-    end
-  end
-
-  def show
-    render 'shared/show'
-  end
-
-  def upvote
-    @medium.add_vote
-    
-    redirect_to @medium
-  end
-
-  def destroy
-    @medium.destroy
-
-    redirect_to albums_path
-  end
-
   private
 
   def set_medium
