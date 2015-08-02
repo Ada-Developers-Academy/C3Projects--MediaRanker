@@ -1,20 +1,6 @@
 require 'rails_helper'
+require 'support/shared_model_examples'
 
 RSpec.describe Movie, type: :model do
-  describe "model validation" do
-    it "requires a name, all the time" do
-        movie = Movie.new
-
-        expect(movie).to_not be_valid 
-        expect(movie.errors.keys).to include(:name)
-    end
-
-    it "requires a description, all the time" do
-        movie = Movie.new
-
-        expect(movie).to_not be_valid 
-        expect(movie.errors.keys).to include(:description)
-    end 
-  end
-
+  it_behaves_like "medium"
 end
