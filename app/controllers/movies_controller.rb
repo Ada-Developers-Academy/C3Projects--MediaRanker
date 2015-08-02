@@ -15,9 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    @movie.ranking += 1
-    @movie.save
-
+    Movie.upvote(@movie)
     render :show, medium: @movie
   end
 

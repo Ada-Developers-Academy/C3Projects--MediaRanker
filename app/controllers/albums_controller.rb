@@ -15,9 +15,7 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    @album.ranking += 1
-    @album.save
-
+    Album.upvote(@album)
     render :show, medium: @album
   end
 

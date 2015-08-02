@@ -15,9 +15,7 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    @book.ranking += 1
-    @book.save
-
+    Book.upvote(@book)
     render :show, medium: @book
   end
 
