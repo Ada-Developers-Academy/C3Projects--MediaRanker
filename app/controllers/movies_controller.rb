@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
 
-    @movies = @movies.order('rank DESC')
+    @movies = @movies.order_desc
   end
 
   def new
