@@ -35,4 +35,8 @@ module ApplicationHelper
         :movie
     end
   end
+
+  def form_title_action
+    action_name == "new" ? "New" : "Edit"
+  end
 end
