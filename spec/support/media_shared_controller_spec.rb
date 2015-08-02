@@ -3,6 +3,23 @@ require 'spec_helper'
 RSpec.shared_examples "a media" do
    let(:medium_symbol) { model.to_s.downcase.to_sym }
 
+   describe "PATCH update" do
+    before :each do
+      @medium1 = described_class.model.new(id: 1, name: "any old name")
+      @medium1.save
+
+    end
+
+    it "updates an existing record" do
+      original_name = @medium1.name
+      patch :update, id: @medium1.id, medium_symbol => { id: 1, name: "A new name" }
+      @medium1.reload
+
+
+      expect(@medium1.name).to_not eq original_name
+    end
+  end
+
 
    describe "POST create" do
       context "valid params" do
