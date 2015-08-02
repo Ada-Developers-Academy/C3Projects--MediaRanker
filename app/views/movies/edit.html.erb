@@ -1,0 +1,15 @@
+<h2>Edit Movie</h2>
+<%= form_for @movie, url: movie_path, html: {class: "form-group"}, method: :patch do |f| %>
+
+<%= f.label :name, "Name" %>
+<%= f.text_field :name, class: "form-control" %>
+
+<%= f.label :director, "Director" %>
+<%= f.text_field :director, class: "form-control" %>
+
+<%= f.label :description, "Description" %>
+<%= f.text_area :description, class: "form-control" %>
+
+<%= f.submit 'Save', class: "btn btn-default" %>
+
+<% end %>

@@ -1,0 +1,15 @@
+<h2>Edit Book</h2>
+<%= form_for @book, url: book_path, html: {class: "form-group"}, method: :patch do |f| %>
+
+<%= f.label :name, "Name" %>
+<%= f.text_field :name, class: "form-control" %>
+
+<%= f.label :author, "Author" %>
+<%= f.text_field :author, class: "form-control" %>
+
+<%= f.label :description, "Description" %>
+<%= f.text_area :description, class: "form-control" %>
+
+<%= f.submit 'Save', class: "btn btn-default" %>
+
+<% end %>
