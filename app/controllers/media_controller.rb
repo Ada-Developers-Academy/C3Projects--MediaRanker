@@ -77,7 +77,7 @@ class MediaController < ApplicationController
 
     @medium = Medium.destroy(params[:id])
 
-    redirect_to "/#{@media_type}/index"
+    redirect_to polymorphic_path(@media_type)
   end
 
   private
