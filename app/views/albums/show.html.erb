@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-med-12">
+    
+    <h1> <%= @album.name %> <small> Recorded by: <%= @album.artist %> </small> </h1>
+
+    <h4> Ranked: <%= @album.vote %> </h4>
+
+    <p> <%= @album.description %> </p>
+
+    <br>
+        <%= button_to "Upvote", "#{@album.id}/yes_vote", method: :patch, :class => "btn btn-primary" %>
+    <div class="button_wrapper">
+        <%= link_to "Edit #{@album.name}", edit_album_path(@album.id), :class => " btn btn-default button_menu" %>
+        <%= link_to "Delete", album_path(@album.id), method: :delete, data: {confirm: "are you sure you want to delete this album?"}, :class =>  "btn btn-danger button_menu"%>
+        <%= link_to "View All Albums", albums_path, :class => "btn btn-default button_menu" %>
+        <%= link_to "View All Media", root_path, :class => "btn btn-default button_menu" %>
+    </div>
+    </div> 
+  </div>
+</div> 

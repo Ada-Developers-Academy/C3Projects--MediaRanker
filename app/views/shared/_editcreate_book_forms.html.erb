@@ -1,0 +1,18 @@
+<%= form_for @book do |f| %>
+
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+
+  </fieldset>
+
+  <%= f.submit %>
+
+<% end %>

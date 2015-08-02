@@ -1,0 +1,23 @@
+<div class="col-lg-12">
+  <table class="table table-hover" >
+    <thead>
+      <tr>
+        <th>Ranking</th>
+        <th>Movie Name</th>
+        <th>Upvote</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+      <tr>
+        <td>Ranked:<%= movie.vote %></td>
+        <td><%= link_to "#{movie.name}", movie_path(movie.id) %></td>
+        <td><%= button_to "Upvote", "/movies/#{movie.id}/yes_vote", method: :patch, :class => "btn btn-default" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "View All Media", root_path, :class => "btn btn-default button_menu" %>
+<%= link_to "Create a Movie", new_book_path, :class => "btn btn-default button_menu" %>
