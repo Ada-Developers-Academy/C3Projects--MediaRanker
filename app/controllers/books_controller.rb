@@ -22,8 +22,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if params[:upvote] == "true"
@@ -38,8 +37,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @book.destroy
