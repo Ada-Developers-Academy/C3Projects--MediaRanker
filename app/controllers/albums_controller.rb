@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
 
-  before_action :find_album, except: [:index, :new, :create]
+  before_action :find_album, except: [:index, :new, :create, :destroy]
 
   def index
     @albums = Album.all
@@ -41,7 +41,7 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album = Album.destroy(params[:id])
+    album = Album.destroy(params[:id])
 
     redirect_to albums_path
   end
