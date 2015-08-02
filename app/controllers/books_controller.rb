@@ -6,7 +6,8 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    @medium = Book.new
+    render 'shared/form'
   end
 
   def create
@@ -16,6 +17,11 @@ class BooksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @medium = @book
+    render 'shared/form'
   end
 
   def update

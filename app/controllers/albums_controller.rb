@@ -6,7 +6,8 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album = Album.new
+    @medium = Album.new
+    render 'shared/form'
   end
 
   def create
@@ -16,6 +17,11 @@ class AlbumsController < ApplicationController
     else
       render :new  
     end
+  end
+
+  def edit
+    @medium = @album
+    render 'shared/form'
   end
 
   def update

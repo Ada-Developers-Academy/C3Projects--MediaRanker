@@ -1,11 +1,11 @@
-<h2><%= title %></h2>
+<h2><%= "#{action_name.capitalize} #{controller_name[0..-2].capitalize}" %></h2>
 
-<%= form_for medium, class: "form" do |f| %>
+<%= form_for @medium, class: "form" do |f| %>
   <div class="form-group">
     <%= f.label :title, "Name" %>
     <%= f.text_field :title, class: "form-control" %>
   
-    <%= f.label :creator, creator_name %>
+    <%= f.label :creator, creator %>
     <%= f.text_field :creator, class: "form-control" %>
   
     <%= f.label :description %>

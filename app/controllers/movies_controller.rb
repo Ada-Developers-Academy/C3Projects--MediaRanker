@@ -6,7 +6,8 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
+    @medium = Movie.new
+    render 'shared/form'
   end
 
   def create
@@ -16,6 +17,11 @@ class MoviesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @medium = @movie
+    render 'shared/form'
   end
 
   def update
