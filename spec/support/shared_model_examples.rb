@@ -8,6 +8,12 @@ RSpec.shared_examples "medium" do
         expect(media.errors.keys).to include(:name)
         expect(media.errors.keys).to include(:description)
     end
+
+    it "sets default rank to 0" do
+      media = described_class.new
+
+      expect(media.rank).to eq 0
+    end
   end
 
 end
