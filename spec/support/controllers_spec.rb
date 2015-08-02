@@ -7,16 +7,13 @@ RSpec.shared_examples "a controller" do
 
     before(:each) do
       get :new
-
     end
 
     it "creates a new item" do
       expect(assigns(:single)).to be_a_new(described_class.model)
       expect(response).to render_template(:new)
     end
-
   end # describe new
-
 
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
@@ -43,15 +40,14 @@ RSpec.shared_examples "a controller" do
     end
 
     it "renders the show view" do
+      get :show, id: @media.id
       expect{(response).to render_template(:show)}
     end
   end
 
-
   describe "POST #create" do
     # + media params valid
     context "Valid params" do
-
       it "creates an Model record" do
         post :create, media_params
         expect(described_class.model.count).to eq 1
@@ -70,7 +66,6 @@ RSpec.shared_examples "a controller" do
 
     # - media params invalid
     context "Invalid media parameters" do
-
       it "does not create media" do
         post :create, missing_params
         expect(described_class.model.count).to eq 0
@@ -111,7 +106,6 @@ RSpec.shared_examples "a controller" do
       media_update.reload
       expect(media_update.name).to eq("Mediazzz")
     end
-
   end # describe #update
 
   describe "POST #upvote" do
@@ -125,5 +119,4 @@ RSpec.shared_examples "a controller" do
       expect(@media_upvote.rank).to eq 1
     end
   end # post upvote
-
 end #controller

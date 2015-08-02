@@ -4,19 +4,19 @@ RSpec.describe AlbumsController, type: :controller do
     it_behaves_like "a controller"
 
     let(:media_params) do
-          { album: {
-            name: "Alumbzzz",
-            creator: "Van Halen",
-            description: "Rock n Roll" }
-          }
+      { album: {
+        name: "Alumbzzz",
+        creator: "Van Halen",
+        description: "Rock n Roll" }
+      }
     end #let
 
     let(:missing_params) do
-          { album: {
+      { album: {
 
-            creator: "Van Halen",
-            description: "Rock n Roll" }
-          }
+        creator: "Van Halen",
+        description: "Rock n Roll" }
+      }
     end #let
 
     let(:media_path) {album_path(Album.last.id)}
