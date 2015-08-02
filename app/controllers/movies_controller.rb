@@ -48,4 +48,8 @@ class MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :creator, :description, :rank)
   end
+
+  def self.model
+    Movie
+  end
 end

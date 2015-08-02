@@ -48,4 +48,8 @@ class AlbumsController < ApplicationController
   def album_params
     params.require(:album).permit(:title, :creator, :description, :rank)
   end
+
+  def self.model
+    Album
+  end
 end
