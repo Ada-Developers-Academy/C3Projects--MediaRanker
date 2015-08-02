@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.create(create_params[:album])
+    @album = Album.create(create_params)
 
     if @album.save
       redirect_to album_path(@album)
@@ -29,14 +29,7 @@ class AlbumsController < ApplicationController
 
   def update
     if params[:album]
-      new_name        = params[:album][:name]
-      new_artist      = params[:album][:artist]
-      new_description = params[:album][:description]
-
-      @album.update(           name: new_name,
-                             artist: new_artist,
-                        description: new_description
-      )
+      @album.update(create_params)
 
       if @album.save
         redirect_to album_path(@album)
@@ -45,8 +38,8 @@ class AlbumsController < ApplicationController
       end
 
     else
-      new_ranking = @album.ranking + 1
-      @album.update(ranking: new_ranking)
+      @album.ranking += 1
+      @album.save
       redirect_to album_path(@album)
     end
   end
@@ -60,7 +53,7 @@ class AlbumsController < ApplicationController
   private
 
   def create_params
-    params.permit(album: [:name, :artist, :description, :ranking])
+    params.require(:album).permit(:name, :artist, :description, :ranking)
   end
 
   def set_album
