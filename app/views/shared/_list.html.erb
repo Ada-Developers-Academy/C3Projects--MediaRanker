@@ -1,0 +1,8 @@
+<div class="col-sm-4">
+<h2> <%= "Top #{media_name}" %> </h2>
+  <% media_type.each do |media| %>
+    <h4> <%= link_to "#{media.name}", polymorphic_path(media) %>
+    <small> Ranked: <%= media.rank  %> </small> </h4>
+  <% end %>
+<%= link_to "View More #{media_name}", polymorphic_path("#{media_name.downcase}"), class: "btn btn-primary" %>
+</div>

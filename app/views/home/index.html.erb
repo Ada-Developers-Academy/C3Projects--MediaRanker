@@ -1,0 +1,10 @@
+<div class="row">
+<%= render partial: "shared/list", locals: { media_type: @movies,
+                                             media_name: "Movies" } %>
+
+<%= render partial: "shared/list", locals: { media_type: @books,
+                                            media_name: "Books" } %>
+
+<%= render partial: "shared/list", locals: { media_type: @albums,
+                                             media_name: "Albums" } %>
+</div>
