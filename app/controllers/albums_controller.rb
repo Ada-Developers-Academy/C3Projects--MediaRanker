@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
   end
 
   def index
-    @albums = Album.all.order('ranking DESC')
+    @albums = Album.ranking_order
   end
 
   def create
