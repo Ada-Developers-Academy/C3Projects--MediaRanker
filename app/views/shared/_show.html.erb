@@ -1,0 +1,15 @@
+<%= render 'shared/header' %>
+
+<h1><%= object.name %> <small><%= performed %> by: <%= object.creator %></small></h1>
+<h4>Ranked: <%= object.rank %></h4>
+<p><%= object.description %></p>
+
+<p>
+<%= link_to "Upvote", polymorphic_path([:upvote, object]), method: :post, class: "btn btn-primary" %>
+</p>
+<%= link_to "Edit #{object.name}", edit_polymorphic_path(object), method: :get, class: "btn btn-default" %>
+<%= link_to "Delete", polymorphic_path(object), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this?"} %>
+<%= link_to "View all #{object.class}s", polymorphic_path(object.class), class: "btn btn-default" %>
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
+
+
