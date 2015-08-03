@@ -4,9 +4,8 @@ class Book < ActiveRecord::Base
    # Validations ----------------------------------------------------------------
   validates :name, presence: true, uniqueness: true
 
-   # Scopes ---------------------------------------------------------------------
-
-  scope :top, -> { order('rank DESC').limit(5) }
+   # Scopes --------------------------------------------------------------------
+  scope :top, -> { ordered.limit(5) }
   scope :ordered, -> { order('rank DESC') }
 
   def self.upvote(book)
