@@ -72,29 +72,19 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "PATCH #update" do
-    let(:new_book_params) do
-      {
-        book: {
-          name: 'new movie',
-          author: 'dave johnson',
-          description: 'my description'
-        }
-      }
-    end
-
     before :each do
       @book = create :book, author: "johnny appleseed"
     end
 
     # positive test - it updates the book's attributes
     it "updates a book's attributes" do
-      patch :update, id: @book.id, book: new_book_params[:book]
+      patch :update, id: @book.id, book: FactoryGirl.attributes_for(:book, author: "dave johnson")
       @book.reload
       expect(@book.author).to eq('dave johnson')
     end
 
     it "redirects to the index page" do
-      patch :update, id: @book.id, book: new_book_params[:book]
+      patch :update, id: @book.id, book: FactoryGirl.attributes_for(:book, author: "dave johnson")
       @book.reload
       expect(response).to redirect_to(book_path(@book))
     end

@@ -73,29 +73,18 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "PATCH #update" do
-    let(:new_movie_params) do
-      {
-        movie: {
-          name: 'new movie',
-          director: 'dave johnson',
-          description: 'my description'
-        }
-      }
-    end
-
     before :each do
       @movie = create :movie, director: "johnny appleseed"
     end
 
-    # positive test - it updates the movie's attributes
     it "updates a movie's attributes" do
-      patch :update, id: @movie.id, movie: new_movie_params[:movie]
+      patch :update, id: @movie.id, movie: FactoryGirl.attributes_for(:movie, director: "dave johnson")
       @movie.reload
       expect(@movie.director).to eq('dave johnson')
     end
 
     it "redirects to the movie index page" do
-      patch :update, id: @movie.id, movie: new_movie_params[:movie]
+      patch :update, id: @movie.id, movie: FactoryGirl.attributes_for(:movie, director: "dave johnson")
       @movie.reload
       expect(response).to redirect_to(movie_path(@movie))
     end

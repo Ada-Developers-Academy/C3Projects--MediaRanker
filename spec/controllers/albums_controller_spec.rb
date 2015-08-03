@@ -72,29 +72,19 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PATCH #update" do
-    let(:new_album_params) do
-      {
-        album: {
-          name: 'new album',
-          artist: 'dave johnson',
-          description: 'my description'
-        }
-      }
-    end
-
     before :each do
       @album = create :album, artist: "johnny appleseed"
     end
 
     # positive test - it updates attributes
     it "updates attributes" do
-      patch :update, id: @album.id, album: new_album_params[:album]
+      patch :update, id: @album.id, album: FactoryGirl.attributes_for(:album, artist: "dave johnson")
       @album.reload
       expect(@album.artist).to eq('dave johnson')
     end
 
     it "redirects to the index page" do
-      patch :update, id: @album.id, album: new_album_params[:album]
+      patch :update, id: @album.id, album: FactoryGirl.attributes_for(:album, artist: "dave johnson")
       @album.reload
       expect(response).to redirect_to(album_path(@album))
     end
