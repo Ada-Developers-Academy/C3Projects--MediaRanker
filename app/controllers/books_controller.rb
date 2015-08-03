@@ -1,21 +1,18 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
+
   def index
     @books = Book.rank_order
     @media_type = "book"
   end
 
-  def show
-    @book = Book.find(params[:id])
-  end
+  def show; end
 
   def edit
-    @book = Book.find(params[:id])
     @action = "Edit"
   end
 
   def update
-    @book = Book.find(params[:id])
-
     if params[:book].nil? == true
       @book.rank += 1
       @book.save
@@ -32,8 +29,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    book = Book.find(params[:id])
-    book.destroy
+    @book.destroy
 
     redirect_to books_path
   end
@@ -59,5 +55,9 @@ class BooksController < ApplicationController
 
   def book_params
     params[:book].permit(:title, :author, :description, :rank)
+  end
+
+  def set_book
+    @book = Book.find(params[:id])
   end
 end

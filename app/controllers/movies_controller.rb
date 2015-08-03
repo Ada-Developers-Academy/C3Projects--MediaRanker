@@ -1,21 +1,18 @@
 class MoviesController < ApplicationController
+  before_action :set_movie, only: [:show, :edit, :update, :destroy]
+
   def index
     @movies = Movie.rank_order
     @media_type = "movie"
   end
 
-  def show
-    @movie = Movie.find(params[:id])
-  end
+  def show; end
 
   def edit
-    @movie = Movie.find(params[:id])
     @action = "Edit"
   end
 
   def update
-    @movie = Movie.find(params[:id])
-
     if params[:movie].nil? == true
       @movie.rank += 1
       @movie.save
@@ -32,8 +29,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    movie = Movie.find(params[:id])
-    movie.destroy
+    @movie.destroy
 
     redirect_to movies_path
   end
@@ -61,5 +57,9 @@ class MoviesController < ApplicationController
 
   def movie_params
     params[:movie].permit(:title, :director, :description, :rank)
+  end
+
+  def set_movie
+    @movie = Movie.find(params[:id])
   end
 end

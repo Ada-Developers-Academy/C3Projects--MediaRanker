@@ -1,21 +1,18 @@
 class AlbumsController < ApplicationController
+  before_action :set_album, only: [:show, :edit, :update, :destroy]
+  
   def index
     @albums = Album.rank_order
     @media_type = "album"
   end
 
-  def show
-    @album = Album.find(params[:id])
-  end
+  def show; end
 
   def edit
-    @album = Album.find(params[:id])
     @action = "Edit"
   end
 
   def update
-    @album = Album.find(params[:id])
-
     if params[:album].nil? == true
       @album.rank += 1
       @album.save
@@ -32,8 +29,7 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    album = Album.find(params[:id])
-    album.destroy
+    @album.destroy
 
     redirect_to albums_path
   end
@@ -59,5 +55,9 @@ class AlbumsController < ApplicationController
 
   def album_params
     params[:album].permit(:title, :artist, :description, :rank)
+  end
+
+  def set_album
+    @album = Album.find(params[:id])
   end
 end
