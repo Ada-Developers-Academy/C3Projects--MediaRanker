@@ -26,7 +26,6 @@ class BooksController < ApplicationController
   def create
     @book = Book.create(create_params[:book])
     @book.rank = 0
-    @book.save
 
     if @book.save
       redirect_to book_path(@book.id)
