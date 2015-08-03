@@ -1,11 +1,10 @@
 
 <%= form_for media, html: {class:"form-horizontal"} do |f| %>
-  <div class:"form-group">
-
   <fieldset>
+  <div class:"form-group">
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control", :required => true %>
-</div>
+  </div>
 <div class:"form-group">
 
       <%= f.label :creator , creator %>
@@ -13,13 +12,13 @@
 </div>
 <div class:"form-group">
 
-      <%= f.label :description%>
+      <%= f.label :description %>
       <%= f.text_area :description, class: "form-control" %>
 
 </div>
       <%= f.hidden_field :id, value: media.id %>
 
   </fieldset>
-      <%= f.submit class:"btn btn-default"%>
+      <%= f.submit class:"btn btn-default" %>
 <% end %>
 </div>
