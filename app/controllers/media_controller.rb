@@ -1,4 +1,5 @@
 class MediaController < ApplicationController
+  include ApplicationHelper # bring in those URL helpers!
   before_action :set_defaults, except: :root
 
   def root
@@ -18,14 +19,14 @@ class MediaController < ApplicationController
   def upvote
     @medium.increment!(:upvotes, 1)
 
-    redirect_to "#{ @medium.url }"
+    redirect_to medium_path(@medium)
   end
 
   def update
     if @medium.update(edit_params)
-      redirect_to "#{ @medium.url }"
+      redirect_to medium_path(@medium)
     else
-      redirect_to "#{ @medium.url }/edit"
+      redirect_to edit_medium_path(@medium)
     end
   end
 
@@ -35,17 +36,17 @@ class MediaController < ApplicationController
     if @medium.valid?
       @medium.save
 
-      redirect_to "#{ @medium.url }"
+      redirect_to medium_path(@medium)
     else
-      redirect_to "/#{ @medium.url_base }/new"
+      redirect_to new_medium_path(@medium)
     end
   end
 
   def destroy
-    url_base = @medium.url_base
+    redirect = category_path(@medium.category)
     @medium.destroy
 
-    redirect_to "#{ url_base }"
+    redirect_to redirect
   end
 
   private
@@ -66,6 +67,6 @@ class MediaController < ApplicationController
   end
 
   def edit_params
-    params.permit(medium: [:title, :creator, :description, :category_id])[:medium]
+    params.require(:medium).permit(:title, :creator, :description, :category_id)
   end
 end
