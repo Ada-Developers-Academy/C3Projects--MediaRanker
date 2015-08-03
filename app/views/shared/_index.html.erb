@@ -7,7 +7,7 @@
       <th>Upvote</th>
     </tr>
 
-    <% @media.each do |media| %>
+    <% @all_media.each do |media| %>
     <tr>
       <td> Ranked: <%= media.rank %> </td>
       <td> <%= link_to "#{media.name}", polymorphic_path(media) %></td>

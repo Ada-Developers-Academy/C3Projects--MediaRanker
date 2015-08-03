@@ -2,9 +2,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action :find_all_media, only: [:index]
-  before_action :create_medium, only: [:index, :new, :create]
-  before_action :find_media, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index; end
 
