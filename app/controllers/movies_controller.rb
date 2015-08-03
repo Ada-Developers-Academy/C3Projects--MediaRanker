@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to @movie
     else
-      render :new
+      render 'shared/form'
     end
   end
 

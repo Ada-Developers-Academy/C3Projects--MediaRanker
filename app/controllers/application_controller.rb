@@ -7,17 +7,17 @@ class ApplicationController < ActionController::Base
     render 'shared/form'
   end
 
+  def show
+    render 'shared/show'
+  end
+
   def update
-    @medium.update(album_params)
+    @medium.update(medium_params)
     if @medium.save
       redirect_to @medium
     else
       render 'shared/form'
     end
-  end
-
-  def show
-    render 'shared/show'
   end
 
   def upvote
@@ -29,6 +29,30 @@ class ApplicationController < ActionController::Base
   def destroy
     @medium.destroy
 
-    redirect_to albums_path
+    redirect_to media_path
+  end
+
+  private
+
+  def media_path
+    case controller_name
+      when "albums"
+        albums_path
+      when "books"
+        books_path
+      when "movies"
+        movies_path
+    end 
+  end
+
+  def medium_params
+    case controller_name
+      when "albums"
+        album_params
+      when "books"
+        book_params
+      when "movies"
+        movie_params
+    end
   end
 end

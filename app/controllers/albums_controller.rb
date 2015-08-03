@@ -16,7 +16,7 @@ class AlbumsController < ApplicationController
     if @album.save
       redirect_to @album
     else
-      render :new  
+      render 'shared/form'
     end
   end
 

@@ -25,6 +25,10 @@ module ApplicationHelper
     controller_name == "albums" ? "an" : "a"
   end
 
+  def form_title_action
+    ["new", "create"].include? action_name ? "New" : "Edit"
+  end
+
   def medium_symbol
     case controller_name
       when "albums"
@@ -34,9 +38,5 @@ module ApplicationHelper
       when "movies"
         :movie
     end
-  end
-
-  def form_title_action
-    action_name == "new" ? "New" : "Edit"
   end
 end

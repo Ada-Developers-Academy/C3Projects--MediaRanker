@@ -16,7 +16,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to @book
     else
-      render :new
+      render 'shared/form'
     end
   end
 

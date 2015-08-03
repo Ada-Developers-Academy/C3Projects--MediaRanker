@@ -17,7 +17,7 @@ RSpec.shared_examples "a MediumController" do
     end
 
     it "renders index template" do
-      expect(response).to render_template("index")
+      expect(response).to render_template("shared/index")
     end
   end
 
@@ -29,11 +29,11 @@ RSpec.shared_examples "a MediumController" do
     end
 
     it "finds a specific medium" do
-      expect(assigns(medium_symbol)).to eq(medium)
+      expect(assigns(:medium)).to eq(medium)
     end
 
     it "renders show template" do
-      expect(response).to render_template("show")
+      expect(response).to render_template("shared/show")
     end
   end
 
@@ -48,11 +48,11 @@ RSpec.shared_examples "a MediumController" do
     end
 
     it "renders the :new template" do
-      expect(subject).to render_template("new")
+      expect(subject).to render_template("shared/form")
     end
 
     it "creates a new medium" do
-      expect(assigns(medium_symbol)).to be_a_new(described_class.model)
+      expect(assigns(:medium)).to be_a_new(described_class.model)
     end
   end
 
@@ -91,7 +91,7 @@ RSpec.shared_examples "a MediumController" do
       end
 
       it "renders the new template" do
-        expect(response).to render_template("new")
+        expect(response).to render_template("shared/form")
       end
     end
   end
@@ -109,11 +109,11 @@ RSpec.shared_examples "a MediumController" do
     end
 
     it "finds a specific medium" do
-      expect(assigns(medium_symbol)).to eq(medium)
+      expect(assigns(:medium)).to eq(medium)
     end
 
     it "renders the :edit template" do
-      expect(subject).to render_template("edit")
+      expect(subject).to render_template("shared/form")
     end
   end
 
@@ -122,6 +122,7 @@ RSpec.shared_examples "a MediumController" do
 
     context "valid medium params" do
       before(:each) do
+        # binding.pry
         post :update, id: medium, medium_symbol => { title: "updated title", creator: 'some person' }
       end
 
@@ -131,7 +132,7 @@ RSpec.shared_examples "a MediumController" do
       end
 
       it "redirects to medium_path" do
-        expect(subject).to redirect_to(send(medium_path, assigns(medium_symbol)))
+        expect(subject).to redirect_to(send(medium_path, assigns(:medium)))
       end
     end
 
@@ -146,7 +147,7 @@ RSpec.shared_examples "a MediumController" do
       end
 
       it "renders :edit template" do
-        expect(response).to render_template("edit")
+        expect(response).to render_template("shared/form")
       end
     end
   end
@@ -173,7 +174,7 @@ RSpec.shared_examples "a MediumController" do
 
     it "redirects to the medium_path" do
       put :upvote, id: medium
-      expect(subject).to redirect_to(send(medium_path, assigns(medium_symbol)))
+      expect(subject).to redirect_to(send(medium_path, assigns(:medium)))
     end
   end
 
