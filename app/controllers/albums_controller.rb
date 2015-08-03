@@ -3,7 +3,6 @@ class AlbumsController < ApplicationController
 
   def index
     @albums = Album.rank_order
-    @media_type = "album"
   end
 
   def show; end

@@ -3,7 +3,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.rank_order
-    @media_type = "book"
   end
 
   def show; end

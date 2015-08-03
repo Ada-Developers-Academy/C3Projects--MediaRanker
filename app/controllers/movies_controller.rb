@@ -3,7 +3,6 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.rank_order
-    @media_type = "movie"
   end
 
   def show; end
