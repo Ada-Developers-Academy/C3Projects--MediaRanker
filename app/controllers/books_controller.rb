@@ -10,7 +10,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(create_params[:book])
-    @book.rank = 0
 
     if @book.save
       render :show

@@ -11,7 +11,6 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params[:movie])
-    @movie.rank = 0
 
     if @movie.save
       render :show

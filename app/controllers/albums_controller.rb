@@ -10,7 +10,6 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(create_params[:album])
-    @album.rank = 0
 
     if @album.save
       render :show
