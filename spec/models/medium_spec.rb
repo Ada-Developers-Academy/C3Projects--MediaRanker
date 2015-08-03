@@ -73,45 +73,6 @@ RSpec.describe Medium, type: :model do
       end
     end
 
-    describe "true/false format identifiers" do
-        let(:movie) { Medium.create({ :title=>"Kitties Movie", :creator=>"Cat", :votes=>9, :format=>"movie" }) }
-        let(:book) { Medium.create({ :title=>"Puppies Book", :creator=>"Dog", :votes=>10, :description=>"", :format=>"book" }) }
-        let(:album) { Medium.create({ :title=>"Llamas Album", :creator=>"The Llama", :votes=>6, :description=>"", :format=>"album" }) }
-
-      describe "#movie?" do
-        it "returns true if object is a movie" do
-          expect(movie.movie?).to be true
-        end
-
-        it "returns false if object is not a movie" do
-          expect(book.movie?).to be false
-          expect(album.movie?).to be false
-        end
-      end
-
-      describe "#book?" do
-        it "returns true if object is a book" do
-          expect(book.book?).to be true
-        end
-
-        it "returns false if object is not a book" do
-          expect(movie.book?).to be false
-          expect(album.book?).to be false
-        end
-      end
-
-      describe "#album?" do
-        it "returns true if object is a album" do
-          expect(album.album?).to be true
-        end
-
-        it "returns false if object is not a album" do
-          expect(movie.album?).to be false
-          expect(book.album?).to be false
-        end
-      end
-    end
-
     describe ".best" do
       before :each do
         @medium1 = Medium.create({ title: "Llamas Album", creator: "The Llama", votes: 6, format: "album" })
@@ -182,12 +143,12 @@ RSpec.describe Medium, type: :model do
       end
     end
 
-    describe ".upvote" do
+    describe "#upvote!" do
       context "when handling a movie" do
         let(:movie){ Medium.create({ title: "Puppies Movie", creator: "Dog", format: "movie" }) }
 
         it "increases the votes by 1" do
-          Medium.upvote(movie)
+          movie.upvote!
           expect(movie.votes).to eq(1)
         end
       end
@@ -196,7 +157,7 @@ RSpec.describe Medium, type: :model do
         let(:album){ Medium.create({ title: "Puppies Album", creator: "Dog", format: "album" }) }
 
         it "increases the votes by 1" do
-          Medium.upvote(album)
+          album.upvote!
           expect(album.votes).to eq(1)
         end
       end
@@ -205,7 +166,7 @@ RSpec.describe Medium, type: :model do
         let(:book){ Medium.create({ title: "Puppies Book", creator: "Dog", format: "book" }) }
 
         it "increases the votes by 1" do
-          Medium.upvote(book)
+          book.upvote!
           expect(book.votes).to eq(1)
         end
       end

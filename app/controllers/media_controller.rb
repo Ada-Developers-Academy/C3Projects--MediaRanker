@@ -7,8 +7,7 @@ class MediaController < ApplicationController
     @objects = Medium.all_objects(params[:format])
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @object = Medium.new(format: params[:format])
@@ -22,12 +21,11 @@ class MediaController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    if params[:upvote] == "true"
-      Medium.upvote(@object)
+    if params[:upvote]
+      @object.upvote!
       redirect_to object_path(@object)
     elsif @object.update(medium_params)
       redirect_to object_path(@object)
