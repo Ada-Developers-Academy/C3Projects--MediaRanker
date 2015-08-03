@@ -19,4 +19,6 @@
 # Ignore SimpleCov files.
 coverage
 
-/model/.keep 
+/model/.keep
+lib/assets/.keep
+lib/tasks/.keep
