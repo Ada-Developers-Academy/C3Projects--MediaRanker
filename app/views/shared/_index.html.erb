@@ -1,0 +1,7 @@
+    <h1><%= media_format.capitalize %></h1>
+      <% media_limit.each do |media| %>
+      <h2><%= link_to "#{media.name}", pick_path(media), method: :get %></h2>
+      <p>Number of votes: <%= media.votes %></p>
+    
+    <% end %>
+    <%= button_to "View more #{media_format}", pick_index_path(media_limit.first), method: :get %>
