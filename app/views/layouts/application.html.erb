@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Media Ranker: Ranking the Best of Everything (js/master)</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <header class="jumbotron col-sm-12">
+        <h2>
+          <%= link_to "Media Ranker", "/", title: "Media Ranker: Ranking the Best of Everything" %>
+          <small>Ranking the Best of Everything</small>
+        </h2>
+      </header>
+    </div>
+
+    <main>
+      <%= yield %>
+    </main>
+  </div>
+</body>
+</html>

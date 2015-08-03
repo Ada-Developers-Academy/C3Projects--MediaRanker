@@ -1,0 +1,17 @@
+<ol class="breadcrumb">
+  <%= render partial: "all_media", locals: { active: true } %>
+</ol>
+
+<% @media.each do |group| %>
+  <div class="col-sm-4">
+    <section class="category">
+      <% category = group.first.category %>
+      <% category_name = category.display_name + "s" %>
+      <h1>Top <%= category_name %></h1>
+      <% group.each do |item| %>
+        <h4><%= link_to "#{ item.title }", "/#{ category.plural }/#{ item.id }" %> <small>Ranking: <%= item.upvotes %></small></h4>
+      <% end %>
+      <%= link_to "View More #{ category_name }", "/#{ category.plural }" %>
+    </section>
+  </div>
+<% end %>
