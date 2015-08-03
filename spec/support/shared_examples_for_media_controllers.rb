@@ -72,7 +72,7 @@ RSpec.shared_examples "a MediumController" do
       end
 
       it "redirect to the medium show page" do
-        expect(subject).to redirect_to(send(medium_path, assigns(medium_symbol)))
+        expect(subject).to redirect_to(send(medium_path, described_class.model.first))
       end
     end
 
@@ -122,7 +122,6 @@ RSpec.shared_examples "a MediumController" do
 
     context "valid medium params" do
       before(:each) do
-        # binding.pry
         post :update, id: medium, medium_symbol => { title: "updated title", creator: 'some person' }
       end
 
