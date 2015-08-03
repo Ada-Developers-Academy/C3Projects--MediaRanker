@@ -11,19 +11,6 @@ class Medium < ActiveRecord::Base
   validates :title, presence: true
   validates :format, presence: true, inclusion: { in: ["movie", "book", "album"], message: "\"book\", \"movie\", and \"album\" are the only allowed formats." }
 
-
-  def movie?
-    format == "movie"
-  end
-
-  def book?
-    format == "book"
-  end
-
-  def album?
-    format == "album"
-  end
-
   def upvote
      self.votes += 1
      self.save
