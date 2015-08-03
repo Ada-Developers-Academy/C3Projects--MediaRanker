@@ -25,7 +25,6 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create(create_params[:movie])
-    @movie.rank = 0
 
     if @movie.save
       redirect_to movie_path(@movie.id)
@@ -41,8 +40,8 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    @movie.rank += 1
-    @movie.save
+    @movie = Movie.upvote_medium(@movie)
+
 
     redirect_to movie_path(@movie.id)
   end

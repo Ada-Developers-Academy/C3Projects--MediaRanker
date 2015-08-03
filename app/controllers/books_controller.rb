@@ -25,7 +25,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.create(create_params[:book])
-    @book.rank = 0
 
     if @book.save
       redirect_to book_path(@book.id)
@@ -41,8 +40,7 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    @book.rank += 1
-    @book.save
+    @book = Book.upvote_medium(@book)
 
     redirect_to book_path(@book.id)
   end

@@ -25,7 +25,6 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.create(create_params[:album])
-    @album.rank = 0
 
     if @album.save
       redirect_to album_path(@album.id)
@@ -41,8 +40,7 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
-    @album.rank += 1
-    @album.save
+    @album = Album.upvote_medium(@album)
 
     redirect_to album_path(@album.id)
   end
