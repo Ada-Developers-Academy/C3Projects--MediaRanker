@@ -1,0 +1,14 @@
+<table class="table table-condensed table-hover">
+  <th>Ranking</th>
+  <th>Name</th>
+  <th>Upvote</th>
+  <tbody>
+    <% collection.each do |item| %>
+    <tr>
+      <td><%= "Ranked as: #{item.rank}" %></td>
+      <td><%= link_to "#{item.name}", "#{path}/#{item.id}" %></td>
+      <td><%= link_to "Upvote", "#{path}/#{item.id}/upvote", method: "patch", class: "btn btn-default", role: "button" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,6 @@
+<%= render partial: "shared/show.html.erb", locals: {object: @movie, person_desc: "Directed by: #{@movie.director}" } %>
+
+
+<%= link_to "View All Movies", movies_path, class: "btn btn-default", role: "button" %>
+
+

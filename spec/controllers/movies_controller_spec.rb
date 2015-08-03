@@ -1,0 +1,49 @@
+require 'rails_helper'
+
+RSpec.describe MoviesController, type: :controller do
+  context "when newing up a Movie" do
+    before(:each) do
+      get :new
+    end
+
+    it "creates a new Movie" do
+      expect(assigns(:movie)).to be_a_new(Movie)
+    end
+  end
+
+  describe "GET #index" do
+    it "assigns to @movies" do
+      movie = Movie.create(name: "V for Vendetta", rank: 89)
+      get :index
+      expect(assigns(:movies)).to eq([movie])
+    end
+
+    it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
+    end
+  end
+
+  describe "PATCH #update" do
+    it "updates the movie params" do
+      movie = Movie.create(name: "Inside Oot", rank: 120)
+
+      movie.update(name: "Inside Out")
+
+      expect(movie.name).to eq("Inside Out")
+    end
+  end
+
+  describe "PATCH #upvote" do
+    it "increases the movie rank by 1" do
+      movie = Movie.create(name: "Tragic Kingdom", rank: 99)
+
+      patch :upvote, id: movie.id
+
+      movie.reload
+
+      expect(movie.rank).to eq(100)
+    end
+  end
+
+end

@@ -1,0 +1,14 @@
+<h1><%= object.name %> </h1>
+<h2><%= person_desc %></h2>
+<h4><%="Rank: #{object.rank}" %></h4>
+<p><%= object.description %></p>
+
+<%= link_to "Upvote #{object.class}", polymorphic_url([object, :upvote]), method: :patch, class: "btn btn-success", role: "button" %>
+
+<%= link_to "Edit #{object.class}", edit_polymorphic_path(object), class: "btn btn-default", role: "button" %>
+
+<%= link_to "Delete", polymorphic_path(object), method: :delete, class: "btn btn-danger", role: "button" %>
+
+<%= link_to_all_media %>
+
+
