@@ -1,5 +1,0 @@
-<tr>
-  <td>Ranked: <%= object.rank %></td>
-  <td><%= link_to object.name, "/#{object_type}/#{object.id}" %></td>
-  <td><%= button_to "Upvote", "#{object_type}/#{object.id}/upvote", method: "patch", class: "btn btn-default" %></td>
-</tr>

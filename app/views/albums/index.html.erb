@@ -3,14 +3,13 @@
     <table class="table table-hover">
       <tbody>
 
-        <%= render partial: "shared/list_headers" %>
+        <%= render partial: "shared/list_header" %>
 
-        <%= render partial: "shared/list", collection: @albums, as: :object,
-          locals: { object_type: "albums" } %>
+        <%= render partial: "shared/list_body", collection: @albums, as: :object %>
 
       </tbody>
     </table>
 
-    <%= render partial: "shared/list_footers", locals: { object_type: "Album", new_route: new_album_path }%>
+    <%= render partial: "shared/list_footer", locals: { object: Album }%>
   </div>
 </div>

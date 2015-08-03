@@ -13,8 +13,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(permit_params)
-    @movie.rank = 0
+    @movie = Movie.new(movie_params)
     if @movie.save
       super
     else
@@ -28,7 +27,7 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-    if @movie.update(permit_params)
+    if @movie.update(movie_params)
       super
     else
       render :edit
@@ -43,16 +42,14 @@ class MoviesController < ApplicationController
 
   def upvote
     @movie = Movie.find(params[:id])
-    votes = @movie.rank
-    votes += 1
-    @movie.update(rank: votes)
+    @movie.increment!(:rank)
 
-    redirect_to action: :show, id: params[:id]
+    super
   end
 
   private
 
-  def permit_params
+  def movie_params
     params.require(:movie).permit(:name, :director, :description)
   end
 

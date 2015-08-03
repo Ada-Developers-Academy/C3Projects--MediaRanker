@@ -14,7 +14,7 @@ RSpec.shared_examples "a media" do
 
     context "rank validating" do
 
-      it "requires a rank" do
+      it "assigns a rank" do
         expect(media).to_not be_valid
         expect(media.errors.keys).to include(:rank)
       end
@@ -41,8 +41,6 @@ RSpec.shared_examples "a media" do
       ranks.each do |rank|
         described_class.create(name: "Test #{rank}", rank: rank)
       end
-      @excluded_media = described_class.create(name: "Test", rank: 0)
-      @included_media = described_class.create(name: "Test", rank: 4)
     end
 
     it "ranks by highest number first" do
@@ -50,12 +48,16 @@ RSpec.shared_examples "a media" do
     end
 
     it "includes the highest ranked movies (designated by total argument)" do
+      included_media = described_class.create(name: "Test", rank: 4)
+
       expect(described_class.best_first(10).count).to eq 10
-      expect(described_class.best_first(10)).to include(@included_media)
+      expect(described_class.best_first(10)).to include(included_media)
     end
 
     it "excludes the lowest ranked movies (designated by total argument)" do
-      expect(described_class.best_first(10)).to_not include(@excluded_media)
+      excluded_media = described_class.create(name: "Test", rank: 0)
+
+      expect(described_class.best_first(10)).to_not include(excluded_media)
     end
 
   end

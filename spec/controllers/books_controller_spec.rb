@@ -113,7 +113,7 @@ RSpec.describe BooksController, type: :controller do
           description: "test description"
         }
         # @original_book.reload
-        expect(Book.find(1).name).to eq "edited test title"
+        expect(Book.find(@original_book.id).name).to eq "edited test title"
       end
 
       it "redirects to the book show page" do
@@ -143,7 +143,7 @@ RSpec.describe BooksController, type: :controller do
           author: "test author",
           description: "test description"
         }
-        expect(Book.find(1).name).to eq "test title"
+        expect(Book.find(@original_book.id).name).to eq "test title"
       end
 
       it "renders the :edit action book for the same book" do
@@ -172,7 +172,7 @@ RSpec.describe BooksController, type: :controller do
       expect(Book.count).to eq 0
     end
 
-    it "redirects to the book show page" do
+    it "redirects to the books index page" do
       delete :destroy, :id => @book.id
       expect(subject).to redirect_to(books_path)
     end

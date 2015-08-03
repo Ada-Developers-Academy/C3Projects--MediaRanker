@@ -1,4 +1,6 @@
 <div class="row">
-<%= render partial: "shared/front_page_list",
-  locals: { categories: {movies: @movies, books: @books, albums: @albums} } %>
+  <% @categories.each do |category, media| %>
+    <%= render partial: "shared/front_page_list",
+      locals: { category: category, media: media } %>
+  <% end %>
 </div>

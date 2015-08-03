@@ -13,8 +13,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.new(permit_params)
-    @album.rank = 0
+    @album = Album.new(album_params)
     if @album.save
       super
     else
@@ -28,7 +27,7 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
-    if @album.update(permit_params)
+    if @album.update(album_params)
       super
     else
       render :edit
@@ -43,16 +42,14 @@ class AlbumsController < ApplicationController
 
   def upvote
     @album = Album.find(params[:id])
-    votes = @album.rank
-    votes += 1
-    @album.update(rank: votes)
+    @album.increment!(:rank)
 
     super
   end
 
   private
 
-  def permit_params
+  def album_params
     params.require(:album).permit(:name, :artist, :description)
   end
 

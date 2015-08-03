@@ -1,20 +1,18 @@
-<% categories.each do |category, objects| %>
-  <div class="col-md-4">
+<div class="col-md-4">
 
-    <h1>Top <%= category.capitalize %></h1>
+  <h1>Top <%= category.capitalize %></h1>
 
-    <ol class="list-unstyled">
-      <% objects.each do |object| %>
-        <li><h2>
-          <%= link_to object.name, "/#{category}/#{object.id}" %>
-          <small>
-            Ranked: <%= object.rank %>
-          </small>
-        </li></h2>
-      <% end %>
-    </ol>
+  <ol class="list-unstyled">
+    <% media.each do |medium| %>
+      <li><h2>
+        <%= link_to medium.name, polymorphic_path(medium) %>
+        <small>
+          Ranked: <%= medium.rank %>
+        </small>
+      </li></h2>
+    <% end %>
+  </ol>
 
-    <%= link_to "View More #{category.capitalize}", "/#{category}" %>
+  <%= link_to "View More #{category.capitalize}", polymorphic_path(category) %>
 
-  </div>
-<% end %>
+</div>

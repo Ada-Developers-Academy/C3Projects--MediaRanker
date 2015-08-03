@@ -1,14 +1,9 @@
 <div class="row">
-
-<%= render partial: "shared/show", locals: {
-  object_type: "Albums",
-  object: @album,
-  by: "Recorded by: ",
-  object_person: @album.artist,
-  single_route: album_path,
-  multi_route: albums_path,
-  edit_single_route: edit_album_path,
-  upvote_route: upvote_album_path
-  } %>
   
+  <%= render partial: "shared/show", locals: {
+    object: @album,
+    by: "Recorded by: ",
+    object_person: @album.artist
+    } %>
+
 </div>
