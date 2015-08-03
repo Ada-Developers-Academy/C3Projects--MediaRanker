@@ -4,9 +4,9 @@ class Medium < ActiveRecord::Base
   scope :albums, -> { where(format: "album") }
 
   scope :best, -> (total) { order('votes DESC').limit(total) }
-  scope :best_movies, -> (total) { movies.order('votes DESC').limit(total) }
-  scope :best_books, -> (total) { books.order('votes DESC').limit(total) }
-  scope :best_albums, -> (total) { albums.order('votes DESC').limit(total) }
+  scope :best_movies, -> (total) { movies.best(total) }
+  scope :best_books, -> (total) { books.best(total) }
+  scope :best_albums, -> (total) { albums.best(total) }
 
   validates :title, presence: true
   validates :format, presence: true, inclusion: { in: ["movie", "book", "album"], message: "\"book\", \"movie\", and \"album\" are the only allowed formats." }
