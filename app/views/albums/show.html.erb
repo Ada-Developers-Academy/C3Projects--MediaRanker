@@ -9,7 +9,7 @@
     <p> <%= @album.description %> </p>
 
     <br>
-        <%= button_to "Upvote", "#{@album.id}/yes_vote", method: :patch, :class => "btn btn-primary" %>
+        <%= button_to "Upvote", yes_vote_album_path(@album.id), method: :patch, :class => "btn btn-primary" %>
     <div class="button_wrapper">
         <%= link_to "Edit #{@album.name}", edit_album_path(@album.id), :class => " btn btn-default button_menu" %>
         <%= link_to "Delete", album_path(@album.id), method: :delete, data: {confirm: "are you sure you want to delete this album?"}, :class =>  "btn btn-danger button_menu"%>

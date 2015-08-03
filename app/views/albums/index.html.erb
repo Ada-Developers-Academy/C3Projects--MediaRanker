@@ -12,7 +12,7 @@
       <tr>
         <td>Ranked:<%= album.vote %></td>
         <td><%= link_to "#{album.name}", album_path(album.id) %></td>
-        <td><%= button_to "Upvote", "/albums/#{album.id}/yes_vote", method: :patch, :class => "btn btn-default" %></td>
+        <td><%= button_to "Upvote", yes_vote_album_path(album.id), method: :patch, :class => "btn btn-default" %></td>
       </tr>
       <% end %>
     </tbody>
