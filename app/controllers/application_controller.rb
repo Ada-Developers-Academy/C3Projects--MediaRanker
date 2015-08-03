@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_action: :find_all_media, only: [:index]
-  before_action: :create_medium, only: [:index, :new, :create]
-  before_action: :find_media, only: [:show, :edit, :update, :destroy, :upvote]
+  before_action :find_all_media, only: [:index]
+  before_action :create_medium, only: [:index, :new, :create]
+  before_action :find_media, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index; end
 
@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def edit; end
-
 
   def update
     @media.update(create_params[:media])
@@ -34,19 +33,5 @@ class ApplicationController < ActionController::Base
     @media.add_a_vote
     @media.save
     render :show
-  end
-
-  def find_all_media
-    @all_media = self.all.order(rank :desc)
-  end
-
-  def find_media
-    # find a specific instance based on params
-    @media = self.find(params[:id])
-  end
-
-  def create_medium
-    # medium is the new instance
-    @medium = self.new
   end
 end
