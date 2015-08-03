@@ -57,7 +57,7 @@ RSpec.describe BooksController, type: :controller do
     end
 
     context "invalid params" do
-      let(:book_params) do
+      let(:invalid_book_params) do
         {
           book: {
             # no :name, which is required,
@@ -67,13 +67,13 @@ RSpec.describe BooksController, type: :controller do
       end
 
       it "doesn't create invalid records" do
-        post :create, book_params
+        post :create, invalid_book_params
 
         expect(Book.count).to eq(0)
       end
 
       it "renders #new" do
-        post :create, book_params
+        post :create, invalid_book_params
 
         expect(response).to be_success
         expect(response).to have_http_status(200)
@@ -125,6 +125,12 @@ RSpec.describe BooksController, type: :controller do
   describe "DELETE #destroy" do
     let(:book) do
       Book.create(name: "Test Name")
+    end
+
+    it "has one record" do
+      book
+
+      expect(Book.count).to eq(1)
     end
 
     it "destroys a record" do

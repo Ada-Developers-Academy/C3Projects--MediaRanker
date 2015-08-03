@@ -13,25 +13,25 @@ RSpec.describe Album, type: :model do
 
   describe "has top albums" do
     before :each do
-      @album0 = Album.create(name: "zero", rank: 0)
-      album1 = Album.create(name: "one", rank: 1)
       album2 = Album.create(name: "two", rank: 2)
       album3 = Album.create(name: "three", rank: 3)
+      album1 = Album.create(name: "one", rank: 1)
+      @album0 = Album.create(name: "zero", rank: 0)
 
       @top_albums = [album3, album2, album1]
     end
 
 
     it "lists the top three albums" do
-      expect(Album.top.count).to eq(3)
+      expect(Album.top(3).count).to eq(3)
     end
 
     it "ranks the top albums in order" do
-      expect(Album.top).to match_array(@top_albums)
+      expect(Album.top(3)).to match_array(@top_albums)
     end
 
     it "excludes lower ranked albums" do
-      expect(Album.top).to_not include(@album0)
+      expect(Album.top(3)).to_not include(@album0)
     end
 
   end

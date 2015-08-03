@@ -1,9 +1,10 @@
 class AlbumsController < ApplicationController
 
   before_action :find_and_set_media, only: [:upvote, :show, :edit, :update, :destroy]
+  before_action :set_creator, only: [:show, :new, :create, :edit, :update]
 
   def index
-    @media = Album.all.order(rank: :desc)
+    @media = Album.ranked
     @new_media = Album.new
     @add_media = "an Album"
   end
@@ -15,18 +16,16 @@ class AlbumsController < ApplicationController
 
   def show
     @created = "Recorded"
-    @creator = @media.artist
+    @creator = :artist
     @format = "Albums"
   end
 
   def new
     @media = Album.new
-    @creator = :artist
   end
 
   def create
     @media = Album.create(album_params)
-    @creator = :artist
     if @media.save
       redirect_to album_path(@media)
     else
@@ -35,11 +34,9 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @creator = :artist
   end
 
   def update
-    @creator = :artist
     if @media.update(album_params)
       redirect_to album_path(@media)
     else
@@ -53,11 +50,14 @@ class AlbumsController < ApplicationController
   end
 
 
-
   private
 
   def find_and_set_media
     @media = Album.find(params[:id])
+  end
+
+  def set_creator
+    @creator = :artist
   end
 
   def album_params
