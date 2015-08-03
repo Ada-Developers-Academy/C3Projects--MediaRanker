@@ -24,7 +24,7 @@ class MediaController < ApplicationController
   def edit; end
 
   def update
-    if params[:upvote] == "true"
+    if params[:upvote]
       @object.upvote
       redirect_to object_path(@object)
     elsif @object.update(medium_params)
