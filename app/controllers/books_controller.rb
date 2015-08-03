@@ -1,51 +1,36 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :set_medium, except: [:index, :new, :create]
 
   def index
-    @books = Book.ranked
+    @media = Book.ranked
+    render 'shared/index'
   end
 
   def new
-    @book = Book.new
+    @medium = Book.new
+    render 'shared/form'
   end
 
   def create
-    @book = Book.create(book_params)
-    if @book.save
-      redirect_to @book
+    @medium = Book.create(book_params)
+    if @medium.save
+      redirect_to @medium
     else
-      render :new
+      render 'shared/form'
     end
-  end
-
-  def update
-    @book.update(book_params)
-    if @book.save
-      redirect_to @book
-    else
-      render :edit
-    end
-  end
-
-  def upvote
-    @book.add_vote
-
-    redirect_to @book
-  end
-
-  def destroy
-    @book.destroy
-
-    redirect_to books_path
   end
 
   private
 
-  def set_book
-    @book = Book.find(params[:id])
+  def set_medium
+    @medium = Book.find(params[:id])
   end
 
   def book_params
     params.require(:book).permit(:title, :creator, :description, :rank)
+  end
+
+  def self.model
+    Book
   end
 end
