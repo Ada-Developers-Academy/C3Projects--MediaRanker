@@ -172,7 +172,7 @@ RSpec.describe BooksController, type: :controller do
       expect(Book.count).to eq 0
     end
 
-    it "redirects to the book show page" do
+    it "redirects to the books index page" do
       delete :destroy, :id => @book.id
       expect(subject).to redirect_to(books_path)
     end

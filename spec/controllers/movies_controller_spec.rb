@@ -172,7 +172,7 @@ RSpec.describe MoviesController, type: :controller do
       expect(Movie.count).to eq 0
     end
 
-    it "redirects to the movie show page" do
+    it "redirects to the movies index page" do
       delete :destroy, :id => @movie.id
       expect(subject).to redirect_to(movies_path)
     end

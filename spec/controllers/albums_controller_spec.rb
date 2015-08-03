@@ -172,7 +172,7 @@ RSpec.describe AlbumsController, type: :controller do
       expect(Album.count).to eq 0
     end
 
-    it "redirects to the album show page" do
+    it "redirects to the albums index page" do
       delete :destroy, :id => @album.id
       expect(subject).to redirect_to(albums_path)
     end
