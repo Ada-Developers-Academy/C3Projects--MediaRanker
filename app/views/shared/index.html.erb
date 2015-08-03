@@ -5,7 +5,7 @@
       <th>Name</th>
       <th>Upvote</th>
     </tr>
-    <% media.each do |medium| %>
+    <% @media.each do |medium| %>
       <tr>
         <td>Ranked: <%= medium.rank %></td>
         <td><%= link_to medium.title, polymorphic_path(medium) %></td>
@@ -17,4 +17,4 @@
 
 <%= link_to "View All Media", root_path, class: "btn btn-default" %>
 
-<%= link_to "Add #{medium_name}", new_polymorphic_path(medium_class), class: "btn btn-default" %>
+<%= link_to "Add #{article} #{capital_singular_resource}", new_polymorphic_path(medium_symbol), class: "btn btn-default" %>

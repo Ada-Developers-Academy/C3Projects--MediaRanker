@@ -1,51 +1,36 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :set_medium, except: [:index, :new, :create]
 
   def index
-    @movies = Movie.ranked
+    @media = Movie.ranked
+    render 'shared/index'
   end
 
   def new
-    @movie = Movie.new
+    @medium = Movie.new
+    render 'shared/form'
   end
 
   def create
-    @movie = Movie.create(movie_params)
-    if @movie.save
-      redirect_to @movie
+    @medium = Movie.create(movie_params)
+    if @medium.save
+      redirect_to @medium
     else
-      render :new
+      render 'shared/form'
     end
-  end
-
-  def update
-    @movie.update(movie_params)
-    if @movie.save
-      redirect_to @movie
-    else
-      render :edit
-    end
-  end
-
-  def upvote
-    @movie.add_vote
-    
-    redirect_to @movie
-  end
-
-  def destroy
-    @movie.destroy
-
-    redirect_to movies_path
   end
 
   private
 
-  def set_movie
-    @movie = Movie.find(params[:id])
+  def set_medium
+    @medium = Movie.find(params[:id])
   end
 
   def movie_params
     params.require(:movie).permit(:title, :creator, :description, :rank)
+  end
+
+  def self.model
+    Movie
   end
 end

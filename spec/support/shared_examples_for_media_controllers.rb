@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.shared_examples "a MediumController" do
-  let(:model_string) { model.to_s.downcase }
+  let(:model_string) { described_class.model.to_s.downcase }
   let(:medium_path) { model_string + "_path" }
   let(:mediums_path) { model_string + "s_path" }
   let(:medium_symbol) { model_string.to_sym }
@@ -17,23 +17,23 @@ RSpec.shared_examples "a MediumController" do
     end
 
     it "renders index template" do
-      expect(response).to render_template("index")
+      expect(response).to render_template("shared/index")
     end
   end
 
   describe "GET #show" do
-    let(:medium) { model.create(title: 'some title', creator: 'some creator') }
+    let(:medium) { described_class.model.create(title: 'some title', creator: 'some creator') }
 
     before :each do
       get :show, id: medium
     end
 
     it "finds a specific medium" do
-      expect(assigns(medium_symbol)).to eq(medium)
+      expect(assigns(:medium)).to eq(medium)
     end
 
     it "renders show template" do
-      expect(response).to render_template("show")
+      expect(response).to render_template("shared/show")
     end
   end
 
@@ -48,11 +48,11 @@ RSpec.shared_examples "a MediumController" do
     end
 
     it "renders the :new template" do
-      expect(subject).to render_template("new")
+      expect(subject).to render_template("shared/form")
     end
 
     it "creates a new medium" do
-      expect(assigns(medium_symbol)).to be_a_new(model)
+      expect(assigns(:medium)).to be_a_new(described_class.model)
     end
   end
 
@@ -68,11 +68,11 @@ RSpec.shared_examples "a MediumController" do
       end
 
       it "creates an described_class record" do
-        expect(model.count).to eq 1
+        expect(described_class.model.count).to eq 1
       end
 
       it "redirect to the medium show page" do
-        expect(subject).to redirect_to(send(medium_path, assigns(medium_symbol)))
+        expect(subject).to redirect_to(send(medium_path, described_class.model.first))
       end
     end
 
@@ -87,17 +87,17 @@ RSpec.shared_examples "a MediumController" do
       end
 
       it "does not persist invalid records" do
-        expect(model.count).to eq 0
+        expect(described_class.model.count).to eq 0
       end
 
       it "renders the new template" do
-        expect(response).to render_template("new")
+        expect(response).to render_template("shared/form")
       end
     end
   end
 
   describe "GET #edit" do
-    let(:medium) { model.create(title: 'some title', creator: 'some creator') }
+    let(:medium) { described_class.model.create(title: 'some title', creator: 'some creator') }
     
     before(:each) do
       get :edit, id: medium
@@ -109,16 +109,16 @@ RSpec.shared_examples "a MediumController" do
     end
 
     it "finds a specific medium" do
-      expect(assigns(medium_symbol)).to eq(medium)
+      expect(assigns(:medium)).to eq(medium)
     end
 
     it "renders the :edit template" do
-      expect(subject).to render_template("edit")
+      expect(subject).to render_template("shared/form")
     end
   end
 
   describe "PUT #update" do
-    let(:medium) { model.create(title: 'some title', creator: 'some person') }
+    let(:medium) { described_class.model.create(title: 'some title', creator: 'some person') }
 
     context "valid medium params" do
       before(:each) do
@@ -131,7 +131,7 @@ RSpec.shared_examples "a MediumController" do
       end
 
       it "redirects to medium_path" do
-        expect(subject).to redirect_to(send(medium_path, assigns(medium_symbol)))
+        expect(subject).to redirect_to(send(medium_path, assigns(:medium)))
       end
     end
 
@@ -146,13 +146,13 @@ RSpec.shared_examples "a MediumController" do
       end
 
       it "renders :edit template" do
-        expect(response).to render_template("edit")
+        expect(response).to render_template("shared/form")
       end
     end
   end
 
   describe "PUT #upvote" do
-    let(:medium) { model.create(title: 'a title', rank: 5) }
+    let(:medium) { described_class.model.create(title: 'a title', rank: 5) }
 
     it "increases rank of record by one" do
       put :upvote, id: medium
@@ -162,7 +162,7 @@ RSpec.shared_examples "a MediumController" do
     end
 
     it "only affects the particular record" do
-      medium2 = model.create(title: 'b title', rank: 5)
+      medium2 = described_class.model.create(title: 'b title', rank: 5)
 
       put :upvote, id: medium
       medium.reload
@@ -173,21 +173,21 @@ RSpec.shared_examples "a MediumController" do
 
     it "redirects to the medium_path" do
       put :upvote, id: medium
-      expect(subject).to redirect_to(send(medium_path, assigns(medium_symbol)))
+      expect(subject).to redirect_to(send(medium_path, assigns(:medium)))
     end
   end
 
   describe "DELETE #destroy" do
-    let(:medium1) { model.create(title: 'a title', creator: 'a person') }
-    let(:medium2) { model.create(title: 'b title', creator: 'b person') }
-    let(:medium3) { model.create(title: 'c title', creator: 'c person') }
+    let(:medium1) { described_class.model.create(title: 'a title', creator: 'a person') }
+    let(:medium2) { described_class.model.create(title: 'b title', creator: 'b person') }
+    let(:medium3) { described_class.model.create(title: 'c title', creator: 'c person') }
 
     before(:each) do
       delete :destroy, id: medium3
     end
 
     it "deletes a particular object" do
-      expect(model.all).to_not include medium3
+      expect(described_class.model.all).to_not include medium3
     end
 
     it "redirects to the mediums_path" do
