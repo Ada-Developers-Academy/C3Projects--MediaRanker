@@ -77,46 +77,6 @@ RSpec.describe Medium, type: :model do
       expect(@medium.category.creator_noun).to eq("Nightshade Variety")
       expect(@medium.category.created_verb).to eq("Grown")
     end
-
-    it "can access its category's #methods" do
-      expect(@medium.category.plural).to eq("potatos")
-      expect(@medium.category.display_name).to eq("Mr. Potato Head")
-    end
-  end
-
-  describe "medium instance methods" do
-    before :each do
-      # Category.create(name: "Potato", full_name: "Mr. Potato Head", creator_noun: "Spud McNightshade", created_verb: "Grown")
-      # @medium = Medium.create(title: "Forty Eight Hours Of Sharks", upvotes: 0, category_id: 1)
-      Category.create(name: "Egg", full_name: "Egghead", creator_noun: "Chicken", created_verb: "Laid")
-      Category.create(name: "Seed", creator_noun: "Plant", created_verb: "Planted")
-      @medium2 = Medium.create(title: "Forty Eight Hours Of Sharks", creator: "Die Pflanze", upvotes: 0, category_id: 3)
-      @medium3 = Medium.create(title: "Forty Eight Hours Of Sharks", upvotes: 0, category_id: 2)
-    end
-
-    it "has a #url that consists of its category :name & :id number" do
-      expect(@medium.url).to eq("/potatos/#{ @medium.id }")
-      expect(@medium2.url).to eq("/seeds/#{ @medium2.id }")
-      expect(@medium3.url).to eq("/eggs/#{ @medium3.id }")
-    end
-
-    it "has a #url_base that consists of just the category name" do
-      expect(@medium.url_base).to eq("/potatos")
-      expect(@medium2.url_base).to eq("/seeds")
-      expect(@medium3.url_base).to eq("/eggs")
-    end
-
-    it "has a #created_by statement that's based on its :creator and category" do
-      expect(@medium.created_by).to eq("Grown by Spud McNightshade")
-      expect(@medium2.created_by).to eq("Planted by Die Pflanze")
-      expect(@medium3.created_by).to eq(nil)
-    end
-
-    it "has a #creator_phrase that's based on its :creator and category" do
-      expect(@medium.creator_phrase).to eq("Spud McNightshade's Forty Eight Hours Of Sharks")
-      expect(@medium2.creator_phrase).to eq("Die Pflanze's Forty Eight Hours Of Sharks")
-      expect(@medium3.creator_phrase).to eq("Forty Eight Hours Of Sharks")
-    end
   end
 
   describe "scopes" do
