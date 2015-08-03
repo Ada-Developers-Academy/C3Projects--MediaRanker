@@ -12,7 +12,7 @@
       <tr>
         <td>Ranked:<%= movie.vote %></td>
         <td><%= link_to "#{movie.name}", movie_path(movie.id) %></td>
-        <td><%= button_to "Upvote", "/movies/#{movie.id}/yes_vote", method: :patch, :class => "btn btn-default" %></td>
+        <td><%= button_to "Upvote", yes_vote_movie_path(movie.id), method: :patch, :class => "btn btn-default" %></td>
       </tr>
       <% end %>
     </tbody>

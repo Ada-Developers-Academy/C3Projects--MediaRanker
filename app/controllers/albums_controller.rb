@@ -1,56 +1,60 @@
 class AlbumsController < ApplicationController
 
+  before_action :select_media, only: [:show, :edit, :update, :yes_vote, :destroy]
+
+  def select_media
+    @album = Album.find(params[:id])
+  end
+
   def index
     @albums = Album.best(5)
   end
 
   def create
-    @album = Album.new(permit_params[:album])
-    @album.save
-
-    redirect_to(albums_path)
+    @album = Album.create(album_params)
+     if @album.save
+      redirect_to(albums_path)
+     else
+      render :new
+     end
   end
 
   def new
     @album = Album.new
 
-    render :new
   end
 
   def show
-    @album = Album.find(params[:id])
+    
   end
 
   def edit #GET one album to modify.
-   @album = Album.find(params[:id])   
+     
   end
 
   def update #PATCH this updated album to the db
-    @album = Album.find(params[:id]) 
-    @album.name = permit_params[:album][:name]
-    @album.artist = permit_params[:album][:artist]
-    @album.description = permit_params[:album][:description]
-    @album.save
+    @album.update(album_params)
+   
     
-    redirect_to(album_path(Album.find(@album.id))) 
+    redirect_to(album_path(@album.id)) 
   end
 
   def yes_vote # PATCH increase this number by one in the db
-   @album = Album.find(params[:id])
-   @album.increment!(:vote)
-  redirect_to(album_path(Album.find(@album.id)))
+    @album.increment!(:vote)
+    
+    redirect_to(album_path(@album.id))
   end
 
   def destroy
-    @album = Album.find(params[:id]).destroy
+    @album.destroy
 
     redirect_to(albums_path)
   end
 
   private
 
-  def permit_params
-    params.permit(album:[:name, :director, :description, :vote])
+  def album_params
+    params.require(:album).permit(:name, :director, :description, :vote)
   end
 
 

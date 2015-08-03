@@ -9,7 +9,7 @@
     <p> <%= @movie.description %> </p>
 
     <br>
-    <%= button_to "Upvote", "#{@movie.id}/yes_vote", method: :patch, :class => "btn btn-primary" %>
+    <%= button_to "Upvote", yes_vote_movie_path(@movie.id), method: :patch, :class => "btn btn-primary" %>
     
     <div class="button_wrapper">
     <%= link_to "Edit #{@movie.name}", edit_movie_path(@movie.id), :class => " btn btn-default button_menu" %>

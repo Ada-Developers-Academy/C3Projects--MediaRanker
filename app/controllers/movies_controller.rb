@@ -1,58 +1,59 @@
 class MoviesController < ApplicationController
  
+  before_action :select_media, only: [:show, :edit, :update, :yes_vote, :destroy]
+
+  def select_media
+    @movie = Movie.find(params[:id])
+  end
+  
   def index
     @movies = Movie.best(5)
   end
 
   def create
-    @movie = Movie.new(permit_params[:movie])
-    @movie.save
-     
-    redirect_to(movies_path)  
+    @movie = Movie.create(movie_params)
+     if @movie.save
+      redirect_to(movies_path)
+     else
+      render :new
+     end  
   end
 
   def new
     @movie = Movie.new
 
-    render :new
   end
 
   def show
-    @movie = Movie.find(params[:id])
   end
 
-  def edit #GET one movie to modify.
-   @movie = Movie.find(params[:id])   
+  def edit #GET one movie to modify.  
   end
 
-  def update #PATCH this updated movie to the db
-    @movie = Movie.find(params[:id]) 
-    @movie.name = permit_params[:movie][:name]
-    @movie.director = permit_params[:movie][:director]
-    @movie.description = permit_params[:movie][:description]
-    @movie.save
+  def update #PATCH this updated movie to the db 
+    @movie.update(movie_params)
     
-    redirect_to(movie_path(Movie.find(@movie.id))) 
+    redirect_to(movie_path(@movie.id)) 
   end
 
   def yes_vote # PATCH increase this number by one in the db
-   @movie = Movie.find(params[:id])
-   # @movie.vote += 1
+   # @movie.vote += 1  #original method
    # @movie.save
-    @movie.increment!(:vote)
-  redirect_to(movie_path(Movie.find(@movie.id)))
+   @movie.increment!(:vote)
+  
+   redirect_to(movie_path(@movie.id))
   end
 
   def destroy
-    @movie = Movie.find(params[:id]).destroy
+    @movie.destroy
 
     redirect_to(movies_path)
   end
 
   private
 
-  def permit_params
-    params.permit(movie:[:name, :director, :description, :vote])
+  def movie_params
+    params.require(:movie).permit(:name, :director, :description, :vote)
   end
 
 end

@@ -12,7 +12,7 @@
       <tr>
         <td>Ranked:<%= book.vote %></td>
         <td><%= link_to "#{book.name}", book_path(book.id) %></td>
-        <td><%= button_to "Upvote", "/books/#{book.id}/yes_vote", method: :patch, :class => "btn btn-default" %></td>
+        <td><%= button_to "Upvote", yes_vote_book_path(book.id), method: :patch, :class => "btn btn-default" %></td>
       </tr>
       <% end %>
     </tbody>
