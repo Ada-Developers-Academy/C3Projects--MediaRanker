@@ -16,7 +16,7 @@ class Medium < ActiveRecord::Base
   validates :title, presence: true
   validates :format, presence: true, inclusion: { in: ALL_MEDIA, message: "These are the only allowed formats: #{ALL_MEDIA.join(', ')}." }
 
-  def upvote
+  def upvote!
      self.votes += 1
      self.save
   end

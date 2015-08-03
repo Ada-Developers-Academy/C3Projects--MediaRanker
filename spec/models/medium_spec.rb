@@ -143,12 +143,12 @@ RSpec.describe Medium, type: :model do
       end
     end
 
-    describe "#upvote" do
+    describe "#upvote!" do
       context "when handling a movie" do
         let(:movie){ Medium.create({ title: "Puppies Movie", creator: "Dog", format: "movie" }) }
 
         it "increases the votes by 1" do
-          movie.upvote
+          movie.upvote!
           expect(movie.votes).to eq(1)
         end
       end
@@ -157,7 +157,7 @@ RSpec.describe Medium, type: :model do
         let(:album){ Medium.create({ title: "Puppies Album", creator: "Dog", format: "album" }) }
 
         it "increases the votes by 1" do
-          album.upvote
+          album.upvote!
           expect(album.votes).to eq(1)
         end
       end
@@ -166,7 +166,7 @@ RSpec.describe Medium, type: :model do
         let(:book){ Medium.create({ title: "Puppies Book", creator: "Dog", format: "book" }) }
 
         it "increases the votes by 1" do
-          book.upvote
+          book.upvote!
           expect(book.votes).to eq(1)
         end
       end
