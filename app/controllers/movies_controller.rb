@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
   end
 
   def update
-    if params[:movie].nil? == true
+    if params[:movie].nil?
       @movie.rank += 1
       @movie.save
       render :show

@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    if params[:album].nil? == true
+    if params[:album].nil?
       @album.rank += 1
       @album.save
       render :show

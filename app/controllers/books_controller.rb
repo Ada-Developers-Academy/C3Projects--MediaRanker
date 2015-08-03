@@ -13,11 +13,11 @@ class BooksController < ApplicationController
   end
 
   def update
-    if params[:book].nil? == true
+    if params[:book].nil?
       @book.rank += 1
       @book.save
       render :show
-    else  
+    else
       if @book.update(book_params)
         render :show
       else
