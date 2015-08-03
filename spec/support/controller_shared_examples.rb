@@ -4,11 +4,16 @@ RSpec.shared_examples "a medium controller" do
   let (:medium) { described_class.model.new }
 
   describe "GET #index" do
-    it "responds successfully with an HTTP 200 status code" do
+    it "returns http success" do
       get :index
 
       expect(response).to be_success
       expect(response).to have_http_status(200)
+    end
+
+    it "renders the show view" do
+      get :index
+      expect(response).to render_template("index")
     end
   end
 
@@ -19,7 +24,9 @@ RSpec.shared_examples "a medium controller" do
 
     it "returns http success" do
       get :show, id: @medium
+
       expect(response).to be_success
+      expect(response).to have_http_status(200)
     end
 
     it "renders the show view" do
@@ -31,6 +38,13 @@ RSpec.shared_examples "a medium controller" do
   describe "GET #edit" do
     before :each do
       @medium = described_class.model.create(title: 'a')
+    end
+
+    it "returns http success" do
+      get :edit, id: @medium
+
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
     end
 
     it "renders the edit view" do
@@ -50,7 +64,7 @@ RSpec.shared_examples "a medium controller" do
         expect(described_class.model.find(1).votes).to eq 1
       end
 
-      it "redirects to medium show view" do
+      it "redirects to show view" do
         put :update, id: @medium, votes: @medium, upvote: "true"
         expect(subject).to redirect_to(polymorphic_path(@medium))
       end
@@ -68,7 +82,7 @@ RSpec.shared_examples "a medium controller" do
           expect(described_class.model.find(1).title).to eq 'b'
         end
 
-        it "redirects to medium show view" do
+        it "redirects to show view" do
           put :update, @new_params
           @medium.reload
           expect(response).to redirect_to(polymorphic_path(@medium))
@@ -97,6 +111,13 @@ RSpec.shared_examples "a medium controller" do
   end
 
   describe "GET #new" do
+    it "returns http success" do
+      get :new
+
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
     it "renders the new view" do
       get :new
       expect(response).to render_template("new")
