@@ -33,8 +33,7 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    @movie.rank += 1
-    @movie.save
+    Movie.upvote(@movie)
     redirect_to movie_path(@movie.id)
   end
 
