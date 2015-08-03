@@ -52,7 +52,7 @@ RSpec.shared_examples "a medium controller" do
 
       it "redirects to medium show view" do
         put :update, id: @medium, votes: @medium, upvote: "true"
-        expect(subject).to redirect_to("/#{described_class.model.name.downcase}s/#{@medium.id}")
+        expect(subject).to redirect_to(polymorphic_path(@medium))
       end
     end
 
@@ -71,7 +71,7 @@ RSpec.shared_examples "a medium controller" do
         it "redirects to medium show view" do
           put :update, @new_params
           @medium.reload
-          expect(response).to redirect_to("/#{described_class.model.name.downcase}s/#{@medium.id}")
+          expect(response).to redirect_to(polymorphic_path(@medium))
         end
       end
 
@@ -116,7 +116,8 @@ RSpec.shared_examples "a medium controller" do
 
       it "redirects to the medium show page" do
         post :create, @new_params
-        expect(subject).to redirect_to("/#{described_class.model.name.downcase}s/#{@new_params[:id]}")
+        new_medium = described_class.model.last
+        expect(subject).to redirect_to(polymorphic_path(new_medium))
       end
     end
 
@@ -149,7 +150,7 @@ RSpec.shared_examples "a medium controller" do
 
     it "redirects to the medium index page" do
       post :destroy, id: @medium
-      expect(subject).to redirect_to("/#{described_class.model.name.downcase}s")
+      expect(subject).to redirect_to(polymorphic_path(described_class.model))
     end
   end
 end
