@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_book, only: [:edit, :show, :update, :destroy]
+  before_action :set_movie, only: [:edit, :show, :update, :destroy]
 
   def self.model
     Movie
@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
       else
         render :edit
       end
-      
+
     else
       @movie.ranking += 1
       @movie.save
