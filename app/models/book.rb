@@ -8,8 +8,6 @@ class Book < ActiveRecord::Base
 
   scope :top, -> { order('rank DESC').limit(5) }
   scope :ordered, -> { order('rank DESC') }
-  #  scope :on, -> (label) { where(label: label) }
-  #  scope :available_formats, -> { select(:format).distinct.order(:format).pluck(:format) }
 
   def self.upvote(book)
     book.rank += 1
