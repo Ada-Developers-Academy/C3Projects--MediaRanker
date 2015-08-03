@@ -43,11 +43,9 @@ class MoviesController < ApplicationController
 
   def upvote
     @movie = Movie.find(params[:id])
-    votes = @movie.rank
-    votes += 1
-    @movie.update(rank: votes)
+    @movie.increment!(:rank)
 
-    redirect_to action: :show, id: params[:id]
+    super
   end
 
   private

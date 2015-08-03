@@ -43,9 +43,7 @@ class BooksController < ApplicationController
 
   def upvote
     @book = Book.find(params[:id])
-    votes = @book.rank
-    votes += 1
-    @book.update(rank: votes)
+    @book.increment!(:rank)
 
     super
   end

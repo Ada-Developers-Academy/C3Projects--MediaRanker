@@ -43,9 +43,7 @@ class AlbumsController < ApplicationController
 
   def upvote
     @album = Album.find(params[:id])
-    votes = @album.rank
-    votes += 1
-    @album.update(rank: votes)
+    @album.increment!(:rank)
 
     super
   end
