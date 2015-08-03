@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.shared_examples "a medium controller" do
-
+  let(:model_object) { described_class.model }
   describe "GET #index" do
     it "responds successfully with an HTTP 200 status code" do
       get :index
@@ -12,12 +12,13 @@ RSpec.shared_examples "a medium controller" do
   end
 
   describe "POST #create" do
-    let(:medium) { described_class.model.first }
+    let(:medium) { model_object.first }
 
-    context "valid #{described_class.model} params" do
-      it "creates a #{described_class.model} record" do
+    context "valid params" do
+      it "creates a record" do
         post :create, params
-        expect(described_class.model.count).to eq 1
+        expect(model_object.count).to eq 1
+        expect(medium.title).to eq("a title")
       end
 
       it "sets value of rank to 0" do
@@ -33,15 +34,15 @@ RSpec.shared_examples "a medium controller" do
       context "record in which only the title is specified" do
         it "creates a record" do
           post :create, minimal_params
-          expect(described_class.model.count).to eq 1
+          expect(model_object.count).to eq 1
         end
       end
     end
 
     context "invalid params" do
-      it "does not persist a #{described_class.model} record" do
+      it "does not persist a record" do
         post :create, invalid_params
-        expect(described_class.model.count).to eq 0
+        expect(model_object.count).to eq 0
       end
 
       it "renders the :new view (to allow users to fix invalid data)" do
@@ -59,19 +60,19 @@ RSpec.shared_examples "a medium controller" do
     end
 
     before :each do
-      @medium = described_class.model.create(title: "a title", rank: 20, description: "a description")
+      @medium = model_object.create(title: "a title", rank: 20, description: "a description")
 
       put :update, :id => @medium.id, medium_name => attr
       @medium.reload
     end
 
-    it "updates the #{described_class.model} record" do
+    it "updates the record" do
       expect(response).to redirect_to(@medium)
       expect(@medium.title).to eq "new title"
       expect(@medium.description).to eq "new description"
     end
 
-    it "redirects to the #{described_class.model} show page" do
+    it "redirects to the show page" do
       expect(subject).to redirect_to(polymorphic_path(@medium))
     end
   end
@@ -79,10 +80,10 @@ RSpec.shared_examples "a medium controller" do
 
   describe "GET #show" do
     before :each do
-      @medium = described_class.model.create(title: "a title", rank: 20, description: "a description")
+      @medium = model_object.create(title: "a title", rank: 20, description: "a description")
     end
 
-    it "shows the selected #{described_class.model}" do
+    it "shows the selected object" do
       get :show, id: @medium
 
       expect { assigns(:medium).to eq(@medium) }
@@ -96,24 +97,24 @@ RSpec.shared_examples "a medium controller" do
 
   describe "DELETE #destroy" do
     before :each do
-      @medium = described_class.model.create(title: "a title", rank: 20, description: "a description")
+      @medium = model_object.create(title: "a title", rank: 20, description: "a description")
     end
 
     it "deletes the record" do
       expect{
         delete :destroy, id: @medium
-      }.to change(described_class.model, :count).by(-1)
+      }.to change(model_object, :count).by(-1)
     end
 
     it "redirects to index view" do
       delete :destroy, id: @medium
-      expect(response).to redirect_to polymorphic_path(described_class.model)
+      expect(response).to redirect_to polymorphic_path(model_object)
     end
   end
 
   describe "PATCH #upvote" do
     before :each do
-      @medium = described_class.model.create(title: "a title", rank: 20, description: "a description")
+      @medium = model_object.create(title: "a title", rank: 20, description: "a description")
       patch :upvote, id: @medium
       @medium.reload
     end
