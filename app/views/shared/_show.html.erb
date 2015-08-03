@@ -8,12 +8,12 @@
 <h4>Ranked: <%= object.rank %></h4>
 <p><%= object.description %></p>
 
-<%= button_to "Upvote", upvote_route, class: "btn btn-primary", method: "patch" %>
-<div></div>
-<%= link_to "Edit #{object.name}", edit_single_route, class: "btn btn-default", method: "get" %>
+<%= button_to "Upvote", polymorphic_path(object, action: 'upvote'), method: "patch", class: "btn btn-primary" %>
 
-<%= link_to "DELETE", single_route, method: "delete", class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+<%= link_to "Edit #{object.name}", edit_polymorphic_path(object), class: "btn btn-default" %>
 
-<%= link_to "View All #{object_type}", multi_route, class: "btn btn-default", class: "btn btn-default", method: "get" %>
+<%= link_to "DELETE", polymorphic_path(object), method: "delete", class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
 
-<%= link_to "View All Media", root_path, class: "btn btn-default", method: "get" %>
+<%= link_to "View All #{object.class}s", polymorphic_path(object.class), class: "btn btn-default" %>
+
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
