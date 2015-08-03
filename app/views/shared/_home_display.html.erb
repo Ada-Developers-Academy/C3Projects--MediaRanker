@@ -1,35 +1,28 @@
 <div class="row">
-  <% @media.each do |all_of_one_media| %>
-    <div class="col-md-4">
-      <% if all_of_one_media == @movies %>
-        <h1>Top Movies</h1>
-      <% elsif all_of_one_media == @books %>
-        <h1>Top Books</h1>
-      <% elsif all_of_one_media == @albums %>
-        <h1>Top Albums</h1>
-      <% end %>
+  <div class="col-md-4">
+    <h1>Top Movies</h1>
+    <% @movies.each do |movie| %>
+      <h2><%= link_to "#{movie.title}", movie_path(id: movie.id) %>
+        <small>Ranked: <%= movie.rank %></small></h2>
+    <% end %>
+    <%= link_to "View more movies", movies_path %>
+  </div>
 
-      <% all_of_one_media.each do |medium| %>
-        <% if medium.class == Movie %>
-          <h2><%= link_to "#{medium.title}", movie_path(id: medium.id) %>
-            <small>Ranked: <%= medium.rank %></small></h2>
-        <% elsif medium.class == Book %>
-          <h2><%= link_to "#{medium.title}", book_path(id: medium.id) %>
-            <small>Ranked: <%= medium.rank %></small></h2>
-        <% elsif medium.class == Album %>
-          <h2><%= link_to "#{medium.title}", album_path(id: medium.id) %>
-            <small>Ranked: <%= medium.rank %></small></h2>
-        <% end %>
-      <% end %>
+  <div class="col-md-4">
+    <h1>Top Books</h1>
+    <% @books.each do |book| %>
+      <h2><%= link_to "#{book.title}", book_path(id: book.id) %>
+        <small>Ranked: <%= book.rank %></small></h2>
+    <% end %>
+    <%= link_to "View more books", books_path %>
+  </div>
 
-      <% if all_of_one_media == @movies %>
-        <%= link_to "View more movies", movies_path %>
-      <% elsif all_of_one_media == @books %>
-        <%= link_to "View more books", books_path %>
-      <% elsif all_of_one_media == @albums %>
-        <%= link_to "View more albums", albums_path %>
-      <% end %>
-
-    </div>
-  <% end %>
+  <div class="col-md-4">
+    <h1>Top Albums</h1>
+    <% @albums.each do |album| %>
+      <h2><%= link_to "#{album.title}", album_path(id: album.id) %>
+        <small>Ranked: <%= album.rank %></small></h2>
+    <% end %>
+    <%= link_to "View more albums", albums_path %>
+  </div>
 </div>
