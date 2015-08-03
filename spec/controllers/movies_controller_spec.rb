@@ -62,9 +62,9 @@ RSpec.describe MoviesController, type: :controller do
       expect(Movie.count).to eq(1)
     end
 
-    it "redirects to the movie show page" do
+    it "redirects to the movie index page" do
       post :create, valid_movie
-      expect(response).to redirect_to(movie_path(assigns(:media)))
+      expect(response).to redirect_to(movies_path)
     end
   end
 

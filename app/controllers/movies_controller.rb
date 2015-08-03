@@ -1,54 +1,36 @@
 class MoviesController < ApplicationController
-
-  def index
-    @media = Movie.all.order(rank: :desc)
-    # defining medium allows me to use polymorphic paths for new from the index page
-    @medium = Movie.new
-  end
-
-  def show
-    @media = Movie.find(params[:id])
-  end
-
-  def new
-    @media = Movie.new
-  end
+  before_action :find_all_media, only: [:index]
+  before_action :create_medium, only: [:index, :new, :create]
+  before_action :find_media, only: [:show, :edit, :update, :destroy, :upvote]
 
   def create
-    @media = Movie.new(create_params[:movie])
-    @media.save
-    redirect_to movie_path(@media)
-  end
-
-  def edit
-    @media = Movie.find(params[:id])
+    @medium= Movie.new(create_params[:movie])
+    @medium.save
+    redirect_to movies_path
   end
 
   def update
-    @media = Movie.find(params[:id])
     @media.update(create_params[:movie])
     redirect_to movie_path(@media)
   end
 
-  def destroy
-    @media = Movie.find(params[:id])
-    @media.destroy
-    redirect_to movies_path
-  end
-
-  def upvote
-    @media = Movie.find(params[:id])
-    @media.add_a_vote
-    @media.save
-    render :show
-  end
-
-
   private
 
-  def create_params
-    params.permit(movie: [:name, :creator, :description, :rank])
-  end
+    def create_params
+      params.permit(movie: [:name, :creator, :description, :rank])
+    end
 
+    def find_all_media
+      @all_media = Movie.all.rank_order
+    end
 
+    def find_media
+      # find a specific instance based on params
+      @media = Movie.find(params[:id])
+    end
+
+    def create_medium
+      # medium is the new instance
+      @medium = Movie.new
+    end
 end

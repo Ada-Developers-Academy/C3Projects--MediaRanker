@@ -1,0 +1,5 @@
+      invoke  active_record
+      create    db/migrate/20150802224051_create_media.rb
+      create    app/models/medium.rb
+      invoke    rspec
+   identical      spec/models/medium_spec.rb
