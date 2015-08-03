@@ -113,7 +113,7 @@ RSpec.describe MoviesController, type: :controller do
           description: "test description"
         }
         # @original_movie.reload
-        expect(Movie.find(1).name).to eq "edited test title"
+        expect(Movie.find(@original_movie.id).name).to eq "edited test title"
       end
 
       it "redirects to the movie show page" do
@@ -143,7 +143,7 @@ RSpec.describe MoviesController, type: :controller do
           director: "test director",
           description: "test description"
         }
-        expect(Movie.find(1).name).to eq "test title"
+        expect(Movie.find(@original_movie.id).name).to eq "test title"
       end
 
       it "renders the :edit action movie for the same movie" do
