@@ -7,8 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 albums = [
-  { title: "1989", artist: "Taylor Swift", description: "80's Inspired, 5th Studio Album for the Songstress and her first official Pop Album.", vote: 20},
-  { title: "X", artist: "Ed Sheeran", description: "2nd official studio album from the English singer/songwriter.", vote: 22},
+  { title: "1989", artist: "Taylor Swift", description: "80's Inspired, 5th Studio Album for the Songstress and her first official Pop Album.", vote: 18},
+  { title: "X", artist: "Ed Sheeran", description: "2nd official studio album from the English singer/songwriter.", vote: 12},
+  { title: "Purple Rain Soundtrack", artist: "Prince", description: "Soundtrack to the movie Purple Rain by singer/songwriter/artist Prince.", vote: 22},
 ]
 
 albums.each do |album|
@@ -27,6 +28,8 @@ end
 movies = [
   { title: "That Thing You Do!", director: "Tom Hanks", description: "Early boyband hijinx with a musical twist!", vote: 40},
   { title: "Charlies Angels", director: "Bret Ratner", description: "Three crime fighting heroines with fabulous hair solve crimes.", vote: 22},
+  { title: "Jurassic World", director: "Steven Spielberg", description: "The latest installment in the Jurassic Series.", vote: 15},
+  { title: "Guardians of the Galaxy", director: "James Gunn", description: "From Marvel Studios the story about space adventurer Peter Quill escaping from a intergalactic bounty hunter.", vote: 21},
 ]
 movies.each do |movie|
   Movie.create movie
