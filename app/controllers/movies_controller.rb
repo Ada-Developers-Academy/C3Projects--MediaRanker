@@ -18,8 +18,7 @@ class MoviesController < ApplicationController
       @movie.save
       render :show
     else
-      @movie.update(movie_params)
-      if @movie.save
+      if @movie.update(movie_params)
         render :show
       else
         @action = "Edit"

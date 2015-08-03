@@ -17,9 +17,8 @@ class BooksController < ApplicationController
       @book.rank += 1
       @book.save
       render :show
-    else
-      @book.update(book_params)
-      if @book.save
+    else  
+      if @book.update(book_params)
         render :show
       else
         @action = "Edit"

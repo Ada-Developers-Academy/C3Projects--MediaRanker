@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @albums = Album.rank_order
     @media_type = "album"
@@ -18,8 +18,7 @@ class AlbumsController < ApplicationController
       @album.save
       render :show
     else
-      @album.update(album_params)
-      if @album.save
+      if @album.update(album_params)
         render :show
       else
         @action = "Edit"
