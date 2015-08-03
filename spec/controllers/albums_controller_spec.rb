@@ -27,45 +27,26 @@ RSpec.describe AlbumsController, type: :controller do
   describe "POST #create" do
     # positive test - params are valid
     context "Valid params" do
-      let(:album_params) do
-        {
-          album: {
-            name: 'new album',
-            artist: 'johnny appleseed',
-            description: 'this is the description'
-          }
-        }
-      end
-
       it "creates a new record" do
-        post :create, album_params
+        post :create, album: FactoryGirl.attributes_for(:album)
         expect(Album.count).to eq 1
       end
 
       it "redirects to the index page" do
-        post :create, album_params
+        post :create, album: FactoryGirl.attributes_for(:album)
         expect(subject).to redirect_to(albums_path)
       end
     end
 
     # negative test - params are invalid
     context "Invalid params" do
-      let(:album_params) do
-        {
-          album: { # invalid because it's missing the :description key
-            name: 'new album',
-            artist: 'johnny appleseed'
-          }
-        }
-      end
-
       it "does not persist invalid records" do
-        post :create, album_params
+        post :create, album: FactoryGirl.attributes_for(:album, description: nil)
         expect(Album.count).to eq 0
       end
 
       it "renders the :new view (to allow users to fix invalid data)" do
-        post :create, album_params
+        post :create, album: FactoryGirl.attributes_for(:album, description: nil)
         expect(response).to render_template("new")
       end
     end

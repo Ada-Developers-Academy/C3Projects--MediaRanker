@@ -7,7 +7,6 @@ RSpec.describe MoviesController, type: :controller do
   describe "GET #show" do
     it "renders the show template" do
       movie = create :movie
-
       get :show, id: movie.id
 
       expect(response).to have_http_status(200)
@@ -26,47 +25,28 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "POST #create" do
-    # positive test - movie params are valid
+    # positive test - params are valid
     context "Valid movie params" do
-      let(:movie_params) do
-        {
-          movie: {
-            name: 'new movie',
-            director: 'johnny appleseed',
-            description: 'this is the description'
-          }
-        }
-      end
-
       it "creates a Movie record" do
-        post :create, movie_params
+        post :create, movie: FactoryGirl.attributes_for(:movie)
         expect(Movie.count).to eq 1
       end
 
       it "redirects to the movie index page" do
-        post :create, movie_params
+        post :create, movie: FactoryGirl.attributes_for(:movie)
         expect(subject).to redirect_to(movies_path)
       end
     end
 
-    # negative test - movie params are invalid
+    # negative test - params are invalid
     context "Invalid movie params" do
-      let(:movie_params) do
-        {
-          movie: { # invalid because it's missing the :description key
-            name: 'new movie',
-            director: 'johnny appleseed'
-          }
-        }
-      end
-
       it "does not persist invalid records" do
-        post :create, movie_params
+        post :create, movie: FactoryGirl.attributes_for(:movie, description: nil)
         expect(Movie.count).to eq 0
       end
 
       it "renders the :new view (to allow users to fix invalid data)" do
-        post :create, movie_params
+        post :create, movie: FactoryGirl.attributes_for(:movie, description: nil)
         expect(response).to render_template("new")
       end
     end

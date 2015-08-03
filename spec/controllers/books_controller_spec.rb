@@ -25,47 +25,28 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "POST #create" do
-    # positive test - movie params are valid
+    # positive test -  params are valid
     context "Valid book params" do
-      let(:book_params) do
-        {
-          book: {
-            name: 'new book',
-            author: 'johnny appleseed',
-            description: 'this is the description'
-          }
-        }
-      end
-
       it "creates a Book record" do
-        post :create, book_params
+        post :create, book: FactoryGirl.attributes_for(:book)
         expect(Book.count).to eq 1
       end
 
       it "redirects to the book index page" do
-        post :create, book_params
+        post :create, book: FactoryGirl.attributes_for(:book)
         expect(subject).to redirect_to(books_path)
       end
     end
 
-    # negative test - movie params are invalid
+    # negative test - params are invalid
     context "Invalid book params" do
-      let(:book_params) do
-        {
-          book: { # invalid because it's missing the :description key
-            name: 'new book',
-            author: 'johnny appleseed'
-          }
-        }
-      end
-
       it "does not persist invalid records" do
-        post :create, book_params
+        post :create, book: FactoryGirl.attributes_for(:book, description: nil)
         expect(Book.count).to eq 0
       end
 
       it "renders the :new view (to allow users to fix invalid data)" do
-        post :create, book_params
+        post :create, book: FactoryGirl.attributes_for(:book, description: nil)
         expect(response).to render_template("new")
       end
     end
