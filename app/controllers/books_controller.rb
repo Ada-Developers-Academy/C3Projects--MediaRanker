@@ -1,8 +1,7 @@
 class BooksController < ApplicationController
-  before_action :find_book, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :find_book, except: [:index, :create, :new]
 
   def index
-    @controller = "books"
     @model = Book
   end
 
@@ -34,7 +33,7 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    @single.rank += 1
+    @single.increment!(:rank)
     @single.save
 
     redirect_to :book

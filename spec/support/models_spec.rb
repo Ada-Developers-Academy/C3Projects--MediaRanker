@@ -31,7 +31,6 @@ RSpec.shared_examples "a medium" do
       end # context top
 
       context "by_rank scope" do
-
         it "sorts media from highest to lowest rank" do
           rank_order = [@thing6, @thing5, @thing4, @thing3, @thing2, @thing1]
           expect(described_class.by_rank.first).to eq(@thing6)

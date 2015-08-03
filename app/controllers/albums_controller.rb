@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :find_album, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :find_album, except: [:index, :create, :new]
 
   def index
     @model = Album
@@ -26,7 +26,6 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @single = find_album
     @single.update(album_params)
     @single.save
 
@@ -34,6 +33,7 @@ class AlbumsController < ApplicationController
   end
 
   def upvote
+    # self.vote
     @single.increment!(:rank)
     @single.save
     redirect_to :album
@@ -49,6 +49,7 @@ class AlbumsController < ApplicationController
 private
   def self.model
     Album
+    # I feel like I can use this on line 5
   end
 
   def find_album
