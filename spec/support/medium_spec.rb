@@ -10,13 +10,13 @@ RSpec.shared_examples "a medium" do
       described_class.create(title: "e title", rank: 3)
       described_class.create(title: "f title", rank: 23)
 
-      @correct_order_top = [ 500, 56, 23, 10, 6 ]
-      @order_top = []
+      @expected_order_top = [ 500, 56, 23, 10, 6 ]
+      @actual_order_top = []
       described_class.all.top.each do |medium|
-        @order_top << medium.rank
+        @actual_order_top << medium.rank
       end
 
-      @correct_order_all = [ 500, 56, 23, 10, 6, 3 ]
+      @expected_order_all = [ 500, 56, 23, 10, 6, 3 ]
       @order_all = []
       described_class.all.rank_order.each do |medium|
         @order_all << medium.rank
@@ -27,7 +27,7 @@ RSpec.shared_examples "a medium" do
     describe "top scope" do
       it "orders the top 5 records" do
         expect(described_class.top.count).to eq 5
-        expect(@order_top).to eq @correct_order_top
+        expect(@actual_order_top).to eq @expected_order_top
       end
 
       it "does not include the 6th highest ranked" do
@@ -38,7 +38,7 @@ RSpec.shared_examples "a medium" do
     describe "rank_order scope" do
       it "orders all the records" do
         expect(described_class.rank_order.count).to eq 6
-        expect(@order_all).to eq @correct_order_all
+        expect(@order_all).to eq @expected_order_all
       end
     end
   end

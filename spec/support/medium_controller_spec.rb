@@ -18,6 +18,7 @@ RSpec.shared_examples "a medium controller" do
       it "creates a record" do
         post :create, params
         expect(model_object.count).to eq 1
+        expect(medium.title).to eq("a title")
       end
 
       it "sets value of rank to 0" do
