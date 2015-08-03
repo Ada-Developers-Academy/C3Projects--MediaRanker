@@ -39,6 +39,6 @@
   <%= button_to "Delete Movie", "/movies/#{@movie.id}", method: :delete, data: {confirm: "Are you Sure You Want to Delete This Movie?" } %>
   <br>
   <p>
-    <a href="/movies">Go Back to All Movies</a>
+    <%= link_to "Go Back to All Movies", movies_path %>
   </p>
 </div>

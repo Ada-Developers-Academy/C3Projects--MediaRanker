@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1><%= link_to "All Movies List", "/movies"%></h1>
+  <h1><%= link_to "All Movies List", movies_path %></h1>
   <table class="table table-hover table-condensed">
     <tr>
       <th>
@@ -18,7 +18,7 @@
     <% @movies.each do |movie| %>
     <tr>
       <td>
-        <%= link_to "#{movie.title}", "/movies/#{movie.id}", method: :get %>
+        <%= link_to "#{movie.title}", movie_path(movie.id), method: :get %>
       </td>
 
       <td>
@@ -40,5 +40,5 @@
     <% end %>
   </table>
   <br>
-  <%= button_to "Add new Movie", "/movies/new", method: :get%>
+  <%= button_to "Add new Movie", new_movie_path, method: :get%>
 </div>

@@ -39,6 +39,6 @@
   <%= button_to "Delete Book", "/books/#{@book.id}", method: :delete, data: {confirm: "Are you Sure You Want to Delete This Book?" } %>
   <br>
   <p>
-    <a href="/books">Go Back to All Books</a>
+    <%= link_to "All Books List", books_path %>
   </p>
 </div>
