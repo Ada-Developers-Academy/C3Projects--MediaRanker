@@ -5,8 +5,7 @@ class BooksController < ApplicationController
 
 
   def index
-    # MOVE TO MODEL SCOPE
-    @media = Book.all.order(rank: :desc)
+    @media = Book.ranked
     @new_media = Book.new
     @add_media = "a Book"
   end
@@ -49,7 +48,6 @@ class BooksController < ApplicationController
     @media.destroy
     redirect_to books_path
   end
-
 
 
   private

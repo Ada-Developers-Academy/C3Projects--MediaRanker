@@ -5,8 +5,7 @@ class MoviesController < ApplicationController
 
 
   def index
-    # MOVE TO MODEL SCOPE
-    @media = Movie.all.order(rank: :desc)
+    @media = Movie.ranked
     @new_media = Movie.new
     @add_media = "a Movie"
   end
@@ -49,7 +48,6 @@ class MoviesController < ApplicationController
     @media.destroy
     redirect_to movies_path
   end
-
 
 
   private
