@@ -6,8 +6,7 @@ class VideoGamesController < ApplicationController
   end
 
   def show
-    @video_game_id = params[:id]
-    @video_game = VideoGame.find(@video_game_id)
+    locate_video_game
 
     render :show
   end
@@ -29,8 +28,7 @@ class VideoGamesController < ApplicationController
 
   # Upvote an existing Video Game
   def upvote
-    @video_game_id = params[:id]
-    @video_game = VideoGame.find(@video_game_id)
+    locate_video_game
     @video_game.rating += 1
     @video_game.save
 
@@ -39,28 +37,30 @@ class VideoGamesController < ApplicationController
 
   # Update an existing Video Game
   def edit
-    @video_game_id = params[:id]
-    @video_game = VideoGame.find(@video_game_id)
+    locate_video_game
 
     render :edit
   end
 
   def update
-    @video_game_id = params[:id]
-    @video_game = VideoGame.find(@video_game_id)
+    locate_video_game
     @video_game.update(video_game_params[:video_game])
 
     redirect_to video_game_path(@video_game.id)
   end
 
   def destroy
-    @video_game_id = params[:id]
-    @video_game = VideoGame.find(@video_game_id)
+    locate_video_game
 
     @video_game.destroy
     redirect_to video_games_path
   end
 
+  def locate_video_game
+    video_game_id = params[:id]
+    @video_game = VideoGame.find(video_game_id)
+  end
+  
   private
 
   def video_game_params
