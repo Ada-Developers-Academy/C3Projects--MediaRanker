@@ -19,7 +19,7 @@ RSpec.shared_examples 'a MediaModel' do
     end
   end
 
-  describe "scope rank_order_top_ten" do
+  describe "scope rank_order_top" do
     it "returns a ranked array of only the top ten media" do
       counter = 0
 
@@ -28,7 +28,7 @@ RSpec.shared_examples 'a MediaModel' do
         counter += 1
       end
 
-      top_ten = described_class.rank_order_top_ten
+      top_ten = described_class.rank_order_top
 
       expect(top_ten.count).to eq 10
       expect(top_ten.first.rank).to eq 12
@@ -41,7 +41,7 @@ RSpec.shared_examples 'a MediaModel' do
       media = described_class.all
 
       correct_array = [medium2, medium1]
-      expect(media.rank_order_top_ten).to eq correct_array
+      expect(media.rank_order_top).to eq correct_array
     end
   end
 end
