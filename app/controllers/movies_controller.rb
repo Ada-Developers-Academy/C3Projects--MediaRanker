@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
+  before_action :find_movie, except: [:index, :new, :create]
 
   def index
    @movies = Movie.ordered
-   # I called a scope called 'ordered' to have all the movies listed in order
   end
 
   def new
@@ -11,7 +11,6 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params[:movie])
-    @movie.rank = 0
 
     if @movie.save
       render :show
@@ -20,16 +19,11 @@ class MoviesController < ApplicationController
     end
   end
 
-  def edit
-    @movie = Movie.find(params[:id])
-  end
+  def edit; end
 
-  def show
-    @movie = Movie.find(params[:id])
-  end
+  def show; end
 
   def update
-    @movie = Movie.find(params[:id])
     @movie.update(movie_params[:movie])
     if @movie.save
       redirect_to movie_path(@movie.id)
@@ -39,18 +33,20 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    @movie = Movie.find(params[:id])
-    @movie.rank += 1
-    @movie.save
+    Movie.upvote(@movie)
     redirect_to movie_path(@movie.id)
   end
 
   def destroy
-    Movie.destroy(params[:id])
+    @move.destroy
     redirect_to movies_path
   end
 
   private
+
+  def find_movie
+    @movie = Movie.find(params[:id])
+  end
 
   def movie_params
     params.permit(movie: [:name, :director, :description])

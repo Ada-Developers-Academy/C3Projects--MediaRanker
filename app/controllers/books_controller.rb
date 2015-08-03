@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :find_book, except: [:index, :new, :create]
 
   def index
    @books = Book.ordered
@@ -9,8 +10,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(create_params[:book])
-    @book.rank = 0
+    @book = Book.new(book_params[:book])
 
     if @book.save
       render :show
@@ -20,22 +20,12 @@ class BooksController < ApplicationController
 
   end
 
-  def edit
-    @book = Book.find(params[:id])
-  end
+  def edit; end
 
-  def show
-    @book = Book.find(params[:id])
-  end
+  def show; end
 
   def update
-    @book = Book.find(params[:id])
-
-    name_input = params[:book][:name]
-    author_input = params[:book][:author]
-    description_input = params[:book][:description]
-
-    @book.update(name: name_input, author: author_input , description: description_input)
+    @book.update(book_params[:book])
     if @book.save
       redirect_to book_path(@book.id)
     else
@@ -44,24 +34,22 @@ class BooksController < ApplicationController
   end
 
   def upvote
-    @book = Book.find(params[:id])
-    @book.rank += 1
-    @book.save
+    Book.upvote(@book)
     redirect_to book_path(@book.id)
   end
 
   def destroy
-    Book.destroy(params[:id])
+    @book.destroy
     redirect_to '/books'
   end
 
-private
+  private
 
-  def edit_params
-    params.permit(book: [:name, :author, :description])
+  def find_book
+    @book = Book.find(params[:id])
   end
 
-  def create_params
+  def book_params
     params.permit(book: [:name, :author, :description])
   end
 
