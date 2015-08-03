@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <table border = "1">
+  <tr>
+    <th>
+    Album Title
+    </th>
+    <th>
+    Artist
+    </th>
+    <th>
+    Description
+    </th>
+    <th>
+    Edit
+    </th>
+    <th>
+    Votes
+    </th>
+    </tr>
+
+  <tr>
+    <td>
+      <%= @album.title %>
+    </td>
+    <td>
+      <%= @album.artist %>
+    </td>
+    <td>
+      <%= @album.description %>
+    </td>
+    <td>
+      <%= button_to "Edit Album Details", edit_album_path(@album.id), method: :get %>
+    </td>
+    <td>
+      <%= @album.vote %>
+    </td>
+    </tr>
+</table>
+  <%= button_to "Delete Album", "/albums/#{@album.id}", method: :delete, data: {confirm: "Are you Sure You Want to Delete This Album?" } %>
+<p>
+<a href="/">Go Back to All Media</a>
+</p>
+</div>

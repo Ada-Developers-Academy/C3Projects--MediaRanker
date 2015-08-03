@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <table border = "1">
+  <tr>
+    <th>
+    Movie Title
+    </th>
+    <th>
+    Director
+    </th>
+    <th>
+    Description
+    </th>
+    <th>
+    Edit
+    </th>
+    <th>
+    Votes
+    </th>
+    </tr>
+
+  <tr>
+    <td>
+      <%= @movie.title %>
+    </td>
+    <td>
+      <%= @movie.director %>
+    </td>
+    <td>
+      <%= @movie.description %>
+    </td>
+    <td>
+      <%= button_to "Edit Movie Details", edit_movie_path(@movie.id), method: :get %>
+    </td>
+    <td>
+      <%= @movie.vote %>
+    </td>
+    </tr>
+</table>
+  <%= button_to "Delete Movie", "/movies/#{@movie.id}", method: :delete, data: {confirm: "Are you Sure You Want to Delete This Movie?" } %>
+<br>
+<p>
+<a href="/movies">Go Back to All Movies</a>
+</p>
+</div>

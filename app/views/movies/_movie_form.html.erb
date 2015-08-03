@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <%= form_for @movie do |t| %>
+  <fieldset class="form">
+
+  <div class="form_field">
+    <%= t.label :title %>
+    <%= t.text_field :title, required: "required" %>
+  </div>
+
+  <div class="form_field">
+    <%= t.label :director %>
+    <%= t.text_field :director %>
+  </div>
+
+  <div class="form_field">
+    <%= t.label :description %>
+    <%= t.text_field :description %>
+  </div>
+
+</fieldset>
+    <%=  t.submit class: "btn btn-primary" %>
+<% end %>
+</div>
