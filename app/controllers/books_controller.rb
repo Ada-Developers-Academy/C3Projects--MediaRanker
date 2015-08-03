@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(permit_params)
+    @book = Book.new(book_params)
     @book.rank = 0
     if @book.save
       super
@@ -28,7 +28,7 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    if @book.update(permit_params)
+    if @book.update(book_params)
       super
     else
       render :edit
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
 
   private
 
-  def permit_params
+  def book_params
     params.require(:book).permit(:name, :author, :description)
   end
 

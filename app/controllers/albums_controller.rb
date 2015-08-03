@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.new(permit_params)
+    @album = Album.new(album_params)
     @album.rank = 0
     if @album.save
       super
@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find(params[:id])
-    if @album.update(permit_params)
+    if @album.update(album_params)
       super
     else
       render :edit
@@ -50,7 +50,7 @@ class AlbumsController < ApplicationController
 
   private
 
-  def permit_params
+  def album_params
     params.require(:album).permit(:name, :artist, :description)
   end
 
