@@ -33,7 +33,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(create_params[:book])
-    @book.rank = 0
 
     if @book.save
       redirect_to book_path(@book)

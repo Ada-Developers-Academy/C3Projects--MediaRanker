@@ -33,11 +33,11 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(create_params[:movie])
-    @movie.rank = 0
 
     if @movie.save
       redirect_to movie_path(@movie)
     else
+
       render :new
     end
   end
