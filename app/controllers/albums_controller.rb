@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.all.rank_order
+    @albums = Album.rank_order
     @media_type = "album"
   end
 
@@ -45,7 +45,7 @@ class AlbumsController < ApplicationController
 
   def create
     album = Album.create(album_params)
-    
+
     if album.save
       redirect_to album_path(id: album.id)
     else

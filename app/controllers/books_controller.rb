@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all.rank_order
+    @books = Book.rank_order
     @media_type = "book"
   end
 

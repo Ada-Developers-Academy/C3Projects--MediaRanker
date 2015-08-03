@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all.rank_order
+    @movies = Movie.rank_order
     @media_type = "movie"
   end
 
