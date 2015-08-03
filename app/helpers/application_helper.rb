@@ -29,8 +29,16 @@ module ApplicationHelper
     ["new", "create"].include?(action_name) ? "New" : "Edit"
   end
 
+  def capital_plural_resource
+    controller_name.capitalize
+  end
+
+  def capital_singular_resource
+    capital_plural_resource[0..-2]
+  end
+
   def form_title
-    "#{form_title_action} #{controller_name[0..-2].capitalize}"
+    "#{form_title_action} #{capital_singular_resource}"
   end
 
   def medium_symbol

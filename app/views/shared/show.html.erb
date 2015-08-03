@@ -10,6 +10,6 @@
 
 <%= link_to "DELETE", @medium, { method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } } %>
 
-<%= link_to "View All #{controller_name.capitalize}", polymorphic_path(@medium.class), class: "btn btn-default" %>
+<%= link_to "View All #{capital_plural_resource}", polymorphic_path(@medium.class), class: "btn btn-default" %>
 
 <%= link_to "View All Media", root_path, class: "btn btn-default" %>

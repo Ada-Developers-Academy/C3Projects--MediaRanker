@@ -17,4 +17,4 @@
 
 <%= link_to "View All Media", root_path, class: "btn btn-default" %>
 
-<%= link_to "Add #{article} #{controller_name[0..-2].capitalize}", new_polymorphic_path(medium_symbol), class: "btn btn-default" %>
+<%= link_to "Add #{article} #{capital_singular_resource}", new_polymorphic_path(medium_symbol), class: "btn btn-default" %>
