@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+
+<%= render partial: "shared/item_info", locals: {
+  media: @movie,
+  artist: @movie.director,
+  by: "Directed by: " } %>
+
+<%= render partial: "shared/footer", locals: {
+  media: @movie,
+  delete_item_path: "/movies/#{@movie.id}",
+  name: "Movies",
+  view_all_path: movies_path } %>

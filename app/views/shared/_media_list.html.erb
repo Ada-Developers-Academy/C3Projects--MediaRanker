@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <table class="table table-hover">
+      <tr>
+        <th>Ranking</th>
+        <th>Name</th>
+        <th>Upvote</th>
+      </tr>
+
+      <% media.each do |item| %>
+        <tr>
+          <td>Ranked: <%= item.rank %></td>
+          <td><%= link_to "#{item.title}", polymorphic_path(item),
+          method: "get" %></td>
+          <td><%= button_to "Upvote", polymorphic_path([item, :upvote]),
+          method: "patch", class: "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <div>
+      <%= button_to "View All Media", root_path,
+      method: "get", class: "btn btn-default" %>
+    </div>
+    <div>
+      <%= button_to "Add #{name}", new_polymorphic_path(medium),
+      method: "get", class: "btn btn-default" %>
+    </div>
+  </div>
+</div>

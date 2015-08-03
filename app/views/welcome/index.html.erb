@@ -1,0 +1,15 @@
+<%= render 'shared/header' %>
+
+<div class="row">
+  <%= render partial: "shared/top_lists", locals: {
+    media: @movies,
+    name: "Movies" } %>
+
+  <%= render partial: "shared/top_lists", locals: {
+    media: @books,
+    name: "Books" } %>
+
+  <%= render partial: "shared/top_lists", locals: {
+    media: @albums,
+    name: "Albums" } %>
+</div>

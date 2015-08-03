@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+
+<%= render partial: "shared/item_info", locals: {
+  media: @album,
+  artist: @album.artist,
+  by: "Recorded by: " } %>
+
+<%= render partial: "shared/footer", locals: {
+  media: @album,
+  delete_item_path: "/albums/#{@album.id}",
+  name: "Albums",
+  view_all_path: albums_path } %>
