@@ -1,7 +1,12 @@
 class Medium < ActiveRecord::Base
-  scope :movies, -> { where(format: "movie") }
-  scope :books, -> { where(format: "book") }
-  scope :albums, -> { where(format: "album") }
+  MOVIE = "movie"
+  BOOK = "book"
+  ALBUM = "album"
+  ALL_MEDIA = [MOVIE, BOOK, ALBUM]
+
+  scope :movies, -> { where(format: MOVIE) }
+  scope :books, -> { where(format: BOOK) }
+  scope :albums, -> { where(format: ALBUM) }
 
   scope :best, -> (total) { order('votes DESC').limit(total) }
   scope :best_movies, -> (total) { movies.best(total) }
@@ -9,7 +14,7 @@ class Medium < ActiveRecord::Base
   scope :best_albums, -> (total) { albums.best(total) }
 
   validates :title, presence: true
-  validates :format, presence: true, inclusion: { in: ["movie", "book", "album"], message: "\"book\", \"movie\", and \"album\" are the only allowed formats." }
+  validates :format, presence: true, inclusion: { in: ALL_MEDIA, message: "These are the only allowed formats: #{ALL_MEDIA.join(', ')}." }
 
   def upvote
      self.votes += 1
@@ -18,11 +23,11 @@ class Medium < ActiveRecord::Base
 
   def self.all_objects(format)
     case format
-    when "movie"
+    when MOVIE
       Medium.movies
-    when "book"
+    when BOOK
       Medium.books
-    when "album"
+    when ALBUM
       Medium.albums
     else
       Medium.none
