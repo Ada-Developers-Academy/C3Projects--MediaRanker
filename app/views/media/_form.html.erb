@@ -1,0 +1,25 @@
+<%= form_for @object, html: {class: "form-group"} do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <!-- TODO: customize the "by" to be director/author/artist -->
+    <div class="form-group">
+      <%= f.label :creator, "By" %>
+      <%= f.text_field :creator, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
+
+    <!-- TODO: make this a collection-select -->
+    <div class="form-group">
+      <%= f.label :format %>
+      <%= f.text_field :format, class: "form-control" %>
+    </div>
+
+  <%= f.submit "Save" %>
+<% end %>

@@ -1,0 +1,7 @@
+its
+
+After asserting that a class responds to particular methods we may be interested in making assertions about default values. A great shorthand is the its keyword which provides a shortcut for the implicit subject’s attributes.
+
+    context "created with defaults" do
+      its(:votes) { should eq(0) }
+    end

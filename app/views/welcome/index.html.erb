@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-4">
+    <h2>Top Movies</h2>
+    <%= render "top_index", { objects: @movies } %>
+    <%= link_to "View More Movies", movies_path %>
+  </div>
+
+  <div class="col-md-4">
+    <h2>Top Books</h2>
+    <%= render "top_index", { objects: @books } %>
+    <%= link_to "View More Books", books_path %>
+  </div>
+
+  <div class="col-md-4">
+    <h2>Top Albums</h2>
+    <%= render "top_index", { objects: @albums } %>
+    <%= link_to "View More Albums", albums_path %>
+  </div>
+</div>

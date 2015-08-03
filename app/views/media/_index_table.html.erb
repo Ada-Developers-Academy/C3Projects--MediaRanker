@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Ranking</th>
+            <th>Name</th>
+            <th>Upvote</th>
+          </tr>
+        </thead>
+        <% objects.each do |object| %>
+          <tr>
+            <td class="col-xs-2">Ranked: <%= object.votes %></td>
+            <td class="col-xs-8"><%= link_to object.title, object_path(object) %></td>
+            <td class="col-xs-2"><%= button_to "Upvote", object_path(object), method: :put, params: { upvote: true }, class: "btn btn-default" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
