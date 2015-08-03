@@ -1,12 +1,11 @@
 class AlbumsController < ApplicationController
 
-
     def index
       @albums = Album.all
     end
 
     def show
-      @album = Album.find(params[:id])
+      find_album
     end
 
     def new
@@ -16,46 +15,50 @@ class AlbumsController < ApplicationController
 
     def create
       @albums = Album.all
-      @new = Album.new(create_params[:album])
+      @new = Album.new(album_params[:album])
       @new.save
 
       render :index
     end
 
-    def edit
+    def find_album
       @album = Album.find(params[:id])
+    end
+
+    def edit
+      find_album
       render :edit
     end
 
     def update
-      @album = Album.find(params[:id])
-      album_params = create_params[:album]
-      @album.update(album_params)
+      find_album
+      params = album_params[:album]
+      @album.update(params)
       @album.save
-      redirect_to "/albums/#{@album.id}"
+      redirect_to album_path
     end
 
 
     def destroy
-      @album = Album.find(params[:id])
+      find_album
       @album.destroy
-      redirect_to "/albums"
+      redirect_to albums_path
     end
 
     def upvote
-      @album = Album.find(params[:id])
+      find_album
       @album.increment!(:vote)
-      redirect_to "/albums"
+      redirect_to albums_path
     end
 
     def downvote
-      @album = Album.find(params[:id])
+      find_album
       @album.decrement!(:vote)
-      redirect_to "/albums"
+      redirect_to albums_path
     end
 
   private
-    def create_params
+    def album_params
       params.permit(album: [:title, :artist, :description, :vote])
     end
 

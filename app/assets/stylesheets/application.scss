@@ -14,6 +14,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .page-header{padding-bottom: 0px;
+ .page-header{padding-bottom: 20px;
    margin: 40px;
-   background:url(/assets/owl.jpg);background-repeat:no-repeat; }.page-header h1{margin-left:135px}form .btn-primary{margin-bottom:10px};
+   background:url(/assets/owl.jpg);background-repeat:no-repeat; };
+   .page-header h1{margin-left:135px}form .btn-primary{margin-bottom:10px};

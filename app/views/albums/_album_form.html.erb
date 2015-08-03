@@ -2,23 +2,22 @@
 <%= form_for @album do |t| %>
   <fieldset class="form-horizontal">
 
+    <div class="form_group">
+      <%= t.label :title %>
+      <%= t.text_field :title, required: "required" %>
+    </div>
 
-  <div class="form_group">
-    <%= t.label :title %>
-    <%= t.text_field :title, required: "required" %>
-  </div>
+    <div class="form_group">
+      <%= t.label :artist %>
+      <%= t.text_field :artist %>
+    </div>
 
-  <div class="form_group">
-    <%= t.label :artist %>
-    <%= t.text_field :artist %>
-  </div>
+    <div class="form_group">
+      <%= t.label :description %>
+      <%= t.text_field :description %>
+    </div>
 
-  <div class="form_group">
-    <%= t.label :description %>
-    <%= t.text_field :description %>
-  </div>
-
-</fieldset>
+  </fieldset>
     <%=  t.submit class: "btn btn-primary" %>
 <% end %>
 </div>

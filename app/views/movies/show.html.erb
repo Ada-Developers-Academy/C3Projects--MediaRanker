@@ -2,21 +2,21 @@
   <table border = "1">
   <tr>
     <th>
-    Movie Title
+      Movie Title
     </th>
     <th>
-    Director
+      Director
     </th>
     <th>
-    Description
+      Description
     </th>
     <th>
-    Edit
+      Edit
     </th>
     <th>
-    Votes
+      Votes
     </th>
-    </tr>
+  </tr>
 
   <tr>
     <td>
@@ -34,11 +34,11 @@
     <td>
       <%= @movie.vote %>
     </td>
-    </tr>
+  </tr>
 </table>
   <%= button_to "Delete Movie", "/movies/#{@movie.id}", method: :delete, data: {confirm: "Are you Sure You Want to Delete This Movie?" } %>
-<br>
-<p>
-<a href="/movies">Go Back to All Movies</a>
-</p>
+  <br>
+  <p>
+    <%= link_to "Go Back to All Movies", movies_path %>
+  </p>
 </div>

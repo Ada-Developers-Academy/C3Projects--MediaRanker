@@ -5,6 +5,10 @@ class BooksController < ApplicationController
       end
 
       def show
+        find_book
+      end
+
+      def find_book
         @book = Book.find(params[:id])
       end
 
@@ -15,46 +19,46 @@ class BooksController < ApplicationController
 
       def create
         @books = Book.all
-        @new = Book.new(create_params[:book])
+        @new = Book.new(book_params[:book])
         @new.save
 
         render :index
       end
 
       def edit
-        @book = Book.find(params[:id])
+        find_book
         render :edit
       end
 
       def update
-        @book = Book.find(params[:id])
-        album_params = create_params[:book]
-        @book.update(album_params)
+        find_book
+        params = book_params[:book]
+        @book.update(params)
         @book.save
-        redirect_to "/books/#{@book.id}"
+        redirect_to book_path
       end
 
 
       def destroy
-        @book = Book.find(params[:id])
+        find_book
         @book.destroy
-        redirect_to "/books"
+        redirect_to books_path
       end
 
       def upvote
-        @book = Book.find(params[:id])
+        find_book
         @book.increment!(:vote)
-        redirect_to "/books"
+        redirect_to books_path
       end
 
       def downvote
-        @book = Book.find(params[:id])
+        find_book
         @book.decrement!(:vote)
-        redirect_to "/books"
+        redirect_to books_path
       end
 
     private
-      def create_params
+      def book_params
         params.permit(book: [:title, :author, :description, :vote])
       end
 

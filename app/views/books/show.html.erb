@@ -1,44 +1,44 @@
 <div class="container-fluid">
   <table border = "1">
-  <tr>
-    <th>
-    Book Title
-    </th>
-    <th>
-    Author
-    </th>
-    <th>
-    Description
-    </th>
-    <th>
-    Edit
-    </th>
-    <th>
-    Votes
-    </th>
+    <tr>
+      <th>
+        Book Title
+      </th>
+      <th>
+        Author
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Edit
+      </th>
+      <th>
+        Votes
+      </th>
     </tr>
 
-  <tr>
-    <td>
-      <%= @book.title %>
-    </td>
-    <td>
-      <%= @book.author %>
-    </td>
-    <td>
-      <%= @book.description %>
-    </td>
-    <td>
-      <%= button_to "Edit Book Details", edit_book_path(@book.id), method: :get %>
-    </td>
-    <td>
-      <%= @book.vote %>
-    </td>
+    <tr>
+      <td>
+        <%= @book.title %>
+      </td>
+      <td>
+        <%= @book.author %>
+      </td>
+      <td>
+        <%= @book.description %>
+      </td>
+      <td>
+        <%= button_to "Edit Book Details", edit_book_path(@book.id), method: :get %>
+      </td>
+      <td>
+        <%= @book.vote %>
+      </td>
     </tr>
-</table>
+  </table>
   <%= button_to "Delete Book", "/books/#{@book.id}", method: :delete, data: {confirm: "Are you Sure You Want to Delete This Book?" } %>
   <br>
-<p>
-<a href="/books">Go Back to All Books</a>
-</p>
+  <p>
+    <%= link_to "All Books List", books_path %>
+  </p>
 </div>
