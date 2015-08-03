@@ -5,5 +5,7 @@ class WelcomeController < ApplicationController
     @books = Book.best(NUMBER_OF_BEST)
     @movies = Movie.best(NUMBER_OF_BEST)
     @albums = Album.best(NUMBER_OF_BEST)
+
+    @media = [ @movies, @books, @albums ]
   end
 end
