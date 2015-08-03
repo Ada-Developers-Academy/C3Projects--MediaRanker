@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_medium, only: [:show, :edit, :update, :upvote, :destroy]
+  before_action :set_medium, except: [:index, :new, :create]
 
   def index
     @media = Book.ranked
