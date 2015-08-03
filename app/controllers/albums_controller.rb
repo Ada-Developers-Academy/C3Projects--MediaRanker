@@ -14,7 +14,6 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
-    @album.rank = 0
     if @album.save
       super
     else

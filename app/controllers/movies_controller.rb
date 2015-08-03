@@ -13,8 +13,8 @@ class MoviesController < ApplicationController
   end
 
   def create
+    raise
     @movie = Movie.new(movie_params)
-    @movie.rank = 0
     if @movie.save
       super
     else

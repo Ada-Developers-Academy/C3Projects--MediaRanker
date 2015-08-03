@@ -14,7 +14,7 @@ RSpec.shared_examples "a media" do
 
     context "rank validating" do
 
-      it "requires a rank" do
+      it "assigns a rank" do
         expect(media).to_not be_valid
         expect(media.errors.keys).to include(:rank)
       end

@@ -14,7 +14,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.rank = 0
     if @book.save
       super
     else
