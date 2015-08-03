@@ -1,10 +1,16 @@
 module ApplicationHelper
+ALBUM = "album"
+BOOK = "book"
+MOVIE = "movie"
+BOOKS = "books"
+ALBUMS = "albums"
+MOVIES = "movies"
 
   #decides on a path for upvote action
   def pick_upvote_path(media)
-    if media.format == "book"
+    if media.format == BOOK
       book_upvote_path(media.id)
-    elsif media.format == "album"
+    elsif media.format == ALBUM
       album_upvote_path(media.id)
     else
       movie_upvote_path(media.id)
@@ -13,9 +19,9 @@ module ApplicationHelper
 
   #decides on a path for show, update, and destroy action
   def pick_path(media)
-    if media.format == "book"
+    if media.format == BOOK
       book_path(media.id)
-    elsif media.format == "album"
+    elsif media.format == ALBUM
       album_path(media.id)
     else
       movie_path(media.id)
@@ -24,9 +30,9 @@ module ApplicationHelper
 
   #decides on a path for the edit action
   def pick_edit_path(media)
-    if media.format == "book"
+    if media.format == BOOK
       edit_book_path
-    elsif media.format == "album"
+    elsif media.format == ALBUM
       edit_album_path
     else
       edit_movie_path
@@ -35,9 +41,9 @@ module ApplicationHelper
 
   #decides on a path for the index action
   def pick_index_path(media)
-    if media.format == "book"
+    if media.format == BOOK
       book_index_path
-    elsif media.format == "album"
+    elsif media.format == ALBUM
       album_index_path
     else
       movie_index_path
@@ -46,9 +52,9 @@ module ApplicationHelper
 
   #decides on a path for the new action
   def pick_new_path(media)
-    if media.format == "book"
+    if media.format == BOOK
       new_book_path
-    elsif media.format == "album"
+    elsif media.format == ALBUM
       new_album_path
     else
       new_movie_path
@@ -57,9 +63,9 @@ module ApplicationHelper
 
   #choses a creator name for each media in the form
   def creator
-    if request.path.include?("books")
+    if request.path.include?(BOOKS)
       "Author"
-    elsif request.path.include?("movies")
+    elsif request.path.include?(MOVIES)
       "Director"
     else
       "Artist"
@@ -68,11 +74,11 @@ module ApplicationHelper
 
   #choses a format for the format column in the table when creating a media. 
   def pick_format
-    if request.path.include?("books")
+    if request.path.include?(BOOKS)
       "book"
-    elsif request.path.include?("movies")
+    elsif request.path.include?(MOVIES)
       "movie"
-    elsif request.path.include?("albums")
+    elsif request.path.include?(ALBUMS)
       "album"
     end
   end

@@ -1,5 +1,9 @@
 class MediaController < ApplicationController
-  before_action :find_media
+  before_action :find_media, only: [:home, :index]
+  before_action :media, only: [:show, :edit, :update, :upvote]
+
+  BOOKS = "books"
+  MOVIES = "movies"
 
   MEDIA_LIMIT = 4
 
@@ -16,9 +20,9 @@ class MediaController < ApplicationController
   end
 
   def index
-    if request.path.include?("books")
+    if request.path.include?(BOOKS)
       @media = @books
-    elsif request.path.include?("movies")
+    elsif request.path.include?(MOVIES)
       @media = @movies
     else
       @media = @albums
@@ -44,16 +48,16 @@ class MediaController < ApplicationController
 
 
   def show
-    @media = find_medium(params[:id])
+    
   end
 
   def edit
-    @media = find_medium(params[:id])
+    
     @method = :patch
   end
 
   def update
-    @media = find_medium(params[:id])
+  
     if @media.update(media_params)
       redirect_to Medium.pick_path(@media)
     else
@@ -64,7 +68,6 @@ class MediaController < ApplicationController
   end
 
   def upvote
-    @media = find_medium(params[:id])
     @media.votes += 1
     @media.save
     @method = :patch
@@ -72,7 +75,7 @@ class MediaController < ApplicationController
   end
 
   def destroy
-    media = find_medium(params[:id])
+    media = Medium.find(params[:id])
     format = media.format
     media.destroy
     redirect_to Medium.pick_index_path(format)
@@ -83,4 +86,10 @@ private
   def media_params
     params.require(:medium).permit(:name, :description, :creator, :format, :votes)
   end
+
+  def media
+    @media = Medium.find(params[:id])
+  end
+
+  
 end
