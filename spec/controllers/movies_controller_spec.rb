@@ -57,7 +57,7 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     context "invalid params" do
-      let(:movie_params) do
+      let(:invalid_movie_params) do
         {
           movie: {
             # no :name, which is required,
@@ -67,13 +67,13 @@ RSpec.describe MoviesController, type: :controller do
       end
 
       it "doesn't create invalid records" do
-        post :create, movie_params
+        post :create, invalid_movie_params
 
         expect(Movie.count).to eq(0)
       end
 
       it "renders #new" do
-        post :create, movie_params
+        post :create, invalid_movie_params
 
         expect(response).to be_success
         expect(response).to have_http_status(200)
@@ -125,6 +125,12 @@ RSpec.describe MoviesController, type: :controller do
   describe "DELETE #destroy" do
     let(:movie) do
       Movie.create(name: "Test Name")
+    end
+
+    it "has one record" do
+      movie
+      
+      expect(Movie.count).to eq(1)
     end
 
     it "destroys a record" do
