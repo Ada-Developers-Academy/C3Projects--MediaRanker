@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
 
   before_action :find_and_set_media, only: [:upvote, :show, :edit, :update, :destroy]
+  before_action :set_creator, only: [:show, :new, :create, :edit, :update]
+
 
   def index
     # MOVE TO MODEL SCOPE
@@ -16,19 +18,15 @@ class MoviesController < ApplicationController
 
   def show
     @created = "Directed"
-    # MAKE BEFORE ACTION
-    @creator = :director
     @format = "Movies"
   end
 
   def new
     @media = Movie.new
-    @creator = :director
   end
 
   def create
     @media = Movie.create(movie_params)
-    @creator = :director
     if @media.save
       redirect_to movie_path(@media)
     else
@@ -37,11 +35,9 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @creator = :director
   end
 
   def update
-    @creator = :director
     if @media.update(movie_params)
       redirect_to movie_path(@media)
     else
@@ -60,6 +56,10 @@ class MoviesController < ApplicationController
 
   def find_and_set_media
     @media = Movie.find(params[:id])
+  end
+
+  def set_creator
+    @creator = :director
   end
 
   def movie_params

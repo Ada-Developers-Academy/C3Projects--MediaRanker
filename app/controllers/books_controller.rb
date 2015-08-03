@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
 
   before_action :find_and_set_media, only: [:upvote, :show, :edit, :update, :destroy]
+  before_action :set_creator, only: [:show, :new, :create, :edit, :update]
+
 
   def index
     # MOVE TO MODEL SCOPE
@@ -16,19 +18,15 @@ class BooksController < ApplicationController
 
   def show
     @created = "Written"
-    # MAKE BEFORE ACTION
-    @creator = :author
     @format = "Books"
   end
 
   def new
     @media = Book.new
-    @creator = :author
   end
 
   def create
     @media = Book.create(book_params)
-    @creator = :author
     if @media.save
       redirect_to book_path(@media)
     else
@@ -37,11 +35,9 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @creator = :author
   end
 
   def update
-    @creator = :author
     if @media.update(book_params)
       redirect_to book_path(@media)
     else
@@ -60,6 +56,10 @@ class BooksController < ApplicationController
 
   def find_and_set_media
     @media = Book.find(params[:id])
+  end
+
+  def set_creator
+    @creator = :author
   end
 
   def book_params
