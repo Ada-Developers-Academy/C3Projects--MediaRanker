@@ -1,7 +1,12 @@
 class AlbumsController < ApplicationController
+  before_action :find_album, only: [:show, :edit, :update, :destroy]
 
   def self.model
     Album
+  end
+
+  def find_album #Extracts out this search into one method
+    @album = Album.find(params[:id])
   end
 
   def index
@@ -11,7 +16,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id])
+
   end
 
   def upvote
@@ -28,7 +33,6 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(create_params[:album])
-    @album.rank = 0
 
     if @album.save
       redirect_to album_path(@album)
@@ -38,18 +42,16 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    show
+
   end
 
   def update
-    edit
     @album.update(create_params[:album])
 
     redirect_to album_path(@album)
   end
 
   def destroy
-    edit
     @album.destroy
 
     redirect_to albums_path

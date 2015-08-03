@@ -19,7 +19,8 @@
 </table>
 
 <%= link_to "View All Media", root_path, class: "btn btn-default" %>
-<%= link_to "Add #{media}", "/#{object_path}/new", class: "btn btn-default" %>
+<!-- Changed url below to use polymorphic paths -->
+<%= link_to "Add #{media}", polymorphic_path([:new, object]), class: "btn btn-default" %>
 
 
 

@@ -1,7 +1,12 @@
 class BooksController < ApplicationController
+  before_action :find_book, only: [:show, :edit, :update, :destroy]
 
   def self.model
     Book
+  end
+
+  def find_book #Extracts out this search into one method
+    @book = Book.find(params[:id])
   end
 
   def index
@@ -11,7 +16,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+
   end
 
   def upvote
@@ -28,7 +33,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(create_params[:book])
-    @book.rank = 0
 
     if @book.save
       redirect_to book_path(@book)
@@ -38,18 +42,16 @@ class BooksController < ApplicationController
   end
 
   def edit
-    show
+
   end
 
   def update
-    edit
     @book.update(create_params[:book])
 
     redirect_to book_path(@book)
   end
 
   def destroy
-    edit
     @book.destroy
 
     redirect_to books_path
@@ -60,5 +62,4 @@ class BooksController < ApplicationController
   def create_params
     params.permit(book: [:name, :creator, :description, :rank])
   end
-
 end

@@ -1,4 +1,6 @@
-<h3><%= link_to object.name, "/#{object_path}/#{object.id}" %> <small>Ranked: <%= object.rank %></small></h3>
+<h3><%= link_to object.name, polymorphic_path(object) %> <small>Ranked: <%= object.rank %></small></h3>
 
+<!-- Changed link above to polymorphic path
+ -->
 
 

@@ -1,9 +1,9 @@
 <%= render "shared/header" %>
 
 <% { "movies" => @movies, "books" => @books, "albums" => @albums }.each do |key, value| %>
-<div class="col-sm-4">
+  <div class="col-sm-4">
     <h2>Top <%= "#{key.capitalize}" %></h2>
-    <%= render partial: "list", collection: value, as: :object, locals: {object_path: key } %>
+    <%= render partial: "list", collection: value, as: :object %>
      <%= link_to "View More #{key.capitalize}", "/#{key}" %>
   </div>
 <% end %>

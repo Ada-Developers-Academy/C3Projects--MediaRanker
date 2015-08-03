@@ -3,6 +3,7 @@
 <h2><%="#{action} #{object.class}" %></h2>
 
 <%= form_for object, html: {class: "form"} do |f| %>
+<!-- I tested not interpolating "creator" below. When it is not interpolated, it generates "Creator" on the form, instead of using the local variable defined in the view pages.  -->
   <% {name: :name, creator: "#{creator}", description: :description}.each do |key, value| %>
     <div class="form-group">
     <%= f.label value %>
