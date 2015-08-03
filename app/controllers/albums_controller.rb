@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :find_book, except: [:index, :new, :create]
+  before_action :find_album, except: [:index, :new, :create]
 
   def index
    @albums = Album.ordered
@@ -24,11 +24,7 @@ class AlbumsController < ApplicationController
   def show; end
 
   def update
-    name_input = params[:album][:name]
-    artist_input = params[:album][:artist]
-    description_input = params[:album][:description]
-
-    @album.update(name: name_input, artist: artist_input, description: description_input)
+    @album.update(album_params[:album])
     if @album.save
       redirect_to album_path(@album.id)
     else

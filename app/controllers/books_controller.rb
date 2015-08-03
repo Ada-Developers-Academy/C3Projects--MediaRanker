@@ -25,11 +25,7 @@ class BooksController < ApplicationController
   def show; end
 
   def update
-    name_input = params[:book][:name]
-    author_input = params[:book][:author]
-    description_input = params[:book][:description]
-
-    @book.update(name: name_input, author: author_input , description: description_input)
+    @book.update(book_params[:book])
     if @book.save
       redirect_to book_path(@book.id)
     else
