@@ -1,0 +1,11 @@
+<div class="col-lg-12">
+  <%= render partial: "shared/show", locals: { medium: @movie,
+                                                      creator: @movie.director,
+                                                      created_by: "Directed by: " }%>
+
+  <%= button_to "Upvote", movie_path, method: :put, class: "btn btn-primary", style: "margin-bottom: 10px" %>
+  <%= link_to "Edit #{@movie.title}", edit_movie_path, class: "btn btn-default" %>
+  <%= link_to "Delete", movie_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger" %>
+  <%= link_to "View all Movies", movies_path, class: "btn btn-default" %>
+  <%= link_to "View all Media", root_path, class: "btn btn-default" %>
+</div>
