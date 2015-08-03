@@ -1,0 +1,10 @@
+<div class="col-md-4">
+  <h1>Top <%= "#{title}" %></h1>
+    <% media.each do |medium| %>
+      <h2>
+        <%= link_to medium.title, polymorphic_path(medium) %>
+        <small>Ranked: <%= medium.votes %></small>
+      </h2>
+    <% end %>
+  <%= link_to "View More #{title}", polymorphic_path(medium_class) %>
+</div>

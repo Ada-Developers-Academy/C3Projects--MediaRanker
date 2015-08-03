@@ -1,4 +1,4 @@
-<%= render partial: "shared/index", locals: { objects: @albums,
-                                              new_medium_path: new_album_path,
-                                              medium: 'an Album',
-                                              media: 'albums' } %>
+<%= render partial: "shared/index", locals: { medium: @albums,
+                                              medium_name: 'an Album',
+                                              media: 'albums',
+                                              medium_class: :album } %>

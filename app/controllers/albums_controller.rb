@@ -14,7 +14,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.new(create_params)
+    @album = Album.new(album_params)
     if @album.save
       redirect_to album_path(@album)
     else
@@ -22,15 +22,14 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if params[:upvote] == "true"
       Album.upvote(@album)
       redirect_to album_path(@album)
     else
-      if @album.update(create_params)
+      if @album.update(album_params)
         redirect_to album_path(@album)
       else
         render :edit
@@ -38,8 +37,7 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @album.destroy
@@ -52,7 +50,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
-  def create_params
+  def album_params
     params.require(:album).permit(:title, :recorded_by, :description)
   end
 end
