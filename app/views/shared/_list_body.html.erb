@@ -1,0 +1,5 @@
+<tr>
+  <td>Ranked: <%= object.rank %></td>
+  <td><%= link_to object.name, polymorphic_path(object) %></td>
+  <td><%= button_to "Upvote", polymorphic_path(object, action: 'upvote'), method: "patch", class: "btn btn-default" %></td>
+</tr>
