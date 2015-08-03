@@ -64,22 +64,6 @@ RSpec.describe Medium, type: :model do
         medium.save
         expect(medium.errors.keys).to_not include(field)
       end
-
-      if integer_fields.include? field
-        it "requires an integer value to be valid" do
-          invalid_integers.each do |not_int|
-            medium = Medium.new(field => not_int)
-            medium.save
-            expect(medium.errors.keys).to include(field)
-          end
-
-          valid_integers.each do |int|
-            medium = Medium.new(field => int)
-            medium.save
-            expect(medium.errors.keys).to_not include(field)
-          end
-        end
-      end
     end
   end
 
