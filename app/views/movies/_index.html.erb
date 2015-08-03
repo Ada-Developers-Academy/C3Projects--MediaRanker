@@ -1,19 +1,19 @@
 <div class="container-fluid">
   <h1><%= link_to "All Movies List", "/movies"%></h1>
-<table class="table table-hover table-condensed">
-  <tr>
-    <th>
-      Movie Title
-    </th>
+  <table class="table table-hover table-condensed">
+    <tr>
+      <th>
+        Movie Title
+      </th>
 
-    <th>
-    Cast Vote
-    </th>
+      <th>
+        Cast Vote
+      </th>
 
-    <th>
-      Overall Score
-    </th>
-  </tr>
+      <th>
+        Overall Score
+      </th>
+    </tr>
 
     <% @movies.each do |movie| %>
     <tr>
@@ -26,7 +26,7 @@
           <%= button_to "   👍+1   ", "movies/upvote/#{movie.id}", method: :patch %>
         </span>
         <span style="float:left; margin:5px">
-          <%= button_to "   👎-1   ", "moovies/downvote/#{movie.id}", method: :patch %>
+          <%= button_to "   👎-1   ", "movies/downvote/#{movie.id}", method: :patch %>
         </span>
       </td>
 
@@ -36,9 +36,9 @@
         </center>
       </td>
 
-      </tr>
-  <% end %>
-</table>
-<br>
-<%= button_to "Add new Movie", "/movies/new", method: :get%>
+    </tr>
+    <% end %>
+  </table>
+  <br>
+  <%= button_to "Add new Movie", "/movies/new", method: :get%>
 </div>

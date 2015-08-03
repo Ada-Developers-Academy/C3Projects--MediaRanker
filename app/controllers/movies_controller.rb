@@ -5,6 +5,10 @@ class MoviesController < ApplicationController
   end
 
   def show
+    find_movie
+  end
+
+  def find_movie
     @movie = Movie.find(params[:id])
   end
 
@@ -15,47 +19,45 @@ class MoviesController < ApplicationController
 
   def create
     @movies = Movie.all
-    @new = Movie.new(create_params[:movie])
+    @new = Movie.new(movie_params[:movie])
     @new.save
-
     render :index
   end
 
   def edit
-    @movie = Movie.find(params[:id])
+    find_movie
     render :edit
   end
 
   def update
-    @movie = Movie.find(params[:id])
-    movie_params = create_params[:movie]
-    @movie.update(movie_params)
+    find_movie
+    params = movie_params[:movie]
+    @movie.update(params)
     @movie.save
-    redirect_to "/movies/#{@movie.id}"
+    redirect_to movie_path
   end
 
-
   def destroy
-    @movie = Movie.find(params[:id])
+    find_movie
     @movie.destroy
-    redirect_to "/movies"
+    redirect_to movies_path
   end
 
   def upvote
-    @movie = Movie.find(params[:id])
+    find_movie
     @movie.increment!(:vote)
-    redirect_to "/movies"
+    redirect_to movies_path
   end
 
   def downvote
-    @movie = Movie.find(params[:id])
+    find_movie
     @movie.decrement!(:vote)
-    redirect_to "/movies"
+    redirect_to movies_path
   end
 
 
 private
-  def create_params
+  def movie_params
     params.permit(movie: [:title, :director, :description, :vote])
   end
 

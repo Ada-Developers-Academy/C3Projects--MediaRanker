@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>
-    Media Ranker
-  </title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= render "/layouts/header.html.erb" %>
-</head>
-<body>
+  <head>
+    <title>
+      Media Ranker
+    </title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= render "/layouts/header.html.erb" %>
+  </head>
+  <body>
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+  </body>
 </html>
