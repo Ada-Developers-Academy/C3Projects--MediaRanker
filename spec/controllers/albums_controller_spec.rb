@@ -1,33 +1,13 @@
 require 'rails_helper'
+require 'support/shared_controller_examples'
 
 RSpec.describe AlbumsController, type: :controller do
-
-  describe "GET #index" do
-    it "renders the index template" do
-      get :index
-
-      expect(response).to have_http_status(200)
-      expect(response).to render_template("index")
-    end
-  end
+  it_behaves_like "medium"
 
   describe "GET #show" do
-    let(:album_params) do
-      {
-        album: {
-          name: 'new album',
-          artist: 'johnny appleseed',
-          description: 'this is the description'
-        }
-      }
-    end
-
-    before :each do
-      @album = Album.create(album_params[:album])
-    end
-
     it "renders the show template" do
-      get :show, id: @album.id
+      album = create :album
+      get :show, id: album.id
 
       expect(response).to have_http_status(200)
       expect(response).to render_template("show")
@@ -35,22 +15,9 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "GET #edit" do
-    let(:album_params) do
-      {
-        album: {
-          name: 'new album',
-          artist: 'johnny appleseed',
-          description: 'this is the description'
-        }
-      }
-    end
-
-    before :each do
-      @album = Album.create(album_params[:album])
-    end
-
     it "renders the edit template" do
-      get :edit, id: @album.id
+      album = create :album
+      get :edit, id: album.id
 
       expect(response).to have_http_status(200)
       expect(response).to render_template("edit")
@@ -105,16 +72,6 @@ RSpec.describe AlbumsController, type: :controller do
   end
 
   describe "PATCH #update" do
-    let(:album_params) do
-      {
-        album: {
-          name: 'new album',
-          artist: 'johnny appleseed',
-          description: 'this is the description'
-        }
-      }
-    end
-
     let(:new_album_params) do
       {
         album: {
@@ -126,7 +83,7 @@ RSpec.describe AlbumsController, type: :controller do
     end
 
     before :each do
-      @album = Album.create(album_params[:album])
+      @album = create :album, artist: "johnny appleseed"
     end
 
     # positive test - it updates attributes
@@ -144,22 +101,9 @@ RSpec.describe AlbumsController, type: :controller do
   end 
 
   describe "DELETE #destroy" do
-    let(:album_params) do
-      {
-        album: {
-          name: 'new album',
-          artist: 'johnny appleseed',
-          description: 'this is the description'
-        }
-      }
-    end
-
-    before :each do
-      @album = Album.create(album_params[:album])
-    end
-
     it "deletes a record" do
-      delete :destroy, id: @album.id
+      album = create :album
+      delete :destroy, id: album.id
       expect(Album.count).to eq 0
     end
   end

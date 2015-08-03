@@ -1,33 +1,14 @@
 require 'rails_helper'
+require 'support/shared_controller_examples'
 
 RSpec.describe MoviesController, type: :controller do
-
-  describe "GET #index" do
-    it "renders the index template" do
-      get :index
-
-      expect(response).to have_http_status(200)
-      expect(response).to render_template("index")
-    end
-  end
+  it_behaves_like "medium"
 
   describe "GET #show" do
-    let(:movie_params) do
-      {
-        movie: {
-          name: 'new movie',
-          director: 'johnny appleseed',
-          description: 'this is the description'
-        }
-      }
-    end
-
-    before :each do
-      @movie = Movie.create(movie_params[:movie])
-    end
-
     it "renders the show template" do
-      get :show, id: @movie.id
+      movie = create :movie
+
+      get :show, id: movie.id
 
       expect(response).to have_http_status(200)
       expect(response).to render_template("show")
@@ -35,22 +16,9 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "GET #edit" do
-    let(:movie_params) do
-      {
-        movie: {
-          name: 'new movie',
-          director: 'johnny appleseed',
-          description: 'this is the description'
-        }
-      }
-    end
-
-    before :each do
-      @movie = Movie.create(movie_params[:movie])
-    end
-
     it "renders the edit template" do
-      get :edit, id: @movie.id
+      movie = create :movie
+      get :edit, id: movie.id
 
       expect(response).to have_http_status(200)
       expect(response).to render_template("edit")
@@ -105,16 +73,6 @@ RSpec.describe MoviesController, type: :controller do
   end
 
   describe "PATCH #update" do
-    let(:movie_params) do
-      {
-        movie: {
-          name: 'new movie',
-          director: 'johnny appleseed',
-          description: 'my description'
-        }
-      }
-    end
-
     let(:new_movie_params) do
       {
         movie: {
@@ -126,7 +84,7 @@ RSpec.describe MoviesController, type: :controller do
     end
 
     before :each do
-      @movie = Movie.create(movie_params[:movie])
+      @movie = create :movie, director: "johnny appleseed"
     end
 
     # positive test - it updates the movie's attributes
@@ -144,22 +102,9 @@ RSpec.describe MoviesController, type: :controller do
   end 
 
   describe "DELETE #destroy" do
-    let(:movie_params) do
-      {
-        movie: {
-          name: 'new movie',
-          director: 'johnny appleseed',
-          description: 'my description'
-        }
-      }
-    end
-
-    before :each do
-      @movie = Movie.create(movie_params[:movie])
-    end
-
     it "deletes a movie record" do
-      delete :destroy, id: @movie.id
+      movie = create :movie
+      delete :destroy, id: movie.id
       expect(Movie.count).to eq 0
     end
   end
