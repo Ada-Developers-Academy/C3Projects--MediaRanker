@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
 
   def index
-    @movies  = Movie.best(5)
-    @books   = Book.best(5)
-    @albums  = Album.best(5)
+    @movies  = Movie.best(NUMBER_OF_TOP_MEDIA_TO_DISPLAY)
+    @books   = Book.best(NUMBER_OF_TOP_MEDIA_TO_DISPLAY)
+    @albums  = Album.best(NUMBER_OF_TOP_MEDIA_TO_DISPLAY)
   end
 
 end

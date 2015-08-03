@@ -1,11 +1,12 @@
 class BooksController < ApplicationController
 
+  before_action :find_book, except: [:index, :new, :create]
+
   def index
     @books = Book.all
   end
 
   def show
-    @book = Book.find(params[:id])
   end
 
   def new
@@ -13,8 +14,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    params = create_params[:book]
-    params[:rank] = 0
+    params = book_params[:book]
     @book = Book.new(params)
 
     if @book.save
@@ -25,25 +25,21 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
-    @book.update(create_params[:book])
+    @book.update(book_params[:book])
 
     redirect_to book_path(params[:id])
   end
 
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
 
     redirect_to '/books'    
   end
 
   def upvote
-    @book = Book.find(params[:id])
     @book.rank += 1
     @book.save
 
@@ -53,8 +49,12 @@ class BooksController < ApplicationController
 ##################### PRIVATE METHODS #####################
   private
 
-  def create_params
+  def book_params
     params.permit(book: [:id, :name, :author, :description, :rank])
+  end
+
+  def find_book
+    @book = Book.find(params[:id])
   end
   
 end
