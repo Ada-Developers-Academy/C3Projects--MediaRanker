@@ -4,11 +4,14 @@ class AlbumsController < ApplicationController
   before_action :find_media, only: [:show, :edit, :update, :destroy, :upvote]
 
   def create
-    @medium.create(create_params[:album])
+    @medium = Album.new(create_params[:album])
+    @medium.save
+    redirect_to albums_path
   end
 
   def update
     @media.update(create_params[:album])
+    redirect_to album_path(@media)
   end
 
   private

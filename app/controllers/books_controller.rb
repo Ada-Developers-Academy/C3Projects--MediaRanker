@@ -4,11 +4,14 @@ class BooksController < ApplicationController
   before_action :find_media, only: [:show, :edit, :update, :destroy, :upvote]
 
   def create
-    @medium.create(create_params[:book])
+    @medium = Book.new(create_params[:book])
+    @medium.save
+    redirect_to books_path
   end
 
   def update
     @media.update(create_params[:book])
+    redirect_to book_path(@media)
   end
 
   private

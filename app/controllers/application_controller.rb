@@ -9,17 +9,7 @@ class ApplicationController < ActionController::Base
 
   def new; end
 
-  def create
-    @medium.create(create_params[:media])
-    redirect_to polymorphic_path(@medium)
-  end
-
   def edit; end
-
-  def update
-    @media.update(create_params[:media])
-    redirect_to polymorphic_path(@media)
-  end
 
   def destroy
     @media.destroy

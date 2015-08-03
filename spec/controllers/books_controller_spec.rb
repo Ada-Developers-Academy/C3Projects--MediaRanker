@@ -62,9 +62,9 @@ RSpec.describe BooksController, type: :controller do
       expect(Book.count).to eq(1)
     end
 
-    it "redirects to the book show page" do
+    it "redirects to the book index page" do
       post :create, valid_book
-      expect(response).to redirect_to(book_path(assigns(:media)))
+      expect(response).to redirect_to(books_path)
     end
   end
 

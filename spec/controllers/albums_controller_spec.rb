@@ -63,9 +63,9 @@ RSpec.describe AlbumsController, type: :controller do
       expect(Album.count).to eq(1)
     end
 
-    it "redirects to the album show page" do
+    it "redirects to the album index page" do
       post :create, valid_album
-      expect(response).to redirect_to(album_path(assigns(:media)))
+      expect(response).to redirect_to(albums_path)
     end
   end
 

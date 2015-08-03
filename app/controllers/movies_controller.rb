@@ -4,11 +4,14 @@ class MoviesController < ApplicationController
   before_action :find_media, only: [:show, :edit, :update, :destroy, :upvote]
 
   def create
-    @medium.create(create_params[:movie])
+    @medium= Movie.new(create_params[:movie])
+    @medium.save
+    redirect_to movies_path
   end
 
   def update
     @media.update(create_params[:movie])
+    redirect_to movie_path(@media)
   end
 
   private
