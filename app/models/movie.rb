@@ -2,7 +2,7 @@ class Movie < ActiveRecord::Base
   # Associations ---------------------------------------------------------------
 
    # Validations ----------------------------------------------------------------
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
    # Scopes ---------------------------------------------------------------------
   scope :top, -> { order('rank DESC').limit(5) }

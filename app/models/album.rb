@@ -2,7 +2,7 @@ class Album < ActiveRecord::Base
   # Associations ---------------------------------------------------------------
 
    # Validations ----------------------------------------------------------------
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
    # Scopes ---------------------------------------------------------------------
 
