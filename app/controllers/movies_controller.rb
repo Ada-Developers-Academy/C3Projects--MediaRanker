@@ -44,8 +44,6 @@ class MoviesController < ApplicationController
   end
 
   def create
-    # this creates a movie with a rank of 0
-    params[:movie][:rank] = 0
     movie = Movie.create(movie_params)
 
     # this keeps you on the page to edit/create the form if you try

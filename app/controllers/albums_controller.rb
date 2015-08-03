@@ -44,9 +44,8 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    params[:album][:rank] = 0
     album = Album.create(album_params)
-
+    
     if album.save
       redirect_to album_path(id: album.id)
     else

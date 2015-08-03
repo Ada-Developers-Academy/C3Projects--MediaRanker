@@ -44,7 +44,6 @@ class BooksController < ApplicationController
   end
 
   def create
-    params[:book][:rank] = 0
     book = Book.create(book_params)
 
     if book.save
