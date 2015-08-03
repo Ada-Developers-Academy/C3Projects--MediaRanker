@@ -8,7 +8,7 @@
           <h2> <%= link_to "#{movie.name}", movie_path(movie.id)  %> 
           <small> Ranked: <%= movie.vote %> </small> </h2>
         <%end %>
-        <p><%= link_to "See All Movies", movies_path, method: :get %><p>
+        <p><%= link_to "See All Movies", movies_path %><p>
     </div>
     <div class="col-md-4">
       <h3>Top Books</h3>
@@ -16,7 +16,7 @@
           <h2> <%= link_to "#{book.name}", book_path(book.id)  %> 
           <small> Ranked: <%= book.vote %> </small> </h2>
         <%end %>
-        <p><%= link_to "See All Books", books_path, method: :get %><p>
+        <p><%= link_to "See All Books", books_path %><p>
     </div>
     <div class="col-md-4">
       <h3>Top Albums</h3>
@@ -24,7 +24,7 @@
           <h2> <%= link_to "#{album.name}", album_path(album.id)  %> 
           <small> Ranked: <%= album.vote %> </small> </h2>
         <%end %>
-        <p><%= link_to "See All Albums", albums_path, method: :get %><p>
+        <p><%= link_to "See All Albums", albums_path %><p>
     </div>
   </div>
   </div>
