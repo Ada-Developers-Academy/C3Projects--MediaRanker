@@ -4,6 +4,8 @@ require 'support/shared_controller_examples'
 RSpec.describe MoviesController, type: :controller do
   it_behaves_like "medium"
 
+  # let(:medium) { FactoryGirl.create(:movie) }
+
   describe "GET #show" do
     it "renders the show template" do
       movie = create :movie
