@@ -11,5 +11,8 @@ class Album < ActiveRecord::Base
   #  scope :on, -> (label) { where(label: label) }
   #  scope :available_formats, -> { select(:format).distinct.order(:format).pluck(:format) }
 
-
+  def self.upvote(album)
+    album.rank += 1
+    album.save
+  end
 end
