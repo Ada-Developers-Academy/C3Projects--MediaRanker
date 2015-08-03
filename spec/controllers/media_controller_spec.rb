@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe MediaController, type: :controller do
+  include ApplicationHelper # I need those URL helpers again >_>
+
   before :each do
     some_titles = ["The Ninth Element", "[Rec] 666", "8 Days Later", "5 Days Later",
       "The 70th Element", "The Found World", "The Fourth Element", "[Rec] 24hrs",
@@ -19,7 +21,7 @@ RSpec.describe MediaController, type: :controller do
     end
 
     @category = Category.where(name: some_categories.sample)[0]
-    @plural = @category.plural
+    @plural = plural(@category)
     @media = Medium.categorize
 
     # these are for testing some specifics:
@@ -32,7 +34,7 @@ RSpec.describe MediaController, type: :controller do
 
     @medium = Medium.create({category_id: 4, upvotes: 0, title: some_titles.sample}) # id 46
   end
-  
+
   describe "GET #root" do
     it "responds successfully with an HTTP 200 status code" do
       get :root
@@ -159,7 +161,7 @@ RSpec.describe MediaController, type: :controller do
       post :create, { category: "tvs", medium: { title: "Jarg Jeeooorrrrb" } }
 
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to(Medium.last.url)
+      expect(response).to redirect_to(medium_path(Medium.last))
     end
 
     it "redirects to #new with invalid parameters" do
@@ -172,14 +174,14 @@ RSpec.describe MediaController, type: :controller do
 
   describe "GET #show" do
     it "responds successfully with an HTTP 200 status code" do
-      get :show, { category: @medium.category.plural, id: @medium.id }
+      get :show, { category: plural(@medium.category), id: @medium.id }
 
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
 
     it "renders the #show template" do
-      get :show, { category: @medium.category.plural, id: @medium.id }
+      get :show, { category: plural(@medium.category), id: @medium.id }
 
       expect(response).to render_template("show")
     end
@@ -187,14 +189,14 @@ RSpec.describe MediaController, type: :controller do
 
   describe "GET #edit" do
     it "responds successfully with an HTTP 200 status code" do
-      get :edit, { category: @medium.category.plural, id: @medium.id }
+      get :edit, { category: plural(@medium.category), id: @medium.id }
 
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
 
     it "renders the #edit template" do
-      get :edit, { category: @medium.category.plural, id: @medium.id }
+      get :edit, { category: plural(@medium.category), id: @medium.id }
 
       expect(response).to render_template("edit")
     end
@@ -207,35 +209,35 @@ RSpec.describe MediaController, type: :controller do
     end
 
     it "updates a medium" do
-      patch :update, { category: @medium.category.plural, id: @medium.id, medium: { title: @new_title } }
+      patch :update, { category: plural(@medium.category), id: @medium.id, medium: { title: @new_title } }
       @medium.reload # ANITA YOU SO WIZARD
       expect(@medium.title).to eq(@new_title)
     end
 
     it "redirects to a medium's show page after updating it" do
-      patch :update, { category: @medium.category.plural, id: @medium.id, medium: { title: @medium.title, description: @new_description } }
+      patch :update, { category: plural(@medium.category), id: @medium.id, medium: { title: @medium.title, description: @new_description } }
 
       @medium.reload # ANITA YOU SO WIZARD
 
       expect(@medium.description).to eq(@new_description)
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to(@medium.url)
+      expect(response).to redirect_to(medium_path(@medium))
     end
 
     it "redirects back to the edit page if invalid parameters" do
-      patch :update, { category: @medium.category.plural, id: @medium.id, medium: { title: "", description: @new_description } }
+      patch :update, { category: plural(@medium.category), id: @medium.id, medium: { title: "", description: @new_description } }
 
       @medium.reload # ANITA YOU SO WIZARD
 
       expect(@medium.description).to_not eq(@new_description)
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to("#{ @medium.url }/edit")
+      expect(response).to redirect_to(edit_medium_path(@medium))
     end
   end
 
   describe "PATCH #upvote" do
     it "increases the upvotes of a given medium" do
-      patch :upvote, { category: @medium.category.plural, id: @medium.id }
+      patch :upvote, { category: plural(@medium.category), id: @medium.id }
 
       @medium.reload # ANITA YOU SO WIZARD
 
@@ -244,27 +246,26 @@ RSpec.describe MediaController, type: :controller do
 
     it "multiple transactions test" do
       5.times do |count|
-        patch :upvote, { category: @medium.category.plural, id: @medium.id }
+        patch :upvote, { category: plural(@medium.category), id: @medium.id }
         @medium.reload # ANITA YOU SO WIZARD
         expect(@medium.upvotes).to eq(count + 1)
       end
     end
 
     it "redirects to #show after incrementing the upvotes" do
-      patch :upvote, { category: @medium.category.plural, id: @medium.id }
+      patch :upvote, { category: plural(@medium.category), id: @medium.id }
 
       @medium.reload # ANITA WIZARD
 
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to(@medium.url)
+      expect(response).to redirect_to(medium_path(@medium))
     end
   end
 
   describe "DELETE #destroy" do
     before :each do
-      @category = @medium.category.plural
+      @category = plural(@medium.category)
       @id = @medium.id
-      @url_base = @medium.url_base
     end
 
     it "deletes a medium" do
@@ -277,7 +278,7 @@ RSpec.describe MediaController, type: :controller do
       delete :destroy, { category: @category, id: @medium.id }
 
       expect(response).to have_http_status(302)
-      expect(response).to redirect_to(@url_base)
+      expect(response).to redirect_to(category_path(@medium.category))
     end
   end
 end

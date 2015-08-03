@@ -45,26 +45,6 @@ RSpec.describe Category, type: :model do
     end
   end
 
-  describe "category instance methods" do
-    before :each do
-      @cat1 = Category.create(name: "Game", full_name: "Board Game", creator_noun: "Creator", created_verb: "Crafted")
-      @cat2 = Category.create(name: "Video", full_name: "Video Game", creator_noun: "Developer", created_verb: "Developed")
-      @cat3 = Category.create(name: "Story", creator_noun: "Poet", created_verb: "Improvised")
-    end
-
-    it "has a #plural version of its :name" do
-      expect(@cat1.plural).to eq("games")
-      expect(@cat2.plural).to eq("videos")
-      expect(@cat3.plural).to eq("stories")
-    end
-
-    it "has a #display_name that's its :full_name or :name" do
-      expect(@cat1.display_name).to eq("Board Game")
-      expect(@cat2.display_name).to eq("Video Game")
-      expect(@cat3.display_name).to eq("Story")
-    end
-  end
-
   describe "model relationships" do
     before :each do
       @cat1 = Category.create(name: "Game", full_name: "Board Game", creator_noun: "Creator", created_verb: "Crafted")

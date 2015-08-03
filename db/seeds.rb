@@ -5,19 +5,18 @@ end
 categories = Category.create ([
   {
     name: "Movie", #1
-    # full_name: "Motion Picture",
+    full_name: "Motion Picture",
     creator_noun: "Director",
     created_verb: "Directed"
   },
   {
     name: "Book", #2
-    # full_name: "Novel",
+    full_name: "Novel",
     creator_noun: "Author",
     created_verb: "Written"
   },
   {
     name: "Album", #3
-    # full_name: "???",
     creator_noun: "Artist",
     created_verb: "Recorded"
   },
@@ -35,7 +34,6 @@ categories = Category.create ([
   },
   {
     name: "Game", #6
-    full_name: "Entertainment System",
     creator_noun: "Company",
     created_verb: "Developed"
   }
@@ -261,6 +259,11 @@ shows = [
     upvotes: random_number,
     title: "조선 여형사 다모",
     creator: "이재규"
+  },
+  {
+    upvotes: random_number,
+    title: "Scandal",
+    creator: "Shonda Rhimes"
   }
 ]
 
@@ -284,6 +287,41 @@ comics = [
     upvotes: random_number,
     title: "Gunnerkrigg Court",
     creator: "Tom Siddell"
+  },
+  {
+    upvotes: random_number,
+    title: "Dreamless",
+    creator: "Bobby Crosby & Sarah Ellerton"
+  },
+  {
+    upvotes: random_number,
+    title: "The Phoenix Requiem",
+    creator: "Sarah Ellerton"
+  },
+  {
+    upvotes: random_number,
+    title: "Scary Go Round",
+    creator: "John Allison"
+  },
+  {
+    upvotes: random_number,
+    title: "Fey Winds",
+    creator: "Nicole Chartrand"
+  },
+  {
+    upvotes: random_number,
+    title: "Red Moon Rising",
+    creator: "Rose Loughran"
+  },
+  {
+    upvotes: random_number,
+    title: "Mokepon",
+    creator: "H0lyhandgrenade"
+  },
+  {
+    upvotes: 9_000 + random_number, # <3
+    title: "A Redtail's Dream",
+    creator: "Minna Sundberg"
   }
 ]
 

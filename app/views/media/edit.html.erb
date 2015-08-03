@@ -1,10 +1,10 @@
 <ol class="breadcrumb">
   <%= render partial: "all_media", locals: { active: false } %>
-  <%= render partial: "category", locals: { active: false } %>
-  <%= render partial: "medium", locals: { active: false } %>
+  <%= render partial: "category", locals: { active: false, name: "All #{ plural_display_name(@category) }" } %>
+  <%= render partial: "medium", locals: { active: false, name: creator_phrase(@medium) } %>
   <li class="active">Edit</li>
 </ol>
 
 <section class="new-edit-form">
-  <%= render partial: "form", locals: { message: "Edit #{ @medium.creator_phrase }", method: :patch } %>
+  <%= render partial: "form", locals: { message: "Edit #{ creator_phrase(@medium) }", method: :patch } %>
 </section>
