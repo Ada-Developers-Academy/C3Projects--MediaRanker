@@ -1,7 +1,5 @@
-<% name = "#{ @medium.creator_phrase }" %>
-
 <% if active %>
   <li class="active"><%= name %></li>
 <% else %>
-  <li><a href="<%= @medium.url %>"><%= name %></a></li>
+  <li><%= link_to name, medium_path(@medium) %></li>
 <% end %>

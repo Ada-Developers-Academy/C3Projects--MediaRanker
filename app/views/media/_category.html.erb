@@ -1,7 +1,5 @@
-<% name = "All #{ @category.display_name }s" %>
-
 <% if active %>
   <li class="active"><%= name %></li>
 <% else %>
-  <li><a href="<%= @medium.url_base %>"><%= name %></a></li>
+  <li><%= link_to name, category_path(@category) %></li>
 <% end %>
