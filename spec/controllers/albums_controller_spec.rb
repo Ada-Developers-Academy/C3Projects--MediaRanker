@@ -113,7 +113,7 @@ RSpec.describe AlbumsController, type: :controller do
           description: "test description"
         }
         # @original_album.reload
-        expect(Album.find(@original_alumb.id).name).to eq "edited test title"
+        expect(Album.find(@original_album.id).name).to eq "edited test title"
       end
 
       it "redirects to the album show page" do
@@ -143,7 +143,7 @@ RSpec.describe AlbumsController, type: :controller do
           artist: "test artist",
           description: "test description"
         }
-        expect(Album.find(@original_alumb.id).name).to eq "test title"
+        expect(Album.find(@original_album.id).name).to eq "test title"
       end
 
       it "renders the :edit action album for the same album" do
