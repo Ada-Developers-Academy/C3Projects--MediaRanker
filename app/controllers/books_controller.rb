@@ -12,9 +12,9 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.create(book_params)
-    if @book.save
-      redirect_to @book
+    @medium = Book.create(book_params)
+    if @medium.save
+      redirect_to @medium
     else
       render 'shared/form'
     end

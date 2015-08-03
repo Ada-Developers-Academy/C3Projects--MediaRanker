@@ -12,9 +12,9 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.create(movie_params)
-    if @movie.save
-      redirect_to @movie
+    @medium = Movie.create(movie_params)
+    if @medium.save
+      redirect_to @medium
     else
       render 'shared/form'
     end

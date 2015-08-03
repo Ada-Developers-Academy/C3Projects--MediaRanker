@@ -26,7 +26,11 @@ module ApplicationHelper
   end
 
   def form_title_action
-    ["new", "create"].include? action_name ? "New" : "Edit"
+    ["new", "create"].include?(action_name) ? "New" : "Edit"
+  end
+
+  def form_title
+    "#{form_title_action} #{controller_name[0..-2].capitalize}"
   end
 
   def medium_symbol

@@ -12,9 +12,9 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.create(album_params)
-    if @album.save
-      redirect_to @album
+    @medium = Album.create(album_params)
+    if @medium.save
+      redirect_to @medium
     else
       render 'shared/form'
     end
