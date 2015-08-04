@@ -13,7 +13,7 @@ RSpec.describe AlbumsController, type: :controller do
 # POST specs ---------------------------------------------------------------
   describe "POST #create" do
     context "Invalid album params" do
-      let(:album_params) do
+      let(:invalid_album_params) do
         {
           album: {
             title: "I guess"
@@ -22,12 +22,12 @@ RSpec.describe AlbumsController, type: :controller do
       end
 
       it "doesn't persist invalid records" do
-        post :create, album_params
+        post :create, invalid_album_params
         expect(Album.count).to eq(0)
       end
 
       it "renders the :new view (to allow user to fix input)" do
-        post :create, album_params
+        post :create, invalid_album_params
         expect(response).to render_template("new")
       end
     end
@@ -57,8 +57,7 @@ RSpec.describe AlbumsController, type: :controller do
  # PATCH specs --------------------------------------------------------------------
     describe "PATCH #update" do
       before(:each) do
-        @album = Album.new(title: "first title", author: "first author")
-        @album.save
+        @album = Album.create(title: "first title", author: "first author")
       end
 
       after(:each) do

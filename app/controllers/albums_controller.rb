@@ -1,4 +1,10 @@
 class AlbumsController < ApplicationController
+  before_action :find, except [:index, :new, :create]
+
+  def find
+    @media = Album.find(params[:id])
+  end
+
   def index
     @albums = Album.all
   end
@@ -21,19 +27,15 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def show
-    @album = Album.find(params[:id])
-  end
+  def show;  end
 
   def edit
-    @media = Album.find(params[:id])
     @url = album_path
     @method = :patch
     @by = :artist
   end
 
   def update
-    @media = Album.find(params[:id])
     @by = :artist
     @media.update(album_params)
     if @media.save
@@ -44,12 +46,11 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    Album.find(params[:id]).destroy
+    @media.destroy
     redirect_to albums_path
   end
 
   def vote
-    @media = Album.find(params[:id])
     @media.ranking += 1
     @media.save
     redirect_to albums_path
