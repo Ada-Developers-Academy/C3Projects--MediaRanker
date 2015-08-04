@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Bangin' Jams</h2>
+        <% @albums.limit(10).each do |album| %>
+        <h3 class="ranking"><%= link_to "#{album.title}", album_path(album.id), method: :get, class: "title" %> <small>Ranking:<%= album.ranking %></small></h3>
+        <% end %>
+        <h5><%= link_to "View more Albums", albums_path, method: :get, class: "view_link" %></h5>
+    </div>
+    <div class="col-sm-4">
+      <h2>Awesome Reads</h2>
+      <% @books.limit(10).each do |book| %>
+      <h3 class="ranking"><%= link_to "#{book.title}", book_path(book.id), method: :get, class: "title" %> <small>Ranking:<%= book.ranking %></small></h3>
+      <% end %>
+      <h5><%= link_to "View more Books", books_path, method: :get, class: "view_link" %></h5>
+    </div>
+    <div class="col-sm-4">
+      <h2>Must Watch Movies</h2>
+      <% @movies.limit(10).each do |movie| %>
+      <h3 class="ranking"><%= link_to "#{movie.title}", movie_path(movie.id), method: :get, class: "title" %> <small>Ranking:<%= movie.ranking %></small></h3>
+      <% end %>
+      <h5><%= link_to "View more Movies", movies_path, method: :get, class: "view_link" %></h5>
+    </div>
+  </div>
+</div>

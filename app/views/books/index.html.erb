@@ -1,0 +1,16 @@
+<h1>Books</h1>
+<table>
+  <tr>
+    <th>Ranking</th>
+    <th>Title</th>
+    <th>Vote</th>
+  </tr>
+  <% @books.each do |book| %>
+  <tr>
+    <td><%= book.ranking %></td>
+    <td><%= link_to "#{book.title}", book_path(book.id), method: :get %></td>
+    <td><%= button_to "Vote", class: "btn btn-default" %></td>
+  </tr>
+  <% end %>
+</table>
+<%= button_to "Add a Book", new_book_path, method: :get, class: "btn btn-default" %>

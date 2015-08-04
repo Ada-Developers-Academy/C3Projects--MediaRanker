@@ -1,0 +1,10 @@
+<h1><%= @book.title %> <small>Author:<%= @book.author %></small></h1>
+<h4>Ranked:<%= @book.ranking %></h4>
+<h5><%= @book.description %></h5>
+<div class="col-md-12">
+<%= button_to "Vote", edit_book_path(@book.id), method: :patch, class: "btn btn-primary" %>
+<%= link_to "Edit #{@book.title}", edit_book_path(@book.id), method: :get, class: "btn btn-default" %>
+<%= link_to "Delete", book_path(@book.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+<%= link_to "View all Albums", books_path, method: :get, class: "btn btn-default" %>
+<%= link_to "View all Media", root_path, method: :get, class: "btn btn-default" %>
+</div>
