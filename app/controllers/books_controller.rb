@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :find, except: [:new, :create, :index]
   before_action :author, only: [:create, :create, :edit]
+
   def find
     @media = Book.find(params[:id])
   end
@@ -54,6 +55,10 @@ class BooksController < ApplicationController
 
 private
 
+  def self.model
+    Book
+  end
+  
   def book_params
     params.require(:book).permit(:title, :author, :description, :ranking)
   end
