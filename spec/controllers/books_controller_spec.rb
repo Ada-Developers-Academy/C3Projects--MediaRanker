@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'support/index_controller_spec'
 
 RSpec.describe BooksController, type: :controller do
 it_behaves_like "a index controller"

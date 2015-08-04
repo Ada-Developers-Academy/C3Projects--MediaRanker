@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe AlbumsController, type: :controller do
   it_behaves_like "a index controller"
