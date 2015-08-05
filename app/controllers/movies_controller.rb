@@ -52,6 +52,10 @@ class MoviesController < ApplicationController
 
 private
 
+  def self.model
+    Movie
+  end
+  
   def movie_params
     params.require(:book).permit(:title, :author, :description, :ranking)
   end

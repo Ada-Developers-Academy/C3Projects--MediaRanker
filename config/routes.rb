@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'home#index'
 
-  get 'albums/upvote/:id' => 'albums#vote'
+  get 'albums/upvote/:id' => 'albums#vote', as: 'album_vote'
   resources :albums
 
-  get 'books/upvote/:id' => 'books#vote'
+  get 'books/upvote/:id' => 'books#vote', as: 'book_vote'
   resources :books
 
-  get 'movies/upvote/:id' => 'movies#vote'
+  get 'movies/upvote/:id' => 'movies#vote', as: 'movie_vote'
   resources :movies
 
 

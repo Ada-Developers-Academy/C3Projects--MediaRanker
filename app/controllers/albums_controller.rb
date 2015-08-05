@@ -1,4 +1,10 @@
 class AlbumsController < ApplicationController
+  before_action :find, except: [:index, :new, :create]
+
+  def find
+    @media = Album.find(params[:id])
+  end
+
   def index
     @albums = Album.all
   end
@@ -13,49 +19,39 @@ class AlbumsController < ApplicationController
   def create
     @media = Album.create(album_params)
     @by = :artist
-    if @media.save
-      redirect_to albums_path
-    else
-      # @media.validate_or_msg
-      render :new
-    end
+    redirect_to albums_path
   end
 
-  def show
-    @album = Album.find(params[:id])
-  end
+  def show;  end
 
   def edit
-    @media = Album.find(params[:id])
     @url = album_path
     @method = :patch
     @by = :artist
   end
 
   def update
-    @media = Album.find(params[:id])
     @by = :artist
     @media.update(album_params)
-    if @media.save
-      redirect_to album_path(params[:id])
-    else
-      render :edit
-    end
+    redirect_to album_path(params[:id])
   end
 
   def destroy
-    Album.find(params[:id]).destroy
+    @media.destroy
     redirect_to albums_path
   end
 
   def vote
-    @media = Album.find(params[:id])
     @media.ranking += 1
     @media.save
     redirect_to albums_path
   end
 
 private
+
+  def self.model
+    Album
+  end
 
   def album_params
     params.require(:album).permit(:title, :author, :description, :ranking)

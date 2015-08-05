@@ -1,4 +1,15 @@
 class BooksController < ApplicationController
+  before_action :find, except: [:new, :create, :index]
+  before_action :author, only: [:create, :create, :edit]
+
+  def find
+    @media = Book.find(params[:id])
+  end
+
+  def author
+    @by = :author
+  end
+
   def index
     @books = Book.all
   end
@@ -7,12 +18,10 @@ class BooksController < ApplicationController
     @media = Book.new
     @url = books_path
     @method = :post
-    @by = :author
   end
 
   def create
     @media = Book.create(book_params)
-    @by = :author
     if @media.save
       redirect_to books_path
     else
@@ -20,31 +29,25 @@ class BooksController < ApplicationController
     end
   end
 
-  def show
-    @book = Book.find(params[:id])
-  end
+  def show;  end
 
   def edit
-    @media = Book.find(params[:id])
     @url = book_path
     @method = :patch
-    @by = :author
   end
 
   def update
-    @media = Book.find(params[:id])
     @media.update(book_params)
     @media.save
     redirect_to books_path
   end
 
   def destroy
-    Book.find(params[:id]).destroy
+    @media.destroy
     redirect_to books_path
   end
 
   def vote
-    @media = Book.find(params[:id])
     @media.ranking += 1
     @media.save
     redirect_to books_path
@@ -52,6 +55,10 @@ class BooksController < ApplicationController
 
 private
 
+  def self.model
+    Book
+  end
+  
   def book_params
     params.require(:book).permit(:title, :author, :description, :ranking)
   end
