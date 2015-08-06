@@ -1,9 +1,9 @@
 <div class="col-md-4">
   <h1>Top <%= title %> </h1>
     <ul class="list-unstyled">
-      <% media.each do |item| %>
+      <% type.each do |item| %>
         <li><h2><%= link_to item.name, polymorphic_path(item) %> <small>Ranked: <%= item.ranking %></small><h2></li>
       <% end %>
-    <%= link_to "View More #{title}", polymorphic_path("#{title.downcase}_index") %>
+    <%= link_to "View More #{title}", polymorphic_path(title.downcase) %>
     </ul>
 </div>
