@@ -1,8 +1,2 @@
-<%= render partial: 'shared/error_messages', locals: { any_errors: @book.errors.any?,
-                                                       count_errors: @book.errors.count,
-                                                       messages: @book.errors.full_messages } %>
-
-<%= render partial: "shared/form", locals: { title: "New Book",
-                                             media: @book,
-                                             creator: :author,
-                                             creator_desc: "Author" } %>
+<h2>New Book</h2>
+<%= render "book_form" %>

@@ -1,0 +1,7 @@
+<%= render partial: 'shared/error_messages', locals: { any_errors: @movie.errors.any?,
+                                                       count_errors: @movie.errors.count,
+                                                       messages: @movie.errors.full_messages } %>
+
+<%= render partial: "shared/form", locals: { media: @movie,
+                                             creator: :director,
+                                             creator_desc: "Director" } %>
