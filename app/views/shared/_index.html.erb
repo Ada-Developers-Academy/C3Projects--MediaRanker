@@ -1,0 +1,20 @@
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <th>Ranking</th>
+      <th>Name</th>
+      <th>Upvote</th>
+    </tr>
+    <% collection.each do |media| %>
+      <tr>
+        <td> Ranked: <%= media.ranking %> </td>
+        <td> <%= link_to media.name, polymorphic_path(media) %> </td>
+        <td> <%= button_to "Upvote", polymorphic_path(media), method: "patch", class: "btn btn-primary" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to "View All Media", root_path, class: "btn btn-default" %>
+<%= link_to "Add a #{media_name}", new_polymorphic_path(media_name), class: "btn btn-default" %>
